@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Carri的米奇妙妙屋</title>
+    <link>http://gaocarri.github.io/</link>
+    <description>Recent content on Carri的米奇妙妙屋</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 26 Oct 2019 15:08:45 +0800</lastBuildDate>
+    
+        <atom:link href="http://gaocarri.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>关于我</title>
+      <link>http://gaocarri.github.io/%E5%85%B3%E4%BA%8E%E6%88%91/</link>
+      <pubDate>Sat, 26 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.github.io/%E5%85%B3%E4%BA%8E%E6%88%91/</guid>
+      
+        <description>
+
+&lt;h2 id=&#34;近期在听的音乐&#34;&gt;近期在听的音乐&lt;/h2&gt;
+
+&lt;p&gt;原版用不了&amp;hellip;
+&lt;iframe frameborder=&#34;no&#34; border=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; width=330 height=86 src=&#34;//music.163.com/outchain/player?type=2&amp;id=1334056392&amp;auto=1&amp;height=66&#34;&gt;&lt;/iframe&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;关于我&#34;&gt;关于我&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;因为喜欢前曼联球星Carrick 所以叫Carri&lt;/li&gt;
+&lt;li&gt;来自安徽马鞍山&lt;/li&gt;
+&lt;li&gt;高中毕业于马鞍山二中&lt;/li&gt;
+&lt;li&gt;本科毕业于东北林业大学&lt;/li&gt;
+&lt;li&gt;硕士河海大学在读&lt;/li&gt;
+&lt;li&gt;然而并没有什么卵用&lt;/li&gt;
+&lt;li&gt;我是非科班 半路出家&lt;/li&gt;
+&lt;li&gt;自知起步不如别人 所以会加倍努力&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;关于本站&#34;&gt;关于本站&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;本站使用&lt;code&gt;Hugo&lt;/code&gt;生成，采用&lt;code&gt;hugo-theme-jane&lt;/code&gt;主题&lt;/li&gt;
+&lt;li&gt;主要用于记录一些文章，学习笔记，偶尔分享一下心情&lt;/li&gt;
+&lt;li&gt;技艺不精，本站会陆续添加其他功能，敬请期待！&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Posts</title>
+      <link>http://gaocarri.github.io/post/</link>
+      <pubDate>Sat, 26 Oct 2019 15:08:45 +0800</pubDate>
+      
+      <guid>http://gaocarri.github.io/post/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>
