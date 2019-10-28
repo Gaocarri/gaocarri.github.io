@@ -1,2 +1,2 @@
 ### 个人博客
-[个人博客]（http://gaocarri.top)
+[个人博客]（http://gaocarri.top/)
