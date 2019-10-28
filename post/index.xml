@@ -21,15 +21,6 @@
     </item>
     
     <item>
-      <title>HTML常用标签</title>
-      <link>http://gaocarri.github.io/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</link>
-      <pubDate>Mon, 28 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.github.io/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</guid>
-      <description>一.a标签的用法 &amp;lt;a href=&amp;quot;&amp;quot; target=&amp;quot;_blank&amp;quot; download&amp;gt; 1.1属性 href target download rel=noopener 1.2 href 1.2.1 href的取值 1.网址 https:// google.com http:// google.com //google.com 一般情况下用//google.com就可以了，浏览器会自动将</description>
-    </item>
-    
-    <item>
       <title>如何使用Hugo搭建个人博客</title>
       <link>http://gaocarri.github.io/post/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Sun, 27 Oct 2019 00:00:00 +0000</pubDate>
