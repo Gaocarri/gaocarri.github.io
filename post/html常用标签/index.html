@@ -71,7 +71,7 @@
 
 <meta itemprop="datePublished" content="2019-10-28T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-10-28T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1181">
+<meta itemprop="wordCount" content="1403">
 
 
 
@@ -543,6 +543,47 @@ max-width:100%
 <li>table-layout:具有auto和fixed两种值，分别对应根据浏览器划定的(根据字符宽度)的和平均的</li>
 <li>border-collapse:为collapse就是合并边框的意思 默认不合并</li>
 <li>border-spacing:border之间的距离</li>
+</ul>
+
+<h1 id="四-其他">四.其他</h1>
+
+<ul>
+<li>input和button</li>
+
+<li><p>input必须有<code>type=&quot;submit&quot;</code>才是提交按钮 button默认就是submit</p>
+
+<pre><code>&lt;input type=&quot;submit&quot;&gt;
+&lt;button&gt;
+&lt;strong&gt;
+123
+&lt;/strong&gt;
+&lt;/button&gt;
+</code></pre></li>
+
+<li><p>form标签的四个属性</p></li>
+</ul>
+
+<ol>
+<li>action 控制请求哪个页面</li>
+<li>autocomplete 是否使用自动填充</li>
+<li>method 控制是POST还是GET 默认GET</li>
+<li>target
+<br /></li>
+</ol>
+
+<ul>
+<li><p>HTML5验证器 代表必须要填 否则提示无法提交</p>
+
+<pre><code>&lt;input type=&quot;text&quot; required&gt;
+</code></pre></li>
+
+<li><p>注意事项</p>
+
+<ul>
+<li>一般不监听input的click事件</li>
+<li>form里面的input要有name</li>
+<li>form里面要放一个type=submit才能触发submit事件</li>
+</ul></li>
 </ul>
 
     </div>
