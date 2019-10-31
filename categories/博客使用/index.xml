@@ -6,19 +6,10 @@
     <description>Recent content in 博客使用 on Carri的米奇妙妙屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 31 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 27 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.github.io/categories/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>浅析URL</title>
-      <link>http://gaocarri.github.io/post/%E6%B5%85%E6%9E%90url/</link>
-      <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.github.io/post/%E6%B5%85%E6%9E%90url/</guid>
-      <description>IP的作用是什么 IP：Internet Protocol 约定了两件事情（作用） 如何定位一台设备 如何封装报文，和其他设备交流 几个特殊的IP 127.0.0.1表</description>
-    </item>
     
     <item>
       <title>如何使用Hugo搭建个人博客</title>

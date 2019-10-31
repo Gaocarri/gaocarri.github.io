@@ -44,6 +44,13 @@
   </url>
   
   <url>
+    <loc>http://gaocarri.github.io/categories/http/</loc>
+    <lastmod>2019-10-31T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://gaocarri.github.io/tags/http/</loc>
     <lastmod>2019-10-31T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -66,13 +73,6 @@
   
   <url>
     <loc>http://gaocarri.github.io/tags/url/</loc>
-    <lastmod>2019-10-31T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://gaocarri.github.io/categories/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2019-10-31T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -178,6 +178,13 @@
   
   <url>
     <loc>http://gaocarri.github.io/tags/hugo/</loc>
+    <lastmod>2019-10-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gaocarri.github.io/categories/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2019-10-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
