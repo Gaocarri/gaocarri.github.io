@@ -12,11 +12,11 @@
     
     
     <item>
-      <title>CSS的Float,Flex,Grid定位</title>
-      <link>http://gaocarri.github.io/post/css%E7%9A%84floatflexgrid%E5%AE%9A%E4%BD%8D/</link>
+      <title>CSS的Float,Flex,Grid布局</title>
+      <link>http://gaocarri.github.io/post/css%E7%9A%84floatflexgrid%E5%B8%83%E5%B1%80/</link>
       <pubDate>Wed, 30 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://gaocarri.github.io/post/css%E7%9A%84floatflexgrid%E5%AE%9A%E4%BD%8D/</guid>
+      <guid>http://gaocarri.github.io/post/css%E7%9A%84floatflexgrid%E5%B8%83%E5%B1%80/</guid>
       <description>如何选取布局 图片来自饥人谷 Float布局 子元素上加float:left和width 父元素classname上加 clearfix clearfix{ content:&#39;&#39;; display:block; clear:both; } Flex布局 con</description>
     </item>
     
