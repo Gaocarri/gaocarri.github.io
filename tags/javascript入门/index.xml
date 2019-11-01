@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>javascript入门 on Carri的米奇妙妙屋</title>
+    <link>http://gaocarri.github.io/tags/javascript%E5%85%A5%E9%97%A8/</link>
+    <description>Recent content in javascript入门 on Carri的米奇妙妙屋</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 01 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://gaocarri.github.io/tags/javascript%E5%85%A5%E9%97%A8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>初识JavaScript</title>
+      <link>http://gaocarri.github.io/post/%E5%88%9D%E8%AF%86javascript/</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.github.io/post/%E5%88%9D%E8%AF%86javascript/</guid>
+      <description>JavaScript的诞生(参考阮一峰的博客) 诞生: JavaScript由Brendan Eich于1995年发明（只花了十天）。 目的: 网景公</description>
+    </item>
+    
+  </channel>
+</rss>
