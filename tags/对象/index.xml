@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>javascript语法 on Carri的米奇妙妙屋</title>
-    <link>http://gaocarri.github.io/tags/javascript%E8%AF%AD%E6%B3%95/</link>
-    <description>Recent content in javascript语法 on Carri的米奇妙妙屋</description>
+    <title>对象 on Carri的米奇妙妙屋</title>
+    <link>http://gaocarri.github.io/tags/%E5%AF%B9%E8%B1%A1/</link>
+    <description>Recent content in 对象 on Carri的米奇妙妙屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 03 Nov 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://gaocarri.github.io/tags/javascript%E8%AF%AD%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://gaocarri.github.io/tags/%E5%AF%B9%E8%B1%A1/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>JS基本语法</title>
-      <link>http://gaocarri.github.io/post/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
-      <pubDate>Sun, 03 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.github.io/post/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
-      <description>表达式和语句 表达式 1+2表达式的值是3 add(1,2)表达式的值是函数的返回值 console.log表达式的值为函数本身 console.lo</description>
-    </item>
     
     <item>
       <title>JS对象基本用法</title>
