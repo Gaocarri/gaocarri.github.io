@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Carri的米奇妙妙屋</title>
+  <title>JS基本语法 - Carri的米奇妙妙屋</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Carri" />
-  <meta name="description" content="Hugo theme jane example site." />
+  <meta name="description" content="表达式和语句 表达式 1&#43;2表达式的值是3 add(1,2)表达式的值是函数的返回值 console.log表达式的值为函数本身 console.lo" />
+
   <meta name="keywords" content="Hugo, theme, jane" />
 
 
@@ -34,8 +35,8 @@
 <meta name="generator" content="Hugo 0.59.0" />
 
 
-<link rel="canonical" href="http://gaocarri.github.io/" />
-<link href="/index.xml" rel="alternate" type="application/rss+xml" title="Carri的米奇妙妙屋" />
+<link rel="canonical" href="http://gaocarri.github.io/post/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" />
+
 
 
 
@@ -58,18 +59,26 @@
 
 
 
-<meta property="og:title" content="Carri的米奇妙妙屋" />
-<meta property="og:description" content="Hugo theme jane example site." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://gaocarri.github.io/" />
+<meta property="og:title" content="JS基本语法" />
+<meta property="og:description" content="表达式和语句 表达式 1&#43;2表达式的值是3 add(1,2)表达式的值是函数的返回值 console.log表达式的值为函数本身 console.lo" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://gaocarri.github.io/post/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" />
+<meta property="article:published_time" content="2019-11-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-11-03T00:00:00+00:00" />
+<meta itemprop="name" content="JS基本语法">
+<meta itemprop="description" content="表达式和语句 表达式 1&#43;2表达式的值是3 add(1,2)表达式的值是函数的返回值 console.log表达式的值为函数本身 console.lo">
 
-<meta property="og:updated_time" content="2019-11-03T00:00:00+00:00" />
-<meta itemprop="name" content="Carri的米奇妙妙屋">
-<meta itemprop="description" content="Hugo theme jane example site.">
 
+<meta itemprop="datePublished" content="2019-11-03T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-11-03T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1833">
+
+
+
+<meta itemprop="keywords" content="JS,Javascript,javascript入门,javascript语法," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Carri的米奇妙妙屋"/>
-<meta name="twitter:description" content="Hugo theme jane example site."/>
+<meta name="twitter:title" content="JS基本语法"/>
+<meta name="twitter:description" content="表达式和语句 表达式 1&#43;2表达式的值是3 add(1,2)表达式的值是函数的返回值 console.log表达式的值为函数本身 console.lo"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -217,7 +226,7 @@
   <ul id="menu" class="menu">
     
     
-        <li class="menu-item active">
+        <li class="menu-item">
         
           
           
@@ -286,162 +295,356 @@
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-<section id="posts" class="posts">
-  
-  
+          <article class="post bg-white">
     
-  
-  
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
+    <header class="post-header">
+      <h1 class="post-title">JS基本语法</h1>
       
-      <a class="post-link" href="/post/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">JS基本语法</a>
-    </h1>
+      <div class="post-meta">
+        <time datetime="2019-11-03" class="post-time">
+          2019-11-03
+        </time>
+        <div class="post-category">
+            <a href="http://gaocarri.github.io/categories/javascript/"> JavaScript </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
     
-    <div class="post-meta">
-      <time datetime="2019-11-03" class="post-time">
-        2019-11-03
-      </time>
-      <div class="post-category">
-          <a href="http://gaocarri.github.io/categories/javascript/"> JavaScript </a>
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#表达式和语句">表达式和语句</a></li>
+<li><a href="#大小写与空格">大小写与空格</a></li>
+<li><a href="#标识符">标识符</a></li>
+<li><a href="#区块block">区块block</a></li>
+<li><a href="#if语句">if语句</a></li>
+<li><a href="#switch语句">switch语句</a></li>
+<li><a href="#三元运算符">三元运算符</a></li>
+<li><a href="#while循环">while循环</a></li>
+<li><a href="#for循环">for循环</a></li>
+<li><a href="#break语句和continue语句">break语句和continue语句</a></li>
+<li><a href="#label-标签">label（标签）</a></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<h1 id="表达式和语句">表达式和语句</h1>
+
+<ol>
+<li>表达式
+
+<ul>
+<li>1+2表达式的值是3</li>
+<li>add(1,2)表达式的值是函数的返回值</li>
+<li>console.log表达式的值为函数本身</li>
+<li>console.log(3)表达式的值为undefined</li>
+</ul></li>
+<li>语句
+
+<ul>
+<li>var a =1 是一个语句</li>
+</ul></li>
+<li>区别
+
+<ul>
+<li>表达式一般都有值，语句可能有可能没有</li>
+<li>语句一般会改变环境（赋值，变量）</li>
+<li>上面两句话并不是绝对的</li>
+</ul></li>
+</ol>
+
+<h1 id="大小写与空格">大小写与空格</h1>
+
+<ol>
+<li>JS大小写敏感</li>
+<li>空格和回车没有实际意义（当return后面跟空格会返回undefined）</li>
+</ol>
+
+<h1 id="标识符">标识符</h1>
+
+<ol>
+<li>第一个字符,可以是Unicode字母或$或_或中文</li>
+<li>后面的字符，除了上述字符还可以是数字</li>
+</ol>
+
+<h1 id="区块block">区块block</h1>
+
+<ul>
+<li>将代码包在一起</li>
+
+<li><p>常常与if/while/for在一起使用</p>
+
+<pre><code>{
+let a = 1
+let b = 2
+}
+</code></pre></li>
+</ul>
+
+<h1 id="if语句">if语句</h1>
+
+<ul>
+<li><p>if结构先判断一个表达式的布尔值，然后根据布尔值的真伪，执行不同的语句。所谓布尔值，指的是 JavaScript 的两个特殊值，true表示真，false表示伪</p>
+
+<pre><code>if (a === 1){
+console.log('a是1')
+}else if(a === 2){
+console.log('a是2')
+}else{
+console.log('a不是1和2')
+}
+</code></pre></li>
+
+<li><p>建议总是在if语句中使用大括号，因为这样方便插入语句。</p></li>
+
+<li><p>注意，if后面的表达式之中，不要混淆赋值表达式（=）、严格相等运算符（===）和相等运算符（==）。尤其是赋值表达式不具有比较作用。</p></li>
+</ul>
+
+<h1 id="switch语句">switch语句</h1>
+
+<ul>
+<li><p>多个if&hellip;else连在一起使用的时候，可以转为使用更方便的switch结构。</p>
+
+<pre><code>switch(fruit){
+ case 'banana': 1;
+ break;
+ case 'apple': 2;
+ break;
+ case 'peach': 3;
+ break;
+ default;
+}
+</code></pre></li>
+
+<li><p>上面代码根据变量fruit的值，选择执行相应的case。如果所有case都不符合，则执行最后的default部分。需要注意的是，每个case代码块内部的break语句不能少，否则会接下去执行下一个case代码块，而不是跳出switch结构。</p></li>
+</ul>
+
+<h1 id="三元运算符">三元运算符</h1>
+
+<ul>
+<li><p>如果条件为true，返回表达式1，否则返回表达式2（if&hellip;else的简写形式）</p>
+
+<pre><code>(条件)?表达式1:表达式2
+</code></pre></li>
+</ul>
+
+<h1 id="while循环">while循环</h1>
+
+<pre><code>var i = 0;
+
+while (i &lt; 100) {
+  console.log('i 当前为：' + i);
+  i = i + 1;
+}
+</code></pre>
+
+<ul>
+<li>上面代码将循环100次直到i=100为止</li>
+<li>当循环条件为真，会无限循环</li>
+</ul>
+
+<h1 id="for循环">for循环</h1>
+
+<pre><code>for (初始化表达式; 条件; 递增表达式) {
+  语句
+}
+</code></pre>
+
+<ul>
+<li>初始化表达式（initialize）：确定循环变量的初始值，只在循环开始时执行一次。</li>
+<li>条件表达式（test）：每轮循环开始时，都要执行这个条件表达式，只有值为真，才继续进行循环。</li>
+
+<li><p>递增表达式（increment）：每轮循环的最后一个操作，通常用来递增循环变量。</p>
+
+<pre><code>var x = 3;
+for (var i = 0; i &lt; x; i++) {
+console.log(i);
+}
+</code></pre></li>
+
+<li><p>上面代码中，初始化表达式是var i = 0，即初始化一个变量i；测试表达式是i &lt; x，即只要i小于x，就会执行循环；递增表达式是i++，即每次循环结束后，i增大1。</p></li>
+</ul>
+
+<h1 id="break语句和continue语句">break语句和continue语句</h1>
+
+<ul>
+<li><p>break语句和continue语句都具有跳转作用，可以让代码不按既有的顺序执行。</p>
+
+<pre><code>while(i &lt; 100) {
+console.log('i 当前为：' + i);
+i++;
+if (i === 10) break;
+}
+</code></pre></li>
+
+<li><p>break语句用于跳出代码块或循环。</p></li>
+
+<li><p>上面代码只会执行10次循环，一旦i等于10，就会跳出循环。</p></li>
+
+<li><p>for循环也可以使用break语句跳出循环。</p>
+
+<pre><code>var i = 0;
+
+while (i &lt; 100){
+i++;
+if (i % 2 === 0) continue;
+console.log('i 当前为：' + i);
+}
+</code></pre></li>
+
+<li><p>continue语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮循环。</p></li>
+
+<li><p>上面代码只有在i为奇数时，才会输出i的值。如果i为偶数，则直接进入下一轮循环。</p></li>
+</ul>
+
+<h1 id="label-标签">label（标签）</h1>
+
+<ul>
+<li>JavaScript 语言允许，语句的前面有标签（label），相当于定位符，用于跳转到程序的任意位置，标签的格式如下。</li>
+<li>标签可以是任意的标识符，但不能是保留字，语句部分可以是任意语句。</li>
+
+<li><p>标签通常与break语句和continue语句配合使用，跳出特定的循环。</p>
+
+<pre><code>top:
+for (var i = 0; i &lt; 3; i++){
+for (var j = 0; j &lt; 3; j++){
+  if (i === 1 &amp;&amp; j === 1) break top;
+  console.log('i=' + i + ', j=' + j);
+}
+}
+</code></pre></li>
+
+<li><p>上面代码为一个双重循环区块，break命令后面加上了top标签（注意，top不用加引号），满足条件时，直接跳出双层循环。如果break语句后面不使用标签，则只能跳出内层循环，进入下一次的外层循环。</p>
+
+<pre><code>foo: {
+console.log(1);
+break foo;
+console.log('本行不会输出');
+}
+console.log(2);
+// 1
+// 2
+</code></pre></li>
+
+<li><p>标签也可以用于跳出代码块。</p></li>
+
+<li><p>上面代码执行到break foo，就会跳出区块</p>
+
+<pre><code>top:
+for (var i = 0; i &lt; 3; i++){
+for (var j = 0; j &lt; 3; j++){
+  if (i === 1 &amp;&amp; j === 1) continue top;
+  console.log('i=' + i + ', j=' + j);
+}
+}
+// i=0, j=0
+// i=0, j=1
+// i=0, j=2
+// i=1, j=0
+// i=2, j=0
+// i=2, j=1
+// i=2, j=2
+</code></pre></li>
+
+<li><p>continue语句也可以与标签配合使用。</p></li>
+
+<li><p>上面代码中，continue命令后面有一个标签名，满足条件时，会跳过当前循环，直接进入下一轮外层循环。如果continue语句后面不使用标签，则只能进入下一轮的内层循环。</p></li>
+</ul>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Carri</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2019-11-03
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://gaocarri.github.io/tags/js/">JS</a>
+          <a href="http://gaocarri.github.io/tags/javascript/">Javascript</a>
+          <a href="http://gaocarri.github.io/tags/javascript%E5%85%A5%E9%97%A8/">javascript入门</a>
+          <a href="http://gaocarri.github.io/tags/javascript%E8%AF%AD%E6%B3%95/">javascript语法</a>
           
         </div>
+
       
-      
-      
-    </div>
-  </header>
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/%E5%88%9D%E8%AF%86javascript/">
+            <span class="next-text nav-default">初识JavaScript</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
   
-  <div class="post-content">
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
     
-    <div class="post-summary">
-      表达式和语句 表达式 1+2表达式的值是3 add(1,2)表达式的值是函数的返回值 console.log表达式的值为函数本身 console.lo
-    </div>
-    <div class="read-more">
-      <a href="/post/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
 
   
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/%E5%88%9D%E8%AF%86javascript/">初识JavaScript</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2019-11-01" class="post-time">
-        2019-11-01
-      </time>
-      <div class="post-category">
-          <a href="http://gaocarri.github.io/categories/javascript/"> JavaScript </a>
-          
-        </div>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      JavaScript的诞生(参考阮一峰的博客) 诞生: JavaScript由Brendan Eich于1995年发明（只花了十天）。 目的: 网景公
-    </div>
-    <div class="read-more">
-      <a href="/post/%E5%88%9D%E8%AF%86javascript/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/css%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/">CSS知识总结</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2019-10-31" class="post-time">
-        2019-10-31
-      </time>
-      <div class="post-category">
-          <a href="http://gaocarri.github.io/categories/css/"> CSS </a>
-          
-        </div>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      一、浏览器渲染原理 参考文章 Google团队写的文章 渲染树构建、布局及绘制 渲染性能 使用transform来实现动画 查看CSS各属性触发什么 CSSTriggers.com 浏
-    </div>
-    <div class="read-more">
-      <a href="/post/css%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-</section>
-
-
-
-
-
-
-  
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-  <nav class="pagination">
-    <ul>
-      
-      <li  class="active" >
-        <a href="/">1</a>
-      </li>
-      
-      <li >
-        <a href="/page/2/">2</a>
-      </li>
-      
-      <li >
-        <a href="/page/3/">3</a>
-      </li>
-      
-    </ul>
-  </nav>
-
-  
-  
-
-
-
-
 
         </div>
       </div>
@@ -551,6 +754,13 @@
 
 
 
+  <script type="text/javascript">
+    window.MathJax = {
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 
 
