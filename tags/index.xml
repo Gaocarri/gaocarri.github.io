@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Carri的米奇妙妙屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 04 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Javascript</title>
       <link>http://gaocarri.github.io/tags/javascript/</link>
-      <pubDate>Mon, 04 Nov 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 05 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>http://gaocarri.github.io/tags/javascript/</guid>
       <description></description>
@@ -23,7 +23,7 @@
     <item>
       <title>javascript入门</title>
       <link>http://gaocarri.github.io/tags/javascript%E5%85%A5%E9%97%A8/</link>
-      <pubDate>Mon, 04 Nov 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 05 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>http://gaocarri.github.io/tags/javascript%E5%85%A5%E9%97%A8/</guid>
       <description></description>
@@ -32,7 +32,7 @@
     <item>
       <title>javascript语法</title>
       <link>http://gaocarri.github.io/tags/javascript%E8%AF%AD%E6%B3%95/</link>
-      <pubDate>Mon, 04 Nov 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 05 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>http://gaocarri.github.io/tags/javascript%E8%AF%AD%E6%B3%95/</guid>
       <description></description>
@@ -41,9 +41,18 @@
     <item>
       <title>JS</title>
       <link>http://gaocarri.github.io/tags/js/</link>
-      <pubDate>Mon, 04 Nov 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 05 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>http://gaocarri.github.io/tags/js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>函数</title>
+      <link>http://gaocarri.github.io/tags/%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Tue, 05 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.github.io/tags/%E5%87%BD%E6%95%B0/</guid>
       <description></description>
     </item>
     
