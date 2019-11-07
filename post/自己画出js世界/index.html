@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>JS函数执行时机 - Carri的米奇妙妙屋</title>
+  <title>自己画出JS世界 - Carri的米奇妙妙屋</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Carri" />
-  <meta name="description" content="今天学习到了关于JS函数执行时机方面的知识。 以下两个for循环各自独立 // 第一个： let i = 0 for(i = 0; i&amp;lt;6; i&#43;&#43;){ setTimeout(()=&amp;gt;{ console.log(i) },0) } // 第二个： for(let i = 0; i&amp;lt;6; i&#43;&#43;){ setTimeout(()=&amp;gt;{ console.log(i) },0) } 运行" />
+  <meta name="description" content="关于一个JS世界是如何形成的？ 创建根对象#101(它有toString等属性)、根对象无名字（它的proto:null） 创建函数的原型#20" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.59.0" />
 
 
-<link rel="canonical" href="http://gaocarri.github.io/post/js%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" />
+<link rel="canonical" href="http://gaocarri.github.io/post/%E8%87%AA%E5%B7%B1%E7%94%BB%E5%87%BAjs%E4%B8%96%E7%95%8C/" />
 
 
 
@@ -59,26 +59,26 @@
 
 
 
-<meta property="og:title" content="JS函数执行时机" />
-<meta property="og:description" content="今天学习到了关于JS函数执行时机方面的知识。 以下两个for循环各自独立 // 第一个： let i = 0 for(i = 0; i&lt;6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) } // 第二个： for(let i = 0; i&lt;6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) } 运行" />
+<meta property="og:title" content="自己画出JS世界" />
+<meta property="og:description" content="关于一个JS世界是如何形成的？ 创建根对象#101(它有toString等属性)、根对象无名字（它的proto:null） 创建函数的原型#20" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://gaocarri.github.io/post/js%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" />
-<meta property="article:published_time" content="2019-11-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-11-05T00:00:00+00:00" />
-<meta itemprop="name" content="JS函数执行时机">
-<meta itemprop="description" content="今天学习到了关于JS函数执行时机方面的知识。 以下两个for循环各自独立 // 第一个： let i = 0 for(i = 0; i&lt;6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) } // 第二个： for(let i = 0; i&lt;6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) } 运行">
+<meta property="og:url" content="http://gaocarri.github.io/post/%E8%87%AA%E5%B7%B1%E7%94%BB%E5%87%BAjs%E4%B8%96%E7%95%8C/" />
+<meta property="article:published_time" content="2019-11-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-11-07T00:00:00+00:00" />
+<meta itemprop="name" content="自己画出JS世界">
+<meta itemprop="description" content="关于一个JS世界是如何形成的？ 创建根对象#101(它有toString等属性)、根对象无名字（它的proto:null） 创建函数的原型#20">
 
 
-<meta itemprop="datePublished" content="2019-11-05T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-11-05T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="597">
+<meta itemprop="datePublished" content="2019-11-07T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-11-07T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="770">
 
 
 
-<meta itemprop="keywords" content="JS,Javascript,javascript入门,javascript语法,函数,执行时机," />
+<meta itemprop="keywords" content="JS,Javascript,原型," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="JS函数执行时机"/>
-<meta name="twitter:description" content="今天学习到了关于JS函数执行时机方面的知识。 以下两个for循环各自独立 // 第一个： let i = 0 for(i = 0; i&lt;6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) } // 第二个： for(let i = 0; i&lt;6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) } 运行"/>
+<meta name="twitter:title" content="自己画出JS世界"/>
+<meta name="twitter:description" content="关于一个JS世界是如何形成的？ 创建根对象#101(它有toString等属性)、根对象无名字（它的proto:null） 创建函数的原型#20"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -298,11 +298,11 @@
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">JS函数执行时机</h1>
+      <h1 class="post-title">自己画出JS世界</h1>
       
       <div class="post-meta">
-        <time datetime="2019-11-05" class="post-time">
-          2019-11-05
+        <time datetime="2019-11-07" class="post-time">
+          2019-11-07
         </time>
         <div class="post-category">
             <a href="http://gaocarri.github.io/categories/javascript/"> JavaScript </a>
@@ -323,63 +323,72 @@
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#关于一个js世界是如何形成的">关于一个JS世界是如何形成的？</a></li>
+<li><a href="#完整的图示">完整的图示</a></li>
+<li><a href="#js三大公理">JS三大公理</a></li>
+</ul>
+</nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      <p>今天学习到了关于JS函数执行时机方面的知识。</p>
+      
 
-<ul>
-<li><p>以下两个for循环各自独立</p>
-
-<pre><code>// 第一个：
-let i = 0
-for(i = 0; i&lt;6; i++){
-setTimeout(()=&gt;{
-console.log(i)
-},0)
-}
-// 第二个：
-for(let i = 0; i&lt;6; i++){
-setTimeout(()=&gt;{
-console.log(i)
-},0)
-}
-</code></pre></li>
-
-<li><p>运行代码我们可以知道第一个for循环会在后台打印出6个6，第二个for循环会在后台打印出0，1，2，3，4，5</p></li>
-
-<li><p>下面分析造成这种情况的原因</p>
+<h1 id="关于一个js世界是如何形成的">关于一个JS世界是如何形成的？</h1>
 
 <ol>
-<li>setTimeout()的用法
+<li><p>创建根对象#101(它有toString等属性)、根对象无名字（它的<strong>proto</strong>:null）
+<a href="https://imgchr.com/i/Mk9Qtf"><img src="https://s2.ax1x.com/2019/11/07/Mk9Qtf.png" alt="Mk9Qtf.png" /></a></p></li>
+
+<li><p>创建函数的原型#208(它有call,apply等属性),原型<strong>proto</strong>的地址为#101
+<a href="https://imgchr.com/i/Mk9mnA"><img src="https://s2.ax1x.com/2019/11/07/Mk9mnA.png" alt="Mk9mnA.png" /></a></p></li>
+
+<li><p>创建数组的原型#404(它有push,pop等属性),原型<strong>proto</strong>的地址为#101
+<a href="https://imgchr.com/i/Mk9n0I"><img src="https://s2.ax1x.com/2019/11/07/Mk9n0I.png" alt="Mk9n0I.png" /></a></p></li>
+
+<li><p>创建Function（实际没有名字）#342，原型<strong>proto</strong>的地址为#208</p></li>
+
+<li><p>让Function的prototype地址为#208</p></li>
+
+<li><p>此时发现Function的<strong>proto</strong>和prototype都是#208
+<a href="https://imgchr.com/i/Mk9u7t"><img src="https://s2.ax1x.com/2019/11/07/Mk9u7t.png" alt="Mk9u7t.png" /></a></p></li>
+
+<li><p>用Function创建Object（实际没有名字）</p></li>
+
+<li><p>让Object.prototype的地址为#101
+<a href="https://imgchr.com/i/Mk9MAP"><img src="https://s2.ax1x.com/2019/11/07/Mk9MAP.png" alt="Mk9MAP.png" /></a></p></li>
+
+<li><p>用Function创建Array（实际没有名字）</p></li>
+
+<li><p>让Array.prototype的地址为#101
+<a href="https://imgchr.com/i/Mk9lh8"><img src="https://s2.ax1x.com/2019/11/07/Mk9lh8.png" alt="Mk9lh8.png" /></a></p></li>
+
+<li><p>创建window对象（它不属于JS世界）</p></li>
+
+<li><p>用window的&rdquo;Function&rdquo;&ldquo;Object&rdquo;&ldquo;Array&rdquo;属性将他们命名
+<a href="https://imgchr.com/i/Mk939S"><img src="https://s2.ax1x.com/2019/11/07/Mk939S.png" alt="Mk939S.png" /></a></p></li>
+
+<li><p>记住一点JS创建一个对象时，不会给它名字</p></li>
+</ol>
+
+<h1 id="完整的图示">完整的图示</h1>
+
+<p><img src="https://s2.ax1x.com/2019/11/07/MkiUHA.png" alt="MkiUHA.png" /></p>
+
+<h1 id="js三大公理">JS三大公理</h1>
+
+<ol>
+<li>对象.<strong>proto</strong>===其构造函数.prototype</li>
+<li>根公理：Object.prototype是所有对象（直接或间接）的原型</li>
+<li>函数公理：所有函数都是由Function构造的，任何函数<strong>proto</strong>===Function.prototype(任何函数有Object/Array/Function)</li>
+</ol>
 
 <ul>
-<li>setTimeout()方法设置一个定时器，该定时器在定时器到期后执行一个函数或指定的一段代码</li>
-<li>delay：延迟的毫秒数 (一秒等于1000毫秒)，函数的调用会在该延迟之后发生。如果省略该参数，delay取默认值0，意味着“马上”执行，或者尽快执行。不管是哪种情况，实际的延迟时间可能会比期待的(delay毫秒数) 值长，原因请查看<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/setTimeout#Reasons_for_delays_longer_than_specified">Reasons for delays longer than specified</a></li>
-</ul></li>
-<li>第一段代码因为setTimeout()这个函数,<code>console.log(i)</code>会在for循环全部执行后才执行，此时i变为了6，因此会打印出6个6。举个例子，老板让你搬100个箱子，在你搬箱子的时候老板说去打印一个文件，你就会在搬完100个箱子的时候再去打印这个文件，通俗来说就是等一会，同理setTimeout.</li>
-<li>那么第二段代码为什么不一样了呢，这就是JS的坑爹之处：
-
-<ul>
-<li>因为JS在for和let一起用的时候会加东西</li>
-<li>每次for循环会多创建一个i（坑爹），所以打印出了6个不同的i</li>
-</ul></li>
-
-<li><p>其他方法，使用立即执行函数：</p>
-
-<pre><code>for(var i = 0; i &lt; 6; i++) {
-!function() {
-	  var j = i
-setTimeout(() =&gt; {
-console.log(j)
-},0)
-}()  
-}
-</code></pre></li>
-</ol></li>
+<li>Object.prototype是所有对象的原型，Object是Function构造出来的，所以Function构造了Object.prototype,推论，Function才是万物之源啊（错）</li>
+<li>错的理由:Function构造了Object.prototype这个地址，但没有构造它对应的根对象，根对象是原本就存在的！</li>
 </ul>
 
     </div>
@@ -394,7 +403,7 @@ console.log(j)
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-      2019-11-05
+      2019-11-07
       
     </span>
   </p>
@@ -413,32 +422,16 @@ console.log(j)
       <div class="post-tags">
           <a href="http://gaocarri.github.io/tags/js/">JS</a>
           <a href="http://gaocarri.github.io/tags/javascript/">Javascript</a>
-          <a href="http://gaocarri.github.io/tags/javascript%E5%85%A5%E9%97%A8/">javascript入门</a>
-          <a href="http://gaocarri.github.io/tags/javascript%E8%AF%AD%E6%B3%95/">javascript语法</a>
-          <a href="http://gaocarri.github.io/tags/%E5%87%BD%E6%95%B0/">函数</a>
-          <a href="http://gaocarri.github.io/tags/%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/">执行时机</a>
+          <a href="http://gaocarri.github.io/tags/%E5%8E%9F%E5%9E%8B/">原型</a>
           
         </div>
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/%E8%87%AA%E5%B7%B1%E7%94%BB%E5%87%BAjs%E4%B8%96%E7%95%8C/">
-            
-            <i class="iconfont">
-              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="18" height="18">
-  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
-</svg>
-
-            </i>
-            <span class="prev-text nav-default">自己画出JS世界</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
         
-          <a class="next" href="/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/">
-            <span class="next-text nav-default">JS对象基本用法</span>
+          <a class="next" href="/post/js%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/">
+            <span class="next-text nav-default">JS函数执行时机</span>
             <span class="prev-text nav-mobile">下一篇</span>
             
             <i class="iconfont">

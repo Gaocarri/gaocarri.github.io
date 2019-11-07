@@ -6,10 +6,19 @@
     <description>Recent content in Javascript on Carri的米奇妙妙屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 05 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 07 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>自己画出JS世界</title>
+      <link>http://gaocarri.github.io/post/%E8%87%AA%E5%B7%B1%E7%94%BB%E5%87%BAjs%E4%B8%96%E7%95%8C/</link>
+      <pubDate>Thu, 07 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.github.io/post/%E8%87%AA%E5%B7%B1%E7%94%BB%E5%87%BAjs%E4%B8%96%E7%95%8C/</guid>
+      <description>关于一个JS世界是如何形成的？ 创建根对象#101(它有toString等属性)、根对象无名字（它的proto:null） 创建函数的原型#20</description>
+    </item>
     
     <item>
       <title>JS函数执行时机</title>
