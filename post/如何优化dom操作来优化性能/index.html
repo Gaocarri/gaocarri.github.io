@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>JS · Carri的米奇妙妙屋</title>
+  <title>如何优化DOM操作来优化性能 - Carri的米奇妙妙屋</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Carri" />
-  <meta name="description" content="Hugo theme jane example site." />
+  <meta name="description" content="为什么DOM操作很慢 一句话概括：DOM对象本身也是一个js对象，所以严格来说，并不是操作这个对象慢，而是说操作了这个对象后，会触发一些浏览器" />
+
   <meta name="keywords" content="Hugo, theme, jane" />
 
 
@@ -34,8 +35,8 @@
 <meta name="generator" content="Hugo 0.59.0" />
 
 
-<link rel="canonical" href="http://gaocarri.github.io/tags/js/" />
-<link href="/tags/js/index.xml" rel="alternate" type="application/rss+xml" title="Carri的米奇妙妙屋" />
+<link rel="canonical" href="http://gaocarri.github.io/post/%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96dom%E6%93%8D%E4%BD%9C%E6%9D%A5%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD/" />
+
 
 
 
@@ -58,18 +59,26 @@
 
 
 
-<meta property="og:title" content="JS" />
-<meta property="og:description" content="Hugo theme jane example site." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://gaocarri.github.io/tags/js/" />
+<meta property="og:title" content="如何优化DOM操作来优化性能" />
+<meta property="og:description" content="为什么DOM操作很慢 一句话概括：DOM对象本身也是一个js对象，所以严格来说，并不是操作这个对象慢，而是说操作了这个对象后，会触发一些浏览器" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://gaocarri.github.io/post/%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96dom%E6%93%8D%E4%BD%9C%E6%9D%A5%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD/" />
+<meta property="article:published_time" content="2019-11-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-11-11T00:00:00+00:00" />
+<meta itemprop="name" content="如何优化DOM操作来优化性能">
+<meta itemprop="description" content="为什么DOM操作很慢 一句话概括：DOM对象本身也是一个js对象，所以严格来说，并不是操作这个对象慢，而是说操作了这个对象后，会触发一些浏览器">
 
-<meta property="og:updated_time" content="2019-11-11T00:00:00+00:00" />
-<meta itemprop="name" content="JS">
-<meta itemprop="description" content="Hugo theme jane example site.">
 
+<meta itemprop="datePublished" content="2019-11-11T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-11-11T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1196">
+
+
+
+<meta itemprop="keywords" content="JavaScript,JS,DOM," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="JS"/>
-<meta name="twitter:description" content="Hugo theme jane example site."/>
+<meta name="twitter:title" content="如何优化DOM操作来优化性能"/>
+<meta name="twitter:description" content="为什么DOM操作很慢 一句话概括：DOM对象本身也是一个js对象，所以严格来说，并不是操作这个对象慢，而是说操作了这个对象后，会触发一些浏览器"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -286,94 +295,244 @@
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-
-<section id="archive" class="archive">
-  
+          <article class="post bg-white">
     
-      <div class="archive-title tag">
-        <h2 class="archive-name">标签： JS</h2>
+    <header class="post-header">
+      <h1 class="post-title">如何优化DOM操作来优化性能</h1>
+      
+      <div class="post-meta">
+        <time datetime="2019-11-11" class="post-time">
+          2019-11-11
+        </time>
+        <div class="post-category">
+            <a href="http://gaocarri.github.io/categories/javascript/"> JavaScript </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
       </div>
+    </header>
+
     
-  
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#为什么dom操作很慢">为什么DOM操作很慢</a></li>
+<li><a href="#几种优化方案">几种优化方案</a>
+<ul>
+<li><a href="#批量读写方案">批量读写方案</a></li>
+<li><a href="#先操作属性-再添加回render-tree">先操作属性，再添加回Render Tree</a></li>
+<li><a href="#面对样式修改">面对样式修改</a></li>
+<li><a href="#使用requestanimationframe">使用requestAnimationFrame</a></li>
+<li><a href="#一些个人感想">一些个人感想</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
 
-  
-    <div class="archive-post">
-      <time datetime="2019-11-11" class="archive-post-time">
-        2019-11-11
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96dom%E6%93%8D%E4%BD%9C%E6%9D%A5%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD/" class="archive-post-link">
-          如何优化DOM操作来优化性能
-        </a>
-      </span>
+    
+    <div class="post-content">
+      
+
+<h1 id="为什么dom操作很慢">为什么DOM操作很慢</h1>
+
+<ul>
+<li><p>一句话概括：DOM对象本身也是一个js对象，所以严格来说，并不是操作这个对象慢，而是说操作了这个对象后，会触发一些浏览器行为，比如布局（layout）和绘制（paint）。</p></li>
+
+<li><p>用文字描述浏览器呈现一张页面的过程：</p>
+
+<ol>
+<li>解析HTML，并生成一棵DOM tree</li>
+<li>解析各种样式并结合DOM tree生成一棵Render tree</li>
+<li>对Render tree的各个节点计算布局信息，比如box的位置与尺寸</li>
+<li>根据Render tree并利用浏览器的UI层进行绘制</li>
+</ol></li>
+
+<li><p>浏览器触发layout的情况</p>
+
+<ol>
+<li>通过js获取需要计算的DOM属性</li>
+<li>添加或删除DOM元素</li>
+<li>resize浏览器窗口大小</li>
+<li>改变字体</li>
+<li>css伪类的激活，比如:hover</li>
+<li>通过js修改DOM元素样式且该样式涉及到尺寸的改变</li>
+</ol></li>
+</ul>
+
+<h1 id="几种优化方案">几种优化方案</h1>
+
+<h2 id="批量读写方案">批量读写方案</h2>
+
+<p>对于一段这样的代码</p>
+
+<pre><code>// Read
+var h1 = element1.clientHeight;
+
+// Write (invalidates layout)
+element1.style.height = (h1 * 2) + 'px';
+
+// Read (triggers layout)
+var h2 = element2.clientHeight;
+
+// Write (invalidates layout)
+element2.style.height = (h2 * 2) + 'px';
+
+// Read (triggers layout)
+var h3 = element3.clientHeight;
+
+// Write (invalidates layout)
+element3.style.height = (h3 * 2) + 'px';
+</code></pre>
+
+<p>其中<code>clientHeight</code>这个属性是计算得到的，每计算一次，浏览器就会进行一次layout</p>
+
+<p>下面给出一种优化这段代码的方法，只需要预先读取所需要的属性，在一起修改即可：</p>
+
+<pre><code>// Read
+var h1 = element1.clientHeight;
+var h2 = element2.clientHeight;
+var h3 = element3.clientHeight;
+
+// Write (invalidates layout)
+element1.style.height = (h1 * 2) + 'px';
+element2.style.height = (h2 * 2) + 'px';
+element3.style.height = (h3 * 2) + 'px';
+</code></pre>
+
+<h2 id="先操作属性-再添加回render-tree">先操作属性，再添加回Render Tree</h2>
+
+<p>以下列代码为例</p>
+
+<pre><code>var fragment = document.createDocumentFragment();
+for (var i=0; i &lt; items.length; i++){
+  var item = document.createElement(&quot;li&quot;);
+  item.appendChild(document.createTextNode(&quot;Option &quot; + i);
+  fragment.appendChild(item);
+}
+list.appendChild(fragment);
+</code></pre>
+
+<p>核心思想就是先对一个不在Render tree上的节点进行一系列操作，再把这个节点添加回Render tree，这样无论多么复杂的DOM操作，最终都只会触发一次layout。</p>
+
+<h2 id="面对样式修改">面对样式修改</h2>
+
+<ul>
+<li>针对样式的改变，我们首先需要知道并不是所有样式的修改都会触发layout，因为我们知道layout的工作是计算RenderObject的尺寸和大小信息，那么我如果只是改变一个颜色，是不会触发layout的。</li>
+</ul>
+
+<p>特别提一下JS动画,比如以下这段代码</p>
+
+<pre><code>function animate (from, to) {
+  if (from === to) return
+
+  requestAnimationFrame(function () {
+    from += 5
+    element1.style.height = from + &quot;px&quot;
+    animate(from, to)
+  })
+}
+
+animate(100, 500)
+</code></pre>
+
+<p>动画的每一帧都会导致layout，这是无法避免的，但是为了减少动画带来的layout的性能损失，可以将动画元素绝对定位，这样动画元素脱离文本流，layout的计算量会减少很多。</p>
+
+<h2 id="使用requestanimationframe">使用requestAnimationFrame</h2>
+
+<ul>
+<li>window.requestAnimationFrame() 告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行(MDN)</li>
+<li>任何可能导致重绘的操作都应该放入requestAnimationFrame</li>
+<li>在现实项目中，代码按模块划分，很难像上例那样组织批量读写。那么这时可以把写操作放在</li>
+</ul>
+
+<p>requestAnimationFrame的callback中，统一让写操作在下一次paint之前执行。</p>
+
+<pre><code>// Read
+var h1 = element1.clientHeight;
+
+// Write
+requestAnimationFrame(function() {
+  element1.style.height = (h1 * 2) + 'px';
+});
+
+// Read
+var h2 = element2.clientHeight;
+
+// Write
+requestAnimationFrame(function() {
+  element2.style.height = (h2 * 2) + 'px';
+});
+</code></pre>
+
+<h2 id="一些个人感想">一些个人感想</h2>
+
+<p>或许这就是更深层次点的东西，写出代码容易，写好难。</p>
+
     </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Carri</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2019-11-11
+      
+    </span>
+  </p>
   
-    <div class="archive-post">
-      <time datetime="2019-11-07" class="archive-post-time">
-        2019-11-07
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/%E8%87%AA%E5%B7%B1%E7%94%BB%E5%87%BAjs%E4%B8%96%E7%95%8C/" class="archive-post-link">
-          自己画出JS世界
-        </a>
-      </span>
-    </div>
-  
-    <div class="archive-post">
-      <time datetime="2019-11-05" class="archive-post-time">
-        2019-11-05
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/js%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" class="archive-post-link">
-          JS函数执行时机
-        </a>
-      </span>
-    </div>
-  
-    <div class="archive-post">
-      <time datetime="2019-11-04" class="archive-post-time">
-        2019-11-04
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" class="archive-post-link">
-          JS对象基本用法
-        </a>
-      </span>
-    </div>
-  
-    <div class="archive-post">
-      <time datetime="2019-11-03" class="archive-post-time">
-        2019-11-03
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="archive-post-link">
-          JS基本语法
-        </a>
-      </span>
-    </div>
-  
-    <div class="archive-post">
-      <time datetime="2019-11-01" class="archive-post-time">
-        2019-11-01
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/%E5%88%9D%E8%AF%86javascript/" class="archive-post-link">
-          初识JavaScript
-        </a>
-      </span>
-    </div>
-  
-</section>
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
 
 
+    
+    
 
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://gaocarri.github.io/tags/javascript/">JavaScript</a>
+          <a href="http://gaocarri.github.io/tags/js/">JS</a>
+          <a href="http://gaocarri.github.io/tags/dom/">DOM</a>
+          
+        </div>
 
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/%E8%87%AA%E5%B7%B1%E7%94%BB%E5%87%BAjs%E4%B8%96%E7%95%8C/">
+            <span class="next-text nav-default">自己画出JS世界</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
 
-
-  
-  
-  
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
 
   
   
@@ -382,14 +541,19 @@
   
 
   
-  
 
   
   
 
+  
 
+  
 
+  
 
+    
+
+  
 
         </div>
       </div>
@@ -499,6 +663,13 @@
 
 
 
+  <script type="text/javascript">
+    window.MathJax = {
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 
 

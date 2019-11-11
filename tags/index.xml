@@ -6,15 +6,24 @@
     <description>Recent content in Tags on Carri的米奇妙妙屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 07 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 11 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>DOM</title>
+      <link>http://gaocarri.github.io/tags/dom/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.github.io/tags/dom/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Javascript</title>
       <link>http://gaocarri.github.io/tags/javascript/</link>
-      <pubDate>Thu, 07 Nov 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>http://gaocarri.github.io/tags/javascript/</guid>
       <description></description>
@@ -23,7 +32,7 @@
     <item>
       <title>JS</title>
       <link>http://gaocarri.github.io/tags/js/</link>
-      <pubDate>Thu, 07 Nov 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>http://gaocarri.github.io/tags/js/</guid>
       <description></description>
@@ -179,15 +188,6 @@
       <pubDate>Tue, 29 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>http://gaocarri.github.io/tags/html/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>笔记</title>
-      <link>http://gaocarri.github.io/tags/%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Tue, 29 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.github.io/tags/%E7%AC%94%E8%AE%B0/</guid>
       <description></description>
     </item>
     
