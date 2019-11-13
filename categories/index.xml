@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Carri的米奇妙妙屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 11 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 13 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>jQuery</title>
+      <link>http://gaocarri.github.io/categories/jquery/</link>
+      <pubDate>Wed, 13 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.github.io/categories/jquery/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>JavaScript</title>
