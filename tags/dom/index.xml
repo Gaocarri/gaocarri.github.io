@@ -6,10 +6,19 @@
     <description>Recent content in DOM on Carri的米奇妙妙屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 13 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 19 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.github.io/tags/dom/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>如何利用哈希表存储用户操作</title>
+      <link>http://gaocarri.github.io/post/%E5%A6%82%E4%BD%95%E5%9C%A8%E5%88%A9%E7%94%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E5%AD%98%E5%82%A8%E7%94%A8%E6%88%B7%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.github.io/post/%E5%A6%82%E4%BD%95%E5%9C%A8%E5%88%A9%E7%94%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E5%AD%98%E5%82%A8%E7%94%A8%E6%88%B7%E6%93%8D%E4%BD%9C/</guid>
+      <description>这几天学完jQuery尝试做了一个导航网站的小项目 github地址 为了实现页面刷新或重启后用户的新增网站不被删除，使用了哈希表将用户的数据存</description>
+    </item>
     
     <item>
       <title>jQuery的使用</title>
