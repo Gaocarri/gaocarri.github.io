@@ -14,7 +14,7 @@
     <item>
       <title>关于我</title>
       <link>http://gaocarri.github.io/%E5%85%B3%E4%BA%8E%E6%88%91/</link>
-      <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://gaocarri.github.io/%E5%85%B3%E4%BA%8E%E6%88%91/</guid>
       
@@ -44,6 +44,7 @@
 &lt;li&gt;本站使用&lt;code&gt;Hugo&lt;/code&gt;生成，采用&lt;code&gt;hugo-theme-jane&lt;/code&gt;主题&lt;/li&gt;
 &lt;li&gt;主要用于记录一些文章，学习笔记，偶尔分享一下心情&lt;/li&gt;
 &lt;li&gt;技艺不精，本站会陆续添加其他功能，敬请期待！&lt;/li&gt;
+&lt;li&gt;近期学到Vue了，后面会更新Vue相关的博客&lt;/li&gt;
 &lt;/ul&gt;
 </description>
       
