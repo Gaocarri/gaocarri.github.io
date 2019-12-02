@@ -3,41 +3,70 @@
   
   <url>
     <loc>http://gaocarri.github.io/%E5%85%B3%E4%BA%8E%E6%88%91/</loc>
+    <lastmod>2019-12-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://gaocarri.github.io/categories/</loc>
-    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-02T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gaocarri.github.io/tags/es6/</loc>
+    <lastmod>2019-12-02T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gaocarri.github.io/categories/javascript/</loc>
+    <lastmod>2019-12-02T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://gaocarri.github.io/tags/javascript/</loc>
-    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-02T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://gaocarri.github.io/post/</loc>
-    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-02T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://gaocarri.github.io/tags/</loc>
-    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-02T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gaocarri.github.io/post/%E4%BD%BF%E7%94%A8promise/</loc>
+    <lastmod>2019-12-02T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://gaocarri.github.io/</loc>
-    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-02T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gaocarri.github.io/tags/%E5%BC%82%E6%AD%A5/</loc>
+    <lastmod>2019-12-02T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -100,13 +129,6 @@
   
   <url>
     <loc>http://gaocarri.github.io/tags/hashmap/</loc>
-    <lastmod>2019-11-19T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://gaocarri.github.io/categories/javascript/</loc>
     <lastmod>2019-11-19T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -260,14 +282,14 @@
   </url>
   
   <url>
-    <loc>http://gaocarri.github.io/tags/http/</loc>
+    <loc>http://gaocarri.github.io/categories/http/</loc>
     <lastmod>2019-10-31T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gaocarri.github.io/categories/http/</loc>
+    <loc>http://gaocarri.github.io/tags/http/</loc>
     <lastmod>2019-10-31T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -344,14 +366,14 @@
   </url>
   
   <url>
-    <loc>http://gaocarri.github.io/categories/html/</loc>
+    <loc>http://gaocarri.github.io/tags/html/</loc>
     <lastmod>2019-10-29T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gaocarri.github.io/tags/html/</loc>
+    <loc>http://gaocarri.github.io/categories/html/</loc>
     <lastmod>2019-10-29T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
