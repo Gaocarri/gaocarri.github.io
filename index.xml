@@ -232,7 +232,7 @@ getSecret() //知道我现在是蜘蛛侠了&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&l
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
 &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;let example =new Promise(resolve,reject){
+&lt;pre class=&#34;chroma&#34;&gt;let example =new Promise((resolve,reject)=&amp;gt;{
     //在这里写你想写的代码
     //然后在某些条件下解决了什么问题
     if(/*你想写的条件*/){
@@ -240,7 +240,7 @@ getSecret() //知道我现在是蜘蛛侠了&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&l
     }else{
         reject()
     }
-}
+})
 
 example.then(()=&amp;gt;{
     //这里写example被resolve时执行的
@@ -1626,7 +1626,7 @@ requestAnimationFrame(function() {
 
 &lt;li&gt;&lt;p&gt;用Function创建Array（实际没有名字）&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;让Array.prototype的地址为#101
+&lt;li&gt;&lt;p&gt;让Array.prototype的地址为#404
 &lt;a href=&#34;https://imgchr.com/i/Mk9lh8&#34;&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/11/07/Mk9lh8.png&#34; alt=&#34;Mk9lh8.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;创建window对象（它不属于JS世界）&lt;/p&gt;&lt;/li&gt;
