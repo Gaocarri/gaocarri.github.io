@@ -250,11 +250,14 @@ example.then(()=&amp;gt;{
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;上面这段代码代表什么意思呢？
-1. 构造了一个Promise实例
-   * 构造函数接受一个函数作为参数
-   * 调用构造函数得到实例p的同时，作为参数的函数会立即执行
-   * 参数函数接受两个回调函数参数resolve和reject
-   * 在参数函数被执行的过程中，如果在其内部调用resolve，会将p的状态变成fulfilled，或者调用reject，会将p的状态变成rejected&lt;/p&gt;
+1. 构造了一个Promise实例&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;构造函数接受一个函数作为参数&lt;/li&gt;
+&lt;li&gt;调用构造函数得到实例p的同时，作为参数的函数会立即执行&lt;/li&gt;
+&lt;li&gt;参数函数接受两个回调函数参数resolve和reject&lt;/li&gt;
+&lt;li&gt;在参数函数被执行的过程中，如果在其内部调用resolve，会将p的状态变成fulfilled，或者调用reject，会将p的状态变成rejected&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;调用.then()&lt;/p&gt;
