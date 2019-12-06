@@ -6,15 +6,34 @@
     <description>Recent content in Tags on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
+<<<<<<< HEAD
     <lastBuildDate>Fri, 06 Dec 2019 00:00:00 +0000</lastBuildDate>
+=======
+    <lastBuildDate>Mon, 02 Dec 2019 00:00:00 +0000</lastBuildDate>
+>>>>>>> 466b844e7254456ceedfaca88b7e0de99e6477f4
     
 	<atom:link href="http://gaocarri.top/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+<<<<<<< HEAD
       <title>JavaScript</title>
       <link>http://gaocarri.top/tags/javascript/</link>
       <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
+=======
+      <title>ES6</title>
+      <link>http://gaocarri.github.io/tags/es6/</link>
+      <pubDate>Mon, 02 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.github.io/tags/es6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>http://gaocarri.github.io/tags/javascript/</link>
+      <pubDate>Mon, 02 Dec 2019 00:00:00 +0000</pubDate>
+>>>>>>> 466b844e7254456ceedfaca88b7e0de99e6477f4
       
       <guid>http://gaocarri.top/tags/javascript/</guid>
       <description></description>
@@ -44,6 +63,15 @@
       <pubDate>Mon, 02 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>http://gaocarri.top/tags/%E5%BC%82%E6%AD%A5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>异步</title>
+      <link>http://gaocarri.github.io/tags/%E5%BC%82%E6%AD%A5/</link>
+      <pubDate>Mon, 02 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.github.io/tags/%E5%BC%82%E6%AD%A5/</guid>
       <description></description>
     </item>
     
@@ -200,6 +228,7 @@
       <description></description>
     </item>
     
+<<<<<<< HEAD
     <item>
       <title>浏览器渲染原理</title>
       <link>http://gaocarri.top/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/</link>
@@ -308,5 +337,7 @@
       <description></description>
     </item>
     
+=======
+>>>>>>> 466b844e7254456ceedfaca88b7e0de99e6477f4
   </channel>
 </rss>
