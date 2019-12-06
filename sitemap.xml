@@ -2,100 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-<<<<<<< HEAD
     <loc>http://gaocarri.top/%E5%85%B3%E4%BA%8E%E6%88%91/</loc>
-=======
-    <loc>http://gaocarri.github.io/%E5%85%B3%E4%BA%8E%E6%88%91/</loc>
->>>>>>> 466b844e7254456ceedfaca88b7e0de99e6477f4
     <lastmod>2019-12-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-<<<<<<< HEAD
     <loc>http://gaocarri.top/categories/</loc>
     <lastmod>2019-12-06T00:00:00+00:00</lastmod>
-=======
-    <loc>http://gaocarri.github.io/categories/</loc>
-    <lastmod>2019-12-02T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gaocarri.github.io/tags/es6/</loc>
-    <lastmod>2019-12-02T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://gaocarri.github.io/categories/javascript/</loc>
-    <lastmod>2019-12-02T00:00:00+00:00</lastmod>
->>>>>>> 466b844e7254456ceedfaca88b7e0de99e6477f4
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-<<<<<<< HEAD
     <loc>http://gaocarri.top/tags/javascript/</loc>
     <lastmod>2019-12-06T00:00:00+00:00</lastmod>
-=======
-    <loc>http://gaocarri.github.io/tags/javascript/</loc>
-    <lastmod>2019-12-02T00:00:00+00:00</lastmod>
->>>>>>> 466b844e7254456ceedfaca88b7e0de99e6477f4
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-<<<<<<< HEAD
     <loc>http://gaocarri.top/categories/javascript/</loc>
     <lastmod>2019-12-06T00:00:00+00:00</lastmod>
-=======
-    <loc>http://gaocarri.github.io/post/</loc>
-    <lastmod>2019-12-02T00:00:00+00:00</lastmod>
->>>>>>> 466b844e7254456ceedfaca88b7e0de99e6477f4
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-<<<<<<< HEAD
     <loc>http://gaocarri.top/post/</loc>
     <lastmod>2019-12-06T00:00:00+00:00</lastmod>
-=======
-    <loc>http://gaocarri.github.io/tags/</loc>
-    <lastmod>2019-12-02T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gaocarri.github.io/post/%E4%BD%BF%E7%94%A8promise/</loc>
-    <lastmod>2019-12-02T00:00:00+00:00</lastmod>
->>>>>>> 466b844e7254456ceedfaca88b7e0de99e6477f4
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-<<<<<<< HEAD
     <loc>http://gaocarri.top/tags/</loc>
     <lastmod>2019-12-06T00:00:00+00:00</lastmod>
-=======
-    <loc>http://gaocarri.github.io/</loc>
-    <lastmod>2019-12-02T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://gaocarri.github.io/tags/%E5%BC%82%E6%AD%A5/</loc>
-    <lastmod>2019-12-02T00:00:00+00:00</lastmod>
->>>>>>> 466b844e7254456ceedfaca88b7e0de99e6477f4
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -199,7 +142,6 @@
   </url>
   
   <url>
-<<<<<<< HEAD
     <loc>http://gaocarri.top/tags/hashmap/</loc>
     <lastmod>2019-11-19T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -208,9 +150,6 @@
   
   <url>
     <loc>http://gaocarri.top/tags/js/</loc>
-=======
-    <loc>http://gaocarri.github.io/tags/js/</loc>
->>>>>>> 466b844e7254456ceedfaca88b7e0de99e6477f4
     <lastmod>2019-11-19T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -357,22 +296,14 @@
   </url>
   
   <url>
-<<<<<<< HEAD
-    <loc>http://gaocarri.top/categories/http/</loc>
-=======
-    <loc>http://gaocarri.github.io/categories/http/</loc>
->>>>>>> 466b844e7254456ceedfaca88b7e0de99e6477f4
+    <loc>http://gaocarri.top/tags/http/</loc>
     <lastmod>2019-10-31T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-<<<<<<< HEAD
-    <loc>http://gaocarri.top/tags/http/</loc>
-=======
-    <loc>http://gaocarri.github.io/tags/http/</loc>
->>>>>>> 466b844e7254456ceedfaca88b7e0de99e6477f4
+    <loc>http://gaocarri.top/categories/http/</loc>
     <lastmod>2019-10-31T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -449,22 +380,14 @@
   </url>
   
   <url>
-<<<<<<< HEAD
-    <loc>http://gaocarri.top/tags/html/</loc>
-=======
-    <loc>http://gaocarri.github.io/tags/html/</loc>
->>>>>>> 466b844e7254456ceedfaca88b7e0de99e6477f4
+    <loc>http://gaocarri.top/categories/html/</loc>
     <lastmod>2019-10-29T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-<<<<<<< HEAD
-    <loc>http://gaocarri.top/categories/html/</loc>
-=======
-    <loc>http://gaocarri.github.io/categories/html/</loc>
->>>>>>> 466b844e7254456ceedfaca88b7e0de99e6477f4
+    <loc>http://gaocarri.top/tags/html/</loc>
     <lastmod>2019-10-29T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
