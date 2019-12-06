@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>javascript语法 on 卡里的技术博客</title>
-    <link>http://gaocarri.github.io/tags/javascript%E8%AF%AD%E6%B3%95/</link>
+    <link>http://gaocarri.top/tags/javascript%E8%AF%AD%E6%B3%95/</link>
     <description>Recent content in javascript语法 on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 05 Nov 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://gaocarri.github.io/tags/javascript%E8%AF%AD%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://gaocarri.top/tags/javascript%E8%AF%AD%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>JS函数执行时机</title>
-      <link>http://gaocarri.github.io/post/js%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</link>
+      <link>http://gaocarri.top/post/js%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</link>
       <pubDate>Tue, 05 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://gaocarri.github.io/post/js%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</guid>
-      <description>今天学习到了关于JS函数执行时机方面的知识。 以下两个for循环各自独立 // 第一个： let i = 0 for(i = 0; i&amp;lt;6; i++){ setTimeout(()=&amp;gt;{ console.log(i) },0) } // 第二个： for(let i = 0; i&amp;lt;6; i++){ setTimeout(()=&amp;gt;{ console.log(i) },0) } 运行</description>
+      <guid>http://gaocarri.top/post/js%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</guid>
+      <description>今天学习到了关于JS函数执行时机方面的知识。 以下两个for循环各自独立 1 2 3 4 5 6 7 8 9 10 11 12 13 // 第一个： let i = 0 for(i = 0; i&amp;lt;6; i++){ setTimeout(()=&amp;gt;{ console.log(i) },0) } // 第二个</description>
     </item>
     
     <item>
       <title>JS对象基本用法</title>
-      <link>http://gaocarri.github.io/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</link>
+      <link>http://gaocarri.top/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</link>
       <pubDate>Mon, 04 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://gaocarri.github.io/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</guid>
-      <description>声明对象的两种语法 // 第1种： let obj = { &#39;name&#39;: &#39;frank&#39;, &#39;age&#39;: 18 } // 第2种： let obj = new Object({&#39;name&#39;: &#39;frank&#39;}) 键名必须是字符串，引号大部分时候可以省略（空格和中文时不可省） 就算引号省</description>
+      <guid>http://gaocarri.top/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</guid>
+      <description>声明对象的两种语法 1 2 3 4 // 第1种： let obj = { &amp;#39;name&amp;#39;: &amp;#39;frank&amp;#39;, &amp;#39;age&amp;#39;: 18 } // 第2种： let obj = new Object({&amp;#39;name&amp;#39;: &amp;#39;frank&amp;#39;}) 键名必须是字符串，引号大部分时候可以省略（空格和中文时不可省） 就</description>
     </item>
     
     <item>
       <title>JS基本语法</title>
-      <link>http://gaocarri.github.io/post/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
+      <link>http://gaocarri.top/post/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
       <pubDate>Sun, 03 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://gaocarri.github.io/post/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
+      <guid>http://gaocarri.top/post/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
       <description>表达式和语句 表达式 1+2表达式的值是3 add(1,2)表达式的值是函数的返回值 console.log表达式的值为函数本身 console.lo</description>
     </item>
     

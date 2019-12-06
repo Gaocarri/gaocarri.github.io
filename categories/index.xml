@@ -2,84 +2,93 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on 卡里的技术博客</title>
-    <link>http://gaocarri.github.io/categories/</link>
+    <link>http://gaocarri.top/categories/</link>
     <description>Recent content in Categories on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 29 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 06 Dec 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://gaocarri.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://gaocarri.top/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>JavaScript</title>
+      <link>http://gaocarri.top/categories/javascript/</link>
+      <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/categories/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>框架</title>
-      <link>http://gaocarri.github.io/categories/%E6%A1%86%E6%9E%B6/</link>
+      <link>http://gaocarri.top/categories/%E6%A1%86%E6%9E%B6/</link>
       <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://gaocarri.github.io/categories/%E6%A1%86%E6%9E%B6/</guid>
+      <guid>http://gaocarri.top/categories/%E6%A1%86%E6%9E%B6/</guid>
       <description></description>
     </item>
     
     <item>
       <title>数据结构与算法</title>
-      <link>http://gaocarri.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</link>
+      <link>http://gaocarri.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</link>
       <pubDate>Sat, 23 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://gaocarri.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>JavaScript</title>
-      <link>http://gaocarri.github.io/categories/javascript/</link>
-      <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.github.io/categories/javascript/</guid>
+      <guid>http://gaocarri.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</guid>
       <description></description>
     </item>
     
     <item>
       <title>jQuery</title>
-      <link>http://gaocarri.github.io/categories/jquery/</link>
+      <link>http://gaocarri.top/categories/jquery/</link>
       <pubDate>Wed, 13 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://gaocarri.github.io/categories/jquery/</guid>
+      <guid>http://gaocarri.top/categories/jquery/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CSS</title>
-      <link>http://gaocarri.github.io/categories/css/</link>
+      <link>http://gaocarri.top/categories/css/</link>
       <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://gaocarri.github.io/categories/css/</guid>
+      <guid>http://gaocarri.top/categories/css/</guid>
       <description></description>
     </item>
     
     <item>
       <title>HTTP</title>
-      <link>http://gaocarri.github.io/categories/http/</link>
+      <link>http://gaocarri.top/categories/http/</link>
       <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://gaocarri.github.io/categories/http/</guid>
+      <guid>http://gaocarri.top/categories/http/</guid>
       <description></description>
     </item>
     
     <item>
       <title>HTML</title>
-      <link>http://gaocarri.github.io/categories/html/</link>
+      <link>http://gaocarri.top/categories/html/</link>
       <pubDate>Tue, 29 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://gaocarri.github.io/categories/html/</guid>
+      <guid>http://gaocarri.top/categories/html/</guid>
       <description></description>
     </item>
     
     <item>
       <title>博客使用</title>
-      <link>http://gaocarri.github.io/categories/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8/</link>
+      <link>http://gaocarri.top/categories/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sun, 27 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://gaocarri.github.io/categories/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8/</guid>
+      <guid>http://gaocarri.top/categories/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vue</title>
+      <link>http://gaocarri.top/categories/vue/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/categories/vue/</guid>
       <description></description>
     </item>
     

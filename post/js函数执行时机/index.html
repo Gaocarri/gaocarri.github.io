@@ -23,9 +23,9 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="Carri" />
-  <meta name="description" content="今天学习到了关于JS函数执行时机方面的知识。 以下两个for循环各自独立 // 第一个： let i = 0 for(i = 0; i&amp;lt;6; i&#43;&#43;){ setTimeout(()=&amp;gt;{ console.log(i) },0) } // 第二个： for(let i = 0; i&amp;lt;6; i&#43;&#43;){ setTimeout(()=&amp;gt;{ console.log(i) },0) } 运行" />
+  <meta name="description" content="今天学习到了关于JS函数执行时机方面的知识。 以下两个for循环各自独立 1 2 3 4 5 6 7 8 9 10 11 12 13 // 第一个： let i = 0 for(i = 0; i&amp;lt;6; i&#43;&#43;){ setTimeout(()=&amp;gt;{ console.log(i) },0) } // 第二个" />
 
-  <meta name="keywords" content="Hugo, theme, jane" />
+  <meta name="keywords" content="前端开发, Javascript, HTML, CSS, 计算机网络, 前端框架, Vue, React" />
 
 
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.59.0" />
 
 
-<link rel="canonical" href="http://gaocarri.github.io/post/js%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" />
+<link rel="canonical" href="http://gaocarri.top/post/js%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" />
 
 
 
@@ -60,25 +60,25 @@
 
 
 <meta property="og:title" content="JS函数执行时机" />
-<meta property="og:description" content="今天学习到了关于JS函数执行时机方面的知识。 以下两个for循环各自独立 // 第一个： let i = 0 for(i = 0; i&lt;6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) } // 第二个： for(let i = 0; i&lt;6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) } 运行" />
+<meta property="og:description" content="今天学习到了关于JS函数执行时机方面的知识。 以下两个for循环各自独立 1 2 3 4 5 6 7 8 9 10 11 12 13 // 第一个： let i = 0 for(i = 0; i&lt;6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) } // 第二个" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://gaocarri.github.io/post/js%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" />
+<meta property="og:url" content="http://gaocarri.top/post/js%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" />
 <meta property="article:published_time" content="2019-11-05T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-11-05T00:00:00+00:00" />
 <meta itemprop="name" content="JS函数执行时机">
-<meta itemprop="description" content="今天学习到了关于JS函数执行时机方面的知识。 以下两个for循环各自独立 // 第一个： let i = 0 for(i = 0; i&lt;6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) } // 第二个： for(let i = 0; i&lt;6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) } 运行">
+<meta itemprop="description" content="今天学习到了关于JS函数执行时机方面的知识。 以下两个for循环各自独立 1 2 3 4 5 6 7 8 9 10 11 12 13 // 第一个： let i = 0 for(i = 0; i&lt;6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) } // 第二个">
 
 
 <meta itemprop="datePublished" content="2019-11-05T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-05T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="597">
+<meta itemprop="wordCount" content="618">
 
 
 
 <meta itemprop="keywords" content="JS,Javascript,javascript入门,javascript语法,函数,执行时机," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="JS函数执行时机"/>
-<meta name="twitter:description" content="今天学习到了关于JS函数执行时机方面的知识。 以下两个for循环各自独立 // 第一个： let i = 0 for(i = 0; i&lt;6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) } // 第二个： for(let i = 0; i&lt;6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) } 运行"/>
+<meta name="twitter:description" content="今天学习到了关于JS函数执行时机方面的知识。 以下两个for循环各自独立 1 2 3 4 5 6 7 8 9 10 11 12 13 // 第一个： let i = 0 for(i = 0; i&lt;6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) } // 第二个"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -110,40 +110,54 @@
         
           
           
-            <a class="menu-item-link" href="http://gaocarri.github.io/">首页</a>
+            <a class="menu-item-link" href="http://gaocarri.top/">首页</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://gaocarri.github.io/post/">文章</a>
+            <a class="menu-item-link" href="http://gaocarri.top/post/">文章</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://gaocarri.github.io/tags/">标签</a>
+            <a class="menu-item-link" href="http://gaocarri.top/tags/">标签</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://gaocarri.github.io/categories/">分类</a>
+            <a class="menu-item-link" href="http://gaocarri.top/categories/">分类</a>
           
         
       </li><li class="mobile-menu-item">
         
           
           
-            <a class="menu-item-link" href="http://gaocarri.github.io/%E5%85%B3%E4%BA%8E%E6%88%91/">关于我</a>
+            <a class="menu-item-link" href="http://gaocarri.top/%E5%85%B3%E4%BA%8E%E6%88%91/">关于我</a>
           
         
       </li>
     
 
+    
+      <li class="mobile-menu-item">
+        <a id="openSearchMobile" class="mobile-menu-item-link menu-item-search" href="#">
+          <i class="iconfont">
+            <svg version="1.1" viewBox="0 0 1024 1024"
+  xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M973.81454219 973.81454219a91.78207815 91.78207815 0 0 1-129.80999631 0l-161.97482118-161.97482118a425.48527711 425.48527711 0 0 1-230.35931791 68.16531768 428.3346319 428.3346319 0 1 1 428.3346319-428.3346319 425.48527711 425.48527711 0 0 1-68.16531768 230.35931791l162.02961656 161.97482118a91.83687354 91.83687354 0 0 1-0.05479538 129.80999631zM451.67040679 145.69361559a305.97679241 305.97679241 0 1 0 0 611.95358361 305.97679241 305.97679241 0 0 0 0-611.95358361z">
+  </path>
+</svg>
+
+          </i>
+        </a>
+      </li>
     
   </ul>
 </nav>
@@ -210,6 +224,34 @@
   
 
   
+    
+<div class="modal-dialog">
+    
+    <div class="modal-content">
+      <div id="closeSearch" title="Close" class="close">X</div>
+      <div class="modal-header">
+        <div class="modal-title">Search</div>
+      </div>
+      <div class="modal-body">
+          <script>
+            (function() {
+              var cx = '002186711602136249422:q1gkomof_em';
+              var gcse = document.createElement('script');
+              gcse.type = 'text/javascript';
+              gcse.async = true;
+              gcse.src = (document.location.protocol == 'https:' ? 'https:' :
+                  'http:') +
+                '//cse.google.com/cse.js?cx=' + cx;
+              var s = document.getElementsByTagName('script')[0];
+              s.parentNode.insertBefore(gcse, s);
+            })();
+          </script>
+          <gcse:search></gcse:search>
+      </div>
+    </div>
+</div>
+
+  
 
   
 
@@ -230,7 +272,7 @@
         
           
           
-            <a class="menu-item-link" href="http://gaocarri.github.io/">首页</a>
+            <a class="menu-item-link" href="http://gaocarri.top/">首页</a>
           
 
         
@@ -241,7 +283,7 @@
         
           
           
-            <a class="menu-item-link" href="http://gaocarri.github.io/post/">文章</a>
+            <a class="menu-item-link" href="http://gaocarri.top/post/">文章</a>
           
 
         
@@ -252,7 +294,7 @@
         
           
           
-            <a class="menu-item-link" href="http://gaocarri.github.io/tags/">标签</a>
+            <a class="menu-item-link" href="http://gaocarri.top/tags/">标签</a>
           
 
         
@@ -263,7 +305,7 @@
         
           
           
-            <a class="menu-item-link" href="http://gaocarri.github.io/categories/">分类</a>
+            <a class="menu-item-link" href="http://gaocarri.top/categories/">分类</a>
           
 
         
@@ -274,7 +316,7 @@
         
           
           
-            <a class="menu-item-link" href="http://gaocarri.github.io/%E5%85%B3%E4%BA%8E%E6%88%91/">关于我</a>
+            <a class="menu-item-link" href="http://gaocarri.top/%E5%85%B3%E4%BA%8E%E6%88%91/">关于我</a>
           
 
         
@@ -285,6 +327,20 @@
     
     
 
+    
+      <li class="menu-item">
+        <a id="openSearch" class="menu-item-link menu-item-search" href="#">
+          <i class="iconfont">
+            <svg version="1.1" viewBox="0 0 1024 1024"
+  xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M973.81454219 973.81454219a91.78207815 91.78207815 0 0 1-129.80999631 0l-161.97482118-161.97482118a425.48527711 425.48527711 0 0 1-230.35931791 68.16531768 428.3346319 428.3346319 0 1 1 428.3346319-428.3346319 425.48527711 425.48527711 0 0 1-68.16531768 230.35931791l162.02961656 161.97482118a91.83687354 91.83687354 0 0 1-0.05479538 129.80999631zM451.67040679 145.69361559a305.97679241 305.97679241 0 1 0 0 611.95358361 305.97679241 305.97679241 0 0 0 0-611.95358361z">
+  </path>
+</svg>
+
+          </i>
+        </a>
+      </li>
     
   </ul>
 </nav>
@@ -305,12 +361,17 @@
           2019-11-05
         </time>
         <div class="post-category">
-            <a href="http://gaocarri.github.io/categories/javascript/"> JavaScript </a>
+            <a href="http://gaocarri.top/categories/javascript/"> JavaScript </a>
             
           </div>
-        
+        <span class="more-meta"> 约 618 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
 
         
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
         
 
         
@@ -333,8 +394,24 @@
 
 <ul>
 <li><p>以下两个for循环各自独立</p>
-
-<pre><code>// 第一个：
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">// 第一个：
 let i = 0
 for(i = 0; i&lt;6; i++){
 setTimeout(()=&gt;{
@@ -346,8 +423,9 @@ for(let i = 0; i&lt;6; i++){
 setTimeout(()=&gt;{
 console.log(i)
 },0)
-}
-</code></pre></li>
+}</pre></td></tr></table>
+</div>
+</div></li>
 
 <li><p>运行代码我们可以知道第一个for循环会在后台打印出6个6，第二个for循环会在后台打印出0，1，2，3，4，5</p></li>
 
@@ -369,16 +447,28 @@ console.log(i)
 </ul></li>
 
 <li><p>其他方法，使用立即执行函数：</p>
-
-<pre><code>for(var i = 0; i &lt; 6; i++) {
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">for(var i = 0; i &lt; 6; i++) {
 !function() {
 	  var j = i
 setTimeout(() =&gt; {
 console.log(j)
 },0)
 }()  
-}
-</code></pre></li>
+}</pre></td></tr></table>
+</div>
+</div></li>
 </ol></li>
 </ul>
 
@@ -411,12 +501,12 @@ console.log(j)
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="http://gaocarri.github.io/tags/js/">JS</a>
-          <a href="http://gaocarri.github.io/tags/javascript/">Javascript</a>
-          <a href="http://gaocarri.github.io/tags/javascript%E5%85%A5%E9%97%A8/">javascript入门</a>
-          <a href="http://gaocarri.github.io/tags/javascript%E8%AF%AD%E6%B3%95/">javascript语法</a>
-          <a href="http://gaocarri.github.io/tags/%E5%87%BD%E6%95%B0/">函数</a>
-          <a href="http://gaocarri.github.io/tags/%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/">执行时机</a>
+          <a href="http://gaocarri.top/tags/js/">JS</a>
+          <a href="http://gaocarri.top/tags/javascript/">Javascript</a>
+          <a href="http://gaocarri.top/tags/javascript%E5%85%A5%E9%97%A8/">javascript入门</a>
+          <a href="http://gaocarri.top/tags/javascript%E8%AF%AD%E6%B3%95/">javascript语法</a>
+          <a href="http://gaocarri.top/tags/%E5%87%BD%E6%95%B0/">函数</a>
+          <a href="http://gaocarri.top/tags/%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/">执行时机</a>
           
         </div>
 
@@ -456,13 +546,25 @@ console.log(j)
 
   
   
-
   
   
 
   
+  
 
   
+
+  
+  
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "gaocarri/comments-for-blog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
   
 
   
@@ -481,7 +583,7 @@ console.log(j)
 
     <footer id="footer" class="footer">
       <div class="icon-links">
-    
+  
   
     <a href="mailto:gaocarri@163.com" rel="me noopener" class="iconfont"
       title="email" >
@@ -519,7 +621,7 @@ console.log(j)
     </a>
 
 
-<a href="http://gaocarri.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+<a href="http://gaocarri.top/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
     class="iconfont" title="rss" target="_blank">
     <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -528,15 +630,19 @@ console.log(j)
 </svg>
 
   </a>
-  
+   
 </div>
 
 <div class="copyright">
-    <span class="power-by">
+  <span class="power-by">
     Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
   </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
 
-    <span class="copyright-year">
+  <span class="copyright-year">
     &copy;
     2019
     <span class="heart">
@@ -555,9 +661,16 @@ console.log(j)
         
       </span></span>
 
-    
-     
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+
+  
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -595,7 +708,21 @@ console.log(j)
 
 
 
-
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
 
 
 
@@ -608,12 +735,33 @@ console.log(j)
 
 
 
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 
 
 
+  <script id="dsq-count-scr" src="//.disqus.com/count.js" async></script>
+
+
+
+  <script>
+    $("#openSearch, #openSearchMobile").click(function(){
+      $(".modal-dialog").addClass("visible");
+    });
+
+    $("#closeSearch").click(function(){
+      $(".modal-dialog").removeClass("visible");
+    });
+
+    $(document).click(function(event) {
+    
+      if (!$(event.target).closest(".modal-content, #openSearch, #openSearchMobile").length) {
+        $("body").find(".modal-dialog").removeClass("visible");
+      }
+    });
+  </script>
 
 
 

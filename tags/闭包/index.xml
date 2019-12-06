@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>闭包 on 卡里的技术博客</title>
+    <link>http://gaocarri.top/tags/%E9%97%AD%E5%8C%85/</link>
+    <description>Recent content in 闭包 on 卡里的技术博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 06 Dec 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://gaocarri.top/tags/%E9%97%AD%E5%8C%85/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>搞懂JS闭包</title>
+      <link>http://gaocarri.top/post/%E6%90%9E%E6%87%82js%E9%97%AD%E5%8C%85/</link>
+      <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E6%90%9E%E6%87%82js%E9%97%AD%E5%8C%85/</guid>
+      <description>算是对之前学习的查缺补漏吧 本文包括： 闭包是什么 闭包的用途 闭包的缺点 闭包是什么 一句话概括：函数和函数内部能访问到的变量（也叫环境）的总和，就是</description>
+    </item>
+    
+  </channel>
+</rss>

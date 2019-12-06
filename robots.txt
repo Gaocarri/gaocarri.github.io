@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: http://gaocarri.github.io/sitemap.xml
+Sitemap: http://gaocarri.top/sitemap.xml

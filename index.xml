@@ -1,22 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>卡里的技术博客</title>
-    <link>http://gaocarri.github.io/</link>
+    <link>http://gaocarri.top/</link>
     <description>Recent content on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 29 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 06 Dec 2019 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="http://gaocarri.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://gaocarri.top/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>关于我</title>
-      <link>http://gaocarri.github.io/%E5%85%B3%E4%BA%8E%E6%88%91/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <link>http://gaocarri.top/%E5%85%B3%E4%BA%8E%E6%88%91/</link>
+      <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://gaocarri.github.io/%E5%85%B3%E4%BA%8E%E6%88%91/</guid>
+      <guid>http://gaocarri.top/%E5%85%B3%E4%BA%8E%E6%88%91/</guid>
       
         <description>
 
@@ -51,11 +51,3351 @@
     </item>
     
     <item>
-      <title>Posts</title>
-      <link>http://gaocarri.github.io/post/</link>
+      <title>搞懂JS闭包</title>
+      <link>http://gaocarri.top/post/%E6%90%9E%E6%87%82js%E9%97%AD%E5%8C%85/</link>
+      <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E6%90%9E%E6%87%82js%E9%97%AD%E5%8C%85/</guid>
+      
+        <description>
+
+&lt;p&gt;算是对之前学习的查缺补漏吧&lt;/p&gt;
+
+&lt;p&gt;本文包括：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;闭包是什么&lt;/li&gt;
+&lt;li&gt;闭包的用途&lt;/li&gt;
+&lt;li&gt;闭包的缺点&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;闭包是什么&#34;&gt;闭包是什么&lt;/h1&gt;
+
+&lt;p&gt;一句话概括：&lt;code&gt;函数&lt;/code&gt;和&lt;code&gt;函数内部能访问到的变量（也叫环境）&lt;/code&gt;的总和，就是一个闭包。这是由JavaScript的作用域决定的&lt;/p&gt;
+
+&lt;p&gt;以以下一段代码为例&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;let saySomething = () =&amp;gt; {
+    let foo = &amp;#39;hi&amp;#39; //声明一个变量
+    let bar = () =&amp;gt; {
+        console.log(foo) //使用这个变量
+    }
+    return bar
+}
+
+let sayHi = saySomething()
+sayHi() //hi&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;从第一行开始我们做了这样的事情&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;声明了一个函数&lt;code&gt;saySomething&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;在这个函数内部声明了一个变量&lt;code&gt;foo&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;声明了一个函数&lt;code&gt;bar&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;返回了&lt;code&gt;bar&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;将&lt;code&gt;saySomething&lt;/code&gt;的返回值赋值给了&lt;code&gt;sayHi&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;调用&lt;code&gt;sayHi&lt;/code&gt;就可以访问到&lt;code&gt;foo&lt;/code&gt;这个变量&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;只是为了方便理解，这是一个强行凑出来的例子（- -！），总而言之，我们可以间接访问到foo这个变量啦，那么这就是一个闭包。&lt;/p&gt;
+
+&lt;p&gt;关于return:如果不return的话，我们就无法使用这个闭包了，return bar和window.bar = bar是一个意思&lt;/p&gt;
+
+&lt;h1 id=&#34;闭包的用途&#34;&gt;闭包的用途&lt;/h1&gt;
+
+&lt;p&gt;一句话概括：闭包用来间接访问一个变量(即隐藏一个变量)。为什么要这样呢，我来举一个例子&lt;/p&gt;
+
+&lt;p&gt;如果我是一个超人&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    window.me = superMan&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;这样很不妥啊，我不想让所有人都知道我是superMan,而且这样他们能乱改我的身份啊！&lt;/p&gt;
+
+&lt;p&gt;所以我不要上面这个代码了，我要把自己是超人这件事给隐藏起来（用局部变量），但我还是希望有一些相关人士能知道我的身份和帮我改身份（让别人可以间接访问）&lt;/p&gt;
+
+&lt;p&gt;一般闭包和立即执行函数一起用&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;!function () {
+    var me = &amp;#39;superMan&amp;#39;
+        window.getSecret = function () {
+            console.log(me)
+        },
+        window.createSecret = function (newSecret) {
+            me = newSecret
+    }
+}()
+
+getSecret() //知道了我是superMan
+me //没有用，你不知道我是什么
+createSecret(&amp;#39;spiderMan&amp;#39;) //我把自己变成了蜘蛛侠
+getSecret() //知道我现在是蜘蛛侠了&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;好了，现在我就可以把这个函数告诉其他人（其他的JS文件），其他人就可以通过&lt;code&gt;getSecret()&lt;/code&gt;和&lt;code&gt;w、createSecret()&lt;/code&gt;方法来得知或者更改我现在的身份了&lt;/p&gt;
+
+&lt;p&gt;我把它的用处总结为以下几点&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;函数外部可以访问到函数内部的变量或者对象&lt;/li&gt;
+&lt;li&gt;避免了垃圾回收(可以一直能访问这个变量)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;闭包的缺点&#34;&gt;闭包的缺点&lt;/h1&gt;
+
+&lt;p&gt;那么闭包有没有缺点呢？有&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;常驻内存，增加内存使用量&lt;/li&gt;
+&lt;li&gt;在IE中（IE有Bug），使用不当造成内存泄漏（乱用闭包，造成很多多余无用的变量占据内存空间）&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>使用Promosie</title>
+      <link>http://gaocarri.top/post/%E4%BD%BF%E7%94%A8promise/</link>
+      <pubDate>Mon, 02 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E4%BD%BF%E7%94%A8promise/</guid>
+      
+        <description>
+
+&lt;p&gt;虽说最近学到Vue了,但是突然发现自己对Promise的用法掌握的不怎么样,遂写一篇博客,也可以当作自己平常使用的参考。&lt;/p&gt;
+
+&lt;p&gt;内容包括以下几个部分：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Promise是什么&lt;/li&gt;
+&lt;li&gt;Promise解决了什么问题&lt;/li&gt;
+&lt;li&gt;Promise的api&lt;/li&gt;
+&lt;li&gt;Promise习题实例&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;promise是什么&#34;&gt;Promise是什么？&lt;/h1&gt;
+
+&lt;p&gt;一句话概括：Promise是一种写异步代码的方式&lt;/p&gt;
+
+&lt;p&gt;它的基本用法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;let example =new Promise(resolve,reject){
+    //在这里写你想写的代码
+    //然后在某些条件下解决了什么问题
+    if(/*你想写的条件*/){
+        resolve()
+    }else{
+        reject()
+    }
+}
+
+example.then(()=&amp;gt;{
+    //这里写example被resolve时执行的
+},()=&amp;gt;{
+    //这里写example被reject时执行的
+})&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;上面这段代码代表什么意思呢？
+1. 构造了一个Promise实例
+   * 构造函数接受一个函数作为参数
+   * 调用构造函数得到实例p的同时，作为参数的函数会立即执行
+   * 参数函数接受两个回调函数参数resolve和reject
+   * 在参数函数被执行的过程中，如果在其内部调用resolve，会将p的状态变成fulfilled，或者调用reject，会将p的状态变成rejected&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;调用.then()&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;调用.then可以为实例p注册两种状态回调函数&lt;/li&gt;
+&lt;li&gt;当实例p的状态为fulfilled，会触发第一个函数执行&lt;/li&gt;
+&lt;li&gt;当实例p的状态为rejected，则触发第二个函数执行&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Promise的基本模式是（一种异步编程模式）：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;将异步过程转化为Promise对象&lt;/li&gt;
+&lt;li&gt;对象有三个状态&lt;/li&gt;
+&lt;li&gt;通过.then注册状态的回调&lt;/li&gt;
+&lt;li&gt;已完成状态能触发回调&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;promise解决了什么问题&#34;&gt;Promise解决了什么问题&lt;/h1&gt;
+
+&lt;p&gt;之前就听说过回调地狱（也有人叫回调金字塔），它的代码是这样子的&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;do1(done1 =&amp;gt; {
+  do2(done1, done2 =&amp;gt; {
+    do3(done2, done3 =&amp;gt; {
+      do4(done3, done4 =&amp;gt; {
+        do5(done4, done5 =&amp;gt; {
+          // 终于取到done5了
+        })
+      })
+    })
+  })
+})&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;这段代码看起来很乱很难懂，如果使用Promise改写的话就变得简单明了了:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;do1()
+    .then(do2)
+    .then(do3)
+    .then(do4)
+    .then(do5)
+    .then(done=&amp;gt;{
+        //得到done啦
+    })&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;如果让我选，傻子才选第一种写法。&lt;/p&gt;
+
+&lt;h1 id=&#34;promise的api&#34;&gt;Promise的api&lt;/h1&gt;
+
+&lt;p&gt;首先说说Promise怎么使用?&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Promise有三种状态
+
+&lt;ul&gt;
+&lt;li&gt;pending(待定)&lt;/li&gt;
+&lt;li&gt;fulfilled(已执行)&lt;/li&gt;
+&lt;li&gt;rejected(已拒绝)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;resolve()使得Promise实例的状态变成fulfilled,reject()使得Promise实例的状态变成rejected。这两种都是已完成的状态，只有已完成的状态下，才能触发回调。&lt;/p&gt;
+
+&lt;p&gt;Promise的api?&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;new Promise：可以将一个异步过程转化为Promise对象，先有Promise对象，后面才有Promise编程方式&lt;/li&gt;
+&lt;li&gt;then:用于为Promise对象的状态注册回调函数。它会返回一个Promise对象，所以可以进行链式调用，也就是.then后面可以继续.then。在注册的状态回调函数中，可以通过return语句改变.then返回的Promise对象的状态，以及向后面.then注册的状态回调传递数据；也可以不使用return语句，那样默认就是将返回的promise对象resolve。&lt;/li&gt;
+&lt;li&gt;.catch：用于注册rejected状态的回调函数，同时该回调也是程序出错的回调，即如果前面的程序运行过程中出错，也会进入执行该回调函数。同.then一样，也会返回新的promise对象。&lt;/li&gt;
+&lt;li&gt;Promise.resolve():调用Promise.resolve会返回一个状态为fulfilled状态的promise对象，参数会作为数据传递给后面的状态回调函数&lt;/li&gt;
+&lt;li&gt;Promise.reject():同理，只是返回状态变成了rejected&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Promise.all():是Promise对象上的静态方法，该方法的作用是将多个Promise对象实例包装，生成并返回一个新的Promise实例。注意：在下面的方法中，promise数组中所有的promise实例都变为resolve的时候，该方法才会返回，并将所有结果传递results数组中。promise数组中任何一个promise为reject的话，则整个Promise.all调用会立即终止，并返回一个reject的新的promise对象。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;let p1 = Promise.resolve(1),
+p2 = Promise.resolve(2),
+p3 = Promise.resolve(3);
+Promise.all([p1, p2, p3]).then(function (results) {
+console.log(results);  // [1, 2, 3]
+});&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Promse.race：顾名思义赛跑，意思就是说，Promise.race([p1, p2, p3])里面哪个结果获得的快，就返回那个结果，不管结果本身是成功状态还是失败状态。（感觉用的很少）&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;promise的习题实例&#34;&gt;Promise的习题实例&lt;/h1&gt;
+
+&lt;p&gt;如何交替实现红绿灯？
+在网上看到的一个面试题，据说会问两种写法，先把Promise写法搞定吧
+```
+        let red = () =&amp;gt; {
+            console.log(&amp;lsquo;red&amp;rsquo;);
+        }&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    let green = () =&amp;gt; {
+        console.log(&amp;#39;green&amp;#39;);
+    }
+
+    let yellow = () =&amp;gt; {
+        console.log(&amp;#39;yellow&amp;#39;);
+    }
+
+    let light = (fn, timer) =&amp;gt;
+        new Promise(resolve =&amp;gt; {
+            setTimeout(function() {
+                fn()
+                resolve()
+            }, timer)
+        })
+
+
+    // times为交替次数
+    function start(times) {
+        if (!times) {
+            return
+        }
+
+        times--
+        light(red, 3000)
+            .then(() =&amp;gt; light(green, 1000))
+            .then(() =&amp;gt; light(yellow, 2000))
+            .then(() =&amp;gt; start(times))
+
+    }
+
+    start(4)
+```&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;好了以上就是我学到的Promise总结，后面还有Generator，async,await等，都是对Promise的优化(存疑，还没学习到，用到了再深入吧)&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>认识MVC</title>
+      <link>http://gaocarri.top/post/%E8%AE%A4%E8%AF%86mvc/</link>
       <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://gaocarri.github.io/post/</guid>
+      <guid>http://gaocarri.top/post/%E8%AE%A4%E8%AF%86mvc/</guid>
+      
+        <description>
+
+&lt;p&gt;花了几天的时间熟悉了MVC的思想，回头发现自己以前写的代码弱（太）爆（多）了，记一篇博客回顾所学。&lt;/p&gt;
+
+&lt;p&gt;以下内容代表自己的思考，结论并非一定正确。&lt;/p&gt;
+
+&lt;h1 id=&#34;什么是mvc&#34;&gt;什么是MVC&lt;/h1&gt;
+
+&lt;p&gt;一句话概括：MVC是一种架构设计模式，它通过关注点分离鼓励改进应用程序组织。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;M：Model(数据类型)负责操作所有数据&lt;/li&gt;
+&lt;li&gt;V：View(视图)负责所有UI界面&lt;/li&gt;
+&lt;li&gt;C：Controller(控制器)负责其他&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;mvc的m-v-c分别做什么&#34;&gt;MVC的M,V,C分别做什么&lt;/h1&gt;
+
+&lt;p&gt;一图流:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/11/29/Qk9As0.png&#34; alt=&#34;Qk9As0.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;给出以下示例&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;M:构建一个M，M保存了数据，当M改变的时候，M会通知V。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;例如保存缓存，保存方法&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;const m = {
+  data: {
+    n: parseInt(localStorage.getItem(&amp;#39;n&amp;#39;))
+  },
+  create() {}
+  delete() {},
+  update(data) {
+    Object.assign(m.data, data)
+    eventBus.trigger(&amp;#39;m:updated&amp;#39;)
+    localStorage.setItem(&amp;#39;n&amp;#39;, m.data.n)
+  },
+  get() {}
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;V：构建一个V，V包含关于视图的部分，当V变化的时候，视图会重新渲染，呈现给用户不一样的界面&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;包含HTML，以及渲染的方法等&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;const v = {
+  el: null,
+  html: ...,
+  init(container) {
+    v.el = $(container)
+  },
+  render(n) {
+    if (v.el.children.length !== 0) v.el.empty()
+    $(v.html.replace(&amp;#39;{{n}}&amp;#39;, n))
+      .appendTo(v.el)
+  }
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;C：构建一个C，C包含各类绑定事件，用户可以操作C,通过C可以改变M，改变V。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;示例&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;const c = {
+  init(container) {
+    v.init(container)
+    v.render(m.data.n) // view = render(data)
+    c.autoBindEvents()
+    eventBus.on(&amp;#39;m:updated&amp;#39;, () =&amp;gt; {
+      console.log(&amp;#39;here&amp;#39;)
+      v.render(m.data.n)
+    })
+  },
+  events: {
+    &amp;#39;click #add1&amp;#39;: &amp;#39;add&amp;#39;,
+    &amp;#39;click #minus1&amp;#39;: &amp;#39;minus&amp;#39;,
+    &amp;#39;click #mul2&amp;#39;: &amp;#39;mul&amp;#39;,
+    &amp;#39;click #divide2&amp;#39;: &amp;#39;div&amp;#39;,
+  },
+  add() {
+    m.update({n: m.data.n + 1})
+  },
+  minus() {
+    m.update({n: m.data.n - 1})
+  },
+  mul() {
+    m.update({n: m.data.n * 2})
+  },
+  div() {
+    m.update({n: m.data.n / 2})
+  },
+  autoBindEvents() {
+    for (let key in c.events) {
+      const value = c[c.events[key]]
+      const spaceIndex = key.indexOf(&amp;#39; &amp;#39;)
+      const part1 = key.slice(0, spaceIndex)
+      const part2 = key.slice(spaceIndex + 1)
+      v.el.on(part1, part2, value)
+    }
+  }
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h1 id=&#34;eventbus是做什么用的&#34;&gt;EventBus是做什么用的&lt;/h1&gt;
+
+&lt;p&gt;EventBus用来进行对象间通信的，在上述的代码M中和C中存在EventBus，这些代码表示一个过程，举个例子，当我调用了C中的&lt;code&gt;add()&lt;/code&gt;方法，会触发M中的&lt;code&gt;update()&lt;/code&gt;,它会把更新过的n分发给所有包含n的数据，更新它们，并且使用&lt;code&gt;EventBus.trigger()&lt;/code&gt;,C中的&lt;code&gt;init()&lt;/code&gt;通过&lt;code&gt;EventBus.on()&lt;/code&gt;监听了&lt;code&gt;trigger&lt;/code&gt;,当触发时，它就会调用一个渲染的方法&lt;code&gt;render()&lt;/code&gt;更新页面。这样的好处就是自动更新，我每次不必在使用&lt;code&gt;add()&lt;/code&gt;的时候在手动写一次&lt;code&gt;render()&lt;/code&gt;渲染页面.&lt;/p&gt;
+
+&lt;p&gt;EventBus的api:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;EventBus.trigger()&lt;/code&gt;,用于触发()中的内容。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;EventBus.on()&lt;/code&gt;，用于监听()中的内容，当监听到时，会触发一个事件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;EventBus.off()&lt;/code&gt;,用于监听()中的内容，当监听到时，会结束一个事件&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;表驱动编程是什么&#34;&gt;表驱动编程是什么&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;将所有的数据方法放在表中，直接在表中查找，而不必使用逻辑语句，好处是简单直接。&lt;/li&gt;
+&lt;li&gt;它的本质是，从表里查询信息来代替逻辑语句&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以下一段代码，通过if,else来判断月份，给出当月的天数。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;if (month === 1) {
+    return 31;
+} else if (month == 2) {
+    return 28;
+}else if (month == 3) {
+    return 31;
+}
+...
+else if (month == 12) {
+    return 31;
+} else {
+    return 0;
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;上述代码冗长复杂，我们可以把它改写为&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;array daysPerMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
+days = daysPerMonth[month - 1];&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;这样就简洁明了了。&lt;/p&gt;
+
+&lt;p&gt;它的优点：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;更加易读和直白；&lt;/li&gt;
+&lt;li&gt;用数据代替逻辑，容易维护；&lt;/li&gt;
+&lt;li&gt;可以把表中的数据存放在文件中，运行时读取，减少代码体量。数据变更时只需要修改文件；&lt;/li&gt;
+&lt;li&gt;降低复杂度。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;以上只是一个最简单的例子，MVC中我们把一个个数据和方法放在了表中，同样实现了这些优点。&lt;/p&gt;
+
+&lt;h1 id=&#34;我对模块化的理解&#34;&gt;我对模块化的理解&lt;/h1&gt;
+
+&lt;p&gt;通过对MVC的学习,对模块化有了一定的认识,看着代码从复杂到简易,好像渐渐明白了模块化带来的好处&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;什么是模块化&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;模块化就是将一个复杂的程序依据一定的规则(规范)封装成几个块(文件), 并进行组合在一起&lt;/li&gt;
+&lt;li&gt;块的内部数据与实现是私有的, 只是向外部暴露一些接口(方法)与外部其它模块通信&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;模块化的优点&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;避免命名冲突(减少命名空间污染)&lt;/li&gt;
+&lt;li&gt;更好的分离, 按需加载&lt;/li&gt;
+&lt;li&gt;更高复用性&lt;/li&gt;
+&lt;li&gt;高可维护性&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;马上要学习Vue了,这段时间先回顾回顾,夯实一下自己的基础。&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>四种排序算法</title>
+      <link>http://gaocarri.top/post/%E5%9B%9B%E7%A7%8D%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sat, 23 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E5%9B%9B%E7%A7%8D%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</guid>
+      
+        <description>
+
+&lt;h1 id=&#34;选择排序&#34;&gt;选择排序&lt;/h1&gt;
+
+&lt;p&gt;之前入门了数据结构与算法，学了几种经典的排序，今天在这里把他记录下来&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;选择排序的思想，依次找到最小的数的&lt;code&gt;index&lt;/code&gt;，把它取出来，再在去除它的数组中找到它。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    let min = (numbers) =&amp;gt; {
+        if (numbers.length &amp;gt; 2) {
+            return min([numbers[0], min(numbers.slice(1))]);
+        } else {
+            return Math.min.apply(null, numbers)
+        }
+    }
+        //2. 用递归排序数组
+    let minIndex = (numbers) =&amp;gt; {
+        return numbers.indexOf(min(numbers))
+    }
+
+    let sort = (numbers) =&amp;gt; {
+        if (numbers.length &amp;gt; 2) {
+            let Index = minIndex(numbers);
+            let min = numbers[Index];
+            numbers.splice(Index, 1);
+            return [min].concat(sort(numbers));
+        } else {
+            return numbers[0] &amp;lt; numbers[1] ? numbers : numbers.reverse()
+        }
+    }&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;快速排序&#34;&gt;快速排序&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;快速排序的思想，将数组分成两段，抽出中间这个数，将其他数与其比较大小，将小的放到它的左边，大的放到它右边，重复此过程&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    let quickSort = (arr) =&amp;gt; {
+        if (arr.length &amp;lt;= 1) {
+            return arr;
+        }
+        let pivotIndex = Math.floor(arr.length / 2);
+        let pivot = arr.splice(pivotIndex, 1)[0];
+        let left = [];
+        let right = [];
+        for (let i = 0; i &amp;lt; arr.length; i++) {
+            if (arr[i] &amp;lt; pivot) {
+                left.push(arr[i]);
+            } else {
+                right.push(arr[i])
+            }
+        }
+        return quickSort(left).concat([pivot], quickSort(right));
+    }
+    let x = [8, 2, 9, 4, 6, 1, 1];&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;归并排序&#34;&gt;归并排序&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;归并排序的思路，将数组分成两半（一直分），每次对比两个数组之间的数大小，再把最终结果合并起来&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    let mergeSort = (arr) =&amp;gt; {
+        if (arr.length === 1) {
+            return arr;
+        }
+        let left = arr.slice(0, Math.floor(arr.length / 2))
+        let right = arr.splice(arr.length / 2)
+        return merge(mergeSort(left), mergeSort(right));
+    }
+    let merge = (a, b) =&amp;gt; {
+        if (a.length === 0) {
+            return b;
+        }
+        if (b.length === 0) {
+            return a;
+        }
+        return a[0] &amp;gt; b[0] ? [b[0]].concat(merge(a, b.slice(1))) : [a[0]].concat(merge(b, a.slice(1)))
+    }
+    let arr = [1, 4, 6, 2, 3, 1];&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;计数排序&#34;&gt;计数排序&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;计数排序的思路，声明一个哈希表用来存储这个数组并且记录每个数出现的次数，然后再从0开始寻找哈希表中的数，依次把最小的数push到一个新的数组中去。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;let countSort = (arr) =&amp;gt; {
+        let hashTable = {},
+            max = 0,
+            result = [];
+        for (let i = 0; i &amp;lt; arr.length; i++) {
+            if (!(arr[i] in hashTable)) {
+                hashTable[arr[i]] = 1
+            } else {
+                hashTable[arr[i]] += 1
+            }
+            if (arr[i] &amp;gt; max) {
+                max = arr[i]
+            }
+        }
+        for (let j = 0; j &amp;lt;= max; j++) {
+            for (let i = 0; i &amp;lt; hashTable[j]; i++) {
+                result.push(j)
+            }
+        }
+        return result;
+    }
+let arr = [2, 5, 4, 3, 2, 1, 3]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>如何利用哈希表存储用户操作</title>
+      <link>http://gaocarri.top/post/%E5%A6%82%E4%BD%95%E5%9C%A8%E5%88%A9%E7%94%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E5%AD%98%E5%82%A8%E7%94%A8%E6%88%B7%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E5%A6%82%E4%BD%95%E5%9C%A8%E5%88%A9%E7%94%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E5%AD%98%E5%82%A8%E7%94%A8%E6%88%B7%E6%93%8D%E4%BD%9C/</guid>
+      
+        <description>
+
+&lt;p&gt;这几天学完jQuery尝试做了一个导航网站的小项目
+&lt;a href=&#34;https://github.com/Gaocarri/Arknights-nav&#34;&gt;github地址&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;为了实现页面刷新或重启后用户的新增网站不被删除，使用了哈希表将用户的数据存储在了浏览器本地&lt;/p&gt;
+
+&lt;h2 id=&#34;具体的过程&#34;&gt;具体的过程&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;首先是一段读取缓存的代码&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;const x = localStorage.getItem(&amp;#39;x&amp;#39;); //读取缓存
+const xObject = JSON.parse(x)
+const hashMap = xObject || [];&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;具体步骤 ：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;首先声明一个变量&lt;code&gt;x&lt;/code&gt;,它代表了缓存。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;然后我们利用&lt;code&gt;JSON.parse()&lt;/code&gt;将从浏览器中读取到的缓存转换为数组&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;声明一个哈希表,它的值就是这个数组，但是初次打开该网站时缓存为空，所以我们需要使用逻辑运算符&lt;code&gt;||&lt;/code&gt;来让它有一个初始的空值&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;好了，现在哈希表就有了&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;往哈希表里增删数据&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;hashMap.push({
+    logo: simplifyUrl($url)[0].toUpperCase(),
+    url: $url
+
+hashMap.splice(index, 1)&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;具体步骤：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;我们只需要像数组一样将数据push或者slice&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;这样我们就有了存储数据的哈希表&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;接下来要保存数据&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;window.onbeforeunload = () =&amp;gt; {
+const string = JSON.stringify(hashMap);
+localStorage.setItem(&amp;#39;x&amp;#39;, string) //自动保存
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;window.onbeforeunload&lt;/code&gt;是指在浏览器关闭前&lt;/p&gt;
+
+&lt;p&gt;具体步骤：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;将哈希表转换为字符串&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;将字符串&lt;code&gt;string&lt;/code&gt;的数据保存到浏览器本地缓存&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;现在浏览器就保存这个数据了，我们可以使用清除浏览器缓存来清除它&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>jQuery的使用</title>
+      <link>http://gaocarri.top/post/jquery%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Wed, 13 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/jquery%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      
+        <description>
+
+&lt;p&gt;这两天自己尝试了封装DOM，并且熟悉了jQuery，记一篇博客概述jQuery的基本使用方法。&lt;/p&gt;
+
+&lt;h1 id=&#34;jquery如何获取元素&#34;&gt;jQuery如何获取元素&lt;/h1&gt;
+
+&lt;p&gt;首先概括jQuery的基本思想&amp;mdash;选择某个网页元素，对其进行一系列操作。&lt;/p&gt;
+
+&lt;p&gt;具体步骤就是使用jQuery.()(简写为$.())来选中某个元素，选取元素的方法如下列所示。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;选择表达式可以是CSS选择器&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;　　$(document) //选择整个文档对象
+
+　　$(&amp;#39;#myId&amp;#39;) //选择ID为myId的网页元素
+
+　　$(&amp;#39;div.myClass&amp;#39;) // 选择class为myClass的div元素
+
+　　$(&amp;#39;input[name=first]&amp;#39;) // 选择name属性等于first的input元素&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;选择表达式也可以是jQuery的特有表达式&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;　　$(&amp;#39;a:first&amp;#39;) //选择网页中第一个a元素
+
+　　$(&amp;#39;tr:odd&amp;#39;) //选择表格的奇数行
+
+　　$(&amp;#39;#myForm :input&amp;#39;) // 选择表单中的input元素
+
+　　$(&amp;#39;div:visible&amp;#39;) //选择可见的div元素
+
+　　$(&amp;#39;div:gt(2)&amp;#39;) // 选择所有的div元素，除了前三个
+
+　　$(&amp;#39;div:animated&amp;#39;) // 选择当前处于动画状态的div元素&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;jQuery还具有选取特定元素的能力&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;　　$(&amp;#39;div&amp;#39;).has(&amp;#39;p&amp;#39;); // 选择包含p元素的div元素
+
+　　$(&amp;#39;div&amp;#39;).not(&amp;#39;.myClass&amp;#39;); //选择class不等于myClass的div元素
+
+　　$(&amp;#39;div&amp;#39;).filter(&amp;#39;.myClass&amp;#39;); //选择class等于myClass的div元素
+
+　　$(&amp;#39;div&amp;#39;).first(); //选择第1个div元素
+
+　　$(&amp;#39;div&amp;#39;).eq(5); //选择第6个div元素
+
+　　$(&amp;#39;div&amp;#39;).next(&amp;#39;p&amp;#39;); //选择div元素后面的第一个p元素
+
+　　$(&amp;#39;div&amp;#39;).parent(); //选择div元素的父元素
+
+　　$(&amp;#39;div&amp;#39;).closest(&amp;#39;form&amp;#39;); //选择离div最近的那个form父元素
+
+　　$(&amp;#39;div&amp;#39;).children(); //选择div的所有子元素
+
+　　$(&amp;#39;div&amp;#39;).siblings(); //选择div的同级（兄弟）元素&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;jquery的链式操作是怎样的&#34;&gt;jQuery的链式操作是怎样的&lt;/h1&gt;
+
+&lt;p&gt;举个例子&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;　　$(&amp;#39;div&amp;#39;).find(&amp;#39;h3&amp;#39;).eq(2).html(&amp;#39;Hello&amp;#39;);
+//找到div,选取其中的h3,选取h3里的第3个元素，将它的内容改为(&amp;#39;Hello&amp;#39;)&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;jQuery链式操作实现的原理在于，jQuery操作返回的都是一个jQuery对象，我们可以紧接着对这个对象进行一系列操作&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;另外jQuery还提供了.end()操作方法,使得选取的对象后退一步。如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;　　$(&amp;#39;div&amp;#39;)
+
+　　　.find(&amp;#39;h3&amp;#39;)
+
+　　　.eq(2)
+
+　　　.html(&amp;#39;Hello&amp;#39;)
+
+　　　.end() //退回到选中所有的h3元素的那一步
+
+　　　.eq(0) //选中第一个h3元素
+
+　　　.html(&amp;#39;World&amp;#39;); //将它的内容改为World&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h1 id=&#34;jquery如何移动元素&#34;&gt;jQuery如何移动元素&lt;/h1&gt;
+
+&lt;p&gt;jQuery提供了两组方法来操作元素在网页中的位置移动。一组方法是直接移动该元素，另一组方法是移动其他元素，使得目标元素达到我们想要的位置。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;首先是这种操作模式的四种方法，共计四对&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;　　.insertAfter()和.after()：在现存元素的外部，从后面插入元素
+
+　　.insertBefore()和.before()：在现存元素的外部，从前面插入元素
+
+　　.appendTo()和.append()：在现存元素的内部，从后面插入元素
+
+　　.prependTo()和.prepend()：在现存元素的内部，从前面插入元素&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;以第一组为例&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;　　$(&amp;#39;div&amp;#39;).insertAfter($(&amp;#39;p&amp;#39;)); 
+//第一种方法是使用.insertAfter()，把div元素移动p元素后面
+　　$(&amp;#39;p&amp;#39;).after($(&amp;#39;div&amp;#39;)); 
+//第二种方法是使用.after()，把p元素加到div元素前面&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;值得一提的是（需要注意的是），这两种方法返回的不是同一个元素：第一种返回的是&lt;code&gt;div&lt;/code&gt;元素而第二种返回的是&lt;code&gt;p&lt;/code&gt;元素&lt;/p&gt;
+
+&lt;h1 id=&#34;jquery如何创建元素&#34;&gt;jQuery如何创建元素&lt;/h1&gt;
+
+&lt;p&gt;jQuery创建元素很简单，以下为例&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;　　$(&amp;#39;&amp;lt;p&amp;gt;Hello&amp;lt;/p&amp;gt;&amp;#39;);  // 创建&amp;lt;p&amp;gt;Hello&amp;lt;/p&amp;gt;元素
+
+　　$(&amp;#39;&amp;lt;li class=&amp;#34;new&amp;#34;&amp;gt;new li&amp;lt;/li&amp;gt;&amp;#39;);  // 创建&amp;lt;li class=&amp;#34;new&amp;#34;&amp;gt;new li&amp;lt;/li&amp;gt;元素
+
+　　$(&amp;#39;ul&amp;#39;).append(&amp;#39;&amp;lt;li&amp;gt;list item&amp;lt;/li&amp;gt;&amp;#39;); //创建&amp;lt;li&amp;gt;list item&amp;lt;/li&amp;gt;元素并添加到ul里面&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h1 id=&#34;jquery如何修改元素的属性&#34;&gt;jQuery如何修改元素的属性&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;　　.html() 取出或设置html内容
+
+　　.text() 取出或设置text内容
+
+　　.attr() 取出或设置某个属性的值
+
+　　.width() 取出或设置某个元素的宽度
+
+　　.height() 取出或设置某个元素的高度
+
+　　.val() 取出某个表单元素的值&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;jQuery很厉害的一点在于它可以使用同一个函数，来完成取值（getter）和赋值（setter），即&amp;rdquo;取值器&amp;rdquo;与&amp;rdquo;赋值器&amp;rdquo;合一，到底是取值还是赋值，由传入的参数决定&lt;/p&gt;
+
+&lt;p&gt;举例：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;　　$(&amp;#39;h1&amp;#39;).html(); //html()没有参数，表示取出h1的值
+
+　　$(&amp;#39;h1&amp;#39;).html(&amp;#39;Hello&amp;#39;); //html()有参数Hello，表示对h1进行赋值&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;以上就是对现阶段jQuery学习的总结&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>如何优化DOM操作来优化性能</title>
+      <link>http://gaocarri.top/post/%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96dom%E6%93%8D%E4%BD%9C%E6%9D%A5%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96dom%E6%93%8D%E4%BD%9C%E6%9D%A5%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD/</guid>
+      
+        <description>
+
+&lt;h1 id=&#34;为什么dom操作很慢&#34;&gt;为什么DOM操作很慢&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;一句话概括：DOM对象本身也是一个js对象，所以严格来说，并不是操作这个对象慢，而是说操作了这个对象后，会触发一些浏览器行为，比如布局（layout）和绘制（paint）。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;用文字描述浏览器呈现一张页面的过程：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;解析HTML，并生成一棵DOM tree&lt;/li&gt;
+&lt;li&gt;解析各种样式并结合DOM tree生成一棵Render tree&lt;/li&gt;
+&lt;li&gt;对Render tree的各个节点计算布局信息，比如box的位置与尺寸&lt;/li&gt;
+&lt;li&gt;根据Render tree并利用浏览器的UI层进行绘制&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;浏览器触发layout的情况&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;通过js获取需要计算的DOM属性&lt;/li&gt;
+&lt;li&gt;添加或删除DOM元素&lt;/li&gt;
+&lt;li&gt;resize浏览器窗口大小&lt;/li&gt;
+&lt;li&gt;改变字体&lt;/li&gt;
+&lt;li&gt;css伪类的激活，比如:hover&lt;/li&gt;
+&lt;li&gt;通过js修改DOM元素样式且该样式涉及到尺寸的改变&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;几种优化方案&#34;&gt;几种优化方案&lt;/h1&gt;
+
+&lt;h2 id=&#34;批量读写方案&#34;&gt;批量读写方案&lt;/h2&gt;
+
+&lt;p&gt;对于一段这样的代码&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;// Read
+var h1 = element1.clientHeight;
+
+// Write (invalidates layout)
+element1.style.height = (h1 * 2) + &amp;#39;px&amp;#39;;
+
+// Read (triggers layout)
+var h2 = element2.clientHeight;
+
+// Write (invalidates layout)
+element2.style.height = (h2 * 2) + &amp;#39;px&amp;#39;;
+
+// Read (triggers layout)
+var h3 = element3.clientHeight;
+
+// Write (invalidates layout)
+element3.style.height = (h3 * 2) + &amp;#39;px&amp;#39;;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;其中&lt;code&gt;clientHeight&lt;/code&gt;这个属性是计算得到的，每计算一次，浏览器就会进行一次layout&lt;/p&gt;
+
+&lt;p&gt;下面给出一种优化这段代码的方法，只需要预先读取所需要的属性，在一起修改即可：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;// Read
+var h1 = element1.clientHeight;
+var h2 = element2.clientHeight;
+var h3 = element3.clientHeight;
+
+// Write (invalidates layout)
+element1.style.height = (h1 * 2) + &amp;#39;px&amp;#39;;
+element2.style.height = (h2 * 2) + &amp;#39;px&amp;#39;;
+element3.style.height = (h3 * 2) + &amp;#39;px&amp;#39;;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;先操作属性-再添加回render-tree&#34;&gt;先操作属性，再添加回Render Tree&lt;/h2&gt;
+
+&lt;p&gt;以下列代码为例&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;var fragment = document.createDocumentFragment();
+for (var i=0; i &amp;lt; items.length; i++){
+  var item = document.createElement(&amp;#34;li&amp;#34;);
+  item.appendChild(document.createTextNode(&amp;#34;Option &amp;#34; + i);
+  fragment.appendChild(item);
+}
+list.appendChild(fragment);&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;核心思想就是先对一个不在Render tree上的节点进行一系列操作，再把这个节点添加回Render tree，这样无论多么复杂的DOM操作，最终都只会触发一次layout。&lt;/p&gt;
+
+&lt;h2 id=&#34;面对样式修改&#34;&gt;面对样式修改&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;针对样式的改变，我们首先需要知道并不是所有样式的修改都会触发layout，因为我们知道layout的工作是计算RenderObject的尺寸和大小信息，那么我如果只是改变一个颜色，是不会触发layout的。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;特别提一下JS动画,比如以下这段代码&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;function animate (from, to) {
+  if (from === to) return
+
+  requestAnimationFrame(function () {
+    from += 5
+    element1.style.height = from + &amp;#34;px&amp;#34;
+    animate(from, to)
+  })
+}
+
+animate(100, 500)&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;动画的每一帧都会导致layout，这是无法避免的，但是为了减少动画带来的layout的性能损失，可以将动画元素绝对定位，这样动画元素脱离文本流，layout的计算量会减少很多。&lt;/p&gt;
+
+&lt;h2 id=&#34;使用requestanimationframe&#34;&gt;使用requestAnimationFrame&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;window.requestAnimationFrame() 告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行(MDN)&lt;/li&gt;
+&lt;li&gt;任何可能导致重绘的操作都应该放入requestAnimationFrame&lt;/li&gt;
+&lt;li&gt;在现实项目中，代码按模块划分，很难像上例那样组织批量读写。那么这时可以把写操作放在&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;requestAnimationFrame的callback中，统一让写操作在下一次paint之前执行。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;// Read
+var h1 = element1.clientHeight;
+
+// Write
+requestAnimationFrame(function() {
+  element1.style.height = (h1 * 2) + &amp;#39;px&amp;#39;;
+});
+
+// Read
+var h2 = element2.clientHeight;
+
+// Write
+requestAnimationFrame(function() {
+  element2.style.height = (h2 * 2) + &amp;#39;px&amp;#39;;
+});&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;一些个人感想&#34;&gt;一些个人感想&lt;/h2&gt;
+
+&lt;p&gt;或许这就是更深层次点的东西，写出代码容易，写好难。&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>自己画出JS世界</title>
+      <link>http://gaocarri.top/post/%E8%87%AA%E5%B7%B1%E7%94%BB%E5%87%BAjs%E4%B8%96%E7%95%8C/</link>
+      <pubDate>Thu, 07 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E8%87%AA%E5%B7%B1%E7%94%BB%E5%87%BAjs%E4%B8%96%E7%95%8C/</guid>
+      
+        <description>
+
+&lt;h1 id=&#34;关于一个js世界是如何形成的&#34;&gt;关于一个JS世界是如何形成的？&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;创建根对象#101(它有toString等属性)、根对象无名字（它的&lt;strong&gt;proto&lt;/strong&gt;:null）
+&lt;a href=&#34;https://imgchr.com/i/Mk9Qtf&#34;&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/11/07/Mk9Qtf.png&#34; alt=&#34;Mk9Qtf.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;创建函数的原型#208(它有call,apply等属性),原型&lt;strong&gt;proto&lt;/strong&gt;的地址为#101
+&lt;a href=&#34;https://imgchr.com/i/Mk9mnA&#34;&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/11/07/Mk9mnA.png&#34; alt=&#34;Mk9mnA.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;创建数组的原型#404(它有push,pop等属性),原型&lt;strong&gt;proto&lt;/strong&gt;的地址为#101
+&lt;a href=&#34;https://imgchr.com/i/Mk9n0I&#34;&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/11/07/Mk9n0I.png&#34; alt=&#34;Mk9n0I.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;创建Function（实际没有名字）#342，原型&lt;strong&gt;proto&lt;/strong&gt;的地址为#208&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;让Function的prototype地址为#208&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;此时发现Function的&lt;strong&gt;proto&lt;/strong&gt;和prototype都是#208
+&lt;a href=&#34;https://imgchr.com/i/Mk9u7t&#34;&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/11/07/Mk9u7t.png&#34; alt=&#34;Mk9u7t.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;用Function创建Object（实际没有名字）&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;让Object.prototype的地址为#101
+&lt;a href=&#34;https://imgchr.com/i/Mk9MAP&#34;&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/11/07/Mk9MAP.png&#34; alt=&#34;Mk9MAP.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;用Function创建Array（实际没有名字）&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;让Array.prototype的地址为#101
+&lt;a href=&#34;https://imgchr.com/i/Mk9lh8&#34;&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/11/07/Mk9lh8.png&#34; alt=&#34;Mk9lh8.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;创建window对象（它不属于JS世界）&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;用window的&amp;rdquo;Function&amp;rdquo;&amp;ldquo;Object&amp;rdquo;&amp;ldquo;Array&amp;rdquo;属性将他们命名
+&lt;a href=&#34;https://imgchr.com/i/Mk939S&#34;&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/11/07/Mk939S.png&#34; alt=&#34;Mk939S.png&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;记住一点JS创建一个对象时，不会给它名字&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;完整的图示&#34;&gt;完整的图示&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/11/07/MkiUHA.png&#34; alt=&#34;MkiUHA.png&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;js三大公理&#34;&gt;JS三大公理&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;对象.&lt;strong&gt;proto&lt;/strong&gt;===其构造函数.prototype&lt;/li&gt;
+&lt;li&gt;根公理：Object.prototype是所有对象（直接或间接）的原型&lt;/li&gt;
+&lt;li&gt;函数公理：所有函数都是由Function构造的，任何函数&lt;strong&gt;proto&lt;/strong&gt;===Function.prototype(任何函数有Object/Array/Function)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Object.prototype是所有对象的原型，Object是Function构造出来的，所以Function构造了Object.prototype,推论，Function才是万物之源啊（错）&lt;/li&gt;
+&lt;li&gt;错的理由:Function构造了Object.prototype这个地址，但没有构造它对应的根对象，根对象是原本就存在的！&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>JS函数执行时机</title>
+      <link>http://gaocarri.top/post/js%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</link>
+      <pubDate>Tue, 05 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/js%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</guid>
+      
+        <description>&lt;p&gt;今天学习到了关于JS函数执行时机方面的知识。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;以下两个for循环各自独立&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;// 第一个：
+let i = 0
+for(i = 0; i&amp;lt;6; i++){
+setTimeout(()=&amp;gt;{
+console.log(i)
+},0)
+}
+// 第二个：
+for(let i = 0; i&amp;lt;6; i++){
+setTimeout(()=&amp;gt;{
+console.log(i)
+},0)
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;运行代码我们可以知道第一个for循环会在后台打印出6个6，第二个for循环会在后台打印出0，1，2，3，4，5&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;下面分析造成这种情况的原因&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;setTimeout()的用法
+
+&lt;ul&gt;
+&lt;li&gt;setTimeout()方法设置一个定时器，该定时器在定时器到期后执行一个函数或指定的一段代码&lt;/li&gt;
+&lt;li&gt;delay：延迟的毫秒数 (一秒等于1000毫秒)，函数的调用会在该延迟之后发生。如果省略该参数，delay取默认值0，意味着“马上”执行，或者尽快执行。不管是哪种情况，实际的延迟时间可能会比期待的(delay毫秒数) 值长，原因请查看&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/API/Window/setTimeout#Reasons_for_delays_longer_than_specified&#34;&gt;Reasons for delays longer than specified&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;第一段代码因为setTimeout()这个函数,&lt;code&gt;console.log(i)&lt;/code&gt;会在for循环全部执行后才执行，此时i变为了6，因此会打印出6个6。举个例子，老板让你搬100个箱子，在你搬箱子的时候老板说去打印一个文件，你就会在搬完100个箱子的时候再去打印这个文件，通俗来说就是等一会，同理setTimeout.&lt;/li&gt;
+&lt;li&gt;那么第二段代码为什么不一样了呢，这就是JS的坑爹之处：
+
+&lt;ul&gt;
+&lt;li&gt;因为JS在for和let一起用的时候会加东西&lt;/li&gt;
+&lt;li&gt;每次for循环会多创建一个i（坑爹），所以打印出了6个不同的i&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;其他方法，使用立即执行函数：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;for(var i = 0; i &amp;lt; 6; i++) {
+!function() {
+	  var j = i
+setTimeout(() =&amp;gt; {
+console.log(j)
+},0)
+}()  
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>JS对象基本用法</title>
+      <link>http://gaocarri.top/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Mon, 04 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</guid>
+      
+        <description>
+
+&lt;h1 id=&#34;声明对象的两种语法&#34;&gt;声明对象的两种语法&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;// 第1种：
+let obj = { &amp;#39;name&amp;#39;: &amp;#39;frank&amp;#39;, &amp;#39;age&amp;#39;: 18 }
+// 第2种：
+let obj = new Object({&amp;#39;name&amp;#39;: &amp;#39;frank&amp;#39;})&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;键名必须是字符串，引号大部分时候可以省略（空格和中文时不可省）&lt;/li&gt;
+&lt;li&gt;就算引号省略了，字符串还是字符串&lt;/li&gt;
+&lt;li&gt;第2种是标准的写法，但大多数时候下用第1种即可&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;如何删除对象的属性&#34;&gt;如何删除对象的属性&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;delete obj.name
+//或
+delete obj[&amp;#39;name&amp;#39;]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;可以删除&amp;rsquo;name&amp;rsquo;这个属性&lt;/li&gt;
+&lt;li&gt;obj.xxx===undefined 不能判断xxx是不是obj的属性，也有可能有这个属性但是未定义&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;如何查看对象的属性&#34;&gt;如何查看对象的属性&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Object.keys(obj)&lt;/code&gt;查看obj的属性有哪些&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;console.dir(obj)&lt;/code&gt;查看obj的属性及属性值&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;obj[&#39;name&#39;]&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;obj.name&lt;/code&gt;注意这里的name是字符串&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;obj[name]&lt;/code&gt;注意这里的name是变量&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;如何修改或增加对象的属性&#34;&gt;如何修改或增加对象的属性&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;直接赋值&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;let obj = {name: &amp;#39;frank&amp;#39;} // name是字符串
+obj.name = &amp;#39;frank&amp;#39; // name是字符串
+obj[&amp;#39;name&amp;#39;] = &amp;#39;frank&amp;#39;
+obj[name] = &amp;#39;frank&amp;#39; // name是变量，所以错，无法这么赋值
+obj[&amp;#39;na&amp;#39;+&amp;#39;me&amp;#39;] = &amp;#39;frank&amp;#39;
+let key = &amp;#39;name&amp;#39;; obj[key] = &amp;#39;frank&amp;#39;
+let key = &amp;#39;name&amp;#39;; obj.key = &amp;#39;frank&amp;#39; //错，因为等价于obj.key等价于obj[&amp;#39;key&amp;#39;]，但key是变量&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;批量赋值&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;Object.assign(obj, {age: 18, gender: &amp;#39;man&amp;#39;})&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;无法通过自身来修改原型，一般不要修改原型(可以obj.&lt;strong&gt;proto&lt;/strong&gt;.toString = &amp;lsquo;xxx&amp;rsquo;，但不要这么做，容易混乱)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;let common = {
+&amp;#39;国&amp;#39;:&amp;#39;中国&amp;#39;，
+hairColor:&amp;#39;black&amp;#39;
+}
+let person = Object.create(common)&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;以common为原型创造person&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;person的原型就是common，但是common有原型&lt;strong&gt;proto&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;name-in-obj和obj-hasownproperty-name-的区别&#34;&gt;&amp;lsquo;name&amp;rsquo; in obj和obj.hasOwnProperty(&amp;lsquo;name&amp;rsquo;) 的区别&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;#39;xxx&amp;#39; in obj === false&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;false说明不含该属性，true说明含该属性&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;可以看共有属性是否含有（区别）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;obj.hasOwnProperty(&amp;#39;toString&amp;#39;) === false&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;可以查看是否含有自身的属性（不包括共有属性），这里的false说明toString是共有属性&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>JS基本语法</title>
+      <link>http://gaocarri.top/post/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Sun, 03 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
+      
+        <description>
+
+&lt;h1 id=&#34;表达式和语句&#34;&gt;表达式和语句&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;表达式
+
+&lt;ul&gt;
+&lt;li&gt;1+2表达式的值是3&lt;/li&gt;
+&lt;li&gt;add(1,2)表达式的值是函数的返回值&lt;/li&gt;
+&lt;li&gt;console.log表达式的值为函数本身&lt;/li&gt;
+&lt;li&gt;console.log(3)表达式的值为undefined&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;语句
+
+&lt;ul&gt;
+&lt;li&gt;var a =1 是一个语句&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;区别
+
+&lt;ul&gt;
+&lt;li&gt;表达式一般都有值，语句可能有可能没有&lt;/li&gt;
+&lt;li&gt;语句一般会改变环境（赋值，变量）&lt;/li&gt;
+&lt;li&gt;上面两句话并不是绝对的&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;大小写与空格&#34;&gt;大小写与空格&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;JS大小写敏感&lt;/li&gt;
+&lt;li&gt;空格和回车没有实际意义（当return后面跟空格会返回undefined）&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;标识符&#34;&gt;标识符&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;第一个字符,可以是Unicode字母或$或_或中文&lt;/li&gt;
+&lt;li&gt;后面的字符，除了上述字符还可以是数字&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;区块block&#34;&gt;区块block&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;将代码包在一起&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;常常与if/while/for在一起使用&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;{
+let a = 1
+let b = 2
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;if语句&#34;&gt;if语句&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;if结构先判断一个表达式的布尔值，然后根据布尔值的真伪，执行不同的语句。所谓布尔值，指的是 JavaScript 的两个特殊值，true表示真，false表示伪&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;if (a === 1){
+console.log(&amp;#39;a是1&amp;#39;)
+}else if(a === 2){
+console.log(&amp;#39;a是2&amp;#39;)
+}else{
+console.log(&amp;#39;a不是1和2&amp;#39;)
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;建议总是在if语句中使用大括号，因为这样方便插入语句。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;注意，if后面的表达式之中，不要混淆赋值表达式（=）、严格相等运算符（===）和相等运算符（==）。尤其是赋值表达式不具有比较作用。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;switch语句&#34;&gt;switch语句&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;多个if&amp;hellip;else连在一起使用的时候，可以转为使用更方便的switch结构。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;switch(fruit){
+ case &amp;#39;banana&amp;#39;: 1;
+ break;
+ case &amp;#39;apple&amp;#39;: 2;
+ break;
+ case &amp;#39;peach&amp;#39;: 3;
+ break;
+ default;
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;上面代码根据变量fruit的值，选择执行相应的case。如果所有case都不符合，则执行最后的default部分。需要注意的是，每个case代码块内部的break语句不能少，否则会接下去执行下一个case代码块，而不是跳出switch结构。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;三元运算符&#34;&gt;三元运算符&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;如果条件为true，返回表达式1，否则返回表达式2（if&amp;hellip;else的简写形式）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;(条件)?表达式1:表达式2&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;while循环&#34;&gt;while循环&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;var i = 0;
+
+while (i &amp;lt; 100) {
+  console.log(&amp;#39;i 当前为：&amp;#39; + i);
+  i = i + 1;
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;上面代码将循环100次直到i=100为止&lt;/li&gt;
+&lt;li&gt;当循环条件为真，会无限循环&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;for循环&#34;&gt;for循环&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;for (初始化表达式; 条件; 递增表达式) {
+  语句
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;初始化表达式（initialize）：确定循环变量的初始值，只在循环开始时执行一次。&lt;/li&gt;
+&lt;li&gt;条件表达式（test）：每轮循环开始时，都要执行这个条件表达式，只有值为真，才继续进行循环。&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;递增表达式（increment）：每轮循环的最后一个操作，通常用来递增循环变量。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;var x = 3;
+for (var i = 0; i &amp;lt; x; i++) {
+console.log(i);
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;上面代码中，初始化表达式是var i = 0，即初始化一个变量i；测试表达式是i &amp;lt; x，即只要i小于x，就会执行循环；递增表达式是i++，即每次循环结束后，i增大1。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;break语句和continue语句&#34;&gt;break语句和continue语句&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;break语句和continue语句都具有跳转作用，可以让代码不按既有的顺序执行。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;while(i &amp;lt; 100) {
+console.log(&amp;#39;i 当前为：&amp;#39; + i);
+i++;
+if (i === 10) break;
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;break语句用于跳出代码块或循环。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;上面代码只会执行10次循环，一旦i等于10，就会跳出循环。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;for循环也可以使用break语句跳出循环。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;var i = 0;
+
+while (i &amp;lt; 100){
+i++;
+if (i % 2 === 0) continue;
+console.log(&amp;#39;i 当前为：&amp;#39; + i);
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;continue语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮循环。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;上面代码只有在i为奇数时，才会输出i的值。如果i为偶数，则直接进入下一轮循环。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;label-标签&#34;&gt;label（标签）&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;JavaScript 语言允许，语句的前面有标签（label），相当于定位符，用于跳转到程序的任意位置，标签的格式如下。&lt;/li&gt;
+&lt;li&gt;标签可以是任意的标识符，但不能是保留字，语句部分可以是任意语句。&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;标签通常与break语句和continue语句配合使用，跳出特定的循环。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;top:
+for (var i = 0; i &amp;lt; 3; i++){
+for (var j = 0; j &amp;lt; 3; j++){
+  if (i === 1 &amp;amp;&amp;amp; j === 1) break top;
+  console.log(&amp;#39;i=&amp;#39; + i + &amp;#39;, j=&amp;#39; + j);
+}
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;上面代码为一个双重循环区块，break命令后面加上了top标签（注意，top不用加引号），满足条件时，直接跳出双层循环。如果break语句后面不使用标签，则只能跳出内层循环，进入下一次的外层循环。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;foo: {
+console.log(1);
+break foo;
+console.log(&amp;#39;本行不会输出&amp;#39;);
+}
+console.log(2);
+// 1
+// 2&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;标签也可以用于跳出代码块。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;上面代码执行到break foo，就会跳出区块&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;top:
+for (var i = 0; i &amp;lt; 3; i++){
+for (var j = 0; j &amp;lt; 3; j++){
+  if (i === 1 &amp;amp;&amp;amp; j === 1) continue top;
+  console.log(&amp;#39;i=&amp;#39; + i + &amp;#39;, j=&amp;#39; + j);
+}
+}
+// i=0, j=0
+// i=0, j=1
+// i=0, j=2
+// i=1, j=0
+// i=2, j=0
+// i=2, j=1
+// i=2, j=2&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;continue语句也可以与标签配合使用。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;上面代码中，continue命令后面有一个标签名，满足条件时，会跳过当前循环，直接进入下一轮外层循环。如果continue语句后面不使用标签，则只能进入下一轮的内层循环。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>初识JavaScript</title>
+      <link>http://gaocarri.top/post/%E5%88%9D%E8%AF%86javascript/</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E5%88%9D%E8%AF%86javascript/</guid>
+      
+        <description>
+
+&lt;h2 id=&#34;javascript的诞生-参考-阮一峰的博客-http-www-ruanyifeng-com-blog-2011-06-birth-of-javascript-html&#34;&gt;JavaScript的诞生(参考&lt;a href=&#34;http://www.ruanyifeng.com/blog/2011/06/birth_of_javascript.html&#34;&gt;阮一峰的博客&lt;/a&gt;)&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;诞生: JavaScript由Brendan Eich于1995年发明（只花了十天）。&lt;/li&gt;
+&lt;li&gt;目的: 网景公司需要一种网页脚本语言，使得浏览器可以与网页互动。&lt;/li&gt;
+&lt;li&gt;为什么叫JavaScript: 网景公司与发明Java的Sun公司合作，为了蹭上Java的热度，给这种脚本语言命名为JavaScript。&lt;/li&gt;
+&lt;li&gt;JavaScript的设计思想：
+
+&lt;ul&gt;
+&lt;li&gt;借鉴C语言的基本语法；&lt;/li&gt;
+&lt;li&gt;借鉴Java语言的数据类型和内存管理；&lt;/li&gt;
+&lt;li&gt;借鉴Scheme语言，将函数提升到&amp;rdquo;第一等公民&amp;rdquo;（first class）的地位；&lt;/li&gt;
+&lt;li&gt;借鉴Self语言，使用基于原型（prototype）的继承机制。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;这导致JavaScript的语言风格 = （简化的）函数式编程 + （简化的）面向对象编程&lt;/p&gt;
+
+&lt;h2 id=&#34;javascript的发展&#34;&gt;JavaScript的发展&lt;/h2&gt;
+
+&lt;h3 id=&#34;js的十大设计缺陷-参考-阮一峰的博客-http-www-ruanyifeng-com-blog-2011-06-10-design-defects-in-javascript-html&#34;&gt;JS的十大设计缺陷（参考&lt;a href=&#34;http://www.ruanyifeng.com/blog/2011/06/10_design_defects_in_javascript.html&#34;&gt;阮一峰的博客&lt;/a&gt;）&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;不适合开发大型程序&lt;/li&gt;
+&lt;li&gt;非常小的标准库&lt;/li&gt;
+&lt;li&gt;null和undefined&lt;/li&gt;
+&lt;li&gt;全局变量难以控制&lt;/li&gt;
+&lt;li&gt;自动插入行尾分号&lt;/li&gt;
+&lt;li&gt;加号运算符&lt;/li&gt;
+&lt;li&gt;NaN&lt;/li&gt;
+&lt;li&gt;数组和对象的区分&lt;/li&gt;
+&lt;li&gt;== 和 ===&lt;/li&gt;
+&lt;li&gt;基本类型的包装对象&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+&lt;li&gt;如果遵守良好的编程规范，加上第三方函数库的帮助，Javascript的这些缺陷大部分可以回避&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;ecmascript标准&#34;&gt;ECMAScript标准&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;JS和ES的关系
+
+&lt;ol&gt;
+&lt;li&gt;JS是浏览器的实现，ES是纸上的标准&lt;/li&gt;
+&lt;li&gt;纸上的标准往往落后于浏览器的实现，先实现，再写入标准&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;1999年发布的ES3使用最为广泛&lt;/li&gt;
+&lt;li&gt;2015年ES6发布&lt;/li&gt;
+&lt;li&gt;之后每年发布一版，版本号以年份命名。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>CSS知识总结</title>
+      <link>http://gaocarri.top/post/css%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/css%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</guid>
+      
+        <description>
+
+&lt;h1 id=&#34;一-浏览器渲染原理&#34;&gt;一、浏览器渲染原理&lt;/h1&gt;
+
+&lt;h2 id=&#34;参考文章&#34;&gt;参考文章&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Google团队写的文章&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction&#34;&gt;渲染树构建、布局及绘制&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.google.com/web/fundamentals/performance/rendering/&#34;&gt;渲染性能&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.google.com/web/fundamentals/performance/rendering/stick-to-compositor-only-properties-and-manage-layer-count&#34;&gt;使用transform来实现动画&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+&lt;li&gt;查看CSS各属性触发什么&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://csstriggers.com/&#34;&gt;CSSTriggers.com&lt;/a&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;浏览器渲染过程&#34;&gt;浏览器渲染过程&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;根据HTML构建HTML树(DOM)&lt;/li&gt;
+&lt;li&gt;更具CSS构建CSS树(CSSOM)&lt;/li&gt;
+&lt;li&gt;将两棵树合并成一棵渲染树(render tree)&lt;/li&gt;
+&lt;li&gt;Layout布局(文档流、盒模型、计算大小和位置)&lt;/li&gt;
+&lt;li&gt;Paint绘制(把边框颜色、文字颜色、阴影等画出来)&lt;/li&gt;
+&lt;li&gt;Compose合成(更具层叠关系展示画面)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;三种样式的更新方式&#34;&gt;三种样式的更新方式&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;JS/CSS &amp;gt; 样式 &amp;gt; 布局 &amp;gt; 绘制 &amp;gt; 合成&lt;/li&gt;
+&lt;li&gt;JS/CSS &amp;gt; 样式 &amp;gt; 绘制 &amp;gt; 合成&lt;/li&gt;
+&lt;li&gt;JS/CSS &amp;gt; 样式 &amp;gt; 合成&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;如何知道如何更新？ 使用开发者工具自己尝试或者访问&lt;a href=&#34;https://csstriggers.com/&#34;&gt;CSSTriggers.com&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;流程越少，性能越好。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;资料来源：饥人谷&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;二-css动画的两种做法-transition和animation&#34;&gt;二、CSS动画的两种做法(transition和animation)&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;它们的优点：没有repaint过程，比使用left(改变属性)性能好&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;transition-过渡&#34;&gt;transition（过渡）&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;#xxx {
+    transition:all 1s ease-in-out 3s;
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;配合&lt;code&gt;transform&lt;/code&gt;属性使用，它的用法&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/CSS/transform&#34;&gt;MDN&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;all&lt;/code&gt;表示需要需要过渡的属性，可以是&lt;code&gt;width&lt;/code&gt; &lt;code&gt;background&lt;/code&gt;等，不是所有元素都能过渡。特别注意: &lt;code&gt;display:block&amp;gt;none&lt;/code&gt;无法过渡，但是&lt;code&gt;visibility:visible&amp;gt;hidden&lt;/code&gt;可以过渡&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;1s&lt;/code&gt;表示过渡完整的时间&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ease-in-out&lt;/code&gt;表示动画的过渡方式，还有&lt;code&gt;linear&lt;/code&gt; &lt;code&gt;ease&lt;/code&gt;等&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;3s&lt;/code&gt;是指3s后才开始动画&lt;/li&gt;
+&lt;li&gt;其他属性用法参考MDN
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;animation-动画&#34;&gt;animation(动画)&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;@keyframes xxx {
+    from {
+        transform:translateX(0%);
+    }
+    to {
+        transform:tanslateX(100%);
+    }
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;或者&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;@keyframes xxx{
+    0% {top:0;left:0;}
+    30%{top:50px;}
+    100%{top:100px;left:100%}
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;keyframes&lt;/code&gt;关键帧，使用animation即设定关键帧。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;#xxx {
+animation:1.5s xxx linear infinite alternate-reverse;
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;1.5s&lt;/code&gt;指过渡的时间&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;xxx&lt;/code&gt;进行动画的id名&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;linear&lt;/code&gt;过渡效果，同transition&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;infinite&lt;/code&gt;表示过渡的次数无限大,也可以是&lt;code&gt;10&lt;/code&gt;次等具体次数&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;alternate-reverse&lt;/code&gt;变换相反进行动画，如果是&lt;code&gt;forwards&lt;/code&gt;会停在动画的最后一帧，具体参考MDN&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;三-css其他知识点&#34;&gt;三、CSS其他知识点&lt;/h1&gt;
+
+&lt;h2 id=&#34;css盒模型&#34;&gt;CSS盒模型&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;CSS盒模型分为两种，一种是content-box,一种是border-box,它们的区别在于content-box的高和宽只包含content,而 border-box的高和宽包含border、padding、content&lt;/li&gt;
+&lt;li&gt;一般使用border-box，因为border-box更好用&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;外边距合并&#34;&gt;外边距合并&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;同一父亲的两个孩子的外边距会合并(float或者变为inline-block就不会合并)&lt;/li&gt;
+&lt;li&gt;父子外边距合并，只有上下合并，左右不合并。margin和margin合并的前提是parent和children之间parent没有border,padding或者加overflow：hidden&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;position定位&#34;&gt;position定位&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;static 默认值&lt;/li&gt;
+&lt;li&gt;relative 相对定位，升起来，但不脱离文档流（占的位子不变，但是显示的位子变了）&lt;/li&gt;
+&lt;li&gt;absolute 绝对定位，定位基准是祖先中最近的定位非static的元素 left:50%加负margin可实现居中&lt;/li&gt;
+&lt;li&gt;fixed 固定定位，定位基准是视口viewport(有诈) 加了transform就变了，手机上不要用(bug太多)&lt;/li&gt;
+&lt;li&gt;sticky 粘滞定位（会让它粘在屏幕的最上边），兼容性极差。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;如何创建层叠上下文-z-index&#34;&gt;如何创建层叠上下文，z-index&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;可以使z-index不为auto,并加上定位relative或者absolute&lt;/li&gt;
+&lt;li&gt;只要定位position：fixed 就会创建&lt;/li&gt;
+&lt;li&gt;opacity 不为1时&lt;/li&gt;
+&lt;li&gt;有transform&lt;/li&gt;
+&lt;li&gt;flex,grid里index不是auto&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>浅析URL</title>
+      <link>http://gaocarri.top/post/%E6%B5%85%E6%9E%90url/</link>
+      <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E6%B5%85%E6%9E%90url/</guid>
+      
+        <description>
+
+&lt;h1 id=&#34;ip的作用是什么&#34;&gt;IP的作用是什么&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;IP：Internet Protocol&lt;/li&gt;
+&lt;li&gt;约定了两件事情（作用）
+
+&lt;ol&gt;
+&lt;li&gt;如何定位一台设备&lt;/li&gt;
+&lt;li&gt;如何封装报文，和其他设备交流&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;几个特殊的IP
+
+&lt;ol&gt;
+&lt;li&gt;127.0.0.1表示自己&lt;/li&gt;
+&lt;li&gt;localhost通过hosts指定为自己（hosts文件只能以管理员模式打开）&lt;/li&gt;
+&lt;li&gt;0.0.0.0不表示任何设备&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;域名是什么-ping命令怎么用&#34;&gt;域名是什么，ping命令怎么用&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;域名是对IP的别称&lt;/li&gt;
+&lt;li&gt;例：qq.com&lt;/li&gt;
+&lt;li&gt;一个域名可以对应不同的IP，叫做负载均衡&lt;/li&gt;
+&lt;li&gt;一个IP可以对应不同的域名，叫做共享主机&lt;/li&gt;
+&lt;li&gt;命令行输入&lt;code&gt;ping 域名&lt;/code&gt; 可以知道这个域名对应的IP&lt;/li&gt;
+&lt;li&gt;域名级别：
+
+&lt;ol&gt;
+&lt;li&gt;com是顶级域名&lt;/li&gt;
+&lt;li&gt;baidu.com是二级域名（俗称一级域名）&lt;/li&gt;
+&lt;li&gt;www.baidu.com是三级域名（俗称二级域名）
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;dns的作用是什么-nslookup命令怎么用&#34;&gt;DNS的作用是什么，nslookup命令怎么用&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;DNS:Domain Name System 域名系统&lt;/li&gt;
+&lt;li&gt;作用：简而言之将域名解析为IP&lt;/li&gt;
+&lt;li&gt;命令行输入&lt;code&gt;nslookup baidu.com&lt;/code&gt; 会返还baidu.com对应的所有IP&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;url包含哪几部分-每部分分别有什么用&#34;&gt;URL包含哪几部分，每部分分别有什么用&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;URL:Uniform Resource Locator 统一资源定位符&lt;/li&gt;
+&lt;li&gt;URL=协议+域名或IP+端口号+路径+查询字符串+锚点&lt;/li&gt;
+&lt;li&gt;例：&lt;a href=&#34;https://www.baidu.com/s?wd=hello&amp;amp;rsv_spt=1#5&#34;&gt;https://www.baidu.com/s?wd=hello&amp;amp;rsv_spt=1#5&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;注意：
+
+&lt;ol&gt;
+&lt;li&gt;锚点看起来可能有中文，实际不支持中文。&lt;/li&gt;
+&lt;li&gt;锚点是无法在开发者工具的Network面板看到的，因为锚点#后面不会传给服务器&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;当你在chrome输入baidu.com 时发生了什么&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;chrome浏览器会向电信/联通提供的DNS服务器询问baidu.com对应什么IP&lt;/li&gt;
+&lt;li&gt;电信/联通会回答一个IP（具体过程很复杂）&lt;/li&gt;
+&lt;li&gt;然后chrome才会向对应的IP的80/443端口发送请求&lt;/li&gt;
+&lt;li&gt;请求内容是查看baidu.com的首页&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+&lt;li&gt;服务器默认用80端口提供http服务&lt;/li&gt;
+&lt;li&gt;服务器默认用443端口提供https服务&lt;/li&gt;
+&lt;li&gt;可以在开发者工具中的Network看到具体的端口&lt;/li&gt;
+&lt;li&gt;其他端口参考维基百科
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;curl命令&#34;&gt;curl命令&lt;/h1&gt;
+
+&lt;p&gt;&lt;code&gt;curl -v http://baidu.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;url会被curl工具重写，先请求DNS获得IP&lt;/li&gt;
+&lt;li&gt;先进行TCP连接，TCP连接成功后，开始发送HTTP请求&lt;/li&gt;
+&lt;li&gt;请求内容看一遍&lt;/li&gt;
+&lt;li&gt;响应内容看一遍&lt;/li&gt;
+&lt;li&gt;响应结束后，关闭TCP连接（看不出来）&lt;/li&gt;
+&lt;li&gt;真正结束&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>CSS的Float,Flex,Grid布局</title>
+      <link>http://gaocarri.top/post/css%E7%9A%84floatflexgrid%E5%B8%83%E5%B1%80/</link>
+      <pubDate>Wed, 30 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/css%E7%9A%84floatflexgrid%E5%B8%83%E5%B1%80/</guid>
+      
+        <description>
+
+&lt;h1 id=&#34;如何选取布局&#34;&gt;如何选取布局&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/10/31/KIippn.md.png&#34; alt=&#34;KIippn.md.png&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;图片来自饥人谷&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;float布局&#34;&gt;Float布局&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;子元素上加float:left和width&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;父元素classname上加 clearfix&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;clearfix{
+content:&amp;#39;&amp;#39;;
+display:block;
+clear:both;
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;flex布局&#34;&gt;Flex布局&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;container容器&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;items内容&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;.container{
+display:flex;
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;改变items流向&lt;code&gt;flex-direction&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;flex-wrap:wrap&lt;/code&gt;变为换行的，默认nowrap不换行&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;justify-content&lt;/code&gt;flex-start,flex-end,center,space-between(分散，顶着两边),space-around(分散，两边有空),space-evenly(孔隙一样)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;align-items&lt;/code&gt;center(让次轴的items居中),flex-end(都往下顶)，stretch(无高度情况下内容会将它们拉伸的一样高)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;items{order:1}&lt;/code&gt;顺序，默认是0，可以为负&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;flex-grow&lt;/code&gt;,&lt;code&gt;flex-shrink&lt;/code&gt;变胖变瘦&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;重点：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;display:flex&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;flex-direction:row/column&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;flex-wrap:wrap&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;justify-content:center/space-between&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;align-items:center&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;grid布局&#34;&gt;Grid布局&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/10/31/KIA74g.png&#34; alt=&#34;KIA74g.png&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;grid-row/column-start/end&lt;/code&gt;从第几根线开始，第几根结束&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;grid-template-columns:1fr 1fr 2fr;&lt;/code&gt;表示几份&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;grid-template-areas:&amp;quot;header header header&amp;quot; &amp;quot;aside main ad&amp;quot; &amp;quot;. footer footer&amp;quot;&lt;/code&gt;可以写成名字，.代表空&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;items{
+grid-area:header
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;grid-column/row-gap&lt;/code&gt;中间间隔&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>HTML常用标签</title>
+      <link>http://gaocarri.top/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</link>
+      <pubDate>Tue, 29 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</guid>
+      
+        <description>
+
+&lt;h1 id=&#34;一-a标签的用法&#34;&gt;一.a标签的用法&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;a href=&amp;#34;&amp;#34; target=&amp;#34;_blank&amp;#34; download&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;1-1属性&#34;&gt;1.1属性&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;href&lt;/li&gt;
+&lt;li&gt;target&lt;/li&gt;
+&lt;li&gt;download&lt;/li&gt;
+&lt;li&gt;rel=noopener&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;1-2-href&#34;&gt;1.2 href&lt;/h2&gt;
+
+&lt;h3 id=&#34;1-2-1-href的取值&#34;&gt;1.2.1 href的取值&lt;/h3&gt;
+
+&lt;p&gt;1.网址&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;https:// google.com&lt;/li&gt;
+&lt;li&gt;http:// google.com&lt;/li&gt;
+&lt;li&gt;//google.com&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;一般情况下用//google.com就可以了，浏览器会自动将其补全为&lt;a href=&#34;https://www.google.com&#34;&gt;https://www.google.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2.路径&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;/a/b/c以及a/b/c&lt;/li&gt;
+&lt;li&gt;index.html以及./index.html&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;其中/a/b/c中的第一个/指的是http服务的根目录，即使用终端打开得到的结果即是HTML文件相同目录下的a/b/c。&lt;/p&gt;
+
+&lt;p&gt;index.html和./index.html指的都是HTML文件相同目录下的index.html&lt;/p&gt;
+
+&lt;p&gt;3.伪协议&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;javascript:这里写入Js代码;&lt;/li&gt;
+&lt;li&gt;mailto:邮箱;&lt;/li&gt;
+&lt;li&gt;tel:电话;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;点击即会运行写入的Js代码，如果不写，点击页面不会有任何变化&lt;/p&gt;
+
+&lt;p&gt;注意：如果取值为#会回到页面最上部，取值为“”会刷新页面（根据Chrome的调试工具Network得到）&lt;/p&gt;
+
+&lt;p&gt;4.id&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;href=“#XXX”即跳到当前页面中id为XXX的标签&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;1-2-2-href的作用&#34;&gt;1.2.2 href的作用&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;跳转外部页面&lt;/li&gt;
+&lt;li&gt;跳转内部锚点&lt;/li&gt;
+&lt;li&gt;跳转到邮箱或者电话&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;1-3-target&#34;&gt;1.3 target&lt;/h2&gt;
+
+&lt;h3 id=&#34;1-3-1-target的取值&#34;&gt;1.3.1 target的取值&lt;/h3&gt;
+
+&lt;p&gt;1.self&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;在当前页面跳转&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2.blank&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;在新的空白页面跳转&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;3.top&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;如果top存在于iframe里，就会在引用iframe的主页面中跳转&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;4.parent&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;如果parent存在于最里面被引用的iframe里，则会在最里层的iframe的上一层iframe/页面中跳转&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;1-4-download&#34;&gt;1.4 download&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;许多浏览器不支持，理论上使用这个属性会下载此页面&lt;/p&gt;
+
+&lt;h3 id=&#34;1-5-rel-noopener&#34;&gt;1.5 rel=noopener&lt;/h3&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;这个属性能解决Js的一个bug&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;二-img标签的用法&#34;&gt;二.img标签的用法&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;img src=&amp;#34;XXX.png&amp;#34; alt=&amp;#34;这是一张图片&amp;#34; width=&amp;#34;100px&amp;#34; height=&amp;#34;100px&amp;#34;&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;2-1作用&#34;&gt;2.1作用&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;发出get请求，展示一张图片
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;2-2-属性&#34;&gt;2.2 属性&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;src&lt;/li&gt;
+&lt;li&gt;alt&lt;/li&gt;
+&lt;li&gt;height/width&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;2-3-src&#34;&gt;2.3 src&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;source的简称，路径用法与a标签相同，加载选择的图片&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;2-4-alt&#34;&gt;2.4 alt&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;当图片加载失败时，会显示alt表示的文字&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;2-5-height-width&#34;&gt;2.5 height/width&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;图片的高和宽，当只指定其中一个属性时，图片的另一个属性会自适应&lt;/li&gt;
+&lt;li&gt;注意：不要同时指定它的宽和高，会导致图片变形&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;2-6-事件&#34;&gt;2.6 事件&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;onload&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;onerror&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;id.onerror = {
+console.log(&amp;#39;图片加载失败&amp;#39;)
+id.src = &amp;#39;404.png&amp;#39;
+}
+id.onload = {
+console.log(&amp;#39;图片加载成功)
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;可以用来在图片加载失败时添加一个404的图片作为替代&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;2-7-响应式&#34;&gt;2.7 响应式&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;使其自适应手机屏幕确保图片的内容全部显示&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;img {
+max-width:100%
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;三-table标签的用法&#34;&gt;三. table标签的用法&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    &amp;lt;table&amp;gt;
+        &amp;lt;thead&amp;gt;
+            &amp;lt;tr&amp;gt;
+                &amp;lt;th&amp;gt;1&amp;lt;/th&amp;gt;
+                &amp;lt;th&amp;gt;2&amp;lt;/th&amp;gt;
+            &amp;lt;/tr&amp;gt;
+        &amp;lt;/thead&amp;gt;
+        &amp;lt;tbody&amp;gt;
+            &amp;lt;tr&amp;gt;
+                &amp;lt;td&amp;gt;我&amp;lt;/td&amp;gt;
+                &amp;lt;td&amp;gt;你&amp;lt;/td&amp;gt;
+            &amp;lt;/tr&amp;gt;
+            &amp;lt;tr&amp;gt;
+                &amp;lt;td&amp;gt;她&amp;lt;/td&amp;gt;
+                &amp;lt;td&amp;gt;他&amp;lt;/td&amp;gt;
+            &amp;lt;/tr&amp;gt;
+        &amp;lt;/tbody&amp;gt;
+        &amp;lt;tfoot&amp;gt;
+            &amp;lt;tr&amp;gt;
+                &amp;lt;td&amp;gt;我她&amp;lt;/td&amp;gt;
+                &amp;lt;td&amp;gt;你他&amp;lt;/td&amp;gt;
+            &amp;lt;/tr&amp;gt;
+        &amp;lt;/tfoot&amp;gt;
+    &amp;lt;/table&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;3-1-table包含的标签&#34;&gt;3.1 table包含的标签&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;table&lt;/li&gt;
+&lt;li&gt;thead&lt;/li&gt;
+&lt;li&gt;tbody&lt;/li&gt;
+&lt;li&gt;tfoot&lt;/li&gt;
+&lt;li&gt;th&lt;/li&gt;
+&lt;li&gt;td&lt;/li&gt;
+&lt;li&gt;tr&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;3-2-table的属性&#34;&gt;3.2 table的属性&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;table-layout:具有auto和fixed两种值，分别对应根据浏览器划定的(根据字符宽度)的和平均的&lt;/li&gt;
+&lt;li&gt;border-collapse:为collapse就是合并边框的意思 默认不合并&lt;/li&gt;
+&lt;li&gt;border-spacing:border之间的距离&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;四-其他&#34;&gt;四.其他&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;input和button&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;input必须有&lt;code&gt;type=&amp;quot;submit&amp;quot;&lt;/code&gt;才是提交按钮 button默认就是submit&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;input type=&amp;#34;submit&amp;#34;&amp;gt;
+&amp;lt;button&amp;gt;
+&amp;lt;strong&amp;gt;
+123
+&amp;lt;/strong&amp;gt;
+&amp;lt;/button&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;form标签的四个属性&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+&lt;li&gt;action 控制请求哪个页面&lt;/li&gt;
+&lt;li&gt;autocomplete 是否使用自动填充&lt;/li&gt;
+&lt;li&gt;method 控制是POST还是GET 默认GET&lt;/li&gt;
+&lt;li&gt;target&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;form的事件属性: onsubmit&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;HTML5验证器 代表必须要填 否则提示无法提交&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;input type=&amp;#34;text&amp;#34; required&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;注意事项&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;一般不监听input的click事件&lt;/li&gt;
+&lt;li&gt;form里面的input要有name&lt;/li&gt;
+&lt;li&gt;form里面要放一个type=submit才能触发submit事件&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>HTML入门笔记</title>
+      <link>http://gaocarri.top/post/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</link>
+      <pubDate>Mon, 28 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</guid>
+      
+        <description>
+
+&lt;h1 id=&#34;html是谁发明的&#34;&gt;HTML是谁发明的&lt;/h1&gt;
+
+&lt;p&gt;Timothy John Berners-Lee爵士，英国计算机科学家，万维网的发明者&lt;/p&gt;
+
+&lt;h1 id=&#34;html起手应该写什么&#34;&gt;HTML起手应该写什么&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt;
+&amp;lt;head&amp;gt;
+    &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt;
+    &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&amp;gt;
+    &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;ie=edge&amp;#34;&amp;gt;
+    &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+    
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;DOCTYPE&lt;/code&gt;文档类型&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;html&lt;/code&gt;代表html5&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lang=&amp;quot;en&amp;quot;&lt;/code&gt;代表语言是英文，&lt;code&gt;zh-CN&lt;/code&gt;是中文&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;UTF-8&lt;/code&gt;文档的字符类型&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;width=device-width&lt;/code&gt;禁用缩放&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;X-UA-Compatible&lt;/code&gt;兼容手机&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;content=&amp;quot;ie=edge&amp;quot;&lt;/code&gt;告诉IE使用最新的内核&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt;&lt;/code&gt;标题&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;常用的表示文章-书层级的标签&#34;&gt;常用的表示文章/书层级的标签&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;标题&lt;code&gt;h1~h6&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;章节&lt;code&gt;section&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;文章&lt;code&gt;article&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;段落&lt;code&gt;p&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;头部&lt;code&gt;header&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;脚步&lt;code&gt;footer&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;主要内容&lt;code&gt;main&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;旁支内容&lt;code&gt;aside&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;划分&lt;code&gt;div&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;全局属性&#34;&gt;全局属性&lt;/h1&gt;
+
+&lt;p&gt;&lt;code&gt;class&lt;/code&gt; &lt;code&gt;contenteditable&lt;/code&gt; &lt;code&gt;hidden&lt;/code&gt; &lt;code&gt;id&lt;/code&gt; &lt;code&gt;style&lt;/code&gt; &lt;code&gt;tabindex&lt;/code&gt; &lt;code&gt;title&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;内容标签&#34;&gt;内容标签&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;无序列表&lt;code&gt;ol+li&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;有序列表&lt;code&gt;ul+li&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;描述列表、描述对象、描述数据&lt;code&gt;dl+dt+dd&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;使代码中的空格和换行等正常显示&lt;code&gt;pre&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;水平分界线&lt;code&gt;hr&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;换行&lt;code&gt;br&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;链接anchor的缩写&lt;code&gt;a&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;斜体,表示强调&lt;code&gt;em&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;加粗&lt;code&gt;strong&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;呈现一段计算机代码. 默认情况下, 它以浏览器的默认等宽字体显示&lt;code&gt;code&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;quote引用(会加双引号)，blockquote块级引用&lt;code&gt;q&lt;/code&gt; &lt;code&gt;blockquote&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>如何使用Hugo搭建个人博客</title>
+      <link>http://gaocarri.top/post/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Sun, 27 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+      
+        <description>
+
+&lt;h1 id=&#34;关于hugo&#34;&gt;关于Hugo&lt;/h1&gt;
+
+&lt;p&gt;Hugo的官方网站&lt;a href=&#34;https://gohugo.io/&#34;&gt;https://gohugo.io/&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Go语言实现的一个博客生成器&lt;/li&gt;
+&lt;li&gt;世界上最快的博客生成器
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;安装hugo&#34;&gt;安装Hugo&lt;/h1&gt;
+
+&lt;p&gt;以下只谈Windows的安装方式&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;根据个人电脑的系统下载Hugo &lt;a href=&#34;https://github.com/gohugoio/hugo/releases&#34;&gt;https://github.com/gohugoio/hugo/releases&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;解压，将&lt;code&gt;hugo.exe&lt;/code&gt;添加到指定地址，比如我添加到&lt;code&gt;D:\Software\hugo\hugo.exe&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;把&lt;code&gt;D:\Software\hugo\&lt;/code&gt;加到path当中（此电脑&amp;gt;&amp;gt;右击属性&amp;gt;&amp;gt;系统高级设置&amp;gt;&amp;gt;环境变量&amp;gt;&amp;gt;在系统变量中找到Path&amp;gt;&amp;gt;新建将地址添加）&lt;/li&gt;
+&lt;li&gt;重启终端，输入&lt;code&gt;hugo version&lt;/code&gt;,如果上述操作成功则会显示安装的hugo版本&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;快速搭建博客-具体参考hugo官网-quick-start&#34;&gt;快速搭建博客(具体参考hugo官网&amp;gt;&amp;gt;Quick Start)&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;创建一个新的目录,在终端中输入(XXX为你的GitHub用户名)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;hugo new site XXX.github.io-crearter&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;使用终端进入&lt;code&gt;XXX.github.io-crearter&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;cd XXXX&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;添加主题&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;git init
+git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
+# Note for non-git users:
+#   - If you do not have git installed, you can download the archive of the latest
+#     version of this theme from:
+#       https://github.com/budparr/gohugo-theme-ananke/archive/master.zip
+#   - Extract that .zip file to get a &amp;#34;gohugo-theme-ananke-master&amp;#34; directory.
+#   - Rename that directory to &amp;#34;ananke&amp;#34;, and move it into the &amp;#34;themes/&amp;#34; directory.
+# End of note for non-git users.
+
+# Edit your config.toml configuration file
+# and add the Ananke theme.
+echo &amp;#39;theme = &amp;#34;ananke&amp;#34;&amp;#39; &amp;gt;&amp;gt; config.toml&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;创建一篇新的文章&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;hugo new posts/my-first-post.md&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;你可以编辑你的新文章，文章将会显示以下内容&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;---
+title: &amp;#34;My First Post&amp;#34;
+date: 2019-03-26T08:47:11+01:00
+draft: true
+---&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;将draft：true改为false,代表文章是在网页中可见的&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;运行Hugo server&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;hugo server -D
+
+               | EN
++------------------+----+
+Pages            | 10
+Paginator pages  |  0
+Non-page files   |  0
+Static files     |  3
+Processed images |  0
+Aliases          |  1
+Sitemaps         |  1
+Cleaned          |  0
+
+Total in 11 ms
+Watching for changes in /Users/bep/quickstart/{content,data,layouts,static,themes}
+Watching for config changes in /Users/bep/quickstart/config.toml
+Environment: &amp;#34;development&amp;#34;
+Serving pages from memory
+Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Press Ctrl+C to stop&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;按住Cltrl+C，点击上面显示的网址&lt;code&gt;http://localhost:1313/&lt;/code&gt; 就可以在本地看到你的个人博客了&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;配置主题
+使用文本编辑器打开&lt;code&gt;config.toml&lt;/code&gt;，你会看到如下文字&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;baseURL = &amp;#34;https://example.org/&amp;#34;
+languageCode = &amp;#34;en-us&amp;#34;
+title = &amp;#34;My New Hugo Site&amp;#34;
+theme = &amp;#34;ananke&amp;#34;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;重新打开一个终端运行hugo&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;hugo&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;此操作会在目录当中创建一个名为public的文件夹，
+在目录中创建一个名为&lt;code&gt;.gitignore&lt;/code&gt;的文件，在里面写入/public/&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;在Github上创建一个新的仓库:名为&lt;code&gt;XXX.github.io&lt;/code&gt;XXX是你的用户名&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;进入&lt;code&gt;public&lt;/code&gt;并上传到GitHub新创建的仓库中&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;cd public
+git init
+git add .
+git commit -v
+git remote add origin git@github.com:XXX.github.io
+git push -u origin master&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;刷新页面 在仓库的&lt;code&gt;Settings&lt;/code&gt;当中找到网址&lt;code&gt;XXX.github.io&lt;/code&gt;即可进入你的个人博客了&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;enjoy it!&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>我的第一篇博客</title>
+      <link>http://gaocarri.top/post/my-first-blog/</link>
+      <pubDate>Sat, 26 Oct 2019 15:08:45 +0800</pubDate>
+      
+      <guid>http://gaocarri.top/post/my-first-blog/</guid>
+      
+        <description>
+
+&lt;h1 id=&#34;大家好&#34;&gt;大家好&lt;/h1&gt;
+
+&lt;p&gt;这是我的博客，不定期记录一些文章和学习笔记。&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Vue的模板语法</title>
+      <link>http://gaocarri.top/post/vue%E7%9A%84%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/vue%E7%9A%84%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95/</guid>
       
         <description></description>
       
