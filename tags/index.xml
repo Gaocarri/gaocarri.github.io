@@ -6,7 +6,7 @@
     <description>Recent content in Tags on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 06 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 08 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.top/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,18 @@
     <item>
       <title>JavaScript</title>
       <link>http://gaocarri.top/tags/javascript/</link>
-      <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 08 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>http://gaocarri.top/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>this</title>
+      <link>http://gaocarri.top/tags/this/</link>
+      <pubDate>Sun, 08 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/tags/this/</guid>
       <description></description>
     </item>
     
@@ -129,7 +138,7 @@
     </item>
     
     <item>
-      <title>JavaScript入门</title>
+      <title>javascript入门</title>
       <link>http://gaocarri.top/tags/javascript%E5%85%A5%E9%97%A8/</link>
       <pubDate>Tue, 05 Nov 2019 00:00:00 +0000</pubDate>
       
@@ -138,7 +147,7 @@
     </item>
     
     <item>
-      <title>JavaScript语法&#34;</title>
+      <title>javascript语法</title>
       <link>http://gaocarri.top/tags/javascript%E8%AF%AD%E6%B3%95/</link>
       <pubDate>Tue, 05 Nov 2019 00:00:00 +0000</pubDate>
       
