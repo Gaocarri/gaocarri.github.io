@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 08 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.top/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>对于JS继承的理解</title>
+      <link>http://gaocarri.top/post/%E5%AF%B9%E4%BA%8Ejs%E7%BB%A7%E6%89%BF%E7%9A%84%E7%90%86%E8%A7%A3/</link>
+      <pubDate>Tue, 10 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E5%AF%B9%E4%BA%8Ejs%E7%BB%A7%E6%89%BF%E7%9A%84%E7%90%86%E8%A7%A3/</guid>
+      <description>同样又是一个查缺补漏，这几天疯狂看博客，把不清楚的知识给弄清楚 首先，谈JS的继承就得提到原型以及原型链，对象_proto_===其构造函数.</description>
+    </item>
     
     <item>
       <title>call,apply和bind的使用</title>
@@ -189,15 +198,6 @@
       
       <guid>http://gaocarri.top/post/my-first-blog/</guid>
       <description>大家好 这是我的博客，不定期记录一些文章和学习笔记。</description>
-    </item>
-    
-    <item>
-      <title>Vue的模板语法</title>
-      <link>http://gaocarri.top/post/vue%E7%9A%84%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/post/vue%E7%9A%84%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95/</guid>
-      <description></description>
     </item>
     
   </channel>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>call,apply和bind的使用 - 卡里的技术博客</title>
+  <title>对于JS继承的理解 - 卡里的技术博客</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -22,8 +22,8 @@
 
 <meta name="mobile-web-app-capable" content="yes">
 
-<meta name="author" content="Carri" /><meta name="description" content="call,apply和bind的使用" />
-<meta name="keywords" content="JavaScript, this" />
+<meta name="author" content="Carri" /><meta name="description" content="对于JS继承的理解" />
+<meta name="keywords" content="JavaScript, JS, 原型, 继承" />
 
 
 
@@ -34,7 +34,7 @@
 <meta name="generator" content="Hugo 0.59.0" />
 
 
-<link rel="canonical" href="http://gaocarri.top/post/callapply%E5%92%8Cbind%E7%9A%84%E4%BD%BF%E7%94%A8/" />
+<link rel="canonical" href="http://gaocarri.top/post/%E5%AF%B9%E4%BA%8Ejs%E7%BB%A7%E6%89%BF%E7%9A%84%E7%90%86%E8%A7%A3/" />
 
 
 
@@ -58,26 +58,26 @@
 
 
 
-<meta property="og:title" content="call,apply和bind的使用" />
-<meta property="og:description" content="call,apply和bind的使用" />
+<meta property="og:title" content="对于JS继承的理解" />
+<meta property="og:description" content="对于JS继承的理解" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://gaocarri.top/post/callapply%E5%92%8Cbind%E7%9A%84%E4%BD%BF%E7%94%A8/" />
-<meta property="article:published_time" content="2019-12-08T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-12-08T00:00:00+00:00" />
-<meta itemprop="name" content="call,apply和bind的使用">
-<meta itemprop="description" content="call,apply和bind的使用">
+<meta property="og:url" content="http://gaocarri.top/post/%E5%AF%B9%E4%BA%8Ejs%E7%BB%A7%E6%89%BF%E7%9A%84%E7%90%86%E8%A7%A3/" />
+<meta property="article:published_time" content="2019-12-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-12-10T00:00:00+00:00" />
+<meta itemprop="name" content="对于JS继承的理解">
+<meta itemprop="description" content="对于JS继承的理解">
 
 
-<meta itemprop="datePublished" content="2019-12-08T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-08T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="652">
+<meta itemprop="datePublished" content="2019-12-10T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-12-10T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1233">
 
 
 
-<meta itemprop="keywords" content="JavaScript,this," />
+<meta itemprop="keywords" content="JavaScript,JS,原型,继承," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="call,apply和bind的使用"/>
-<meta name="twitter:description" content="call,apply和bind的使用"/>
+<meta name="twitter:title" content="对于JS继承的理解"/>
+<meta name="twitter:description" content="对于JS继承的理解"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -364,19 +364,18 @@ if (!doNotTrack) {
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">call,apply和bind的使用</h1>
+      <h1 class="post-title">对于JS继承的理解</h1>
       
       <div class="post-meta">
-        <time datetime="2019-12-08" class="post-time">
-          2019-12-08
+        <time datetime="2019-12-10" class="post-time">
+          2019-12-10
         </time>
         <div class="post-category">
             <a href="http://gaocarri.top/categories/javascript/"> JavaScript </a>
-            <a href="http://gaocarri.top/categories/this/"> this </a>
             
           </div>
-        <span class="more-meta"> 约 652 字 </span>
-          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        <span class="more-meta"> 约 1233 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
 
         
         
@@ -397,9 +396,12 @@ if (!doNotTrack) {
   <div class="post-toc-content">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#call">call</a></li>
-<li><a href="#apply">apply</a></li>
-<li><a href="#bind">bind</a></li>
+<li>
+<ul>
+<li><a href="#基于原型的继承">基于原型的继承</a></li>
+<li><a href="#基于class的继承">基于class的继承</a></li>
+<li><a href="#补充-关于new做了什么">补充 关于new做了什么</a></li>
+</ul></li>
 </ul>
 </nav>
   </div>
@@ -409,10 +411,25 @@ if (!doNotTrack) {
     <div class="post-content">
       
 
-<p>同样是对之前知识的查缺补漏</p>
+<p>同样又是一个查缺补漏，这几天疯狂看博客，把不清楚的知识给弄清楚</p>
 
-<p>call,apply,bind都可以用来指定this的值。
-举例</p>
+<p>首先，谈JS的继承就得提到原型以及原型链，<code>对象_proto_===其构造函数.prototype</code>,他们共同指向了一个地址，这个地址是这个对象的原型，它里面存着各种属性和方法，<code>Object.prototype</code>是所有对象的直接或间接原型，而所有函数的原型都是<code>Function.prototype</code>。举个例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">let obj = [1, 2, 3]
+obj.toString()</pre></td></tr></table>
+</div>
+</div>
+<p>当调用obj.toString时，js 首先在obj对象自身上查找toString方法；未找到，继续沿着原型链查找Array.prototype上有没有toString；未找到，继续沿着原型链在Object.prototype上查找。最终在Object.prototype上找到了toString方法，这就是原型链和它的作用。</p>
+
+<p>好了正式讲讲及继承吧
+ES5和ES6分别提供了不同继承的方法，基于原型的继承和基于class的继承,我查了博客找出了他们之间的区别</p>
+
+<h2 id="基于原型的继承">基于原型的继承</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt"> 1
@@ -428,42 +445,92 @@ if (!doNotTrack) {
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">const xw = {
-    name:&#39;小王&#39;,
-    gender:&#39;男&#39;,
-    age:18,
-    say:function(city,university){
-        console.log(`${this.gender}生${this.name},${this.age}岁,在${city}市${university}上学`)
+<pre class="chroma">function Person(name){
+    this.name = name
+}
+Person.prototype.sayHi = function(){
+        console.log(&#39;你好，我是&#39;+this.name)
+    }//这个方法是拿出来特地说明与class继承的不同
+
+function Child(name,age){
+    Person.call(this,name)
+    this.age = age
+}
+
+let xw = new Child(&#39;小王&#39;,10)
+xw.name  //小王
+xw.sayHi() //报错</pre></td></tr></table>
+</div>
+</div>
+<p>在ES5中通过call,bind方法指定this是this(即<code>Child</code>)，使得<code>Child</code>继承了<code>Person</code>的属性，但是它并没有继承<code>Person</code>原型上的<code>sayHi</code>方法,这是由于这种方法对原型链上的继承没有实现。此时<code>Child.__proto__===Function.prototype</code>，而<code>Child.__proto__！==Person</code></p>
+
+<p>要想实现对原型链上的继承可以在声明<code>xw</code>前加上<code>Child.prototype = Object.create(Person.prototype)</code>,它的意思是把<code>Child.prototype</code>上的<code>_proto_</code>属性指向了<code>Person.prototype</code>.</p>
+
+<p>上面这样很麻烦，所以ES6有了class，上面这段函数用class写是这样的</p>
+
+<h2 id="基于class的继承">基于class的继承</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">class Person{
+    constructor(name){
+        this.name=name
+    }
+    sayHi(){
+         console.log(&#39;你好，我是&#39;+this.name)
     }
 }
-const xh = {
-    name:&#39;小红&#39;,
-    gender:&#39;女&#39;,
-    age:17
-}</pre></td></tr></table>
+
+class Child extends Person{
+    constructor(name,age){
+        super(name)
+        this.age=age
+    }
+}
+
+let xw = new Child(&#39;小王&#39;,10)
+xw.name//&#39;小王&#39;
+xw.sayHi()//&#39;你好，我是小王&#39;</pre></td></tr></table>
 </div>
 </div>
-<p><code>xw.say(‘南京’,'南京大学')</code> 得到“男生小王，18岁，在南京市南京大学上学”,这里的this就指向xw。</p>
+<p>此时<code>Child.__proto__===Person</code>，自然它就有sayHi方法了</p>
 
-<p>要把<code>this</code>变为<code>xh</code>，得到“女生小红，17岁，在北京市北京大学上学”就可以用call,apply,bind了，以下是用法和区别</p>
+<p>class其实是一种语法糖，它也是利用原型实现继承的，怎么实现就不讲了。。。</p>
 
-<h1 id="call">call</h1>
+<h2 id="补充-关于new做了什么">补充 关于new做了什么</h2>
 
-<p><code>xw.say.call(xh,'北京','北京大学')</code>
-call后面跟着的第一个参数就是要指定的this,后面的参数与<code>xw.say</code>方法是一一对应的</p>
+<p>直接照搬MDN啦</p>
 
-<h1 id="apply">apply</h1>
-
-<p><code>xw.say.apply(xh,['北京','北京大学'])</code>
-say后面跟着的第一个参数也是要指定的this,与call的区别在于后面的第二个参数是一个数组，数组中的元素与<code>xw.say</code>方法一一对应</p>
-
-<h1 id="bind">bind</h1>
-
-<p><code>xw.say.bind(xh,'北京','北京大学')()</code>
-bind的传参方式与call一致，区别在于它返回的是一个函数，所以要再加<code>()</code>来调用
-它也可以写成<code>xw.say.bind(xh)('北京','北京大学')</code>（这是因为bind返回的是一个函数，我们仍可以在调用的时候传参）</p>
+<ol>
+<li>创建一个空的简单JavaScript对象（即{}）；</li>
+<li>链接该对象（即设置该对象的构造函数）到另一个对象 ；</li>
+<li>将步骤1新创建的对象作为this的上下文 ；</li>
+<li>如果该函数没有返回对象，则返回this。</li>
+</ol>
 
     </div>
 
@@ -477,7 +544,7 @@ bind的传参方式与call一致，区别在于它返回的是一个函数，所
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-      2019-12-08
+      2019-12-10
       
     </span>
   </p>
@@ -495,29 +562,18 @@ bind的传参方式与call一致，区别在于它返回的是一个函数，所
     <footer class="post-footer">
       <div class="post-tags">
           <a href="http://gaocarri.top/tags/javascript/">JavaScript</a>
-          <a href="http://gaocarri.top/tags/this/">this</a>
+          <a href="http://gaocarri.top/tags/js/">JS</a>
+          <a href="http://gaocarri.top/tags/%E5%8E%9F%E5%9E%8B/">原型</a>
+          <a href="http://gaocarri.top/tags/%E7%BB%A7%E6%89%BF/">继承</a>
           
         </div>
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/%E5%AF%B9%E4%BA%8Ejs%E7%BB%A7%E6%89%BF%E7%9A%84%E7%90%86%E8%A7%A3/">
-            
-            <i class="iconfont">
-              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="18" height="18">
-  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
-</svg>
-
-            </i>
-            <span class="prev-text nav-default">对于JS继承的理解</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
         
-          <a class="next" href="/post/%E6%90%9E%E6%87%82js%E9%97%AD%E5%8C%85/">
-            <span class="next-text nav-default">搞懂JS闭包</span>
+          <a class="next" href="/post/callapply%E5%92%8Cbind%E7%9A%84%E4%BD%BF%E7%94%A8/">
+            <span class="next-text nav-default">call,apply和bind的使用</span>
             <span class="prev-text nav-mobile">下一篇</span>
             
             <i class="iconfont">

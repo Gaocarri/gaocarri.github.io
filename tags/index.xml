@@ -6,17 +6,44 @@
     <description>Recent content in Tags on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 08 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.top/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>JavaScript</title>
+      <title>Javascript</title>
       <link>http://gaocarri.top/tags/javascript/</link>
-      <pubDate>Sun, 08 Dec 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 10 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>http://gaocarri.top/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JS</title>
+      <link>http://gaocarri.top/tags/js/</link>
+      <pubDate>Tue, 10 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/tags/js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>原型</title>
+      <link>http://gaocarri.top/tags/%E5%8E%9F%E5%9E%8B/</link>
+      <pubDate>Tue, 10 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/tags/%E5%8E%9F%E5%9E%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>继承</title>
+      <link>http://gaocarri.top/tags/%E7%BB%A7%E6%89%BF/</link>
+      <pubDate>Tue, 10 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/tags/%E7%BB%A7%E6%89%BF/</guid>
       <description></description>
     </item>
     
@@ -102,15 +129,6 @@
     </item>
     
     <item>
-      <title>JS</title>
-      <link>http://gaocarri.top/tags/js/</link>
-      <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/tags/js/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>数据结构</title>
       <link>http://gaocarri.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
       <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
@@ -125,15 +143,6 @@
       <pubDate>Wed, 13 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>http://gaocarri.top/tags/jquery/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>原型</title>
-      <link>http://gaocarri.top/tags/%E5%8E%9F%E5%9E%8B/</link>
-      <pubDate>Thu, 07 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/tags/%E5%8E%9F%E5%9E%8B/</guid>
       <description></description>
     </item>
     
@@ -305,15 +314,6 @@
       <pubDate>Sun, 27 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>http://gaocarri.top/tags/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Vue</title>
-      <link>http://gaocarri.top/tags/vue/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/tags/vue/</guid>
       <description></description>
     </item>
     

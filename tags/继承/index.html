@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>call,apply和bind的使用 - 卡里的技术博客</title>
+  <title>继承 · 卡里的技术博客</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -22,9 +22,9 @@
 
 <meta name="mobile-web-app-capable" content="yes">
 
-<meta name="author" content="Carri" /><meta name="description" content="call,apply和bind的使用" />
-<meta name="keywords" content="JavaScript, this" />
-
+<meta name="author" content="Carri" />
+  <meta name="description" content="卡里的技术博客,主要关注于前端开发，前端开发的个人博客网站" />
+  <meta name="keywords" content="前端开发, Javascript, HTML, CSS, 计算机网络, 前端框架, Vue, React" />
 
 
 
@@ -34,8 +34,8 @@
 <meta name="generator" content="Hugo 0.59.0" />
 
 
-<link rel="canonical" href="http://gaocarri.top/post/callapply%E5%92%8Cbind%E7%9A%84%E4%BD%BF%E7%94%A8/" />
-
+<link rel="canonical" href="http://gaocarri.top/tags/%E7%BB%A7%E6%89%BF/" />
+<link href="/tags/%E7%BB%A7%E6%89%BF/index.xml" rel="alternate" type="application/rss+xml" title="卡里的技术博客" />
 
 
 
@@ -58,26 +58,18 @@
 
 
 
-<meta property="og:title" content="call,apply和bind的使用" />
-<meta property="og:description" content="call,apply和bind的使用" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://gaocarri.top/post/callapply%E5%92%8Cbind%E7%9A%84%E4%BD%BF%E7%94%A8/" />
-<meta property="article:published_time" content="2019-12-08T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-12-08T00:00:00+00:00" />
-<meta itemprop="name" content="call,apply和bind的使用">
-<meta itemprop="description" content="call,apply和bind的使用">
+<meta property="og:title" content="继承" />
+<meta property="og:description" content="卡里的技术博客,主要关注于前端开发，前端开发的个人博客网站" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://gaocarri.top/tags/%E7%BB%A7%E6%89%BF/" />
 
+<meta property="og:updated_time" content="2019-12-10T00:00:00+00:00" />
+<meta itemprop="name" content="继承">
+<meta itemprop="description" content="卡里的技术博客,主要关注于前端开发，前端开发的个人博客网站">
 
-<meta itemprop="datePublished" content="2019-12-08T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-08T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="652">
-
-
-
-<meta itemprop="keywords" content="JavaScript,this," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="call,apply和bind的使用"/>
-<meta name="twitter:description" content="call,apply和bind的使用"/>
+<meta name="twitter:title" content="继承"/>
+<meta name="twitter:description" content="卡里的技术博客,主要关注于前端开发，前端开发的个人博客网站"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -361,210 +353,55 @@ if (!doNotTrack) {
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          <article class="post bg-white">
-    
-    <header class="post-header">
-      <h1 class="post-title">call,apply和bind的使用</h1>
-      
-      <div class="post-meta">
-        <time datetime="2019-12-08" class="post-time">
-          2019-12-08
-        </time>
-        <div class="post-category">
-            <a href="http://gaocarri.top/categories/javascript/"> JavaScript </a>
-            <a href="http://gaocarri.top/categories/this/"> this </a>
-            
-          </div>
-        <span class="more-meta"> 约 652 字 </span>
-          <span class="more-meta"> 预计阅读 2 分钟 </span>
-
-        
-        
-          <span id="busuanzi_container_page_pv">
-            | 阅读 <span id="busuanzi_value_page_pv"></span>
-          </span>
-        
-
-        
-        
-      </div>
-    </header>
-
-    
-    
-<div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#call">call</a></li>
-<li><a href="#apply">apply</a></li>
-<li><a href="#bind">bind</a></li>
-</ul>
-</nav>
-  </div>
-</div>
-
-    
-    <div class="post-content">
-      
-
-<p>同样是对之前知识的查缺补漏</p>
-
-<p>call,apply,bind都可以用来指定this的值。
-举例</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">const xw = {
-    name:&#39;小王&#39;,
-    gender:&#39;男&#39;,
-    age:18,
-    say:function(city,university){
-        console.log(`${this.gender}生${this.name},${this.age}岁,在${city}市${university}上学`)
-    }
-}
-const xh = {
-    name:&#39;小红&#39;,
-    gender:&#39;女&#39;,
-    age:17
-}</pre></td></tr></table>
-</div>
-</div>
-<p><code>xw.say(‘南京’,'南京大学')</code> 得到“男生小王，18岁，在南京市南京大学上学”,这里的this就指向xw。</p>
-
-<p>要把<code>this</code>变为<code>xh</code>，得到“女生小红，17岁，在北京市北京大学上学”就可以用call,apply,bind了，以下是用法和区别</p>
-
-<h1 id="call">call</h1>
-
-<p><code>xw.say.call(xh,'北京','北京大学')</code>
-call后面跟着的第一个参数就是要指定的this,后面的参数与<code>xw.say</code>方法是一一对应的</p>
-
-<h1 id="apply">apply</h1>
-
-<p><code>xw.say.apply(xh,['北京','北京大学'])</code>
-say后面跟着的第一个参数也是要指定的this,与call的区别在于后面的第二个参数是一个数组，数组中的元素与<code>xw.say</code>方法一一对应</p>
-
-<h1 id="bind">bind</h1>
-
-<p><code>xw.say.bind(xh,'北京','北京大学')()</code>
-bind的传参方式与call一致，区别在于它返回的是一个函数，所以要再加<code>()</code>来调用
-它也可以写成<code>xw.say.bind(xh)('北京','北京大学')</code>（这是因为bind返回的是一个函数，我们仍可以在调用的时候传参）</p>
-
-    </div>
-
-    
-    
-<div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">Carri</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-      2019-12-08
-      
-    </span>
-  </p>
-  
-  <p class="copyright-item">
-    <span class="item-title">许可协议</span>
-    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
-  </p>
-</div>
-
-
-    
-    
-
-    <footer class="post-footer">
-      <div class="post-tags">
-          <a href="http://gaocarri.top/tags/javascript/">JavaScript</a>
-          <a href="http://gaocarri.top/tags/this/">this</a>
           
-        </div>
 
-      
-      <nav class="post-nav">
-        
-          <a class="prev" href="/post/%E5%AF%B9%E4%BA%8Ejs%E7%BB%A7%E6%89%BF%E7%9A%84%E7%90%86%E8%A7%A3/">
-            
-            <i class="iconfont">
-              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="18" height="18">
-  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
-</svg>
-
-            </i>
-            <span class="prev-text nav-default">对于JS继承的理解</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        
-          <a class="next" href="/post/%E6%90%9E%E6%87%82js%E9%97%AD%E5%8C%85/">
-            <span class="next-text nav-default">搞懂JS闭包</span>
-            <span class="prev-text nav-mobile">下一篇</span>
-            
-            <i class="iconfont">
-              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="18" height="18">
-  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
-</svg>
-
-            </i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-
+<section id="archive" class="archive">
   
-  
-  
+    
+      <div class="archive-title tag">
+        <h2 class="archive-name">标签： 继承</h2>
+      </div>
+    
   
 
   
-  
-
-  
-
-  
-  
-    <div class="post bg-white">
-      <script src="https://utteranc.es/client.js"
-            repo= "gaocarri/comments-for-blog"
-            issue-term="pathname"
-            theme="github-light"
-            crossorigin="anonymous"
-            async>
-      </script>
+    <div class="archive-post">
+      <time datetime="2019-12-10" class="archive-post-time">
+        2019-12-10
+      </time>
+      <span class="archive-post-title">
+        <a href="/post/%E5%AF%B9%E4%BA%8Ejs%E7%BB%A7%E6%89%BF%E7%9A%84%E7%90%86%E8%A7%A3/" class="archive-post-link">
+          对于JS继承的理解
+        </a>
+      </span>
     </div>
   
+</section>
 
+
+
+
+
+
+  
+  
   
 
   
-
   
 
-    
+  
+  
 
   
+  
+
+  
+  
+
+
+
+
 
         </div>
       </div>
@@ -685,13 +522,6 @@ bind的传参方式与call一致，区别在于它返回的是一个函数，所
 
 
 
-  <script type="text/javascript">
-    window.MathJax = {
-      showProcessingMessages: false,
-      messageStyle: 'none'
-    };
-  </script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 
 
