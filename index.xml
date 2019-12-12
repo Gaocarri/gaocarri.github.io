@@ -368,7 +368,7 @@ createSecret(&amp;#39;spiderMan&amp;#39;) //我把自己变成了蜘蛛侠
 getSecret() //知道我现在是蜘蛛侠了&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;好了，现在我就可以把这个函数告诉其他人（其他的JS文件），其他人就可以通过&lt;code&gt;getSecret()&lt;/code&gt;和&lt;code&gt;w、createSecret()&lt;/code&gt;方法来得知或者更改我现在的身份了&lt;/p&gt;
+&lt;p&gt;好了，现在我就可以把这个函数告诉其他人（其他的JS文件），其他人就可以通过&lt;code&gt;getSecret()&lt;/code&gt;和&lt;code&gt;createSecret()&lt;/code&gt;方法来得知或者更改我现在的身份了&lt;/p&gt;
 
 &lt;p&gt;我把它的用处总结为以下几点&lt;/p&gt;
 
