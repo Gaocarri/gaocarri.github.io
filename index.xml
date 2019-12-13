@@ -605,15 +605,16 @@ const app = new Vue({
 &lt;/div&gt;
 &lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;li&gt;&lt;p&gt;计算属性&lt;/p&gt;
+&lt;h2 id=&#34;4-计算属性&#34;&gt;4. 计算属性&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;记住计算属性有缓存，而methods没有（更占内存）&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;举例,通过计算属性计算&lt;code&gt;books&lt;/code&gt;的总价格(这个例子中，我们只是使用getter来读取，某些情况下可以提供一个setter方法，不常用)&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;举例,通过计算属性计算&lt;code&gt;books&lt;/code&gt;的总价格(这个例子中，我们只是使用getter来读取，某些情况下可以提供一个setter方法，不常用)&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -681,64 +682,130 @@ const app = new Vue({
 &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt;
 
 &amp;lt;head&amp;gt;
-    &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt;
-    &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&amp;gt;
-    &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;ie=edge&amp;#34;&amp;gt;
-    &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt;
+&amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt;
+&amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&amp;gt;
+&amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;ie=edge&amp;#34;&amp;gt;
+&amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt;
 &amp;lt;/head&amp;gt;
 
 &amp;lt;body&amp;gt;
-    &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
-        &amp;lt;h2&amp;gt;总价格：{{totalPrice}}&amp;lt;/h2&amp;gt;
-    &amp;lt;/div&amp;gt;
+&amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+    &amp;lt;h2&amp;gt;总价格：{{totalPrice}}&amp;lt;/h2&amp;gt;
+&amp;lt;/div&amp;gt;
 
-    &amp;lt;script src=&amp;#34;../js/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
-    &amp;lt;script&amp;gt;
-        const app = new Vue({
-            el: &amp;#39;#app&amp;#39;,
-            data: {
-                books: [{
-                    id: 1,
-                    name: &amp;#39;Unix编程艺术&amp;#39;,
-                    price: 100
-                }, {
-                    id: 2,
-                    name: &amp;#39;代码大全&amp;#39;,
-                    price: 180
-                }, {
-                    id: 3,
-                    name: &amp;#39;深入李杰计算机原理&amp;#39;,
-                    price: 95
-                }, {
-                    id: 4,
-                    name: &amp;#39;现代操作系统&amp;#39;,
-                    price: 70
-                }]
-            },
-            computed: {
-                totalPrice() {
-                    let result = 0;
-                    //ES5的方法 for 循环
-                    // for (let i = 0; i &amp;lt; this.books.length; i++) {
-                    //     result += this.books[i].price
-                    // }
+&amp;lt;script src=&amp;#34;../js/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script&amp;gt;
+    const app = new Vue({
+        el: &amp;#39;#app&amp;#39;,
+        data: {
+            books: [{
+                id: 1,
+                name: &amp;#39;Unix编程艺术&amp;#39;,
+                price: 100
+            }, {
+                id: 2,
+                name: &amp;#39;代码大全&amp;#39;,
+                price: 180
+            }, {
+                id: 3,
+                name: &amp;#39;深入李杰计算机原理&amp;#39;,
+                price: 95
+            }, {
+                id: 4,
+                name: &amp;#39;现代操作系统&amp;#39;,
+                price: 70
+            }]
+        },
+        computed: {
+            totalPrice() {
+                let result = 0;
+                //ES5的方法 for 循环
+                // for (let i = 0; i &amp;lt; this.books.length; i++) {
+                //     result += this.books[i].price
+                // }
 
-                    //ES6
+                //ES6
 
-                    for (let book of this.books) {
-                        result += book.price
-                    }
-                    return result
+                for (let book of this.books) {
+                    result += book.price
                 }
+                return result
             }
-        })
-    &amp;lt;/script&amp;gt;
+        }
+    })
+&amp;lt;/script&amp;gt;
 &amp;lt;/body&amp;gt;
 
 &amp;lt;/html&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;set和get方法(在控制台输入app.fullName,会调用set方法，同时改变firstName和lastName)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+    &amp;lt;h2&amp;gt;{{fullName}}&amp;lt;/h2&amp;gt;
+&amp;lt;/div&amp;gt;
+
+&amp;lt;script src=&amp;#34;../js/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script&amp;gt;
+    const app = new Vue({
+        el: &amp;#39;#app&amp;#39;,
+        data: {
+            firstName: &amp;#39;Kobe&amp;#39;,
+            lastName: &amp;#39;Bryant&amp;#39;
+        },
+        // 计算属性一般没有set方法，只读属性
+        computed: {
+            fullName: {
+                set(newValue) {
+                    console.log(&amp;#39;调用了set&amp;#39;, newValue)
+                    const names = newValue.split(&amp;#39; &amp;#39;)
+                    this.firstName = names[0]
+                    this.lastName = names[1]
+                },
+                get() {
+                    return this.firstName + &amp;#39; &amp;#39; + this.lastName
+                }
+            }
+        }
+    })
+&amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;p&gt;Vue的第一天学习就这样了，争取半个月搞定Vue!!奥力给&lt;/p&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Vue的第一天学习就这样了，争取十天搞定Vue!!奥力给&lt;/p&gt;
 </description>
       
     </item>

@@ -70,7 +70,7 @@
 
 <meta itemprop="datePublished" content="2019-12-13T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-13T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="2087">
+<meta itemprop="wordCount" content="2278">
 
 
 
@@ -374,7 +374,7 @@ if (!doNotTrack) {
             <a href="http://gaocarri.top/categories/%E6%A1%86%E6%9E%B6/"> 框架 </a>
             
           </div>
-        <span class="more-meta"> 约 2087 字 </span>
+        <span class="more-meta"> 约 2278 字 </span>
           <span class="more-meta"> 预计阅读 5 分钟 </span>
 
         
@@ -404,6 +404,7 @@ if (!doNotTrack) {
 <li><a href="#1-列表展示和计数器案例">1. 列表展示和计数器案例</a></li>
 <li><a href="#2-vue的插值操作">2. Vue的插值操作</a></li>
 <li><a href="#3-v-bind绑定">3. v-bind绑定</a></li>
+<li><a href="#4-计算属性">4. 计算属性</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -960,15 +961,16 @@ const app = new Vue({
 </div>
 </div></li>
 </ul></li>
+</ol>
 
-<li><p>计算属性</p>
+<h2 id="4-计算属性">4. 计算属性</h2>
 
 <ul>
 <li>记住计算属性有缓存，而methods没有（更占内存）</li>
-</ul></li>
-</ol>
+</ul>
 
-<p>举例,通过计算属性计算<code>books</code>的总价格(这个例子中，我们只是使用getter来读取，某些情况下可以提供一个setter方法，不常用)</p>
+<ol>
+<li><p>举例,通过计算属性计算<code>books</code>的总价格(这个例子中，我们只是使用getter来读取，某些情况下可以提供一个setter方法，不常用)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt"> 1
@@ -1036,64 +1038,130 @@ const app = new Vue({
 &lt;html lang=&#34;en&#34;&gt;
 
 &lt;head&gt;
-    &lt;meta charset=&#34;UTF-8&#34;&gt;
-    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
-    &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;ie=edge&#34;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
+&lt;meta charset=&#34;UTF-8&#34;&gt;
+&lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+&lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;ie=edge&#34;&gt;
+&lt;title&gt;Document&lt;/title&gt;
 &lt;/head&gt;
 
 &lt;body&gt;
-    &lt;div id=&#34;app&#34;&gt;
-        &lt;h2&gt;总价格：{{totalPrice}}&lt;/h2&gt;
-    &lt;/div&gt;
+&lt;div id=&#34;app&#34;&gt;
+    &lt;h2&gt;总价格：{{totalPrice}}&lt;/h2&gt;
+&lt;/div&gt;
 
-    &lt;script src=&#34;../js/vue.js&#34;&gt;&lt;/script&gt;
-    &lt;script&gt;
-        const app = new Vue({
-            el: &#39;#app&#39;,
-            data: {
-                books: [{
-                    id: 1,
-                    name: &#39;Unix编程艺术&#39;,
-                    price: 100
-                }, {
-                    id: 2,
-                    name: &#39;代码大全&#39;,
-                    price: 180
-                }, {
-                    id: 3,
-                    name: &#39;深入李杰计算机原理&#39;,
-                    price: 95
-                }, {
-                    id: 4,
-                    name: &#39;现代操作系统&#39;,
-                    price: 70
-                }]
-            },
-            computed: {
-                totalPrice() {
-                    let result = 0;
-                    //ES5的方法 for 循环
-                    // for (let i = 0; i &lt; this.books.length; i++) {
-                    //     result += this.books[i].price
-                    // }
+&lt;script src=&#34;../js/vue.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;
+    const app = new Vue({
+        el: &#39;#app&#39;,
+        data: {
+            books: [{
+                id: 1,
+                name: &#39;Unix编程艺术&#39;,
+                price: 100
+            }, {
+                id: 2,
+                name: &#39;代码大全&#39;,
+                price: 180
+            }, {
+                id: 3,
+                name: &#39;深入李杰计算机原理&#39;,
+                price: 95
+            }, {
+                id: 4,
+                name: &#39;现代操作系统&#39;,
+                price: 70
+            }]
+        },
+        computed: {
+            totalPrice() {
+                let result = 0;
+                //ES5的方法 for 循环
+                // for (let i = 0; i &lt; this.books.length; i++) {
+                //     result += this.books[i].price
+                // }
 
-                    //ES6
+                //ES6
 
-                    for (let book of this.books) {
-                        result += book.price
-                    }
-                    return result
+                for (let book of this.books) {
+                    result += book.price
                 }
+                return result
             }
-        })
-    &lt;/script&gt;
+        }
+    })
+&lt;/script&gt;
 &lt;/body&gt;
 
 &lt;/html&gt;</pre></td></tr></table>
 </div>
+</div></li>
+
+<li><p>set和get方法(在控制台输入app.fullName,会调用set方法，同时改变firstName和lastName)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;div id=&#34;app&#34;&gt;
+    &lt;h2&gt;{{fullName}}&lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;script src=&#34;../js/vue.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;
+    const app = new Vue({
+        el: &#39;#app&#39;,
+        data: {
+            firstName: &#39;Kobe&#39;,
+            lastName: &#39;Bryant&#39;
+        },
+        // 计算属性一般没有set方法，只读属性
+        computed: {
+            fullName: {
+                set(newValue) {
+                    console.log(&#39;调用了set&#39;, newValue)
+                    const names = newValue.split(&#39; &#39;)
+                    this.firstName = names[0]
+                    this.lastName = names[1]
+                },
+                get() {
+                    return this.firstName + &#39; &#39; + this.lastName
+                }
+            }
+        }
+    })
+&lt;/script&gt;</pre></td></tr></table>
 </div>
-<p>Vue的第一天学习就这样了，争取半个月搞定Vue!!奥力给</p>
+</div></li>
+</ol>
+
+<p>Vue的第一天学习就这样了，争取十天搞定Vue!!奥力给</p>
 
     </div>
 
