@@ -6,7 +6,7 @@
     <description>Recent content in Categories on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 10 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.top/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,18 @@
     <item>
       <title>JavaScript</title>
       <link>http://gaocarri.top/categories/javascript/</link>
-      <pubDate>Tue, 10 Dec 2019 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>http://gaocarri.top/categories/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>框架</title>
+      <link>http://gaocarri.top/categories/%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/categories/%E6%A1%86%E6%9E%B6/</guid>
       <description></description>
     </item>
     
@@ -26,15 +35,6 @@
       <pubDate>Sun, 08 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>http://gaocarri.top/categories/this/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>框架</title>
-      <link>http://gaocarri.top/categories/%E6%A1%86%E6%9E%B6/</link>
-      <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/categories/%E6%A1%86%E6%9E%B6/</guid>
       <description></description>
     </item>
     

@@ -6,17 +6,53 @@
     <description>Recent content in Tags on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 10 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.top/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>AJAX</title>
+      <link>http://gaocarri.top/tags/ajax/</link>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/tags/ajax/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>JavaScript</title>
       <link>http://gaocarri.top/tags/javascript/</link>
-      <pubDate>Tue, 10 Dec 2019 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>http://gaocarri.top/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vue</title>
+      <link>http://gaocarri.top/tags/vue/</link>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/tags/vue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>框架</title>
+      <link>http://gaocarri.top/tags/%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/tags/%E6%A1%86%E6%9E%B6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>跨域</title>
+      <link>http://gaocarri.top/tags/%E8%B7%A8%E5%9F%9F/</link>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/tags/%E8%B7%A8%E5%9F%9F/</guid>
       <description></description>
     </item>
     
@@ -84,15 +120,6 @@
     </item>
     
     <item>
-      <title>框架</title>
-      <link>http://gaocarri.top/tags/%E6%A1%86%E6%9E%B6/</link>
-      <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/tags/%E6%A1%86%E6%9E%B6/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>排序</title>
       <link>http://gaocarri.top/tags/%E6%8E%92%E5%BA%8F/</link>
       <pubDate>Sat, 23 Nov 2019 00:00:00 +0000</pubDate>
@@ -147,7 +174,7 @@
     </item>
     
     <item>
-      <title>javascript入门</title>
+      <title>JavaScript入门</title>
       <link>http://gaocarri.top/tags/javascript%E5%85%A5%E9%97%A8/</link>
       <pubDate>Tue, 05 Nov 2019 00:00:00 +0000</pubDate>
       
@@ -156,7 +183,7 @@
     </item>
     
     <item>
-      <title>javascript语法</title>
+      <title>JavaScript语法&#34;</title>
       <link>http://gaocarri.top/tags/javascript%E8%AF%AD%E6%B3%95/</link>
       <pubDate>Tue, 05 Nov 2019 00:00:00 +0000</pubDate>
       

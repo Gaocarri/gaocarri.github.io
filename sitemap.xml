@@ -9,49 +9,98 @@
   </url>
   
   <url>
+    <loc>http://gaocarri.top/tags/ajax/</loc>
+    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://gaocarri.top/categories/</loc>
-    <lastmod>2019-12-10T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://gaocarri.top/tags/javascript/</loc>
-    <lastmod>2019-12-10T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://gaocarri.top/categories/javascript/</loc>
-    <lastmod>2019-12-10T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://gaocarri.top/tags/js/</loc>
-    <lastmod>2019-12-10T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://gaocarri.top/post/</loc>
-    <lastmod>2019-12-10T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://gaocarri.top/tags/</loc>
-    <lastmod>2019-12-10T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gaocarri.top/tags/vue/</loc>
+    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gaocarri.top/post/vue%E5%9F%BA%E7%A1%80%E4%B8%80/</loc>
+    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://gaocarri.top/</loc>
+    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gaocarri.top/categories/%E6%A1%86%E6%9E%B6/</loc>
+    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gaocarri.top/tags/%E6%A1%86%E6%9E%B6/</loc>
+    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gaocarri.top/tags/%E8%B7%A8%E5%9F%9F/</loc>
+    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gaocarri.top/post/%E8%B7%A8%E5%9F%9F%E4%BB%A5%E5%8F%8A%E5%AE%9E%E7%8E%B0%E8%B7%A8%E5%9F%9F/</loc>
+    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gaocarri.top/tags/js/</loc>
     <lastmod>2019-12-10T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -135,20 +184,6 @@
   </url>
   
   <url>
-    <loc>http://gaocarri.top/categories/%E6%A1%86%E6%9E%B6/</loc>
-    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://gaocarri.top/tags/%E6%A1%86%E6%9E%B6/</loc>
-    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://gaocarri.top/post/%E8%AE%A4%E8%AF%86mvc/</loc>
     <lastmod>2019-11-29T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -170,14 +205,14 @@
   </url>
   
   <url>
-    <loc>http://gaocarri.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</loc>
+    <loc>http://gaocarri.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2019-11-23T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gaocarri.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</loc>
+    <loc>http://gaocarri.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2019-11-23T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -212,14 +247,14 @@
   </url>
   
   <url>
-    <loc>http://gaocarri.top/tags/jquery/</loc>
+    <loc>http://gaocarri.top/categories/jquery/</loc>
     <lastmod>2019-11-13T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gaocarri.top/categories/jquery/</loc>
+    <loc>http://gaocarri.top/tags/jquery/</loc>
     <lastmod>2019-11-13T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -331,14 +366,14 @@
   </url>
   
   <url>
-    <loc>http://gaocarri.top/tags/http/</loc>
+    <loc>http://gaocarri.top/categories/http/</loc>
     <lastmod>2019-10-31T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gaocarri.top/categories/http/</loc>
+    <loc>http://gaocarri.top/tags/http/</loc>
     <lastmod>2019-10-31T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -415,14 +450,14 @@
   </url>
   
   <url>
-    <loc>http://gaocarri.top/tags/html/</loc>
+    <loc>http://gaocarri.top/categories/html/</loc>
     <lastmod>2019-10-29T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gaocarri.top/categories/html/</loc>
+    <loc>http://gaocarri.top/tags/html/</loc>
     <lastmod>2019-10-29T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -457,14 +492,14 @@
   </url>
   
   <url>
-    <loc>http://gaocarri.top/tags/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8/</loc>
+    <loc>http://gaocarri.top/categories/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2019-10-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gaocarri.top/categories/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8/</loc>
+    <loc>http://gaocarri.top/tags/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2019-10-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

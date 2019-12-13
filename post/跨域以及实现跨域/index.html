@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>卡里的技术博客</title>
+  <title>跨域以及实现跨域 - 卡里的技术博客</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -22,9 +22,9 @@
 
 <meta name="mobile-web-app-capable" content="yes">
 
-<meta name="author" content="Carri" />
-  <meta name="description" content="卡里的技术博客,主要关注于前端开发，前端开发的个人博客网站" />
-  <meta name="keywords" content="前端开发, Javascript, HTML, CSS, 计算机网络, 前端框架, Vue, React" />
+<meta name="author" content="Carri" /><meta name="description" content="跨域以及实现跨域" />
+<meta name="keywords" content="跨域, AJAX, JavaScript" />
+
 
 
 
@@ -34,8 +34,8 @@
 <meta name="generator" content="Hugo 0.59.0" />
 
 
-<link rel="canonical" href="http://gaocarri.top/" />
-<link href="/index.xml" rel="alternate" type="application/rss+xml" title="卡里的技术博客" />
+<link rel="canonical" href="http://gaocarri.top/post/%E8%B7%A8%E5%9F%9F%E4%BB%A5%E5%8F%8A%E5%AE%9E%E7%8E%B0%E8%B7%A8%E5%9F%9F/" />
+
 
 
 
@@ -58,18 +58,26 @@
 
 
 
-<meta property="og:title" content="卡里的技术博客" />
-<meta property="og:description" content="卡里的技术博客,主要关注于前端开发，前端开发的个人博客网站" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://gaocarri.top/" />
+<meta property="og:title" content="跨域以及实现跨域" />
+<meta property="og:description" content="跨域以及实现跨域" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://gaocarri.top/post/%E8%B7%A8%E5%9F%9F%E4%BB%A5%E5%8F%8A%E5%AE%9E%E7%8E%B0%E8%B7%A8%E5%9F%9F/" />
+<meta property="article:published_time" content="2019-12-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-12-13T00:00:00+00:00" />
+<meta itemprop="name" content="跨域以及实现跨域">
+<meta itemprop="description" content="跨域以及实现跨域">
 
-<meta property="og:updated_time" content="2019-12-13T00:00:00+00:00" />
-<meta itemprop="name" content="卡里的技术博客">
-<meta itemprop="description" content="卡里的技术博客,主要关注于前端开发，前端开发的个人博客网站">
 
+<meta itemprop="datePublished" content="2019-12-13T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-12-13T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="848">
+
+
+
+<meta itemprop="keywords" content="跨域,AJAX,JavaScript," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="卡里的技术博客"/>
-<meta name="twitter:description" content="卡里的技术博客,主要关注于前端开发，前端开发的个人博客网站"/>
+<meta name="twitter:title" content="跨域以及实现跨域"/>
+<meta name="twitter:description" content="跨域以及实现跨域"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -270,7 +278,7 @@ if (!doNotTrack) {
   <ul id="menu" class="menu">
     
     
-        <li class="menu-item active">
+        <li class="menu-item">
         
           
           
@@ -353,176 +361,239 @@ if (!doNotTrack) {
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-<section id="posts" class="posts">
-  
-  
+          <article class="post bg-white">
     
-  
-  
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
+    <header class="post-header">
+      <h1 class="post-title">跨域以及实现跨域</h1>
       
-      <a class="post-link" href="/post/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/">HTML入门笔记</a>
-    </h1>
+      <div class="post-meta">
+        <time datetime="2019-12-13" class="post-time">
+          2019-12-13
+        </time>
+        <div class="post-category">
+            <a href="http://gaocarri.top/categories/javascript/"> JavaScript </a>
+            
+          </div>
+        <span class="more-meta"> 约 848 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
     
-    <div class="post-meta">
-      <time datetime="2019-10-28" class="post-time">
-        2019-10-28
-      </time>
-      <div class="post-category">
-          <a href="http://gaocarri.top/categories/html/"> HTML </a>
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#什么是同源">什么是同源</a></li>
+<li><a href="#什么是跨域">什么是跨域</a></li>
+<li><a href="#cors">CORS</a></li>
+<li><a href="#jsonp跨域">JSONP跨域</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p>之前把Ajax弄懂了，现在回头再看跨域终于有了清晰的理解。
+本文包括以下内容</p>
+
+<ul>
+<li>什么是同源</li>
+<li>什么是跨域</li>
+<li>CORS实现跨域</li>
+<li>JSONP实现跨域</li>
+</ul>
+
+<h2 id="什么是同源">什么是同源</h2>
+
+<p>如果两个url它们的协议，域名和端口（如果有指定，不指定默认都是80端口）都相同，则这两个页面有相同的源。
+如<code>https：//www.example.com/dir/index.html</code>,它的协议是<code>https://</code>,域名是<code>www.example.cm</code>,端口是<code>80</code>（80是默认端口，可以省略）</p>
+
+<h2 id="什么是跨域">什么是跨域</h2>
+
+<p>跨域是指一个域下的文档或脚本试图去请求另一个域下的资源，由于同源策略，会限制以下行为
+1. cookie,localStorage,indexDB无法读取
+2. JS和DOM对象无法获得
+3. AJAX请求不能发送</p>
+
+<h2 id="cors">CORS</h2>
+
+<p>CORS是实现跨域的一种方式，它的全称是Cross-Origin Resource Sharing
+比如我想让<code>http://carri.com:9999</code>请求<code>http://gao.com:8888</code>的资源
+可以在<code>http://gao.com:8888</code>响应头添加<code>response.setHeader('Access-Control-Allow-Origin', 'http://carri.com:9999')</code></p>
+
+<h2 id="jsonp跨域">JSONP跨域</h2>
+
+<p>JSONP是实现跨域的一种方式，当浏览器无法使用CORS时，我们可以使用JSONP。它的原理是，虽然我们无法访问另外一个网站的数据，但是可以用<code>script</code>标签引用这个网站的JS,服务器收到请求后，会将数据放在一个回调函数里（回调函数的名字是一个随机生成的随机数）传回来。优点是可以跨域并且兼容IE，但由于它是<code>script</code>标签，所以它读不到响应的状态，且只能发<code>GET</code>请求,不支持<code>POST</code>。</p>
+
+<p>下例是一个封装的JSONP，用于在其他网站访问我模拟的域名里的qq文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">function jsonp(url) {
+    return new Promise((resolve, reject) =&gt; {
+        const random = &#34;frankJSONPCallbackName&#34; + Math.random();
+        window[random] = data =&gt; {
+            resolve(data);
+        };// 一个回调函数
+        const script = document.createElement(&#34;script&#34;);
+        script.src = `${url}?callback=${random}`// 服务器会根据这个查询参数得到random
+        script.onload = () =&gt; {
+            script.remove();
+        };// 成功之后删掉这个script标签，防止页面冗杂
+        script.onerror = () =&gt; {
+            reject();
+        }
+        document.body.appendChild(script);
+    });
+}
+jsonp(&#39;http://localhost:8888/qqf.js&#39;).then((data) =&gt; {
+    console.log(data);
+
+})// 加载成功后，后台打出data</pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Carri</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2019-12-13
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://gaocarri.top/tags/%E8%B7%A8%E5%9F%9F/">跨域</a>
+          <a href="http://gaocarri.top/tags/ajax/">AJAX</a>
+          <a href="http://gaocarri.top/tags/javascript/">JavaScript</a>
           
         </div>
-      <span class="more-meta"> 约 526 字 </span>
-      <span class="more-meta"> 预计阅读 2 分钟 </span>
+
       
-      
-      
-    </div>
-  </header>
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/vue%E5%9F%BA%E7%A1%80%E4%B8%80/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Vue基础（一）</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/%E5%AF%B9%E4%BA%8Ejs%E7%BB%A7%E6%89%BF%E7%9A%84%E7%90%86%E8%A7%A3/">
+            <span class="next-text nav-default">对于JS继承的理解</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
   
-  <div class="post-content">
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "gaocarri/comments-for-blog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+  
+
+  
+
+  
+
+  
+
     
-    <div class="post-summary">
-      HTML是谁发明的 Timothy John Berners-Lee爵士，英国计算机科学家，万维网的发明者 HTML起手应该写什么 1 2 3 4 5 6 7 8 9 10 11 12 &lt;!DOCTYPE html&gt; &lt;html lang=&#34;en&#34;&gt; &lt;head&gt; &lt;meta
-    </div>
-    <div class="read-more">
-      <a href="/post/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
 
   
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">如何使用Hugo搭建个人博客</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2019-10-27" class="post-time">
-        2019-10-27
-      </time>
-      <div class="post-category">
-          <a href="http://gaocarri.top/categories/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8/"> 博客使用 </a>
-          
-        </div>
-      <span class="more-meta"> 约 1009 字 </span>
-      <span class="more-meta"> 预计阅读 3 分钟 </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      关于Hugo Hugo的官方网站https://gohugo.io/ Go语言实现的一个博客生成器 世界上最快的博客生成器 安装Hugo 以下只谈Wi
-    </div>
-    <div class="read-more">
-      <a href="/post/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/my-first-blog/">我的第一篇博客</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2019-10-26" class="post-time">
-        2019-10-26
-      </time>
-      <div class="post-category">
-          <a href="http://gaocarri.top/categories/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8/"> 博客使用 </a>
-          
-        </div>
-      <span class="more-meta"> 约 25 字 </span>
-      <span class="more-meta"> 预计阅读 1 分钟 </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      大家好 这是我的博客，不定期记录一些文章和学习笔记。
-    </div>
-    <div class="read-more">
-      <a href="/post/my-first-blog/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-</section>
-
-
-
-
-
-
-  
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-  <nav class="pagination">
-    <ul>
-      
-      <li >
-        <a href="/">1</a>
-      </li>
-      
-      <li >
-        <a href="/page/2/">2</a>
-      </li>
-      
-      <li >
-        <a href="/page/3/">3</a>
-      </li>
-      
-      <li >
-        <a href="/page/4/">4</a>
-      </li>
-      
-      <li  class="active" >
-        <a href="/page/5/">5</a>
-      </li>
-      
-    </ul>
-  </nav>
-
-  
-  
-
-
-
-
 
         </div>
       </div>
@@ -643,6 +714,13 @@ if (!doNotTrack) {
 
 
 
+  <script type="text/javascript">
+    window.MathJax = {
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 
 

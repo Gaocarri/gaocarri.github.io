@@ -6,7 +6,7 @@
     <description>Recent content on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 10 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Dec 2019 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="http://gaocarri.top/index.xml" rel="self" type="application/rss+xml" />
     
@@ -47,6 +47,792 @@
 &lt;li&gt;近期学到Vue了，后面会更新Vue相关的博客&lt;/li&gt;
 &lt;/ul&gt;
 </description>
+      
+    </item>
+    
+    <item>
+      <title>Vue基础（一）</title>
+      <link>http://gaocarri.top/post/vue%E5%9F%BA%E7%A1%80%E4%B8%80/</link>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/vue%E5%9F%BA%E7%A1%80%E4%B8%80/</guid>
+      
+        <description>
+
+&lt;h2 id=&#34;vue是一种渐进式框架-什么是渐进式框架&#34;&gt;Vue是一种渐进式框架，什么是渐进式框架&lt;/h2&gt;
+
+&lt;p&gt;渐进式框架：即可以在项目中部分使用Vue，不必非要完全使用&lt;/p&gt;
+
+&lt;h2 id=&#34;vue的mvvm&#34;&gt;Vue的MVVM&lt;/h2&gt;
+
+&lt;p&gt;Vue是一种MVVM框架。（也有人说现在是一种MV*框架）&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;View:DOM&lt;/li&gt;
+&lt;li&gt;ViewModel:Vue(处理Vue和Model，Vue在这里起到了这样一个作用)&lt;/li&gt;
+&lt;li&gt;Model:Plan JavaScript,Objects&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;vue的模板&#34;&gt;Vue的模板&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+    &amp;lt;h2&amp;gt;{{message}}&amp;lt;/h2&amp;gt;
+&amp;lt;/div&amp;gt;
+
+&amp;lt;script&amp;gt;
+    const app = new Vue({
+        el:&amp;#39;#app&amp;#39;, // 控制的元素
+        data:{
+            message:&amp;#39;Hello Vuejs&amp;#39;
+        } ,//含有的数据
+        methods:{
+
+        }, //含有的方法，后面还有一系列生命周期函数
+    })
+&amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;好了，进入正题&lt;/p&gt;
+
+&lt;h2 id=&#34;1-列表展示和计数器案例&#34;&gt;1. 列表展示和计数器案例&lt;/h2&gt;
+
+&lt;p&gt;列表展示案例：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+        &amp;lt;ul&amp;gt;
+            &amp;lt;li v-for=&amp;#34;movie in movies&amp;#34;&amp;gt;{{movie}}&amp;lt;/li&amp;gt;
+        &amp;lt;/ul&amp;gt;
+
+    &amp;lt;/div&amp;gt;
+
+    &amp;lt;script src=&amp;#34;../js/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script&amp;gt;
+        const app = new Vue({
+            el: &amp;#39;#app&amp;#39;,
+            data: {
+                message: &amp;#39;你好啊&amp;#39;,
+                movies: [&amp;#39;海王&amp;#39;, &amp;#39;蜘蛛侠&amp;#39;, &amp;#39;蝙蝠侠&amp;#39;, &amp;#39;肖申克的救赎&amp;#39;]
+            }
+        })
+    &amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;计数器案例：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+        &amp;lt;h3&amp;gt;当前计数：{{counter}}&amp;lt;/h3&amp;gt;
+        &amp;lt;button v-on:click=&amp;#34;add&amp;#34;&amp;gt;加1&amp;lt;/button&amp;gt;
+        &amp;lt;button v-on:click=&amp;#34;sub&amp;#34;&amp;gt;减1&amp;lt;/button&amp;gt;
+    &amp;lt;/div&amp;gt;
+
+    &amp;lt;script src=&amp;#34;../js/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script&amp;gt;
+        const app = new Vue({
+            el: &amp;#39;#app&amp;#39;,
+            data: {
+                counter: 0
+            },
+            methods: { //类型key(string):Function()
+                add() {
+                    this.counter++ //一定要加this
+                },
+                sub() {
+                    this.counter--
+                }
+            }
+        })
+    &amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;2-vue的插值操作&#34;&gt;2. Vue的插值操作&lt;/h2&gt;
+
+&lt;p&gt;何为插值操作？&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上述的#app里面的{{message}}已经交由Vue控制了，这是Vue的Mustache语法,它显示的值就是&lt;code&gt;data&lt;/code&gt;里的&lt;code&gt;message&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;v-once&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+    &amp;lt;h2&amp;gt;{{message}}&amp;lt;/h2&amp;gt;
+    &amp;lt;h2 v-once&amp;gt;{{message}}&amp;lt;/h2&amp;gt;
+    &amp;lt;!-- 使用了v-once插入的值只会改变一次 --&amp;gt;
+&amp;lt;/div&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;v-html&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+    &amp;lt;h2&amp;gt;{{url}}&amp;lt;/h2&amp;gt;
+    &amp;lt;!--这里的url会是字符串--&amp;gt;
+    &amp;lt;h2 v-html=&amp;#34;url&amp;#34;&amp;gt;&amp;lt;/h2&amp;gt;
+    &amp;lt;!--这里会包含html语法并且覆盖&amp;lt;h2&amp;gt;标签内的所有内容--&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;script src=&amp;#34;../js/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script&amp;gt;
+    const app = new Vue({
+        el: &amp;#39;#app&amp;#39;,
+        data: {
+            url: &amp;#39;&amp;lt;a href=&amp;#34;http://www.baidu.com&amp;#34;&amp;gt;百度一下&amp;lt;/a&amp;gt;&amp;#39;
+        }
+    })
+&amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;v-text&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;用法同&lt;code&gt;v-html&lt;/code&gt;,但是它不包含html用法，会覆盖标签内的全部内容，一般很少使用&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;v-pre&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;h2 v-pre&amp;gt;{{message}}&amp;lt;/h2&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;这里显示的解果是{{message}}，原封不动的显示&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;v-cloak(cloak斗篷的意思)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;style&amp;gt;
+    [v-cloak] {
+        display: none;
+    }
+&amp;lt;/style&amp;gt;
+    &amp;lt;div id=&amp;#34;app&amp;#34; v-cloak&amp;gt;
+    &amp;lt;!--v-cloak加上style标签里的东西可以使内容在加载Vue之前不显示，加载完vue后删除v-cloak--&amp;gt;
+    {{message}}
+&amp;lt;/div&amp;gt;
+&amp;lt;script src=&amp;#34;../js/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script&amp;gt;
+    setTimeout(function() {
+        const app = new Vue({
+            el: &amp;#39;#app&amp;#39;,
+            data: {
+                message: &amp;#39;你好啊&amp;#39;
+            }
+        })
+    }, 3000)
+&amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;3-v-bind绑定&#34;&gt;3. v-bind绑定&lt;/h2&gt;
+
+&lt;p&gt;举例：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+        &amp;lt;!-- 错误的做法
+        &amp;lt;img src=&amp;#34;{{imgURL}}&amp;#34; alt=&amp;#34;&amp;#34;&amp;gt; --&amp;gt;
+        &amp;lt;img :src=&amp;#34;imgURL&amp;#34; alt=&amp;#34;&amp;#34;&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;script src=&amp;#34;../js/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script&amp;gt;
+        const app = new Vue({
+            el: &amp;#39;#app&amp;#39;,
+            data: {
+                message: &amp;#39;你好啊&amp;#39;,
+                imgURL: &amp;#39;https://cn.vuejs.org/images/logo.png&amp;#39;
+            }
+        })
+    &amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;v-bind绑定class&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;对象语法&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+&amp;lt;!-- 对象语法 --&amp;gt;
+&amp;lt;h2 class=&amp;#34;title&amp;#34; v-bind:class=&amp;#34;{active:isActive,line:isLine}&amp;#34;&amp;gt;{{message}}&amp;lt;/h2&amp;gt;
+&amp;lt;!-- 还可以放到methods里面,也可以放data里 --&amp;gt;
+&amp;lt;h2 class=&amp;#34;title&amp;#34; v-bind:class=&amp;#34;getClasses()&amp;#34;&amp;gt;{{message}}&amp;lt;/h2&amp;gt;
+&amp;lt;button @click=&amp;#34;change&amp;#34;&amp;gt;变色&amp;lt;/button&amp;gt;
+&amp;lt;/div&amp;gt;
+
+&amp;lt;script src=&amp;#34;../js/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script&amp;gt;
+const app = new Vue({
+    el: &amp;#39;#app&amp;#39;,
+    data: {
+        message: &amp;#39;你好啊&amp;#39;,
+        isActive: true,
+        isLine: false
+    },
+    methods: {
+        change() {
+            this.isActive = !this.isActive
+        },
+        getClasses() {
+            return {
+                active: this.isActive,
+                line: this.isLine
+            }
+        }
+    }
+})
+&amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;数组语法(用的少)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+&amp;lt;!-- 这是字符串 --&amp;gt;
+&amp;lt;h2 :class=&amp;#34;[&amp;#39;active&amp;#39;,&amp;#39;line&amp;#39;]&amp;#34;&amp;gt;{{message}}&amp;lt;/h2&amp;gt;
+&amp;lt;!-- 这是变量 --&amp;gt;
+&amp;lt;h2 :class=&amp;#34;getClasses()&amp;#34;&amp;gt;{{message}}&amp;lt;/h2&amp;gt;
+&amp;lt;/div&amp;gt;
+
+&amp;lt;script src=&amp;#34;../js/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script&amp;gt;
+const app = new Vue({
+    el: &amp;#39;#app&amp;#39;,
+    data: {
+        message: &amp;#39;你好啊&amp;#39;,
+        active: &amp;#39;aaa&amp;#39;,
+        line: &amp;#39;bbb&amp;#39;
+    },
+    methods: {
+        getClasses() {
+            return [this.active, this.line]
+        }
+    }
+})&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;v-bind绑定字符串&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;对象语法&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+&amp;lt;!-- &amp;lt;h2 :style=&amp;#34;{key(css属性名):value（属性值）}&amp;#34;&amp;gt;{{message}}&amp;lt;/h2&amp;gt; --&amp;gt;
+&amp;lt;!-- 50px必须加上单引号 --&amp;gt;
+&amp;lt;!-- &amp;lt;h2 :style=&amp;#34;{fontSize: &amp;#39;50px&amp;#39;}&amp;#34;&amp;gt;{{message}}&amp;lt;/h2&amp;gt; --&amp;gt;
+&amp;lt;h2 :style=&amp;#34;{fontSize: finalSize+&amp;#39;px&amp;#39;,color:finalColor}&amp;#34;&amp;gt;{{message}}&amp;lt;/h2&amp;gt;
+&amp;lt;h2 :style=&amp;#34;styleObject&amp;#34;&amp;gt;{{message}}&amp;lt;/h2&amp;gt;
+
+&amp;lt;/div&amp;gt;
+
+&amp;lt;script src=&amp;#34;../js/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script&amp;gt;
+const app = new Vue({
+    el: &amp;#39;#app&amp;#39;,
+    data: {
+        message: &amp;#39;你好啊&amp;#39;,
+        finalSize: 100,
+        finalColor: &amp;#39;red&amp;#39;,
+        styleObject: {
+            fontSize: &amp;#39;100px&amp;#39;,
+            color: &amp;#39;red&amp;#39;
+        }
+    }
+})
+&amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;数组语法（用的少）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+&amp;lt;h2 :style=&amp;#34;[baseStyle]&amp;#34;&amp;gt;{{message}}&amp;lt;/h2&amp;gt;
+&amp;lt;/div&amp;gt;
+
+&amp;lt;script src=&amp;#34;../js/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script&amp;gt;
+const app = new Vue({
+    el: &amp;#39;#app&amp;#39;,
+    data: {
+        message: &amp;#39;你好啊&amp;#39;,
+        baseStyle: {
+            backgroundColor: &amp;#39;red&amp;#39;
+        }
+    }
+})
+&amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;计算属性&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;记住计算属性有缓存，而methods没有（更占内存）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;举例,通过计算属性计算&lt;code&gt;books&lt;/code&gt;的总价格(这个例子中，我们只是使用getter来读取，某些情况下可以提供一个setter方法，不常用)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;44
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;45
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;46
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;47
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;48
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;49
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;50
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;51
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;52
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;53
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;54
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;55
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;56
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;57
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;58
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;59
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt;
+
+&amp;lt;head&amp;gt;
+    &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt;
+    &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&amp;gt;
+    &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;ie=edge&amp;#34;&amp;gt;
+    &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;
+
+&amp;lt;body&amp;gt;
+    &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+        &amp;lt;h2&amp;gt;总价格：{{totalPrice}}&amp;lt;/h2&amp;gt;
+    &amp;lt;/div&amp;gt;
+
+    &amp;lt;script src=&amp;#34;../js/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script&amp;gt;
+        const app = new Vue({
+            el: &amp;#39;#app&amp;#39;,
+            data: {
+                books: [{
+                    id: 1,
+                    name: &amp;#39;Unix编程艺术&amp;#39;,
+                    price: 100
+                }, {
+                    id: 2,
+                    name: &amp;#39;代码大全&amp;#39;,
+                    price: 180
+                }, {
+                    id: 3,
+                    name: &amp;#39;深入李杰计算机原理&amp;#39;,
+                    price: 95
+                }, {
+                    id: 4,
+                    name: &amp;#39;现代操作系统&amp;#39;,
+                    price: 70
+                }]
+            },
+            computed: {
+                totalPrice() {
+                    let result = 0;
+                    //ES5的方法 for 循环
+                    // for (let i = 0; i &amp;lt; this.books.length; i++) {
+                    //     result += this.books[i].price
+                    // }
+
+                    //ES6
+
+                    for (let book of this.books) {
+                        result += book.price
+                    }
+                    return result
+                }
+            }
+        })
+    &amp;lt;/script&amp;gt;
+&amp;lt;/body&amp;gt;
+
+&amp;lt;/html&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Vue的第一天学习就这样了，争取半个月搞定Vue!!奥力给&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>跨域以及实现跨域</title>
+      <link>http://gaocarri.top/post/%E8%B7%A8%E5%9F%9F%E4%BB%A5%E5%8F%8A%E5%AE%9E%E7%8E%B0%E8%B7%A8%E5%9F%9F/</link>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E8%B7%A8%E5%9F%9F%E4%BB%A5%E5%8F%8A%E5%AE%9E%E7%8E%B0%E8%B7%A8%E5%9F%9F/</guid>
+      
+        <description>
+
+&lt;p&gt;之前把Ajax弄懂了，现在回头再看跨域终于有了清晰的理解。
+本文包括以下内容&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;什么是同源&lt;/li&gt;
+&lt;li&gt;什么是跨域&lt;/li&gt;
+&lt;li&gt;CORS实现跨域&lt;/li&gt;
+&lt;li&gt;JSONP实现跨域&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;什么是同源&#34;&gt;什么是同源&lt;/h2&gt;
+
+&lt;p&gt;如果两个url它们的协议，域名和端口（如果有指定，不指定默认都是80端口）都相同，则这两个页面有相同的源。
+如&lt;code&gt;https：//www.example.com/dir/index.html&lt;/code&gt;,它的协议是&lt;code&gt;https://&lt;/code&gt;,域名是&lt;code&gt;www.example.cm&lt;/code&gt;,端口是&lt;code&gt;80&lt;/code&gt;（80是默认端口，可以省略）&lt;/p&gt;
+
+&lt;h2 id=&#34;什么是跨域&#34;&gt;什么是跨域&lt;/h2&gt;
+
+&lt;p&gt;跨域是指一个域下的文档或脚本试图去请求另一个域下的资源，由于同源策略，会限制以下行为
+1. cookie,localStorage,indexDB无法读取
+2. JS和DOM对象无法获得
+3. AJAX请求不能发送&lt;/p&gt;
+
+&lt;h2 id=&#34;cors&#34;&gt;CORS&lt;/h2&gt;
+
+&lt;p&gt;CORS是实现跨域的一种方式，它的全称是Cross-Origin Resource Sharing
+比如我想让&lt;code&gt;http://carri.com:9999&lt;/code&gt;请求&lt;code&gt;http://gao.com:8888&lt;/code&gt;的资源
+可以在&lt;code&gt;http://gao.com:8888&lt;/code&gt;响应头添加&lt;code&gt;response.setHeader(&#39;Access-Control-Allow-Origin&#39;, &#39;http://carri.com:9999&#39;)&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;jsonp跨域&#34;&gt;JSONP跨域&lt;/h2&gt;
+
+&lt;p&gt;JSONP是实现跨域的一种方式，当浏览器无法使用CORS时，我们可以使用JSONP。它的原理是，虽然我们无法访问另外一个网站的数据，但是可以用&lt;code&gt;script&lt;/code&gt;标签引用这个网站的JS,服务器收到请求后，会将数据放在一个回调函数里（回调函数的名字是一个随机生成的随机数）传回来。优点是可以跨域并且兼容IE，但由于它是&lt;code&gt;script&lt;/code&gt;标签，所以它读不到响应的状态，且只能发&lt;code&gt;GET&lt;/code&gt;请求,不支持&lt;code&gt;POST&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;下例是一个封装的JSONP，用于在其他网站访问我模拟的域名里的qq文件&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;function jsonp(url) {
+    return new Promise((resolve, reject) =&amp;gt; {
+        const random = &amp;#34;frankJSONPCallbackName&amp;#34; + Math.random();
+        window[random] = data =&amp;gt; {
+            resolve(data);
+        };// 一个回调函数
+        const script = document.createElement(&amp;#34;script&amp;#34;);
+        script.src = `${url}?callback=${random}`// 服务器会根据这个查询参数得到random
+        script.onload = () =&amp;gt; {
+            script.remove();
+        };// 成功之后删掉这个script标签，防止页面冗杂
+        script.onerror = () =&amp;gt; {
+            reject();
+        }
+        document.body.appendChild(script);
+    });
+}
+jsonp(&amp;#39;http://localhost:8888/qqf.js&amp;#39;).then((data) =&amp;gt; {
+    console.log(data);
+
+})// 加载成功后，后台打出data&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
       
     </item>
     
