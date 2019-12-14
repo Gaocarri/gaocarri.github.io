@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>跨域以及实现跨域 - 卡里的技术博客</title>
+  <title>Vue基础(一)--插值操作，v-bind，计算属性 - 卡里的技术博客</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -22,8 +22,8 @@
 
 <meta name="mobile-web-app-capable" content="yes">
 
-<meta name="author" content="Carri" /><meta name="description" content="跨域以及实现跨域" />
-<meta name="keywords" content="跨域, AJAX, JavaScript" />
+<meta name="author" content="Carri" /><meta name="description" content="Vue基础（一）" />
+<meta name="keywords" content="Vue, 框架" />
 
 
 
@@ -34,7 +34,7 @@
 <meta name="generator" content="Hugo 0.59.0" />
 
 
-<link rel="canonical" href="http://gaocarri.top/post/%E8%B7%A8%E5%9F%9F%E4%BB%A5%E5%8F%8A%E5%AE%9E%E7%8E%B0%E8%B7%A8%E5%9F%9F/" />
+<link rel="canonical" href="http://gaocarri.top/post/vue%E5%9F%BA%E7%A1%80%E4%B8%80-%E6%8F%92%E5%80%BC%E6%93%8D%E4%BD%9Cv-bind%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/" />
 
 
 
@@ -58,26 +58,26 @@
 
 
 
-<meta property="og:title" content="跨域以及实现跨域" />
-<meta property="og:description" content="跨域以及实现跨域" />
+<meta property="og:title" content="Vue基础(一)--插值操作，v-bind，计算属性" />
+<meta property="og:description" content="Vue基础（一）" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://gaocarri.top/post/%E8%B7%A8%E5%9F%9F%E4%BB%A5%E5%8F%8A%E5%AE%9E%E7%8E%B0%E8%B7%A8%E5%9F%9F/" />
+<meta property="og:url" content="http://gaocarri.top/post/vue%E5%9F%BA%E7%A1%80%E4%B8%80-%E6%8F%92%E5%80%BC%E6%93%8D%E4%BD%9Cv-bind%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/" />
 <meta property="article:published_time" content="2019-12-13T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-12-13T00:00:00+00:00" />
-<meta itemprop="name" content="跨域以及实现跨域">
-<meta itemprop="description" content="跨域以及实现跨域">
+<meta itemprop="name" content="Vue基础(一)--插值操作，v-bind，计算属性">
+<meta itemprop="description" content="Vue基础（一）">
 
 
 <meta itemprop="datePublished" content="2019-12-13T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-13T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="848">
+<meta itemprop="wordCount" content="2252">
 
 
 
-<meta itemprop="keywords" content="跨域,AJAX,JavaScript," />
+<meta itemprop="keywords" content="Vue,框架," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="跨域以及实现跨域"/>
-<meta name="twitter:description" content="跨域以及实现跨域"/>
+<meta name="twitter:title" content="Vue基础(一)--插值操作，v-bind，计算属性"/>
+<meta name="twitter:description" content="Vue基础（一）"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -364,18 +364,18 @@ if (!doNotTrack) {
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">跨域以及实现跨域</h1>
+      <h1 class="post-title">Vue基础(一)--插值操作，v-bind，计算属性</h1>
       
       <div class="post-meta">
         <time datetime="2019-12-13" class="post-time">
           2019-12-13
         </time>
         <div class="post-category">
-            <a href="http://gaocarri.top/categories/javascript/"> JavaScript </a>
+            <a href="http://gaocarri.top/categories/%E6%A1%86%E6%9E%B6/"> 框架 </a>
             
           </div>
-        <span class="more-meta"> 约 848 字 </span>
-          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        <span class="more-meta"> 约 2252 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
 
         
         
@@ -398,10 +398,24 @@ if (!doNotTrack) {
 <ul>
 <li>
 <ul>
-<li><a href="#什么是同源">什么是同源</a></li>
-<li><a href="#什么是跨域">什么是跨域</a></li>
-<li><a href="#cors">CORS</a></li>
-<li><a href="#jsonp跨域">JSONP跨域</a></li>
+<li><a href="#vue是一种渐进式框架-什么是渐进式框架">Vue是一种渐进式框架，什么是渐进式框架</a></li>
+<li><a href="#vue的mvvm">Vue的MVVM</a></li>
+<li><a href="#vue的模板">Vue的模板</a></li>
+<li><a href="#1-列表展示和计数器案例">1. 列表展示和计数器案例</a></li>
+<li><a href="#2-vue的插值操作">2. Vue的插值操作</a>
+<ul>
+<li><a href="#v-once">v-once</a></li>
+<li><a href="#v-html">v-html</a></li>
+<li><a href="#v-text">v-text</a></li>
+<li><a href="#v-pre">v-pre</a></li>
+<li><a href="#v-cloak-cloak斗篷的意思">v-cloak(cloak斗篷的意思)</a></li>
+</ul></li>
+<li><a href="#3-v-bind绑定">3. v-bind绑定</a>
+<ul>
+<li><a href="#v-bind绑定class">v-bind绑定class</a></li>
+<li><a href="#v-bind绑定字符串">v-bind绑定字符串</a></li>
+</ul></li>
+<li><a href="#4-计算属性">4. 计算属性</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -412,39 +426,103 @@ if (!doNotTrack) {
     <div class="post-content">
       
 
-<p>之前把Ajax弄懂了，现在回头再看跨域终于有了清晰的理解。
-本文包括以下内容</p>
+<h2 id="vue是一种渐进式框架-什么是渐进式框架">Vue是一种渐进式框架，什么是渐进式框架</h2>
+
+<p>渐进式框架：即可以在项目中部分使用Vue，不必非要完全使用</p>
+
+<h2 id="vue的mvvm">Vue的MVVM</h2>
+
+<p>Vue是一种MVVM框架。（也有人说现在是一种MV*框架）</p>
 
 <ul>
-<li>什么是同源</li>
-<li>什么是跨域</li>
-<li>CORS实现跨域</li>
-<li>JSONP实现跨域</li>
+<li>View:DOM</li>
+<li>ViewModel:Vue(处理Vue和Model，Vue在这里起到了这样一个作用)</li>
+<li>Model:Plan JavaScript,Objects</li>
 </ul>
 
-<h2 id="什么是同源">什么是同源</h2>
+<h2 id="vue的模板">Vue的模板</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;div id=&#34;app&#34;&gt;
+    &lt;h2&gt;{{message}}&lt;/h2&gt;
+&lt;/div&gt;
 
-<p>如果两个url它们的协议，域名和端口（如果有指定，不指定默认都是80端口）都相同，则这两个页面有相同的源。
-如<code>https：//www.example.com/dir/index.html</code>,它的协议是<code>https://</code>,域名是<code>www.example.cm</code>,端口是<code>80</code>（80是默认端口，可以省略）</p>
+&lt;script&gt;
+    const app = new Vue({
+        el:&#39;#app&#39;, // 控制的元素
+        data:{
+            message:&#39;Hello Vuejs&#39;
+        } ,//含有的数据
+        methods:{
 
-<h2 id="什么是跨域">什么是跨域</h2>
+        }, //含有的方法，后面还有一系列生命周期函数
+    })
+&lt;/script&gt;</pre></td></tr></table>
+</div>
+</div>
+<p>好了，进入正题</p>
 
-<p>跨域是指一个域下的文档或脚本试图去请求另一个域下的资源，由于同源策略，会限制以下行为
-1. cookie,localStorage,indexDB无法读取
-2. JS和DOM对象无法获得
-3. AJAX请求不能发送</p>
+<h2 id="1-列表展示和计数器案例">1. 列表展示和计数器案例</h2>
 
-<h2 id="cors">CORS</h2>
+<p>列表展示案例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;div id=&#34;app&#34;&gt;
+        &lt;ul&gt;
+            &lt;li v-for=&#34;movie in movies&#34;&gt;{{movie}}&lt;/li&gt;
+        &lt;/ul&gt;
 
-<p>CORS是实现跨域的一种方式，它的全称是Cross-Origin Resource Sharing
-比如我想让<code>http://carri.com:9999</code>请求<code>http://gao.com:8888</code>的资源
-可以在<code>http://gao.com:8888</code>响应头添加<code>response.setHeader('Access-Control-Allow-Origin', 'http://carri.com:9999')</code></p>
+    &lt;/div&gt;
 
-<h2 id="jsonp跨域">JSONP跨域</h2>
-
-<p>JSONP是实现跨域的一种方式，当浏览器无法使用CORS时，我们可以使用JSONP。它的原理是，虽然我们无法访问另外一个网站的数据，但是可以用<code>script</code>标签引用这个网站的JS,服务器收到请求后，会将数据放在一个回调函数里（回调函数的名字是一个随机生成的随机数）传回来。优点是可以跨域并且兼容IE，但由于它是<code>script</code>标签，所以它读不到响应的状态，且只能发<code>GET</code>请求,不支持<code>POST</code>。</p>
-
-<p>下例是一个封装的JSONP，用于在其他网站访问我模拟的域名里的qq文件</p>
+    &lt;script src=&#34;../js/vue.js&#34;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        const app = new Vue({
+            el: &#39;#app&#39;,
+            data: {
+                message: &#39;你好啊&#39;,
+                movies: [&#39;海王&#39;, &#39;蜘蛛侠&#39;, &#39;蝙蝠侠&#39;, &#39;肖申克的救赎&#39;]
+            }
+        })
+    &lt;/script&gt;</pre></td></tr></table>
+</div>
+</div>
+<p>计数器案例：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt"> 1
@@ -468,31 +546,605 @@ if (!doNotTrack) {
 </span><span class="lnt">19
 </span><span class="lnt">20
 </span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">function jsonp(url) {
-    return new Promise((resolve, reject) =&gt; {
-        const random = &#34;frankJSONPCallbackName&#34; + Math.random();
-        window[random] = data =&gt; {
-            resolve(data);
-        };// 一个回调函数
-        const script = document.createElement(&#34;script&#34;);
-        script.src = `${url}?callback=${random}`// 服务器会根据这个查询参数得到random
-        script.onload = () =&gt; {
-            script.remove();
-        };// 成功之后删掉这个script标签，防止页面冗杂
-        script.onerror = () =&gt; {
-            reject();
-        }
-        document.body.appendChild(script);
-    });
-}
-jsonp(&#39;http://localhost:8888/qqf.js&#39;).then((data) =&gt; {
-    console.log(data);
+<pre class="chroma">&lt;div id=&#34;app&#34;&gt;
+        &lt;h3&gt;当前计数：{{counter}}&lt;/h3&gt;
+        &lt;button v-on:click=&#34;add&#34;&gt;加1&lt;/button&gt;
+        &lt;button v-on:click=&#34;sub&#34;&gt;减1&lt;/button&gt;
+    &lt;/div&gt;
 
-})// 加载成功后，后台打出data</pre></td></tr></table>
+    &lt;script src=&#34;../js/vue.js&#34;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        const app = new Vue({
+            el: &#39;#app&#39;,
+            data: {
+                counter: 0
+            },
+            methods: { //类型key(string):Function()
+                add() {
+                    this.counter++ //一定要加this
+                },
+                sub() {
+                    this.counter--
+                }
+            }
+        })
+    &lt;/script&gt;</pre></td></tr></table>
 </div>
 </div>
+<h2 id="2-vue的插值操作">2. Vue的插值操作</h2>
+
+<p>何为插值操作？</p>
+
+<ul>
+<li>上述的#app里面的{{message}}已经交由Vue控制了，这是Vue的Mustache语法,它显示的值就是<code>data</code>里的<code>message</code></li>
+</ul>
+
+<h3 id="v-once">v-once</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;div id=&#34;app&#34;&gt;
+        &lt;h2&gt;{{message}}&lt;/h2&gt;
+        &lt;h2 v-once&gt;{{message}}&lt;/h2&gt;
+        &lt;!-- 使用了v-once插入的值只会改变一次 --&gt;
+    &lt;/div&gt;</pre></td></tr></table>
+</div>
+</div>
+<h3 id="v-html">v-html</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;div id=&#34;app&#34;&gt;
+        &lt;h2&gt;{{url}}&lt;/h2&gt;
+        &lt;!--这里的url会是字符串--&gt;
+        &lt;h2 v-html=&#34;url&#34;&gt;&lt;/h2&gt;
+        &lt;!--这里会包含html语法并且覆盖&lt;h2&gt;标签内的所有内容--&gt;
+    &lt;/div&gt;
+    &lt;script src=&#34;../js/vue.js&#34;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        const app = new Vue({
+            el: &#39;#app&#39;,
+            data: {
+                url: &#39;&lt;a href=&#34;http://www.baidu.com&#34;&gt;百度一下&lt;/a&gt;&#39;
+            }
+        })
+    &lt;/script&gt;</pre></td></tr></table>
+</div>
+</div>
+<h3 id="v-text">v-text</h3>
+
+<ul>
+<li>用法同<code>v-html</code>,但是它不包含html用法，会覆盖标签内的全部内容，一般很少使用</li>
+</ul>
+
+<h3 id="v-pre">v-pre</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;h2 v-pre&gt;{{message}}&lt;/h2&gt;</pre></td></tr></table>
+</div>
+</div>
+<p>这里显示的解果是{{message}}，原封不动的显示</p>
+
+<h3 id="v-cloak-cloak斗篷的意思">v-cloak(cloak斗篷的意思)</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;style&gt;
+        [v-cloak] {
+            display: none;
+        }
+    &lt;/style&gt;
+        &lt;div id=&#34;app&#34; v-cloak&gt;
+        &lt;!--v-cloak加上style标签里的东西可以使内容在加载Vue之前不显示，加载完vue后删除v-cloak--&gt;
+        {{message}}
+    &lt;/div&gt;
+    &lt;script src=&#34;../js/vue.js&#34;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        setTimeout(function() {
+            const app = new Vue({
+                el: &#39;#app&#39;,
+                data: {
+                    message: &#39;你好啊&#39;
+                }
+            })
+        }, 3000)
+    &lt;/script&gt;</pre></td></tr></table>
+</div>
+</div>
+<h2 id="3-v-bind绑定">3. v-bind绑定</h2>
+
+<p>举例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;div id=&#34;app&#34;&gt;
+        &lt;!-- 错误的做法
+        &lt;img src=&#34;{{imgURL}}&#34; alt=&#34;&#34;&gt; --&gt;
+        &lt;img :src=&#34;imgURL&#34; alt=&#34;&#34;&gt;
+    &lt;/div&gt;
+    &lt;script src=&#34;../js/vue.js&#34;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        const app = new Vue({
+            el: &#39;#app&#39;,
+            data: {
+                message: &#39;你好啊&#39;,
+                imgURL: &#39;https://cn.vuejs.org/images/logo.png&#39;
+            }
+        })
+    &lt;/script&gt;</pre></td></tr></table>
+</div>
+</div>
+<h3 id="v-bind绑定class">v-bind绑定class</h3>
+
+<ul>
+<li><p>对象语法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;div id=&#34;app&#34;&gt;
+    &lt;!-- 对象语法 --&gt;
+    &lt;h2 class=&#34;title&#34; v-bind:class=&#34;{active:isActive,line:isLine}&#34;&gt;{{message}}&lt;/h2&gt;
+    &lt;!-- 还可以放到methods里面,也可以放data里 --&gt;
+    &lt;h2 class=&#34;title&#34; v-bind:class=&#34;getClasses()&#34;&gt;{{message}}&lt;/h2&gt;
+    &lt;button @click=&#34;change&#34;&gt;变色&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;script src=&#34;../js/vue.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;
+    const app = new Vue({
+        el: &#39;#app&#39;,
+        data: {
+            message: &#39;你好啊&#39;,
+            isActive: true,
+            isLine: false
+        },
+        methods: {
+            change() {
+                this.isActive = !this.isActive
+            },
+            getClasses() {
+                return {
+                    active: this.isActive,
+                    line: this.isLine
+                }
+            }
+        }
+    })
+&lt;/script&gt;</pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li><p>数组语法(用的少)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;div id=&#34;app&#34;&gt;
+&lt;!-- 这是字符串 --&gt;
+&lt;h2 :class=&#34;[&#39;active&#39;,&#39;line&#39;]&#34;&gt;{{message}}&lt;/h2&gt;
+&lt;!-- 这是变量 --&gt;
+&lt;h2 :class=&#34;getClasses()&#34;&gt;{{message}}&lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;script src=&#34;../js/vue.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;
+const app = new Vue({
+    el: &#39;#app&#39;,
+    data: {
+        message: &#39;你好啊&#39;,
+        active: &#39;aaa&#39;,
+        line: &#39;bbb&#39;
+    },
+    methods: {
+        getClasses() {
+            return [this.active, this.line]
+        }
+    }
+})</pre></td></tr></table>
+</div>
+</div></li>
+</ul></li>
+</ul>
+
+<h3 id="v-bind绑定字符串">v-bind绑定字符串</h3>
+
+<ul>
+<li><p>对象语法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;div id=&#34;app&#34;&gt;
+    &lt;!-- &lt;h2 :style=&#34;{key(css属性名):value（属性值）}&#34;&gt;{{message}}&lt;/h2&gt; --&gt;
+    &lt;!-- 50px必须加上单引号 --&gt;
+    &lt;!-- &lt;h2 :style=&#34;{fontSize: &#39;50px&#39;}&#34;&gt;{{message}}&lt;/h2&gt; --&gt;
+    &lt;h2 :style=&#34;{fontSize: finalSize+&#39;px&#39;,color:finalColor}&#34;&gt;{{message}}&lt;/h2&gt;
+    &lt;h2 :style=&#34;styleObject&#34;&gt;{{message}}&lt;/h2&gt;
+
+&lt;/div&gt;
+
+&lt;script src=&#34;../js/vue.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;
+    const app = new Vue({
+        el: &#39;#app&#39;,
+        data: {
+            message: &#39;你好啊&#39;,
+            finalSize: 100,
+            finalColor: &#39;red&#39;,
+            styleObject: {
+                fontSize: &#39;100px&#39;,
+                color: &#39;red&#39;
+            }
+        }
+    })
+&lt;/script&gt;</pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>数组语法（用的少）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;div id=&#34;app&#34;&gt;
+    &lt;h2 :style=&#34;[baseStyle]&#34;&gt;{{message}}&lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;script src=&#34;../js/vue.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;
+    const app = new Vue({
+        el: &#39;#app&#39;,
+        data: {
+            message: &#39;你好啊&#39;,
+            baseStyle: {
+                backgroundColor: &#39;red&#39;
+            }
+        }
+    })
+&lt;/script&gt;</pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+
+<h2 id="4-计算属性">4. 计算属性</h2>
+
+<ul>
+<li>记住计算属性有缓存，而methods没有（更占内存）</li>
+</ul>
+
+<ol>
+<li><p>举例,通过计算属性计算<code>books</code>的总价格(这个例子中，我们只是使用getter来读取，某些情况下可以提供一个setter方法，不常用)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;body&gt;
+&lt;div id=&#34;app&#34;&gt;
+    &lt;h2&gt;总价格：{{totalPrice}}&lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;script src=&#34;../js/vue.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;
+    const app = new Vue({
+        el: &#39;#app&#39;,
+        data: {
+            books: [{
+                id: 1,
+                name: &#39;Unix编程艺术&#39;,
+                price: 100
+            }, {
+                id: 2,
+                name: &#39;代码大全&#39;,
+                price: 180
+            }, {
+                id: 3,
+                name: &#39;深入李杰计算机原理&#39;,
+                price: 95
+            }, {
+                id: 4,
+                name: &#39;现代操作系统&#39;,
+                price: 70
+            }]
+        },
+        computed: {
+            totalPrice() {
+                let result = 0;
+                //ES5的方法 for 循环
+                // for (let i = 0; i &lt; this.books.length; i++) {
+                //     result += this.books[i].price
+                // }
+
+                //ES6
+
+                for (let book of this.books) {
+                    result += book.price
+                }
+                return result
+            }
+        }
+    })
+&lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>set和get方法(在控制台输入app.fullName,会调用set方法，同时改变firstName和lastName)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;div id=&#34;app&#34;&gt;
+    &lt;h2&gt;{{fullName}}&lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;script src=&#34;../js/vue.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;
+    const app = new Vue({
+        el: &#39;#app&#39;,
+        data: {
+            firstName: &#39;Kobe&#39;,
+            lastName: &#39;Bryant&#39;
+        },
+        // 计算属性一般没有set方法，只读属性
+        computed: {
+            fullName: {
+                set(newValue) {
+                    console.log(&#39;调用了set&#39;, newValue)
+                    const names = newValue.split(&#39; &#39;)
+                    this.firstName = names[0]
+                    this.lastName = names[1]
+                },
+                get() {
+                    return this.firstName + &#39; &#39; + this.lastName
+                }
+            }
+        }
+    })
+&lt;/script&gt;</pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+
+<p>Vue的第一天学习就这样了，争取十天搞定Vue!!奥力给</p>
+
     </div>
 
     
@@ -522,16 +1174,15 @@ jsonp(&#39;http://localhost:8888/qqf.js&#39;).then((data) =&gt; {
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="http://gaocarri.top/tags/%E8%B7%A8%E5%9F%9F/">跨域</a>
-          <a href="http://gaocarri.top/tags/ajax/">AJAX</a>
-          <a href="http://gaocarri.top/tags/javascript/">JavaScript</a>
+          <a href="http://gaocarri.top/tags/vue/">Vue</a>
+          <a href="http://gaocarri.top/tags/%E6%A1%86%E6%9E%B6/">框架</a>
           
         </div>
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/vue%E5%9F%BA%E7%A1%80%E4%B8%80-%E6%8F%92%E5%80%BC%E6%93%8D%E4%BD%9Cv-bind%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/">
+          <a class="prev" href="/post/vue%E5%9F%BA%E7%A1%80%E4%BA%8C-%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E5%BE%AA%E7%8E%AF%E9%81%8D%E5%8E%86v-model/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -541,12 +1192,12 @@ jsonp(&#39;http://localhost:8888/qqf.js&#39;).then((data) =&gt; {
 </svg>
 
             </i>
-            <span class="prev-text nav-default">Vue基础(一)--插值操作，v-bind，计算属性</span>
+            <span class="prev-text nav-default">Vue基础(二)--事件监听，条件判断，循环遍历，v-model</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
         
-          <a class="next" href="/post/%E5%AF%B9%E4%BA%8Ejs%E7%BB%A7%E6%89%BF%E7%9A%84%E7%90%86%E8%A7%A3/">
-            <span class="next-text nav-default">对于JS继承的理解</span>
+          <a class="next" href="/post/%E8%B7%A8%E5%9F%9F%E4%BB%A5%E5%8F%8A%E5%AE%9E%E7%8E%B0%E8%B7%A8%E5%9F%9F/">
+            <span class="next-text nav-default">跨域以及实现跨域</span>
             <span class="prev-text nav-mobile">下一篇</span>
             
             <i class="iconfont">

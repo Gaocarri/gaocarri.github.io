@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>跨域以及实现跨域 - 卡里的技术博客</title>
+  <title>Vue基础(二)--事件监听，条件判断，循环遍历，v-model - 卡里的技术博客</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -22,8 +22,8 @@
 
 <meta name="mobile-web-app-capable" content="yes">
 
-<meta name="author" content="Carri" /><meta name="description" content="跨域以及实现跨域" />
-<meta name="keywords" content="跨域, AJAX, JavaScript" />
+<meta name="author" content="Carri" /><meta name="description" content="Vue基础（二）" />
+<meta name="keywords" content="Vue, 框架" />
 
 
 
@@ -34,7 +34,7 @@
 <meta name="generator" content="Hugo 0.59.0" />
 
 
-<link rel="canonical" href="http://gaocarri.top/post/%E8%B7%A8%E5%9F%9F%E4%BB%A5%E5%8F%8A%E5%AE%9E%E7%8E%B0%E8%B7%A8%E5%9F%9F/" />
+<link rel="canonical" href="http://gaocarri.top/post/vue%E5%9F%BA%E7%A1%80%E4%BA%8C-%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E5%BE%AA%E7%8E%AF%E9%81%8D%E5%8E%86v-model/" />
 
 
 
@@ -58,26 +58,26 @@
 
 
 
-<meta property="og:title" content="跨域以及实现跨域" />
-<meta property="og:description" content="跨域以及实现跨域" />
+<meta property="og:title" content="Vue基础(二)--事件监听，条件判断，循环遍历，v-model" />
+<meta property="og:description" content="Vue基础（二）" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://gaocarri.top/post/%E8%B7%A8%E5%9F%9F%E4%BB%A5%E5%8F%8A%E5%AE%9E%E7%8E%B0%E8%B7%A8%E5%9F%9F/" />
-<meta property="article:published_time" content="2019-12-13T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-12-13T00:00:00+00:00" />
-<meta itemprop="name" content="跨域以及实现跨域">
-<meta itemprop="description" content="跨域以及实现跨域">
+<meta property="og:url" content="http://gaocarri.top/post/vue%E5%9F%BA%E7%A1%80%E4%BA%8C-%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E5%BE%AA%E7%8E%AF%E9%81%8D%E5%8E%86v-model/" />
+<meta property="article:published_time" content="2019-12-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-12-14T00:00:00+00:00" />
+<meta itemprop="name" content="Vue基础(二)--事件监听，条件判断，循环遍历，v-model">
+<meta itemprop="description" content="Vue基础（二）">
 
 
-<meta itemprop="datePublished" content="2019-12-13T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-13T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="848">
+<meta itemprop="datePublished" content="2019-12-14T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-12-14T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2499">
 
 
 
-<meta itemprop="keywords" content="跨域,AJAX,JavaScript," />
+<meta itemprop="keywords" content="Vue,框架," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="跨域以及实现跨域"/>
-<meta name="twitter:description" content="跨域以及实现跨域"/>
+<meta name="twitter:title" content="Vue基础(二)--事件监听，条件判断，循环遍历，v-model"/>
+<meta name="twitter:description" content="Vue基础（二）"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -364,18 +364,18 @@ if (!doNotTrack) {
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">跨域以及实现跨域</h1>
+      <h1 class="post-title">Vue基础(二)--事件监听，条件判断，循环遍历，v-model</h1>
       
       <div class="post-meta">
-        <time datetime="2019-12-13" class="post-time">
-          2019-12-13
+        <time datetime="2019-12-14" class="post-time">
+          2019-12-14
         </time>
         <div class="post-category">
-            <a href="http://gaocarri.top/categories/javascript/"> JavaScript </a>
+            <a href="http://gaocarri.top/categories/%E6%A1%86%E6%9E%B6/"> 框架 </a>
             
           </div>
-        <span class="more-meta"> 约 848 字 </span>
-          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        <span class="more-meta"> 约 2499 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
 
         
         
@@ -398,10 +398,31 @@ if (!doNotTrack) {
 <ul>
 <li>
 <ul>
-<li><a href="#什么是同源">什么是同源</a></li>
-<li><a href="#什么是跨域">什么是跨域</a></li>
-<li><a href="#cors">CORS</a></li>
-<li><a href="#jsonp跨域">JSONP跨域</a></li>
+<li><a href="#事件监听">事件监听</a>
+<ul>
+<li><a href="#v-on的基本使用">v-on的基本使用</a></li>
+<li><a href="#v-on的参数">v-on的参数</a></li>
+<li><a href="#v-on的修饰符">v-on的修饰符</a></li>
+</ul></li>
+<li><a href="#条件判断">条件判断</a>
+<ul>
+<li><a href="#v-if-v-else-if-v-else">v-if、v-else-if、v-else</a></li>
+<li><a href="#v-show">v-show</a></li>
+</ul></li>
+<li><a href="#循环遍历">循环遍历</a>
+<ul>
+<li><a href="#v-for遍历数组">v-for遍历数组</a></li>
+<li><a href="#v-for遍历对象">v-for遍历对象</a></li>
+<li><a href="#v-for使用过程添加key-绑定key">v-for使用过程添加key(绑定key)</a></li>
+<li><a href="#哪些数组方法是响应式的">哪些数组方法是响应式的</a></li>
+</ul></li>
+<li><a href="#v-model">v-model</a>
+<ul>
+<li><a href="#基本使用方法">基本使用方法</a></li>
+<li><a href="#v-model原理">v-model原理</a></li>
+<li><a href="#radio-checkbox-select">radio,checkbox,select</a></li>
+<li><a href="#v-model的修饰符">v-model的修饰符</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -412,39 +433,299 @@ if (!doNotTrack) {
     <div class="post-content">
       
 
-<p>之前把Ajax弄懂了，现在回头再看跨域终于有了清晰的理解。
-本文包括以下内容</p>
+<h2 id="事件监听">事件监听</h2>
+
+<p>分为以下三部分</p>
 
 <ul>
-<li>什么是同源</li>
-<li>什么是跨域</li>
-<li>CORS实现跨域</li>
-<li>JSONP实现跨域</li>
+<li>v-on的基本使用</li>
+<li>v-on的参数</li>
+<li>v-on的修饰符</li>
 </ul>
 
-<h2 id="什么是同源">什么是同源</h2>
+<h3 id="v-on的基本使用">v-on的基本使用</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;div id=&#34;app&#34;&gt;
+        &lt;h2&gt;{{counter}}&lt;/h2&gt;
+        &lt;button @click=&#34;increment&#34;&gt;+&lt;/button&gt;
+    &lt;/div&gt;
+    ......
+    &lt;script&gt;
+        const app = new Vue({
+            el: &#39;#app&#39;,
+            data: {
+                counter: 0
+            },
+            methods: {
+                increment() {
+                    this.counter++
+                }
+            }
+        })
+    &lt;/script&gt;</pre></td></tr></table>
+</div>
+</div>
+<p>increment是一个方法名，定义在app的Vue实例的方法中</p>
 
-<p>如果两个url它们的协议，域名和端口（如果有指定，不指定默认都是80端口）都相同，则这两个页面有相同的源。
-如<code>https：//www.example.com/dir/index.html</code>,它的协议是<code>https://</code>,域名是<code>www.example.cm</code>,端口是<code>80</code>（80是默认端口，可以省略）</p>
+<h3 id="v-on的参数">v-on的参数</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;button @click=&#34;increment&#34;&gt;+&lt;/button&gt;</pre></td></tr></table>
+</div>
+</div>
+<p>这里<code>increment</code>后面没有跟(),这是省略的写法，括号内无参数时,Vue会把浏览器生成的event事件对象作为参数传入到方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;button @click=&#34;btn3Click(123,$event)&#34;&gt;3&lt;/button&gt;</pre></td></tr></table>
+</div>
+</div>
+<p>如果既需要event对象，又需要参数，可以用上述写法</p>
 
-<h2 id="什么是跨域">什么是跨域</h2>
+<h3 id="v-on的修饰符">v-on的修饰符</h3>
 
-<p>跨域是指一个域下的文档或脚本试图去请求另一个域下的资源，由于同源策略，会限制以下行为
-1. cookie,localStorage,indexDB无法读取
-2. JS和DOM对象无法获得
-3. AJAX请求不能发送</p>
+<p>基本用法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;div @click=&#34;divClick&#34;&gt;
+            aaaa
+            &lt;button @click.stop=&#34;btnClick&#34;&gt;按钮&lt;/button&gt;
+     &lt;/div&gt;</pre></td></tr></table>
+</div>
+</div>
+<p>四种常用的修饰符:
+  * .stop：阻止事件冒泡
+  * .prevent：阻止默认事件
+  * .enter：监听某个键盘键帽的点击
+  * .once：该事件只触发一次</p>
 
-<h2 id="cors">CORS</h2>
+<h2 id="条件判断">条件判断</h2>
 
-<p>CORS是实现跨域的一种方式，它的全称是Cross-Origin Resource Sharing
-比如我想让<code>http://carri.com:9999</code>请求<code>http://gao.com:8888</code>的资源
-可以在<code>http://gao.com:8888</code>响应头添加<code>response.setHeader('Access-Control-Allow-Origin', 'http://carri.com:9999')</code></p>
+<ul>
+<li>v-if、v-else-if、v-else</li>
+<li>v-show</li>
+</ul>
 
-<h2 id="jsonp跨域">JSONP跨域</h2>
+<h3 id="v-if-v-else-if-v-else">v-if、v-else-if、v-else</h3>
 
-<p>JSONP是实现跨域的一种方式，当浏览器无法使用CORS时，我们可以使用JSONP。它的原理是，虽然我们无法访问另外一个网站的数据，但是可以用<code>script</code>标签引用这个网站的JS,服务器收到请求后，会将数据放在一个回调函数里（回调函数的名字是一个随机生成的随机数）传回来。优点是可以跨域并且兼容IE，但由于它是<code>script</code>标签，所以它读不到响应的状态，且只能发<code>GET</code>请求,不支持<code>POST</code>。</p>
+<p>很简单，举例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;div id=&#34;app&#34;&gt;
+        &lt;h2 v-if=&#34;score&gt;=90&#34;&gt;优秀&lt;/h2&gt;
+        &lt;h2 v-else-if=&#34;score&gt;=80&#34;&gt;良好&lt;/h2&gt;
+        &lt;h2 v-else-if=&#34;score&gt;=60&#34;&gt;及格&lt;/h2&gt;
+        &lt;h2 v-else&gt;不及格&lt;/h2&gt;
+    &lt;/div&gt;
+   &lt;!--会根据返回的布尔值决定显示哪一个标签--&gt;</pre></td></tr></table>
+</div>
+</div>
+<h3 id="v-show">v-show</h3>
 
-<p>下例是一个封装的JSONP，用于在其他网站访问我模拟的域名里的qq文件</p>
+<ul>
+<li><p>当切换频率高时选择v-show，只有一次通常使用v-if,因为频繁操作DOM影响性能</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;!-- v-show HTML节点仍然存在 只是display:none --&gt;
+&lt;h2 v-show=&#34;isShow&#34;&gt;{{message}}&lt;/h2&gt;</pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+
+<h2 id="循环遍历">循环遍历</h2>
+
+<p>这里主要记录下参数的问题
+* v-for遍历数组
+* v-for遍历对象
+* v-for使用过程添加key(绑定key)
+* 哪些数组方法是响应式的</p>
+
+<h3 id="v-for遍历数组">v-for遍历数组</h3>
+
+<p>参数:元素，index</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;ul&gt;
+        &lt;li v-for=&#34;(item,index) in names&#34;&gt;{{index}}-{{item}}&lt;/li&gt;
+    &lt;/ul&gt;</pre></td></tr></table>
+</div>
+</div>
+<h3 id="v-for遍历对象">v-for遍历对象</h3>
+
+<p>参数：值，key，index</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;ul&gt;
+        &lt;li v-for=&#34;(value,key,index) in info&#34;&gt;{{index}}.{{key}}:{{value}}&lt;/li&gt;
+    &lt;/ul&gt;</pre></td></tr></table>
+</div>
+</div>
+<h3 id="v-for使用过程添加key-绑定key">v-for使用过程添加key(绑定key)</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;ul&gt;
+        &lt;!-- 保证绑定的key和要展示的item是一样的(key是唯一不可变的) 可以使得Diff算法识别此节点并且找到正确的位置插入新的节点 --&gt;
+        &lt;!-- key的作用就是为了更高效的更新虚拟DOM --&gt;
+        &lt;li v-for=&#34;item in letters&#34; :key=&#34;item&#34;&gt;{{item}}&lt;/li&gt;
+    &lt;/ul&gt;</pre></td></tr></table>
+</div>
+</div>
+<h3 id="哪些数组方法是响应式的">哪些数组方法是响应式的</h3>
+
+<p>响应式的：</p>
+
+<ul>
+<li>push</li>
+<li>pop</li>
+<li>shift</li>
+<li>unshift</li>
+<li>splice</li>
+<li>sort</li>
+<li>reverse</li>
+<li>set&mdash;<code>Vue.set(this.letters,0,'bbb')</code></li>
+</ul>
+
+<p>非响应式的：</p>
+
+<ul>
+<li><code>this.letters[0]='a'</code>通过索引值修改数组中的元素不是响应式的</li>
+</ul>
+
+<h2 id="v-model">v-model</h2>
+
+<ul>
+<li>基本使用方法</li>
+<li>v-model原理</li>
+<li>radio,checkbox,select</li>
+<li>v-model修饰符</li>
+</ul>
+
+<h3 id="基本使用方法">基本使用方法</h3>
+
+<p>直接举例,此时输入什么值，显示什么值</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;div id=&#34;app&#34;&gt;
+        &lt;input type=&#34;text&#34; v-model=&#34;message&#34;&gt; {{message}}
+    &lt;/div&gt;</pre></td></tr></table>
+</div>
+</div>
+<h3 id="v-model原理">v-model原理</h3>
+
+<p>v-model等同于：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;!-- &lt;input type=&#34;text&#34; v-model=&#34;message&#34;&gt; --&gt;
+    &lt;!-- input有一个input事件 --&gt;
+    &lt;!-- &lt;input type=&#34;text&#34; :value=&#34;message&#34; @input=&#34;valueChange&#34;&gt; --&gt;
+
+    &lt;input type=&#34;text&#34; :value=&#34;message&#34; @input=&#34;message=$event.target.value&#34;&gt;
+    &lt;h2&gt;{{message}}&lt;/h2&gt;
+
+    &lt;!-- textarea也可以用v-model --&gt;</pre></td></tr></table>
+</div>
+</div>
+<h3 id="radio-checkbox-select">radio,checkbox,select</h3>
+
+<p>radio(选哪个，sex就变成它的value):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;label for=&#34;male&#34;&gt;
+        &lt;input type=&#34;radio&#34; id=&#34;male&#34; value=&#34;男&#34; v-model=&#34;sex&#34;&gt;男
+    &lt;/label&gt;
+    &lt;label for=&#34;female&#34;&gt;
+        &lt;input type=&#34;radio&#34; id=&#34;female&#34; value=&#34;女&#34; v-model=&#34;sex&#34;&gt;女
+    &lt;/label&gt;
+    &lt;h2&gt;您选择的性别是{{sex}}&lt;/h2&gt;</pre></td></tr></table>
+</div>
+</div>
+<p>checkbox(直接上学习的代码了)：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt"> 1
@@ -468,31 +749,137 @@ if (!doNotTrack) {
 </span><span class="lnt">19
 </span><span class="lnt">20
 </span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">function jsonp(url) {
-    return new Promise((resolve, reject) =&gt; {
-        const random = &#34;frankJSONPCallbackName&#34; + Math.random();
-        window[random] = data =&gt; {
-            resolve(data);
-        };// 一个回调函数
-        const script = document.createElement(&#34;script&#34;);
-        script.src = `${url}?callback=${random}`// 服务器会根据这个查询参数得到random
-        script.onload = () =&gt; {
-            script.remove();
-        };// 成功之后删掉这个script标签，防止页面冗杂
-        script.onerror = () =&gt; {
-            reject();
-        }
-        document.body.appendChild(script);
-    });
-}
-jsonp(&#39;http://localhost:8888/qqf.js&#39;).then((data) =&gt; {
-    console.log(data);
+<pre class="chroma">    &lt;div id=&#34;app&#34;&gt;
+        &lt;!-- checkbox单选框 --&gt;
+        &lt;label for=&#34;agreement&#34;&gt;
+            &lt;input type=&#34;checkbox&#34; id=&#34;agreement&#34; v-model=&#34;isAgree&#34;&gt;同意协议
+        &lt;/label&gt;
+        &lt;!--isAgree是个布尔值--&gt;
+        &lt;h2&gt;你选择的是{{isAgree}}&lt;/h2&gt;
 
-})// 加载成功后，后台打出data</pre></td></tr></table>
+        &lt;!-- checkbox多选框 --&gt;
+        &lt;input type=&#34;checkbox&#34; value=&#34;足球&#34; v-model=&#34;hobbies&#34;&gt;足球
+        &lt;input type=&#34;checkbox&#34; value=&#34;篮球&#34; v-model=&#34;hobbies&#34;&gt;篮球
+        &lt;input type=&#34;checkbox&#34; value=&#34;羽毛球&#34; v-model=&#34;hobbies&#34;&gt;羽毛球
+        &lt;input type=&#34;checkbox&#34; value=&#34;打游戏&#34; v-model=&#34;hobbies&#34;&gt;打游戏
+        &lt;h2&gt;您的爱好是{{hobbies}}&lt;/h2&gt;
+
+        &lt;!-- 使用for循环 --&gt;
+        &lt;label v-for=&#34;item in originHobbies&#34; :for=&#34;item&#34;&gt;
+            &lt;input type=&#34;checkbox&#34; :value=&#34;item&#34; v-model=&#34;hobbies&#34; :id=&#34;item&#34;&gt;{{item}}
+        &lt;/label&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        const app = new Vue({
+            el: &#39;#app&#39;,
+            data: {
+                message: &#39;你好啊&#39;,
+                isAgree: false,
+                hobbies: [],
+                originHobbies: [&#39;足球&#39;, &#39;篮球&#39;, &#39;打游戏&#39;, &#39;羽毛球&#39;]
+            }
+        })
+    &lt;/script&gt;</pre></td></tr></table>
 </div>
 </div>
+<p>select(用法很简单)：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;div id=&#34;app&#34;&gt;
+        &lt;!-- 1. 选择一个 --&gt;
+        &lt;select name=&#34;abc&#34; id=&#34;&#34; v-model=&#34;fruit&#34;&gt;
+            &lt;option value=&#34;苹果&#34; &gt;苹果&lt;/option&gt;
+            &lt;option value=&#34;香蕉&#34; &gt;香蕉&lt;/option&gt;
+            &lt;option value=&#34;橘子&#34; &gt;橘子&lt;/option&gt;
+            &lt;option value=&#34;梨子&#34; &gt;梨子&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;h2&gt;您选择的水果是:{{fruit}}&lt;/h2&gt;
+
+        &lt;!-- 2.选择多个 --&gt;
+        &lt;select name=&#34;abc&#34; id=&#34;&#34; v-model=&#34;fruits&#34; multiple&gt;
+            &lt;option value=&#34;苹果&#34;&gt;苹果&lt;/option&gt;
+            &lt;option value=&#34;香蕉&#34;&gt;香蕉&lt;/option&gt;
+            &lt;option value=&#34;橘子&#34;&gt;橘子&lt;/option&gt;
+            &lt;option value=&#34;梨子&#34;&gt;梨子&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;h2&gt;您选择的水果是:{{fruits}}&lt;/h2&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        const app = new Vue({
+            el: &#39;#app&#39;,
+            data: {
+                message: &#39;你好啊&#39;,
+                fruit: &#39;香蕉&#39;,
+                fruits: []
+            }
+        })</pre></td></tr></table>
+</div>
+</div>
+<h3 id="v-model的修饰符">v-model的修饰符</h3>
+
+<p>基本使用：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    &lt;input type=&#34;text&#34; v-model.lazy=&#34;message&#34;&gt;
+    &lt;h2&gt;{{message}}&lt;/h2&gt;</pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>lazy:按下enter或者失去焦点时才会改变</li>
+<li>number: 默认情况下，v-model赋值的都是string类型,加上.number会把它转为Number</li>
+<li>trim:去除输入的两边空格，换行符等等</li>
+</ul>
+
     </div>
 
     
@@ -505,7 +892,7 @@ jsonp(&#39;http://localhost:8888/qqf.js&#39;).then((data) =&gt; {
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-      2019-12-13
+      2019-12-14
       
     </span>
   </p>
@@ -522,31 +909,17 @@ jsonp(&#39;http://localhost:8888/qqf.js&#39;).then((data) =&gt; {
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="http://gaocarri.top/tags/%E8%B7%A8%E5%9F%9F/">跨域</a>
-          <a href="http://gaocarri.top/tags/ajax/">AJAX</a>
-          <a href="http://gaocarri.top/tags/javascript/">JavaScript</a>
+          <a href="http://gaocarri.top/tags/vue/">Vue</a>
+          <a href="http://gaocarri.top/tags/%E6%A1%86%E6%9E%B6/">框架</a>
           
         </div>
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/vue%E5%9F%BA%E7%A1%80%E4%B8%80-%E6%8F%92%E5%80%BC%E6%93%8D%E4%BD%9Cv-bind%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/">
-            
-            <i class="iconfont">
-              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="18" height="18">
-  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
-</svg>
-
-            </i>
-            <span class="prev-text nav-default">Vue基础(一)--插值操作，v-bind，计算属性</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
         
-          <a class="next" href="/post/%E5%AF%B9%E4%BA%8Ejs%E7%BB%A7%E6%89%BF%E7%9A%84%E7%90%86%E8%A7%A3/">
-            <span class="next-text nav-default">对于JS继承的理解</span>
+          <a class="next" href="/post/vue%E5%9F%BA%E7%A1%80%E4%B8%80-%E6%8F%92%E5%80%BC%E6%93%8D%E4%BD%9Cv-bind%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/">
+            <span class="next-text nav-default">Vue基础(一)--插值操作，v-bind，计算属性</span>
             <span class="prev-text nav-mobile">下一篇</span>
             
             <i class="iconfont">

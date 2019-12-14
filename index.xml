@@ -6,7 +6,7 @@
     <description>Recent content on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 13 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Dec 2019 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="http://gaocarri.top/index.xml" rel="self" type="application/rss+xml" />
     
@@ -51,11 +51,470 @@
     </item>
     
     <item>
-      <title>Vue基础（一）</title>
-      <link>http://gaocarri.top/post/vue%E5%9F%BA%E7%A1%80%E4%B8%80/</link>
+      <title>Vue基础(二)--事件监听，条件判断，循环遍历，v-model</title>
+      <link>http://gaocarri.top/post/vue%E5%9F%BA%E7%A1%80%E4%BA%8C-%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E5%BE%AA%E7%8E%AF%E9%81%8D%E5%8E%86v-model/</link>
+      <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/vue%E5%9F%BA%E7%A1%80%E4%BA%8C-%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E5%BE%AA%E7%8E%AF%E9%81%8D%E5%8E%86v-model/</guid>
+      
+        <description>
+
+&lt;h2 id=&#34;事件监听&#34;&gt;事件监听&lt;/h2&gt;
+
+&lt;p&gt;分为以下三部分&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;v-on的基本使用&lt;/li&gt;
+&lt;li&gt;v-on的参数&lt;/li&gt;
+&lt;li&gt;v-on的修饰符&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;v-on的基本使用&#34;&gt;v-on的基本使用&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+        &amp;lt;h2&amp;gt;{{counter}}&amp;lt;/h2&amp;gt;
+        &amp;lt;button @click=&amp;#34;increment&amp;#34;&amp;gt;+&amp;lt;/button&amp;gt;
+    &amp;lt;/div&amp;gt;
+    ......
+    &amp;lt;script&amp;gt;
+        const app = new Vue({
+            el: &amp;#39;#app&amp;#39;,
+            data: {
+                counter: 0
+            },
+            methods: {
+                increment() {
+                    this.counter++
+                }
+            }
+        })
+    &amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;increment是一个方法名，定义在app的Vue实例的方法中&lt;/p&gt;
+
+&lt;h3 id=&#34;v-on的参数&#34;&gt;v-on的参数&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;button @click=&amp;#34;increment&amp;#34;&amp;gt;+&amp;lt;/button&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;这里&lt;code&gt;increment&lt;/code&gt;后面没有跟(),这是省略的写法，括号内无参数时,Vue会把浏览器生成的event事件对象作为参数传入到方法&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    &amp;lt;button @click=&amp;#34;btn3Click(123,$event)&amp;#34;&amp;gt;3&amp;lt;/button&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;如果既需要event对象，又需要参数，可以用上述写法&lt;/p&gt;
+
+&lt;h3 id=&#34;v-on的修饰符&#34;&gt;v-on的修饰符&lt;/h3&gt;
+
+&lt;p&gt;基本用法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    &amp;lt;div @click=&amp;#34;divClick&amp;#34;&amp;gt;
+            aaaa
+            &amp;lt;button @click.stop=&amp;#34;btnClick&amp;#34;&amp;gt;按钮&amp;lt;/button&amp;gt;
+     &amp;lt;/div&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;四种常用的修饰符:
+  * .stop：阻止事件冒泡
+  * .prevent：阻止默认事件
+  * .enter：监听某个键盘键帽的点击
+  * .once：该事件只触发一次&lt;/p&gt;
+
+&lt;h2 id=&#34;条件判断&#34;&gt;条件判断&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;v-if、v-else-if、v-else&lt;/li&gt;
+&lt;li&gt;v-show&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;v-if-v-else-if-v-else&#34;&gt;v-if、v-else-if、v-else&lt;/h3&gt;
+
+&lt;p&gt;很简单，举例：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+        &amp;lt;h2 v-if=&amp;#34;score&amp;gt;=90&amp;#34;&amp;gt;优秀&amp;lt;/h2&amp;gt;
+        &amp;lt;h2 v-else-if=&amp;#34;score&amp;gt;=80&amp;#34;&amp;gt;良好&amp;lt;/h2&amp;gt;
+        &amp;lt;h2 v-else-if=&amp;#34;score&amp;gt;=60&amp;#34;&amp;gt;及格&amp;lt;/h2&amp;gt;
+        &amp;lt;h2 v-else&amp;gt;不及格&amp;lt;/h2&amp;gt;
+    &amp;lt;/div&amp;gt;
+   &amp;lt;!--会根据返回的布尔值决定显示哪一个标签--&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;v-show&#34;&gt;v-show&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;当切换频率高时选择v-show，只有一次通常使用v-if,因为频繁操作DOM影响性能&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;!-- v-show HTML节点仍然存在 只是display:none --&amp;gt;
+&amp;lt;h2 v-show=&amp;#34;isShow&amp;#34;&amp;gt;{{message}}&amp;lt;/h2&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;循环遍历&#34;&gt;循环遍历&lt;/h2&gt;
+
+&lt;p&gt;这里主要记录下参数的问题
+* v-for遍历数组
+* v-for遍历对象
+* v-for使用过程添加key(绑定key)
+* 哪些数组方法是响应式的&lt;/p&gt;
+
+&lt;h3 id=&#34;v-for遍历数组&#34;&gt;v-for遍历数组&lt;/h3&gt;
+
+&lt;p&gt;参数:元素，index&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    &amp;lt;ul&amp;gt;
+        &amp;lt;li v-for=&amp;#34;(item,index) in names&amp;#34;&amp;gt;{{index}}-{{item}}&amp;lt;/li&amp;gt;
+    &amp;lt;/ul&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;v-for遍历对象&#34;&gt;v-for遍历对象&lt;/h3&gt;
+
+&lt;p&gt;参数：值，key，index&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    &amp;lt;ul&amp;gt;
+        &amp;lt;li v-for=&amp;#34;(value,key,index) in info&amp;#34;&amp;gt;{{index}}.{{key}}:{{value}}&amp;lt;/li&amp;gt;
+    &amp;lt;/ul&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;v-for使用过程添加key-绑定key&#34;&gt;v-for使用过程添加key(绑定key)&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    &amp;lt;ul&amp;gt;
+        &amp;lt;!-- 保证绑定的key和要展示的item是一样的(key是唯一不可变的) 可以使得Diff算法识别此节点并且找到正确的位置插入新的节点 --&amp;gt;
+        &amp;lt;!-- key的作用就是为了更高效的更新虚拟DOM --&amp;gt;
+        &amp;lt;li v-for=&amp;#34;item in letters&amp;#34; :key=&amp;#34;item&amp;#34;&amp;gt;{{item}}&amp;lt;/li&amp;gt;
+    &amp;lt;/ul&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;哪些数组方法是响应式的&#34;&gt;哪些数组方法是响应式的&lt;/h3&gt;
+
+&lt;p&gt;响应式的：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;push&lt;/li&gt;
+&lt;li&gt;pop&lt;/li&gt;
+&lt;li&gt;shift&lt;/li&gt;
+&lt;li&gt;unshift&lt;/li&gt;
+&lt;li&gt;splice&lt;/li&gt;
+&lt;li&gt;sort&lt;/li&gt;
+&lt;li&gt;reverse&lt;/li&gt;
+&lt;li&gt;set&amp;mdash;&lt;code&gt;Vue.set(this.letters,0,&#39;bbb&#39;)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;非响应式的：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;this.letters[0]=&#39;a&#39;&lt;/code&gt;通过索引值修改数组中的元素不是响应式的&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;v-model&#34;&gt;v-model&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;基本使用方法&lt;/li&gt;
+&lt;li&gt;v-model原理&lt;/li&gt;
+&lt;li&gt;radio,checkbox,select&lt;/li&gt;
+&lt;li&gt;v-model修饰符&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;基本使用方法&#34;&gt;基本使用方法&lt;/h3&gt;
+
+&lt;p&gt;直接举例,此时输入什么值，显示什么值&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+        &amp;lt;input type=&amp;#34;text&amp;#34; v-model=&amp;#34;message&amp;#34;&amp;gt; {{message}}
+    &amp;lt;/div&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;v-model原理&#34;&gt;v-model原理&lt;/h3&gt;
+
+&lt;p&gt;v-model等同于：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    &amp;lt;!-- &amp;lt;input type=&amp;#34;text&amp;#34; v-model=&amp;#34;message&amp;#34;&amp;gt; --&amp;gt;
+    &amp;lt;!-- input有一个input事件 --&amp;gt;
+    &amp;lt;!-- &amp;lt;input type=&amp;#34;text&amp;#34; :value=&amp;#34;message&amp;#34; @input=&amp;#34;valueChange&amp;#34;&amp;gt; --&amp;gt;
+
+    &amp;lt;input type=&amp;#34;text&amp;#34; :value=&amp;#34;message&amp;#34; @input=&amp;#34;message=$event.target.value&amp;#34;&amp;gt;
+    &amp;lt;h2&amp;gt;{{message}}&amp;lt;/h2&amp;gt;
+
+    &amp;lt;!-- textarea也可以用v-model --&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;radio-checkbox-select&#34;&gt;radio,checkbox,select&lt;/h3&gt;
+
+&lt;p&gt;radio(选哪个，sex就变成它的value):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    &amp;lt;label for=&amp;#34;male&amp;#34;&amp;gt;
+        &amp;lt;input type=&amp;#34;radio&amp;#34; id=&amp;#34;male&amp;#34; value=&amp;#34;男&amp;#34; v-model=&amp;#34;sex&amp;#34;&amp;gt;男
+    &amp;lt;/label&amp;gt;
+    &amp;lt;label for=&amp;#34;female&amp;#34;&amp;gt;
+        &amp;lt;input type=&amp;#34;radio&amp;#34; id=&amp;#34;female&amp;#34; value=&amp;#34;女&amp;#34; v-model=&amp;#34;sex&amp;#34;&amp;gt;女
+    &amp;lt;/label&amp;gt;
+    &amp;lt;h2&amp;gt;您选择的性别是{{sex}}&amp;lt;/h2&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;checkbox(直接上学习的代码了)：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+        &amp;lt;!-- checkbox单选框 --&amp;gt;
+        &amp;lt;label for=&amp;#34;agreement&amp;#34;&amp;gt;
+            &amp;lt;input type=&amp;#34;checkbox&amp;#34; id=&amp;#34;agreement&amp;#34; v-model=&amp;#34;isAgree&amp;#34;&amp;gt;同意协议
+        &amp;lt;/label&amp;gt;
+        &amp;lt;!--isAgree是个布尔值--&amp;gt;
+        &amp;lt;h2&amp;gt;你选择的是{{isAgree}}&amp;lt;/h2&amp;gt;
+
+        &amp;lt;!-- checkbox多选框 --&amp;gt;
+        &amp;lt;input type=&amp;#34;checkbox&amp;#34; value=&amp;#34;足球&amp;#34; v-model=&amp;#34;hobbies&amp;#34;&amp;gt;足球
+        &amp;lt;input type=&amp;#34;checkbox&amp;#34; value=&amp;#34;篮球&amp;#34; v-model=&amp;#34;hobbies&amp;#34;&amp;gt;篮球
+        &amp;lt;input type=&amp;#34;checkbox&amp;#34; value=&amp;#34;羽毛球&amp;#34; v-model=&amp;#34;hobbies&amp;#34;&amp;gt;羽毛球
+        &amp;lt;input type=&amp;#34;checkbox&amp;#34; value=&amp;#34;打游戏&amp;#34; v-model=&amp;#34;hobbies&amp;#34;&amp;gt;打游戏
+        &amp;lt;h2&amp;gt;您的爱好是{{hobbies}}&amp;lt;/h2&amp;gt;
+
+        &amp;lt;!-- 使用for循环 --&amp;gt;
+        &amp;lt;label v-for=&amp;#34;item in originHobbies&amp;#34; :for=&amp;#34;item&amp;#34;&amp;gt;
+            &amp;lt;input type=&amp;#34;checkbox&amp;#34; :value=&amp;#34;item&amp;#34; v-model=&amp;#34;hobbies&amp;#34; :id=&amp;#34;item&amp;#34;&amp;gt;{{item}}
+        &amp;lt;/label&amp;gt;
+    &amp;lt;/div&amp;gt;
+
+    &amp;lt;script&amp;gt;
+        const app = new Vue({
+            el: &amp;#39;#app&amp;#39;,
+            data: {
+                message: &amp;#39;你好啊&amp;#39;,
+                isAgree: false,
+                hobbies: [],
+                originHobbies: [&amp;#39;足球&amp;#39;, &amp;#39;篮球&amp;#39;, &amp;#39;打游戏&amp;#39;, &amp;#39;羽毛球&amp;#39;]
+            }
+        })
+    &amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;select(用法很简单)：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+        &amp;lt;!-- 1. 选择一个 --&amp;gt;
+        &amp;lt;select name=&amp;#34;abc&amp;#34; id=&amp;#34;&amp;#34; v-model=&amp;#34;fruit&amp;#34;&amp;gt;
+            &amp;lt;option value=&amp;#34;苹果&amp;#34; &amp;gt;苹果&amp;lt;/option&amp;gt;
+            &amp;lt;option value=&amp;#34;香蕉&amp;#34; &amp;gt;香蕉&amp;lt;/option&amp;gt;
+            &amp;lt;option value=&amp;#34;橘子&amp;#34; &amp;gt;橘子&amp;lt;/option&amp;gt;
+            &amp;lt;option value=&amp;#34;梨子&amp;#34; &amp;gt;梨子&amp;lt;/option&amp;gt;
+        &amp;lt;/select&amp;gt;
+        &amp;lt;h2&amp;gt;您选择的水果是:{{fruit}}&amp;lt;/h2&amp;gt;
+
+        &amp;lt;!-- 2.选择多个 --&amp;gt;
+        &amp;lt;select name=&amp;#34;abc&amp;#34; id=&amp;#34;&amp;#34; v-model=&amp;#34;fruits&amp;#34; multiple&amp;gt;
+            &amp;lt;option value=&amp;#34;苹果&amp;#34;&amp;gt;苹果&amp;lt;/option&amp;gt;
+            &amp;lt;option value=&amp;#34;香蕉&amp;#34;&amp;gt;香蕉&amp;lt;/option&amp;gt;
+            &amp;lt;option value=&amp;#34;橘子&amp;#34;&amp;gt;橘子&amp;lt;/option&amp;gt;
+            &amp;lt;option value=&amp;#34;梨子&amp;#34;&amp;gt;梨子&amp;lt;/option&amp;gt;
+        &amp;lt;/select&amp;gt;
+        &amp;lt;h2&amp;gt;您选择的水果是:{{fruits}}&amp;lt;/h2&amp;gt;
+    &amp;lt;/div&amp;gt;
+
+    &amp;lt;script&amp;gt;
+        const app = new Vue({
+            el: &amp;#39;#app&amp;#39;,
+            data: {
+                message: &amp;#39;你好啊&amp;#39;,
+                fruit: &amp;#39;香蕉&amp;#39;,
+                fruits: []
+            }
+        })&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;v-model的修饰符&#34;&gt;v-model的修饰符&lt;/h3&gt;
+
+&lt;p&gt;基本使用：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    &amp;lt;input type=&amp;#34;text&amp;#34; v-model.lazy=&amp;#34;message&amp;#34;&amp;gt;
+    &amp;lt;h2&amp;gt;{{message}}&amp;lt;/h2&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;lazy:按下enter或者失去焦点时才会改变&lt;/li&gt;
+&lt;li&gt;number: 默认情况下，v-model赋值的都是string类型,加上.number会把它转为Number&lt;/li&gt;
+&lt;li&gt;trim:去除输入的两边空格，换行符等等&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Vue基础(一)--插值操作，v-bind，计算属性</title>
+      <link>http://gaocarri.top/post/vue%E5%9F%BA%E7%A1%80%E4%B8%80-%E6%8F%92%E5%80%BC%E6%93%8D%E4%BD%9Cv-bind%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/</link>
       <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://gaocarri.top/post/vue%E5%9F%BA%E7%A1%80%E4%B8%80/</guid>
+      <guid>http://gaocarri.top/post/vue%E5%9F%BA%E7%A1%80%E4%B8%80-%E6%8F%92%E5%80%BC%E6%93%8D%E4%BD%9Cv-bind%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/</guid>
       
         <description>
 
@@ -216,8 +675,7 @@
 &lt;li&gt;上述的#app里面的{{message}}已经交由Vue控制了，这是Vue的Mustache语法,它显示的值就是&lt;code&gt;data&lt;/code&gt;里的&lt;code&gt;message&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;v-once&lt;/p&gt;
+&lt;h3 id=&#34;v-once&#34;&gt;v-once&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -227,15 +685,14 @@
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
 &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
-    &amp;lt;h2&amp;gt;{{message}}&amp;lt;/h2&amp;gt;
-    &amp;lt;h2 v-once&amp;gt;{{message}}&amp;lt;/h2&amp;gt;
-    &amp;lt;!-- 使用了v-once插入的值只会改变一次 --&amp;gt;
-&amp;lt;/div&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+        &amp;lt;h2&amp;gt;{{message}}&amp;lt;/h2&amp;gt;
+        &amp;lt;h2 v-once&amp;gt;{{message}}&amp;lt;/h2&amp;gt;
+        &amp;lt;!-- 使用了v-once插入的值只会改变一次 --&amp;gt;
+    &amp;lt;/div&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;v-html&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;v-html&#34;&gt;v-html&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -255,31 +712,30 @@
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
 &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
-    &amp;lt;h2&amp;gt;{{url}}&amp;lt;/h2&amp;gt;
-    &amp;lt;!--这里的url会是字符串--&amp;gt;
-    &amp;lt;h2 v-html=&amp;#34;url&amp;#34;&amp;gt;&amp;lt;/h2&amp;gt;
-    &amp;lt;!--这里会包含html语法并且覆盖&amp;lt;h2&amp;gt;标签内的所有内容--&amp;gt;
-&amp;lt;/div&amp;gt;
-&amp;lt;script src=&amp;#34;../js/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
-&amp;lt;script&amp;gt;
-    const app = new Vue({
-        el: &amp;#39;#app&amp;#39;,
-        data: {
-            url: &amp;#39;&amp;lt;a href=&amp;#34;http://www.baidu.com&amp;#34;&amp;gt;百度一下&amp;lt;/a&amp;gt;&amp;#39;
-        }
-    })
-&amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+        &amp;lt;h2&amp;gt;{{url}}&amp;lt;/h2&amp;gt;
+        &amp;lt;!--这里的url会是字符串--&amp;gt;
+        &amp;lt;h2 v-html=&amp;#34;url&amp;#34;&amp;gt;&amp;lt;/h2&amp;gt;
+        &amp;lt;!--这里会包含html语法并且覆盖&amp;lt;h2&amp;gt;标签内的所有内容--&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;script src=&amp;#34;../js/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script&amp;gt;
+        const app = new Vue({
+            el: &amp;#39;#app&amp;#39;,
+            data: {
+                url: &amp;#39;&amp;lt;a href=&amp;#34;http://www.baidu.com&amp;#34;&amp;gt;百度一下&amp;lt;/a&amp;gt;&amp;#39;
+            }
+        })
+    &amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;v-text&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;v-text&#34;&gt;v-text&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;用法同&lt;code&gt;v-html&lt;/code&gt;,但是它不包含html用法，会覆盖标签内的全部内容，一般很少使用&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;li&gt;&lt;p&gt;v-pre&lt;/p&gt;
+&lt;h3 id=&#34;v-pre&#34;&gt;v-pre&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -287,13 +743,10 @@
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&amp;lt;h2 v-pre&amp;gt;{{message}}&amp;lt;/h2&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
+&lt;/div&gt;
 &lt;p&gt;这里显示的解果是{{message}}，原封不动的显示&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;v-cloak(cloak斗篷的意思)&lt;/p&gt;
+&lt;h3 id=&#34;v-cloak-cloak斗篷的意思&#34;&gt;v-cloak(cloak斗篷的意思)&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -318,30 +771,28 @@
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
 &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;style&amp;gt;
-    [v-cloak] {
-        display: none;
-    }
-&amp;lt;/style&amp;gt;
-    &amp;lt;div id=&amp;#34;app&amp;#34; v-cloak&amp;gt;
-    &amp;lt;!--v-cloak加上style标签里的东西可以使内容在加载Vue之前不显示，加载完vue后删除v-cloak--&amp;gt;
-    {{message}}
-&amp;lt;/div&amp;gt;
-&amp;lt;script src=&amp;#34;../js/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
-&amp;lt;script&amp;gt;
-    setTimeout(function() {
-        const app = new Vue({
-            el: &amp;#39;#app&amp;#39;,
-            data: {
-                message: &amp;#39;你好啊&amp;#39;
-            }
-        })
-    }, 3000)
-&amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    &amp;lt;style&amp;gt;
+        [v-cloak] {
+            display: none;
+        }
+    &amp;lt;/style&amp;gt;
+        &amp;lt;div id=&amp;#34;app&amp;#34; v-cloak&amp;gt;
+        &amp;lt;!--v-cloak加上style标签里的东西可以使内容在加载Vue之前不显示，加载完vue后删除v-cloak--&amp;gt;
+        {{message}}
+    &amp;lt;/div&amp;gt;
+    &amp;lt;script src=&amp;#34;../js/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script&amp;gt;
+        setTimeout(function() {
+            const app = new Vue({
+                el: &amp;#39;#app&amp;#39;,
+                data: {
+                    message: &amp;#39;你好啊&amp;#39;
+                }
+            })
+        }, 3000)
+    &amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
+&lt;/div&gt;
 &lt;h2 id=&#34;3-v-bind绑定&#34;&gt;3. v-bind绑定&lt;/h2&gt;
 
 &lt;p&gt;举例：&lt;/p&gt;
@@ -381,8 +832,7 @@
     &amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;v-bind绑定class&lt;/p&gt;
+&lt;h3 id=&#34;v-bind绑定class&#34;&gt;v-bind绑定class&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;对象语法&lt;/p&gt;
@@ -421,38 +871,38 @@
 &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
-&amp;lt;!-- 对象语法 --&amp;gt;
-&amp;lt;h2 class=&amp;#34;title&amp;#34; v-bind:class=&amp;#34;{active:isActive,line:isLine}&amp;#34;&amp;gt;{{message}}&amp;lt;/h2&amp;gt;
-&amp;lt;!-- 还可以放到methods里面,也可以放data里 --&amp;gt;
-&amp;lt;h2 class=&amp;#34;title&amp;#34; v-bind:class=&amp;#34;getClasses()&amp;#34;&amp;gt;{{message}}&amp;lt;/h2&amp;gt;
-&amp;lt;button @click=&amp;#34;change&amp;#34;&amp;gt;变色&amp;lt;/button&amp;gt;
+    &amp;lt;!-- 对象语法 --&amp;gt;
+    &amp;lt;h2 class=&amp;#34;title&amp;#34; v-bind:class=&amp;#34;{active:isActive,line:isLine}&amp;#34;&amp;gt;{{message}}&amp;lt;/h2&amp;gt;
+    &amp;lt;!-- 还可以放到methods里面,也可以放data里 --&amp;gt;
+    &amp;lt;h2 class=&amp;#34;title&amp;#34; v-bind:class=&amp;#34;getClasses()&amp;#34;&amp;gt;{{message}}&amp;lt;/h2&amp;gt;
+    &amp;lt;button @click=&amp;#34;change&amp;#34;&amp;gt;变色&amp;lt;/button&amp;gt;
 &amp;lt;/div&amp;gt;
 
 &amp;lt;script src=&amp;#34;../js/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
 &amp;lt;script&amp;gt;
-const app = new Vue({
-    el: &amp;#39;#app&amp;#39;,
-    data: {
-        message: &amp;#39;你好啊&amp;#39;,
-        isActive: true,
-        isLine: false
-    },
-    methods: {
-        change() {
-            this.isActive = !this.isActive
+    const app = new Vue({
+        el: &amp;#39;#app&amp;#39;,
+        data: {
+            message: &amp;#39;你好啊&amp;#39;,
+            isActive: true,
+            isLine: false
         },
-        getClasses() {
-            return {
-                active: this.isActive,
-                line: this.isLine
+        methods: {
+            change() {
+                this.isActive = !this.isActive
+            },
+            getClasses() {
+                return {
+                    active: this.isActive,
+                    line: this.isLine
+                }
             }
         }
-    }
-})
+    })
 &amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-
+&lt;/div&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;数组语法(用的少)&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -505,8 +955,9 @@ const app = new Vue({
 &lt;/div&gt;
 &lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;li&gt;&lt;p&gt;v-bind绑定字符串&lt;/p&gt;
+&lt;h3 id=&#34;v-bind绑定字符串&#34;&gt;v-bind绑定字符串&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;对象语法&lt;/p&gt;
@@ -539,28 +990,28 @@ const app = new Vue({
 &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
-&amp;lt;!-- &amp;lt;h2 :style=&amp;#34;{key(css属性名):value（属性值）}&amp;#34;&amp;gt;{{message}}&amp;lt;/h2&amp;gt; --&amp;gt;
-&amp;lt;!-- 50px必须加上单引号 --&amp;gt;
-&amp;lt;!-- &amp;lt;h2 :style=&amp;#34;{fontSize: &amp;#39;50px&amp;#39;}&amp;#34;&amp;gt;{{message}}&amp;lt;/h2&amp;gt; --&amp;gt;
-&amp;lt;h2 :style=&amp;#34;{fontSize: finalSize+&amp;#39;px&amp;#39;,color:finalColor}&amp;#34;&amp;gt;{{message}}&amp;lt;/h2&amp;gt;
-&amp;lt;h2 :style=&amp;#34;styleObject&amp;#34;&amp;gt;{{message}}&amp;lt;/h2&amp;gt;
+    &amp;lt;!-- &amp;lt;h2 :style=&amp;#34;{key(css属性名):value（属性值）}&amp;#34;&amp;gt;{{message}}&amp;lt;/h2&amp;gt; --&amp;gt;
+    &amp;lt;!-- 50px必须加上单引号 --&amp;gt;
+    &amp;lt;!-- &amp;lt;h2 :style=&amp;#34;{fontSize: &amp;#39;50px&amp;#39;}&amp;#34;&amp;gt;{{message}}&amp;lt;/h2&amp;gt; --&amp;gt;
+    &amp;lt;h2 :style=&amp;#34;{fontSize: finalSize+&amp;#39;px&amp;#39;,color:finalColor}&amp;#34;&amp;gt;{{message}}&amp;lt;/h2&amp;gt;
+    &amp;lt;h2 :style=&amp;#34;styleObject&amp;#34;&amp;gt;{{message}}&amp;lt;/h2&amp;gt;
 
 &amp;lt;/div&amp;gt;
 
 &amp;lt;script src=&amp;#34;../js/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
 &amp;lt;script&amp;gt;
-const app = new Vue({
-    el: &amp;#39;#app&amp;#39;,
-    data: {
-        message: &amp;#39;你好啊&amp;#39;,
-        finalSize: 100,
-        finalColor: &amp;#39;red&amp;#39;,
-        styleObject: {
-            fontSize: &amp;#39;100px&amp;#39;,
-            color: &amp;#39;red&amp;#39;
+    const app = new Vue({
+        el: &amp;#39;#app&amp;#39;,
+        data: {
+            message: &amp;#39;你好啊&amp;#39;,
+            finalSize: 100,
+            finalColor: &amp;#39;red&amp;#39;,
+            styleObject: {
+                fontSize: &amp;#39;100px&amp;#39;,
+                color: &amp;#39;red&amp;#39;
+            }
         }
-    }
-})
+    })
 &amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;/li&gt;
@@ -587,25 +1038,24 @@ const app = new Vue({
 &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
-&amp;lt;h2 :style=&amp;#34;[baseStyle]&amp;#34;&amp;gt;{{message}}&amp;lt;/h2&amp;gt;
+    &amp;lt;h2 :style=&amp;#34;[baseStyle]&amp;#34;&amp;gt;{{message}}&amp;lt;/h2&amp;gt;
 &amp;lt;/div&amp;gt;
 
 &amp;lt;script src=&amp;#34;../js/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
 &amp;lt;script&amp;gt;
-const app = new Vue({
-    el: &amp;#39;#app&amp;#39;,
-    data: {
-        message: &amp;#39;你好啊&amp;#39;,
-        baseStyle: {
-            backgroundColor: &amp;#39;red&amp;#39;
+    const app = new Vue({
+        el: &amp;#39;#app&amp;#39;,
+        data: {
+            message: &amp;#39;你好啊&amp;#39;,
+            baseStyle: {
+                backgroundColor: &amp;#39;red&amp;#39;
+            }
         }
-    }
-})
+    })
 &amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&#34;4-计算属性&#34;&gt;4. 计算属性&lt;/h2&gt;
 
@@ -666,29 +1116,9 @@ const app = new Vue({
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;47
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;48
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;49
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;50
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;51
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;52
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;53
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;54
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;55
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;56
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;57
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;58
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;59
 &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt;
-
-&amp;lt;head&amp;gt;
-&amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt;
-&amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&amp;gt;
-&amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;ie=edge&amp;#34;&amp;gt;
-&amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt;
-&amp;lt;/head&amp;gt;
-
-&amp;lt;body&amp;gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;body&amp;gt;
 &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
     &amp;lt;h2&amp;gt;总价格：{{totalPrice}}&amp;lt;/h2&amp;gt;
 &amp;lt;/div&amp;gt;
