@@ -6,7 +6,7 @@
     <description>Recent content in Categories on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 14 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.top/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>框架</title>
       <link>http://gaocarri.top/categories/%E6%A1%86%E6%9E%B6/</link>
-      <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>http://gaocarri.top/categories/%E6%A1%86%E6%9E%B6/</guid>
       <description></description>
@@ -30,29 +30,11 @@
     </item>
     
     <item>
-      <title>this</title>
-      <link>http://gaocarri.top/categories/this/</link>
-      <pubDate>Sun, 08 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/categories/this/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>数据结构与算法</title>
       <link>http://gaocarri.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</link>
       <pubDate>Sat, 23 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>http://gaocarri.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>jQuery</title>
-      <link>http://gaocarri.top/categories/jquery/</link>
-      <pubDate>Wed, 13 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/categories/jquery/</guid>
       <description></description>
     </item>
     

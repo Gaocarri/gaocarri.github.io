@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 14 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.top/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vue基础(三)--组件相关</title>
+      <link>http://gaocarri.top/post/vue%E5%9F%BA%E7%A1%80%E4%B8%89-%E7%BB%84%E4%BB%B6/</link>
+      <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/vue%E5%9F%BA%E7%A1%80%E4%B8%89-%E7%BB%84%E4%BB%B6/</guid>
+      <description>包含以下几个部分 组件注册 组件通信 父子组件相互访问 插槽 全局组件和局部组件的注册 全局组件 直接上代码,这样即注册了一个全局组件 1 2 3 4 5 6 7 8 Vue.component(&amp;#39;cpn&amp;#39;,{ template:</description>
+    </item>
     
     <item>
       <title>Vue基础(二)--事件监听，条件判断，循环遍历，v-model</title>

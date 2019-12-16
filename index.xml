@@ -6,7 +6,7 @@
     <description>Recent content on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 14 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Dec 2019 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="http://gaocarri.top/index.xml" rel="self" type="application/rss+xml" />
     
@@ -46,6 +46,1167 @@
 &lt;li&gt;技艺不精，本站会陆续添加其他功能，敬请期待！&lt;/li&gt;
 &lt;li&gt;近期学到Vue了，后面会更新Vue相关的博客&lt;/li&gt;
 &lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Vue基础(三)--组件相关</title>
+      <link>http://gaocarri.top/post/vue%E5%9F%BA%E7%A1%80%E4%B8%89-%E7%BB%84%E4%BB%B6/</link>
+      <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/vue%E5%9F%BA%E7%A1%80%E4%B8%89-%E7%BB%84%E4%BB%B6/</guid>
+      
+        <description>
+
+&lt;p&gt;包含以下几个部分&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;组件注册&lt;/li&gt;
+&lt;li&gt;组件通信&lt;/li&gt;
+&lt;li&gt;父子组件相互访问&lt;/li&gt;
+&lt;li&gt;插槽&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;全局组件和局部组件的注册&#34;&gt;全局组件和局部组件的注册&lt;/h2&gt;
+
+&lt;h3 id=&#34;全局组件&#34;&gt;全局组件&lt;/h3&gt;
+
+&lt;p&gt;直接上代码,这样即注册了一个全局组件&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;Vue.component(&amp;#39;cpn&amp;#39;,{
+                template: `
+                &amp;lt;div&amp;gt;
+                        &amp;lt;h2&amp;gt;我是标题&amp;lt;/h2&amp;gt;
+                        &amp;lt;p&amp;gt;我是内容,hhh&amp;lt;/p&amp;gt;
+                        &amp;lt;p&amp;gt;我是内容,hehehe&amp;lt;/p&amp;gt;
+                &amp;lt;/div&amp;gt;`
+            })&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;局部组件&#34;&gt;局部组件&lt;/h3&gt;
+
+&lt;p&gt;也直接上代码了,此时相当于在app内部注册了一个组件，我们只能在该app中使用它&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;// 1.创建组件构造器
+        const cpnC = Vue.extend({
+                template: `
+             &amp;lt;div&amp;gt;
+            &amp;lt;h2&amp;gt;我是标题&amp;lt;/h2&amp;gt;
+            &amp;lt;p&amp;gt;我是内容&amp;lt;/p&amp;gt;
+        &amp;lt;/div&amp;gt;
+            `
+            })
+            // 2.注册局部组件
+        const app = new Vue({
+            el: &amp;#39;#app&amp;#39;,
+            data: {
+                message: &amp;#39;你好啊&amp;#39;
+            },
+            components: { //局部组件
+                //cpn使用组件时的标签名,cpnC组件构造器
+                cpn: cpnC
+            }
+        })&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;组件模板的分离写法&#34;&gt;组件模板的分离写法&lt;/h3&gt;
+
+&lt;p&gt;有时template过于冗长，我们需要将其中包含的html代码写在组件外面，此时有两种写法&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;!-- 1. script标签，注意：类型必须是text/x-template --&amp;gt;
+    &amp;lt;script type=&amp;#34;text/x-template&amp;#34; id=&amp;#34;cpn&amp;#34;&amp;gt;
+        &amp;lt;div&amp;gt;
+            &amp;lt;h2&amp;gt;我是标题&amp;lt;/h2&amp;gt;
+            &amp;lt;p&amp;gt;我是内容&amp;lt;/p&amp;gt;
+        &amp;lt;/div&amp;gt;
+    &amp;lt;/script&amp;gt;
+&amp;lt;!-- 2. template标签 --&amp;gt;
+    &amp;lt;template id=&amp;#34;cpn&amp;#34;&amp;gt;
+        &amp;lt;div&amp;gt;
+            &amp;lt;h2&amp;gt;{{title}}&amp;lt;/h2&amp;gt;
+            &amp;lt;h2&amp;gt;我是标题&amp;lt;/h2&amp;gt;
+            &amp;lt;p&amp;gt;我是内容11&amp;lt;/p&amp;gt;
+        &amp;lt;/div&amp;gt;
+    &amp;lt;/template&amp;gt;
+
+// 注册组件，引用template模板
+Vue.component(&amp;#39;cpn&amp;#39;, {
+            template: `#cpn`,
+            data() {
+                return {
+                    title: &amp;#39;abc&amp;#39;
+                }
+            }
+        })&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;关于组件中的data为什么是函数&#34;&gt;关于组件中的data为什么是函数&lt;/h3&gt;
+
+&lt;p&gt;一句话概括：如果data不是一个函数，各个组件实例会相互影响（因为它们共同指向了一个对象），是函数的话每次都会返回一个新的对象。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;如果组件中的data写成对象的形式会报错&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;组件通信&#34;&gt;组件通信&lt;/h2&gt;
+
+&lt;h3 id=&#34;父传子&#34;&gt;父传子&lt;/h3&gt;
+
+&lt;p&gt;还是直接在代码中解释吧&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;// 1.父传子
+&amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+        &amp;lt;!-- 不用v-bind的话会将movies和message当作字符串来寻找 --&amp;gt;
+        &amp;lt;cpn :cmovies=&amp;#34;movies&amp;#34; :cmessage=&amp;#34;message&amp;#34;&amp;gt;&amp;lt;/cpn&amp;gt;
+&amp;lt;/div&amp;gt;
+
+&amp;lt;script&amp;gt;
+        const cpn = {
+            template: &amp;#39;#cpn&amp;#39;,
+            // props: [&amp;#39;cmovies&amp;#39;, &amp;#39;cmessage&amp;#39;]
+            props: {
+                // 1.类型限制
+                // cmovies: Array,
+                // cmessage: String
+
+                // 2.提供一些默认值
+                cmessage: {
+                    type: [String, Number], //也可以是自定义类型
+                    default: &amp;#39;aaaaa&amp;#39;,
+                    required: true //表示必须传值，否则报错
+                },
+                cmovies: {
+                    //类型是对象或者数组时，默认值必须是一个函数
+                    type: Array,
+                    default () {
+                        return [1, 2, 3]
+                    }
+                }
+            }
+        }
+        const app = new Vue({
+            el: &amp;#39;#app&amp;#39;,
+            data: {
+                message: &amp;#39;你好啊&amp;#39;,
+                movies: [&amp;#39;海王&amp;#39;, &amp;#39;海贼王&amp;#39;, &amp;#39;海尔兄弟&amp;#39;]
+            },
+            components: {
+                cpn
+            }
+        })
+&amp;lt;/script&amp;gt;        &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h4 id=&#34;props中的驼峰标识问题&#34;&gt;props中的驼峰标识问题&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+    &amp;lt;cpn :c-info=&amp;#34;info&amp;#34; :child-my-message=&amp;#34;message&amp;#34;&amp;gt;&amp;lt;/cpn&amp;gt;
+&amp;lt;/div&amp;gt;
+
+&amp;lt;script&amp;gt;
+        const cpn = {
+            template: &amp;#39;#cpn&amp;#39;,
+            props: {
+                cInfo: {
+                    type: Object,
+                    default () {
+                        return {}
+                    }
+                },
+                childMyMessage: {
+                    type: String,
+                    default: &amp;#39;11&amp;#39;
+                }
+            }
+        }
+&amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;代码如上，html标签中要传给子组件的数据必须以&lt;code&gt;-&lt;/code&gt;连接，而子组件&lt;code&gt;props&lt;/code&gt;中必须以驼峰命名的方式来写&lt;/p&gt;
+
+&lt;h3 id=&#34;子传父&#34;&gt;子传父&lt;/h3&gt;
+
+&lt;h4 id=&#34;关键词-emit&#34;&gt;关键词&lt;code&gt;$emit&lt;/code&gt;&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;// 在子组件的方法中定义this.$emit(事件名)
+    const cpn = {
+        template: &amp;#39;#cpn&amp;#39;,
+        props: {
+            cInfo: {
+                type: Object,
+                default () {
+                    return {}
+                }
+            },
+            childMyMessage: {
+                type: String,
+                default: &amp;#39;11&amp;#39;
+            }
+        }
+    }
+
+// 父组件接受
+   &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+        &amp;lt;h2&amp;gt;{{count}}&amp;lt;/h2&amp;gt;
+        &amp;lt;cpn @decrement-click=&amp;#34;add&amp;#34; @increment-click=&amp;#34;increase&amp;#34;&amp;gt;&amp;lt;/cpn&amp;gt;
+    &amp;lt;/div&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h4 id=&#34;参数问题&#34;&gt;参数问题&lt;/h4&gt;
+
+&lt;p&gt;来看以下一段代码,注意默认传递的参数以及this.$emit()里的不同&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;44
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;45
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;46
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;47
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;48
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;49
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;50
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;51
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;52
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;53
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    &amp;lt;!-- 父组件模板 --&amp;gt;
+    &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+        &amp;lt;!-- 默认会把item传给cpnClick作参数，而不是一般情况下的默认传浏览器的evnt --&amp;gt;
+        &amp;lt;cpn @item-click=&amp;#34;cpnClick&amp;#34;&amp;gt;&amp;lt;/cpn&amp;gt;
+    &amp;lt;/div&amp;gt;
+
+    &amp;lt;!-- 子组件模板 --&amp;gt;
+    &amp;lt;template id=&amp;#34;cpn&amp;#34;&amp;gt;
+        &amp;lt;div&amp;gt;
+            &amp;lt;button v-for=&amp;#34;item in categories&amp;#34; @click=&amp;#34;btnClick(item)&amp;#34;&amp;gt;{{item.name}}&amp;lt;/button&amp;gt;
+        &amp;lt;/div&amp;gt;
+    &amp;lt;/template&amp;gt;
+
+    &amp;lt;script src=&amp;#34;../js/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script&amp;gt;
+        const cpn = {
+            template: &amp;#39;#cpn&amp;#39;,
+            data() {
+                return {
+                    categories: [{
+                        id: &amp;#39;aaa&amp;#39;,
+                        name: &amp;#39;热门推荐&amp;#39;
+                    }, {
+                        id: &amp;#39;bbb&amp;#39;,
+                        name: &amp;#39;手机数码&amp;#39;
+                    }, {
+                        id: &amp;#39;ccc&amp;#39;,
+                        name: &amp;#39;家用家电&amp;#39;
+                    }]
+                }
+            },
+            methods: {
+                btnClick(item) {
+                    this.$emit(&amp;#39;item-click&amp;#39;, item)
+                }
+            }
+        }
+
+        const app = new Vue({
+            el: &amp;#39;#app&amp;#39;,
+            data: {
+                message: &amp;#39;你好啊&amp;#39;
+            },
+            components: {
+                cpn
+            },
+            methods: {
+                cpnClick(item) {
+                    console.log(item);
+                }
+            }
+        })
+    &amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;一个很纠结的父子组件通信案例&#34;&gt;一个很纠结的父子组件通信案例&lt;/h3&gt;
+
+&lt;p&gt;目的是实现类似&lt;code&gt;v-model&lt;/code&gt;的效果，父组件传递过去的值在父组件中也会同时刷新&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;常规实现&lt;/li&gt;
+&lt;li&gt;watch实现&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;常规实现，不解释了，直接看代码&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;44
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;45
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;46
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;47
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;48
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;49
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+    &amp;lt;h2&amp;gt;父组件值：{{number}}&amp;lt;/h2&amp;gt;
+    &amp;lt;cpn :num=&amp;#34;number&amp;#34; @num-change=&amp;#34;numberChange&amp;#34;&amp;gt;&amp;lt;/cpn&amp;gt;
+&amp;lt;/div&amp;gt;
+
+
+&amp;lt;template id=&amp;#34;cpn&amp;#34;&amp;gt;
+    &amp;lt;div&amp;gt;
+        &amp;lt;!-- 不要直接改变props里的值，会报错 --&amp;gt;
+        &amp;lt;h2&amp;gt;组件绑定值：{{num}}&amp;lt;/h2&amp;gt;
+        &amp;lt;h2&amp;gt;组件：{{cpnNumber}}&amp;lt;/h2&amp;gt;
+        &amp;lt;!-- &amp;lt;input type=&amp;#34;text&amp;#34; v-model=&amp;#34;cpnNumber&amp;#34;&amp;gt; --&amp;gt;
+        &amp;lt;input type=&amp;#34;text&amp;#34; :value=&amp;#34;cpnNumber&amp;#34; @input=&amp;#34;numInput&amp;#34;&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/template&amp;gt;
+&amp;lt;script src=&amp;#34;../js/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script&amp;gt;
+    const cpn = {
+        template: &amp;#39;#cpn&amp;#39;,
+        props: {
+            num: Number
+        },
+        data() {
+            return {
+                cpnNumber: this.num
+            }
+        },
+        methods: {
+            numInput(event) {
+                this.cpnNumber = event.target.value
+                this.$emit(&amp;#39;num-change&amp;#39;, this.cpnNumber)
+            }
+        }
+    }
+
+    const app = new Vue({
+        el: &amp;#39;#app&amp;#39;,
+        data: {
+            number: 0
+        },
+        components: {
+            cpn
+        },
+        methods: {
+            numberChange(val) {
+                this.number = parseFloat(val)
+            }
+        }
+    })&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;watch实现，watch实现简单的多了,watch会监听数值的变化&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;44
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;45
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;46
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;47
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;48
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;49
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+    &amp;lt;h2&amp;gt;父组件值：{{number}}&amp;lt;/h2&amp;gt;
+    &amp;lt;cpn :num=&amp;#34;number&amp;#34; @num-change=&amp;#34;numberChange&amp;#34;&amp;gt;&amp;lt;/cpn&amp;gt;
+&amp;lt;/div&amp;gt;
+
+
+&amp;lt;template id=&amp;#34;cpn&amp;#34;&amp;gt;
+    &amp;lt;div&amp;gt;
+        &amp;lt;!-- 不要直接改变props里的值，会报错 --&amp;gt;
+        &amp;lt;h2&amp;gt;组件绑定值：{{num}}&amp;lt;/h2&amp;gt;
+        &amp;lt;h2&amp;gt;组件：{{cpnNumber}}&amp;lt;/h2&amp;gt;
+        &amp;lt;!-- &amp;lt;input type=&amp;#34;text&amp;#34; v-model=&amp;#34;cpnNumber&amp;#34;&amp;gt; --&amp;gt;
+        &amp;lt;input type=&amp;#34;text&amp;#34; v-model=&amp;#34;cpnNumber&amp;#34;&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/template&amp;gt;
+
+&amp;lt;script&amp;gt;
+    const cpn = {
+        template: &amp;#39;#cpn&amp;#39;,
+        props: {
+            num: Number
+        },
+        data() {
+            return {
+                cpnNumber: this.num
+            }
+        },
+        watch: {
+            cpnNumber(newValue) {
+                this.$emit(&amp;#39;num-change&amp;#39;, newValue)
+            }
+        }
+    }
+
+    const app = new Vue({
+        el: &amp;#39;#app&amp;#39;,
+        data: {
+            number: 0
+        },
+        components: {
+            cpn
+        },
+        methods: {
+            numberChange(val) {
+                this.number = parseFloat(val)
+            }
+        }
+    })
+&amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;父子相互访问&#34;&gt;父子相互访问&lt;/h2&gt;
+
+&lt;h3 id=&#34;父访问子&#34;&gt;父访问子&lt;/h3&gt;
+
+&lt;p&gt;按照代码中的注释来看吧，自己跑一下就知道了&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;44
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;45
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;46
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;47
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;48
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;49
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;50
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+        &amp;lt;cpn&amp;gt;&amp;lt;/cpn&amp;gt;
+        &amp;lt;cpn&amp;gt;&amp;lt;/cpn&amp;gt;
+        &amp;lt;cpn ref=&amp;#34;aaa&amp;#34;&amp;gt;&amp;lt;/cpn&amp;gt;
+        &amp;lt;button @click=&amp;#34;btnClick&amp;#34;&amp;gt;按钮&amp;lt;/button&amp;gt;
+    &amp;lt;/div&amp;gt;
+
+    &amp;lt;template id=&amp;#34;cpn&amp;#34;&amp;gt;
+        &amp;lt;div&amp;gt;我是子组件&amp;lt;/div&amp;gt;
+    &amp;lt;/template&amp;gt;
+
+    &amp;lt;script src=&amp;#34;../js/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script&amp;gt;
+        const app = new Vue({
+            el: &amp;#39;#app&amp;#39;,
+            data: {
+                message: &amp;#39;你好啊&amp;#39;
+            },
+            methods: {
+                btnClick() {
+                    // 1.$children
+                    // 一般真实开发中 不拿$children取属性
+                    // console.log(this.$children)
+                    // for (let c of this.$children) {
+                    //     console.log(c.name);
+                    //     c.showMessage()
+                    // }
+
+                    // 2.$refs =&amp;gt; 默认是一个空的对象，给子组件ref=&amp;#39;bbb&amp;#39;
+                    // 通过给cpn加ref,如aaa
+                    console.log(this.$refs.aaa);
+                }
+            },
+            components: {
+                cpn: {
+                    template: &amp;#39;#cpn&amp;#39;,
+                    data() {
+                        return {
+                            name: &amp;#39;我是子组件的name&amp;#39;
+                        }
+                    },
+                    methods: {
+                        showMessage() {
+                            console.log(&amp;#39;showMessage&amp;#39;)
+                        }
+                    }
+                }
+            }
+        })
+    &amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;子访问父&#34;&gt;子访问父&lt;/h3&gt;
+
+&lt;p&gt;参照代码注释&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;44
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;45
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;46
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;47
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;48
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;49
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;50
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;51
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+        &amp;lt;h2&amp;gt;我是cpn组件&amp;lt;/h2&amp;gt;
+        &amp;lt;cpn&amp;gt;&amp;lt;/cpn&amp;gt;
+    &amp;lt;/div&amp;gt;
+
+    &amp;lt;template id=&amp;#34;cpn&amp;#34;&amp;gt;
+        &amp;lt;ccpn&amp;gt;&amp;lt;/ccpn&amp;gt;
+    &amp;lt;/template&amp;gt;
+
+    &amp;lt;template id=&amp;#34;ccpn&amp;#34;&amp;gt;
+     &amp;lt;div&amp;gt;
+        &amp;lt;h2&amp;gt;我是子组件&amp;lt;/h2&amp;gt;
+        &amp;lt;button @click=&amp;#34;btnClick&amp;#34;&amp;gt;按钮&amp;lt;/button&amp;gt;
+        &amp;lt;/div&amp;gt;
+    &amp;lt;/template&amp;gt;
+
+    &amp;lt;script&amp;gt;
+        const app = new Vue({
+            el: &amp;#39;#app&amp;#39;,
+            data: {
+                message: &amp;#39;你好啊&amp;#39;
+            },
+            components: {
+                cpn: {
+                    template: &amp;#39;#cpn&amp;#39;,
+                    data() {
+                        return {
+                            name: &amp;#39;我是cpn组件的name&amp;#39;
+                        }
+                    },
+                    components: {
+                        ccpn: {
+                            template: &amp;#39;#ccpn&amp;#39;,
+                            methods: {
+                                btnClick() {
+                                    // 1.访问父组件$parent
+                                    console.log(this.$parent);
+                                    console.log(this.$parent.name);
+
+                                    // 2.访问根组件$root
+                                    console.log(this.$root);
+                                    console.log(this.$root.message);
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        })
+    &amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;插槽&#34;&gt;插槽&lt;/h2&gt;
+
+&lt;p&gt;由于vue3会使用新的v-slot，所以这里直接写v-slot好了,以下&lt;code&gt;v-slot&lt;/code&gt;都可以简写成&lt;code&gt;#&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;匿名插槽&#34;&gt;匿名插槽&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;v-slot:default&lt;/code&gt;通过default默认匿名的插槽&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+        &amp;lt;cpn&amp;gt;
+        &amp;lt;template v-slot:default&amp;gt;
+            &amp;lt;button&amp;gt;按钮&amp;lt;/button&amp;gt;
+        &amp;lt;/template&amp;gt;
+        &amp;lt;/cpn&amp;gt;
+&amp;lt;/div&amp;gt;
+
+    &amp;lt;template id=&amp;#34;cpn&amp;#34;&amp;gt;
+        &amp;lt;div&amp;gt;
+            &amp;lt;h2&amp;gt;我是组件&amp;lt;/h2&amp;gt;
+            &amp;lt;p&amp;gt;我是组件，哈哈哈&amp;lt;/p&amp;gt;
+            &amp;lt;slot&amp;gt;&amp;lt;/slot&amp;gt;
+    &amp;lt;!-- &amp;lt;slot&amp;gt;&amp;lt;button&amp;gt;按钮&amp;lt;/button&amp;gt;&amp;lt;/slot&amp;gt; 可以放默认值--&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;/template&amp;gt;
+
+    &amp;lt;script&amp;gt;
+        const app = new Vue({
+            el: &amp;#39;#app&amp;#39;,
+            data: {
+                message: &amp;#39;你好啊&amp;#39;
+            },
+            components: {
+                cpn: {
+                    template: &amp;#39;#cpn&amp;#39;
+                }
+            }
+        })
+    &amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;具名插槽&#34;&gt;具名插槽&lt;/h3&gt;
+
+&lt;p&gt;在子组件中给插槽&lt;code&gt;name&lt;/code&gt;之后，父组件中必须声明此&lt;code&gt;name&lt;/code&gt;才能向插槽中插入数据&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;    &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+        &amp;lt;cpn&amp;gt;
+            &amp;lt;template v-slot:todo&amp;gt;
+                &amp;lt;button&amp;gt;按钮&amp;lt;/button&amp;gt;
+            &amp;lt;/template&amp;gt;
+            &amp;lt;template v-slot:default&amp;gt;没名字的&amp;lt;/template&amp;gt;
+        &amp;lt;/cpn&amp;gt;
+    &amp;lt;/div&amp;gt;
+
+    &amp;lt;template id=&amp;#34;cpn&amp;#34;&amp;gt;
+        &amp;lt;div&amp;gt;
+            &amp;lt;slot&amp;gt;&amp;lt;/slot&amp;gt;
+            &amp;lt;h2&amp;gt;我是组件&amp;lt;/h2&amp;gt;
+            &amp;lt;p&amp;gt;我是组件，哈哈哈&amp;lt;/p&amp;gt;
+            &amp;lt;slot name=&amp;#34;todo&amp;#34;&amp;gt;&amp;lt;/slot&amp;gt;
+        &amp;lt;/div&amp;gt;
+
+    &amp;lt;/template&amp;gt;
+
+    &amp;lt;script&amp;gt;
+        const app = new Vue({
+            el: &amp;#39;#app&amp;#39;,
+            data: {
+                message: &amp;#39;你好啊&amp;#39;
+
+            },
+            components: {
+                cpn: {
+                    template: &amp;#39;#cpn&amp;#39;
+                }
+            }
+        })
+    &amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;作用域插槽&#34;&gt;作用域插槽&lt;/h3&gt;
+
+&lt;p&gt;重点是slotProps接取子组件里:&lt;code&gt;clanguage=&amp;quot;language&amp;quot;&lt;/code&gt;类似属性的数据,slotProps 接取的是子组件标签slot上属性数据的集合所有v-bind:user=&amp;ldquo;user&amp;rdquo;
+完整代码&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt;
+        &amp;lt;cpn&amp;gt;
+            &amp;lt;!-- slotProps是任意命名的 --&amp;gt;
+            &amp;lt;template v-slot:default=&amp;#34;slotProps&amp;#34;&amp;gt;
+                &amp;lt;span v-for=&amp;#34;item in slotProps.clanguage&amp;#34;&amp;gt;{{item}}--&amp;lt;/span&amp;gt;
+            &amp;lt;/template&amp;gt;
+
+        &amp;lt;/cpn&amp;gt;
+    &amp;lt;/div&amp;gt;
+
+    &amp;lt;template id=&amp;#34;cpn&amp;#34;&amp;gt;
+        &amp;lt;div&amp;gt;
+            &amp;lt;slot  :clanguage=&amp;#34;language&amp;#34;&amp;gt;
+            &amp;lt;!--ul里是默认值--&amp;gt;
+            &amp;lt;ul&amp;gt;
+                &amp;lt;li v-for=&amp;#34;item in language&amp;#34;&amp;gt;{{item}}&amp;lt;/li&amp;gt;
+            &amp;lt;/ul&amp;gt;
+            &amp;lt;/slot&amp;gt;
+        &amp;lt;/div&amp;gt;
+
+    &amp;lt;/template&amp;gt;
+    &amp;lt;script src=&amp;#34;../js/vue.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script&amp;gt;
+        const app = new Vue({
+            el: &amp;#39;#app&amp;#39;,
+            data: {
+                message: &amp;#39;你好啊&amp;#39;
+            },
+            components: {
+                cpn: {
+                    template: &amp;#39;#cpn&amp;#39;,
+                    data() {
+                        return {
+                            language: [&amp;#39;JS&amp;#39;, &amp;#39;JAVA&amp;#39;, &amp;#39;C#&amp;#39;, &amp;#39;Python&amp;#39;, &amp;#39;Go&amp;#39;]
+                        }
+                    }
+                }
+            }
+
+        })&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;ok，Vue基础就到这里了，后面将学习webpack，之后就是正式上手Vue项目了&lt;/p&gt;
 </description>
       
     </item>
