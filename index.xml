@@ -6,7 +6,7 @@
     <description>Recent content on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 20 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Dec 2019 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="http://gaocarri.top/index.xml" rel="self" type="application/rss+xml" />
     
@@ -45,6 +45,79 @@
 &lt;li&gt;技艺不精，本站会陆续添加其他功能，敬请期待！&lt;/li&gt;
 &lt;li&gt;近期学到Vue了，后面会更新Vue相关的博客&lt;/li&gt;
 &lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>[Vue warn]: Error in render: TypeError: Cannot read property &#39;length&#39; of undefined解决方法</title>
+      <link>http://gaocarri.top/post/cannot-read-property-length-of-undefined%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/cannot-read-property-length-of-undefined%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      
+        <description>
+
+&lt;p&gt;今天在使用vue做项目的时候遇到了一个错误，不断尝试后终于找到了解决方法，顺便举一反三一波&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://gaocarri.top/images/191226.png&#34; alt=&#34;错误信息&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;错误及其解决方法&#34;&gt;错误及其解决方法&lt;/h2&gt;
+
+&lt;p&gt;我给一个组件的子组件传递了一个对象,它的结构大概是这种形式(goods里有一个shopInfo对象，shopInfo对象里有一个数组)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;goods：{
+    ItemInfo：{...},
+    shopInfo:{
+            services:[obj1,obj2,obj3,obj4]
+        },
+    ...
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;obj4&lt;/code&gt;是一个对象，里面有一个属性&lt;code&gt;name&lt;/code&gt;，现在，我在子组件中想使用这个&lt;code&gt;name&lt;/code&gt;属性,就出现了上面的报错提示，但是奇怪的是页面中成功显示了这个&lt;code&gt;name&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;span&amp;gt;{{goods.shopInfo.services[goods.shopInfo.services.length-1].name}}&amp;lt;/span&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;先说解决报错的方法,给span加上v-if判断&lt;code&gt;goods.shopInfo.services&lt;/code&gt;的存在&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;span v-if=&amp;#34;goods.shopInfo.services&amp;#34;&amp;gt;{{goods.shopInfo.services[goods.shopInfo.services.length-1].name}}&amp;lt;/span&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;举一反三&#34;&gt;举一反三&lt;/h2&gt;
+
+&lt;h3 id=&#34;子组件接受到父组件传入值的时间&#34;&gt;子组件接受到父组件传入值的时间&lt;/h3&gt;
+
+&lt;p&gt;为了探寻报错的原因，我在子组件的生命周期函数&lt;code&gt;created&lt;/code&gt;,&lt;code&gt;mounted&lt;/code&gt;,&lt;code&gt;updated&lt;/code&gt;分别&lt;code&gt;console.log(goods.shopInfo.services)&lt;/code&gt;,结果只有&lt;code&gt;updated&lt;/code&gt;函数中打印出了这个对象，其余两个都是undefined,同样的&lt;code&gt;console.log(goods)&lt;/code&gt;只有&lt;code&gt;updated&lt;/code&gt;里访问到了这个对象。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;以上log说明子组件接受到父组件&lt;code&gt;props&lt;/code&gt;来的对象发生在&lt;code&gt;mounted&lt;/code&gt;之后！！&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;vue的mustache语法里的特殊符号&#34;&gt;Vue的mustache语法里的特殊符号[]&lt;/h3&gt;
+
+&lt;p&gt;为什么html中&lt;code&gt;{{goods.shopinfo.services}}&lt;/code&gt;没有问题而&lt;code&gt;{{goods.shopinfo.services[goods.shopInfo.services.length-1].name}}&lt;/code&gt;就报错呢？&lt;/p&gt;
+
+&lt;p&gt;原因就出在这个&lt;code&gt;[]&lt;/code&gt;里面，页面在数据更新的时候会替换掉&lt;code&gt;{{}}&lt;/code&gt;，但是更新之前&lt;code&gt;{{}}&lt;/code&gt;含有&lt;code&gt;[]&lt;/code&gt;符号，浏览器会直接进行解析，而&lt;code&gt;goods.shopInfo.service&lt;/code&gt;还不存在，所以根本没有&lt;code&gt;length&lt;/code&gt;，故发出警告,页面更新之后&lt;code&gt;length&lt;/code&gt;存在，于是数据正常更新出来&lt;/p&gt;
+
+&lt;p&gt;由于现在也是刚刚开始熟悉vue，对底层原理了解还不是很深入，如果这段写错了，还请批评指正，在下方给我留言，学习学习&lt;/p&gt;
 </description>
       
     </item>

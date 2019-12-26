@@ -6,10 +6,19 @@
     <description>Recent content in Vue on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 20 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.top/categories/vue/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Vue warn]: Error in render: TypeError: Cannot read property &#39;length&#39; of undefined解决方法</title>
+      <link>http://gaocarri.top/post/cannot-read-property-length-of-undefined%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/cannot-read-property-length-of-undefined%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <description>今天在使用vue做项目的时候遇到了一个错误，不断尝试后终于找到了解决方法，顺便举一反三一波 错误及其解决方法 我给一个组件的子组件传递了一个对象</description>
+    </item>
     
     <item>
       <title>Vue基础(三)--组件相关</title>
