@@ -70,7 +70,7 @@
 
 <meta itemprop="datePublished" content="2020-01-01T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-01-01T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="893">
+<meta itemprop="wordCount" content="926">
 
 
 
@@ -374,7 +374,7 @@ if (!doNotTrack) {
             <a href="http://gaocarri.top/categories/vue/"> Vue </a>
             
           </div>
-        <span class="more-meta"> 约 893 字 </span>
+        <span class="more-meta"> 约 926 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
 
         
@@ -557,7 +557,7 @@ Object.keys(obj).forEach(key=&gt;{
 
 <ul>
 <li>new了一个发布者<code>dep</code>,一个<code>data</code>属性会对应一个不同的<code>dep</code></li>
-<li>new了订阅者（相当于Vue实例中的每一个用到data其中一个属性的地方，给它们每个人都起个名字），例如new了<code>w1</code>之后，会调用发布者<code>dep.addSub()</code>方法，让其真正成为发布者的订阅者（加入到订阅者数组中）</li>
+<li>new了订阅者（相当于Vue实例中的每一个用到data其中一个属性的地方，给它们每个人都起个名字），例如new了<code>w1</code>之后，会调用发布者<code>dep.addSub()</code>方法(在<code>Object.defineProperty</code>的<code>get</code>方法中调用)，让其真正成为发布者的订阅者（加入到订阅者数组中）</li>
 <li>当某个订阅者值发生改变时，会调用发布者<code>dep.notify()</code>方法，通知所有订阅者它们的值发生改变了，执行订阅者的<code>update()</code>。</li>
 <li>于是乎,当值发生改变时,在<code>Object.defineProperty</code>的<code>set</code>方法中,就会调用<code>dep.notify()</code>来更新所有订阅者的值</li>
 </ul>

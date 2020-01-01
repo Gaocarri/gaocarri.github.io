@@ -205,7 +205,7 @@ Object.keys(obj).forEach(key=&amp;gt;{
 
 &lt;ul&gt;
 &lt;li&gt;new了一个发布者&lt;code&gt;dep&lt;/code&gt;,一个&lt;code&gt;data&lt;/code&gt;属性会对应一个不同的&lt;code&gt;dep&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;new了订阅者（相当于Vue实例中的每一个用到data其中一个属性的地方，给它们每个人都起个名字），例如new了&lt;code&gt;w1&lt;/code&gt;之后，会调用发布者&lt;code&gt;dep.addSub()&lt;/code&gt;方法，让其真正成为发布者的订阅者（加入到订阅者数组中）&lt;/li&gt;
+&lt;li&gt;new了订阅者（相当于Vue实例中的每一个用到data其中一个属性的地方，给它们每个人都起个名字），例如new了&lt;code&gt;w1&lt;/code&gt;之后，会调用发布者&lt;code&gt;dep.addSub()&lt;/code&gt;方法(在&lt;code&gt;Object.defineProperty&lt;/code&gt;的&lt;code&gt;get&lt;/code&gt;方法中调用)，让其真正成为发布者的订阅者（加入到订阅者数组中）&lt;/li&gt;
 &lt;li&gt;当某个订阅者值发生改变时，会调用发布者&lt;code&gt;dep.notify()&lt;/code&gt;方法，通知所有订阅者它们的值发生改变了，执行订阅者的&lt;code&gt;update()&lt;/code&gt;。&lt;/li&gt;
 &lt;li&gt;于是乎,当值发生改变时,在&lt;code&gt;Object.defineProperty&lt;/code&gt;的&lt;code&gt;set&lt;/code&gt;方法中,就会调用&lt;code&gt;dep.notify()&lt;/code&gt;来更新所有订阅者的值&lt;/li&gt;
 &lt;/ul&gt;
