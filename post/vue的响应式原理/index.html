@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>[Vue warn]: Error in render: TypeError: Cannot read property &#39;length&#39; of undefined解决方法 - 卡里的技术博客</title>
+  <title>Vue的响应式原理 - 卡里的技术博客</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -22,7 +22,7 @@
 
 <meta name="mobile-web-app-capable" content="yes">
 
-<meta name="author" content="Carri" /><meta name="description" content="[Vue warn]: Error in render: TypeError: Cannot read property &#39;length&#39; of undefined解决方法" />
+<meta name="author" content="Carri" /><meta name="description" content="Vue的响应式原理" />
 <meta name="keywords" content="Vue, 框架" />
 
 
@@ -34,7 +34,7 @@
 <meta name="generator" content="Hugo 0.59.0" />
 
 
-<link rel="canonical" href="http://gaocarri.top/post/cannot-read-property-length-of-undefined%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" />
+<link rel="canonical" href="http://gaocarri.top/post/vue%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/" />
 
 
 
@@ -58,26 +58,26 @@
 
 
 
-<meta property="og:title" content="[Vue warn]: Error in render: TypeError: Cannot read property &#39;length&#39; of undefined解决方法" />
-<meta property="og:description" content="[Vue warn]: Error in render: TypeError: Cannot read property &#39;length&#39; of undefined解决方法" />
+<meta property="og:title" content="Vue的响应式原理" />
+<meta property="og:description" content="Vue的响应式原理" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://gaocarri.top/post/cannot-read-property-length-of-undefined%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" />
-<meta property="article:published_time" content="2019-12-26T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-12-26T00:00:00+00:00" />
-<meta itemprop="name" content="[Vue warn]: Error in render: TypeError: Cannot read property &#39;length&#39; of undefined解决方法">
-<meta itemprop="description" content="[Vue warn]: Error in render: TypeError: Cannot read property &#39;length&#39; of undefined解决方法">
+<meta property="og:url" content="http://gaocarri.top/post/vue%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/" />
+<meta property="article:published_time" content="2020-01-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-01-01T00:00:00+00:00" />
+<meta itemprop="name" content="Vue的响应式原理">
+<meta itemprop="description" content="Vue的响应式原理">
 
 
-<meta itemprop="datePublished" content="2019-12-26T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-26T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="825">
+<meta itemprop="datePublished" content="2020-01-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-01-01T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="893">
 
 
 
 <meta itemprop="keywords" content="Vue,框架," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[Vue warn]: Error in render: TypeError: Cannot read property &#39;length&#39; of undefined解决方法"/>
-<meta name="twitter:description" content="[Vue warn]: Error in render: TypeError: Cannot read property &#39;length&#39; of undefined解决方法"/>
+<meta name="twitter:title" content="Vue的响应式原理"/>
+<meta name="twitter:description" content="Vue的响应式原理"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -364,17 +364,17 @@ if (!doNotTrack) {
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">[Vue warn]: Error in render: TypeError: Cannot read property &#39;length&#39; of undefined解决方法</h1>
+      <h1 class="post-title">Vue的响应式原理</h1>
       
       <div class="post-meta">
-        <time datetime="2019-12-26" class="post-time">
-          2019-12-26
+        <time datetime="2020-01-01" class="post-time">
+          2020-01-01
         </time>
         <div class="post-category">
             <a href="http://gaocarri.top/categories/vue/"> Vue </a>
             
           </div>
-        <span class="more-meta"> 约 825 字 </span>
+        <span class="more-meta"> 约 893 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
 
         
@@ -398,12 +398,8 @@ if (!doNotTrack) {
 <ul>
 <li>
 <ul>
-<li><a href="#错误及其解决方法">错误及其解决方法</a></li>
-<li><a href="#举一反三">举一反三</a>
-<ul>
-<li><a href="#子组件接受到父组件传入值的时间">子组件接受到父组件传入值的时间</a></li>
-<li><a href="#vue的mustache语法里的特殊符号">Vue的mustache语法里的特殊符号[]</a></li>
-</ul></li>
+<li><a href="#监听数据的改变">监听数据的改变</a></li>
+<li><a href="#发布者订阅者模式">发布者订阅者模式</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -414,13 +410,160 @@ if (!doNotTrack) {
     <div class="post-content">
       
 
-<p>今天在使用vue做项目的时候遇到了一个错误，不断尝试后终于找到了解决方法，顺便举一反三一波</p>
+<p>Vue的响应式原理主要分为两大部分</p>
 
-<p><img src="/images/191226.png" alt="错误信息" /></p>
+<ol>
+<li>修改数据，Vue内部监听数据的改变（Object.defineProperty 监听对象属性改变）</li>
+<li>发布者订阅者模式</li>
+</ol>
 
-<h2 id="错误及其解决方法">错误及其解决方法</h2>
+<h2 id="监听数据的改变">监听数据的改变</h2>
 
-<p>我给一个组件的子组件传递了一个对象,它的结构大概是这种形式(goods里有一个shopInfo对象，shopInfo对象里有一个数组)</p>
+<p>声明一个对象，然后对该对象的key进行遍历</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">const obj = {
+  message:&#39;我是data里的属性1&#39;,
+  name:&#39;我是data里的属性2&#39;
+}
+
+Object.keys(obj).forEach(key=&gt;{
+  let value = obj[key]
+
+  Object.defineProperty(obj,key,{
+    set(newValue){
+      // key改变时会调用set方法
+      value = newValue
+    },
+    get(){
+      // 获取key对应的值时会调用get方法，如控制台输入obj.name
+      return value
+    }
+  })
+})</pre></td></tr></table>
+</div>
+</div>
+<p>Object.defineProperty里的：</p>
+
+<ul>
+<li>set方法根据解析Html，获取哪些地方用到了这个属性</li>
+<li>get方法将值返回给用到该属性的每个地方</li>
+</ul>
+
+<h2 id="发布者订阅者模式">发布者订阅者模式</h2>
+
+<p>发布者：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">  class Dep {
+    constructor() {
+      this.subs = []
+    }
+    addSub(watcher) {
+      this.subs.push(watcher)
+    }
+    notify() {
+      this.subs.forEach(item =&gt; {
+        item.update()
+      })
+    }
+  }
+
+  const dep = new Dep()</pre></td></tr></table>
+</div>
+</div>
+<p>订阅者</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">  class Watcher {
+    constructor(name) {
+      this.name = name
+    }
+    update() {
+      console.log(this.name + &#39;update了&#39;);
+    }
+  }
+
+  const w1 = new Watcher(&#39;张三&#39;)
+  dep.addSub(w1)
+  const w2 = new Watcher(&#39;李四&#39;)
+  dep.addSub(w2)
+  const w3 = new Watcher(&#39;王五&#39;)
+  dep.addSub(w3)
+
+  // 发布
+  dep.notify()</pre></td></tr></table>
+</div>
+</div>
+<p>说下这个过程吧：</p>
+
+<ul>
+<li>new了一个发布者<code>dep</code>,一个<code>data</code>属性会对应一个不同的<code>dep</code></li>
+<li>new了订阅者（相当于Vue实例中的每一个用到data其中一个属性的地方，给它们每个人都起个名字），例如new了<code>w1</code>之后，会调用发布者<code>dep.addSub()</code>方法，让其真正成为发布者的订阅者（加入到订阅者数组中）</li>
+<li>当某个订阅者值发生改变时，会调用发布者<code>dep.notify()</code>方法，通知所有订阅者它们的值发生改变了，执行订阅者的<code>update()</code>。</li>
+<li>于是乎,当值发生改变时,在<code>Object.defineProperty</code>的<code>set</code>方法中,就会调用<code>dep.notify()</code>来更新所有订阅者的值</li>
+</ul>
+
+<p>图解响应式原理
+<img src="/images/200101.jpg" alt="响应式原理" /></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt">1
@@ -429,51 +572,22 @@ if (!doNotTrack) {
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span><span class="lnt">7
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">goods：{
-    ItemInfo：{...},
-    shopInfo:{
-            services:[obj1,obj2,obj3,obj4]
-        },
-    ...
-}</pre></td></tr></table>
+<pre class="chroma">new Vue({
+  el:&#39;#app&#39;,
+  data:{
+
+  }
+})</pre></td></tr></table>
 </div>
 </div>
-<p><code>obj4</code>是一个对象，里面有一个属性<code>name</code>，现在，我在子组件中想使用这个<code>name</code>属性,就出现了上面的报错提示，但是奇怪的是页面中成功显示了这个<code>name</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">&lt;span&gt;{{goods.shopInfo.services[goods.shopInfo.services.length-1].name}}&lt;/span&gt;</pre></td></tr></table>
-</div>
-</div>
-<p>先说解决报错的方法,给span加上v-if判断<code>goods.shopInfo.services</code>的存在</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">&lt;span v-if=&#34;goods.shopInfo.services&#34;&gt;{{goods.shopInfo.services[goods.shopInfo.services.length-1].name}}&lt;/span&gt;</pre></td></tr></table>
-</div>
-</div>
-<h2 id="举一反三">举一反三</h2>
+<ul>
+<li>el会走Compile过程，data会走Observer过程</li>
+<li>Observer即<code>Object.defineProperty</code></li>
+</ul>
 
-<h3 id="子组件接受到父组件传入值的时间">子组件接受到父组件传入值的时间</h3>
-
-<p>为了探寻报错的原因，我在子组件的生命周期函数<code>created</code>,<code>mounted</code>,<code>updated</code>分别<code>console.log(goods.shopInfo.services)</code>,结果只有<code>updated</code>函数中打印出了这个对象，其余两个都是undefined,同样的<code>console.log(goods)</code>只有<code>updated</code>里访问到了这个对象。</p>
-
-<p><strong>以上log说明子组件接受到父组件<code>props</code>来的对象发生在<code>mounted</code>之后！！</strong></p>
-
-<h3 id="vue的mustache语法里的特殊符号">Vue的mustache语法里的特殊符号[]</h3>
-
-<p>为什么html中<code>{{goods.shopinfo.services}}</code>没有问题而<code>{{goods.shopinfo.services[goods.shopInfo.services.length-1].name}}</code>就报错呢？</p>
-
-<p>原因就出在这个<code>[]</code>里面，页面在数据更新的时候会替换掉<code>{{}}</code>，但是更新之前<code>{{}}</code>含有<code>[]</code>符号，浏览器会直接进行解析，而<code>goods.shopInfo.service</code>还不存在，所以根本没有<code>length</code>，故发出警告,页面更新之后<code>length</code>存在，于是数据正常更新出来</p>
-
-<p>由于现在也是刚刚开始熟悉vue，对底层原理了解还不是很深入，如果这段写错了，还请批评指正，在下方给我留言，学习学习</p>
+<p>言语都在图中(我这字简直不像研究生写出来的- -！)</p>
 
     </div>
 
@@ -487,7 +601,7 @@ if (!doNotTrack) {
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-      2019-12-26
+      2020-01-01
       
     </span>
   </p>
@@ -512,22 +626,9 @@ if (!doNotTrack) {
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/vue%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/">
-            
-            <i class="iconfont">
-              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="18" height="18">
-  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
-</svg>
-
-            </i>
-            <span class="prev-text nav-default">Vue的响应式原理</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
         
-          <a class="next" href="/post/vue%E5%9F%BA%E7%A1%80%E4%B8%89-%E7%BB%84%E4%BB%B6/">
-            <span class="next-text nav-default">Vue基础(三)--组件相关</span>
+          <a class="next" href="/post/cannot-read-property-length-of-undefined%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+            <span class="next-text nav-default">[Vue warn]: Error in render: TypeError: Cannot read property &#39;length&#39; of undefined解决方法</span>
             <span class="prev-text nav-mobile">下一篇</span>
             
             <i class="iconfont">

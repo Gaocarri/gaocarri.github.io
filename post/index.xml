@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 26 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.top/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vue的响应式原理</title>
+      <link>http://gaocarri.top/post/vue%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/vue%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/</guid>
+      <description>Vue的响应式原理主要分为两大部分 修改数据，Vue内部监听数据的改变（Object.defineProperty 监听对象属性改变） 发布者订阅</description>
+    </item>
     
     <item>
       <title>[Vue warn]: Error in render: TypeError: Cannot read property &#39;length&#39; of undefined解决方法</title>
