@@ -22,8 +22,7 @@
 
 &lt;h2 id=&#34;近期在听的音乐&#34;&gt;近期在听的音乐&lt;/h2&gt;
 
-&lt;p&gt;明日方舟&amp;hellip;
-&lt;iframe frameborder=&#34;no&#34; border=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; width=330 height=86 src=&#34;//music.163.com/outchain/player?type=2&amp;id=1371757761&amp;auto=1&amp;height=66&#34;&gt;&lt;/iframe&gt;&lt;/p&gt;
+&lt;iframe frameborder=&#34;no&#34; border=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; width=330 height=86 src=&#34;//music.163.com/outchain/player?type=2&amp;id=1371757761&amp;auto=1&amp;height=66&#34;&gt;&lt;/iframe&gt;
 
 &lt;h2 id=&#34;关于我&#34;&gt;关于我&lt;/h2&gt;
 
@@ -43,7 +42,7 @@
 &lt;li&gt;本站使用&lt;code&gt;Hugo&lt;/code&gt;生成，采用&lt;code&gt;hugo-theme-jane&lt;/code&gt;主题&lt;/li&gt;
 &lt;li&gt;主要用于记录一些文章，学习笔记，偶尔分享一下心情&lt;/li&gt;
 &lt;li&gt;技艺不精，本站会陆续添加其他功能，敬请期待！&lt;/li&gt;
-&lt;li&gt;近期学到Vue了，后面会更新Vue相关的博客&lt;/li&gt;
+&lt;li&gt;不久前用Vue做了个项目，感觉收获颇丰，近期需要继续保持努力，别被期末压垮&lt;/li&gt;
 &lt;/ul&gt;
 </description>
       
