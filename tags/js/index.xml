@@ -6,10 +6,19 @@
     <description>Recent content in JS on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 10 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 10 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.top/tags/js/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JS面向对象综述</title>
+      <link>http://gaocarri.top/post/js%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BB%BC%E8%BF%B0/</link>
+      <pubDate>Fri, 10 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/js%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BB%BC%E8%BF%B0/</guid>
+      <description>之前发现自己对于面向对象似懂非懂，正好今天也遇到了一道笔试题 先占个坑，回头再写 什么是面向对象 面向对象的方法</description>
+    </item>
     
     <item>
       <title>对于JS继承的理解</title>
