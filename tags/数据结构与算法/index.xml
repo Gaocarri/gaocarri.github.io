@@ -6,17 +6,26 @@
     <description>Recent content in 数据结构与算法 on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 12 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>JS描述数据结构与算法入门</title>
-      <link>http://gaocarri.top/post/js%E6%8F%8F%E8%BF%B0%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%85%A5%E9%97%A8/</link>
+      <title>JS描述数据结构与算法（二）</title>
+      <link>http://gaocarri.top/post/js%E6%8F%8F%E8%BF%B0%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%85%A5%E9%97%A8%E4%BA%8C/</link>
+      <pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/js%E6%8F%8F%E8%BF%B0%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%85%A5%E9%97%A8%E4%BA%8C/</guid>
+      <description>包含队列 链表 数组和链表优缺点 链表和数组一样，可以存储一系列的元素，但是链表和数组的实现机制完全不同 数组： 数组创建通常需要一段连续的内存空间（</description>
+    </item>
+    
+    <item>
+      <title>JS描述数据结构与算法（一）</title>
+      <link>http://gaocarri.top/post/js%E6%8F%8F%E8%BF%B0%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%85%A5%E9%97%A8%E4%B8%80/</link>
       <pubDate>Sun, 12 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://gaocarri.top/post/js%E6%8F%8F%E8%BF%B0%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%85%A5%E9%97%A8/</guid>
+      <guid>http://gaocarri.top/post/js%E6%8F%8F%E8%BF%B0%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%85%A5%E9%97%A8%E4%B8%80/</guid>
       <description>包含数组，栈，队列（使用数组实现） 什么是算法和数据结构 数据结构：计算机中存储和组织数据的方式 算法：解决办法的逻辑/操作 数组 JS数组就是API</description>
     </item>
     
