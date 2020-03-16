@@ -6,10 +6,19 @@
     <description>Recent content in 框架 on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 06 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.top/tags/%E6%A1%86%E6%9E%B6/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vue，TypeScript中使用toast</title>
+      <link>http://gaocarri.top/post/vuetypescript%E4%B8%AD%E4%BD%BF%E7%94%A8toast/</link>
+      <pubDate>Fri, 13 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/vuetypescript%E4%B8%AD%E4%BD%BF%E7%94%A8toast/</guid>
+      <description>前言 之前在使用js在Vue中用了toast，感觉挺简单的，但是使用TypeScript的时候发生了一些问题，正好总结一下toast的使用，以</description>
+    </item>
     
     <item>
       <title>使用better-scroll去除滚动条的简易方法</title>
