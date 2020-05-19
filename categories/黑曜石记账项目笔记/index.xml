@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>黑曜石记账项目笔记 on 卡里的技术博客</title>
+    <link>http://gaocarri.top/categories/%E9%BB%91%E6%9B%9C%E7%9F%B3%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/</link>
+    <description>Recent content in 黑曜石记账项目笔记 on 卡里的技术博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 10 Apr 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://gaocarri.top/categories/%E9%BB%91%E6%9B%9C%E7%9F%B3%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>项目部署</title>
+      <link>http://gaocarri.top/post/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/</guid>
+      <description>部署 按照官方文档的指示 检查dist是否打包正确 1 2 3 4 5 yarn build yarn global add serve # 全局安装serve serve -s dist 部署到gitHub my-project===我</description>
+    </item>
+    
+    <item>
+      <title>EditLabel与Statistic组件的封装及思路</title>
+      <link>http://gaocarri.top/post/editlabel%E4%B8%8Estatistic%E7%BB%84%E4%BB%B6%E7%9A%84%E5%B0%81%E8%A3%85%E5%8F%8A%E6%80%9D%E8%B7%AF/</link>
+      <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/editlabel%E4%B8%8Estatistic%E7%BB%84%E4%BB%B6%E7%9A%84%E5%B0%81%E8%A3%85%E5%8F%8A%E6%80%9D%E8%B7%AF/</guid>
+      <description>EditLabel页面 困扰我一个非常久的Bug,input表单输入数字结果不为数字 正确的解决办法 1 &amp;lt;input type=&amp;#34;text&amp;#34; v-model.number.trim=&amp;#34;recordItem.amount&amp;#34; /&amp;gt; 其实就是在v-model后面加上.</description>
+    </item>
+    
+    <item>
+      <title>Money组件的封装及思路</title>
+      <link>http://gaocarri.top/post/money%E7%BB%84%E4%BB%B6%E7%9A%84%E5%B0%81%E8%A3%85%E5%8F%8A%E6%80%9D%E8%B7%AF/</link>
+      <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/money%E7%BB%84%E4%BB%B6%E7%9A%84%E5%B0%81%E8%A3%85%E5%8F%8A%E6%80%9D%E8%B7%AF/</guid>
+      <description>Money.vue的封装 封装MoneyHead.vue,MoneyList.vue和MoneyContent.vue并引入Money 1 2 3 4</description>
+    </item>
+    
+    <item>
+      <title>Add组件的封装及思路</title>
+      <link>http://gaocarri.top/post/add%E7%BB%84%E4%BB%B6%E7%9A%84%E5%B0%81%E8%A3%85%E5%8F%8A%E6%80%9D%E8%B7%AF/</link>
+      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/add%E7%BB%84%E4%BB%B6%E7%9A%84%E5%B0%81%E8%A3%85%E5%8F%8A%E6%80%9D%E8%B7%AF/</guid>
+      <description>Add.vue的封装 Add.vue的组件 1 2 3 4 5 6 7 8 @Component({ components: { Scroll, TabBar, NumberPad, TagTable } }) 在Add.vue中获取tagList,经过详细考虑我发现使用计算属</description>
+    </item>
+    
+    <item>
+      <title>Tags组件的封装以及思路</title>
+      <link>http://gaocarri.top/post/tags%E7%BB%84%E4%BB%B6%E7%9A%84%E5%B0%81%E8%A3%85%E4%BB%A5%E5%8F%8A%E6%80%9D%E8%B7%AF/</link>
+      <pubDate>Tue, 24 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/tags%E7%BB%84%E4%BB%B6%E7%9A%84%E5%B0%81%E8%A3%85%E4%BB%A5%E5%8F%8A%E6%80%9D%E8%B7%AF/</guid>
+      <description>Tags.vue的封装 Tags.vue拥有的组件 1 2 3 4 5 6 components: { Scroll, TagsNav, TagSelected, TagList } TagsNav的封装 无难点，注意判断完成的点击状态，以及compl</description>
+    </item>
+    
+    <item>
+      <title>页面布局Nav和Layout组件的封装</title>
+      <link>http://gaocarri.top/post/%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80nav%E5%92%8Clayout%E7%BB%84%E4%BB%B6%E7%9A%84%E5%B0%81%E8%A3%85/</link>
+      <pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80nav%E5%92%8Clayout%E7%BB%84%E4%BB%B6%E7%9A%84%E5%B0%81%E8%A3%85/</guid>
+      <description>Nav.vue 底部导航栏的封装 1.svg的使用（使用svg-sprite-loader） iconfont.con下载svg shims-tsx.d.ts中</description>
+    </item>
+    
+    <item>
+      <title>在Vue&#43;TypeScript中使用Toast</title>
+      <link>http://gaocarri.top/post/%E5%9C%A8vue&#43;typescript%E4%B8%AD%E4%BD%BF%E7%94%A8toast/</link>
+      <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E5%9C%A8vue&#43;typescript%E4%B8%AD%E4%BD%BF%E7%94%A8toast/</guid>
+      <description>TypeScript中使用toast 建立一个文件夹 toast 封装一个Toast组件(css略) 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 &amp;lt;template&amp;gt; &amp;lt;div</description>
+    </item>
+    
+    <item>
+      <title>使用BetterScroll去除滚动条</title>
+      <link>http://gaocarri.top/post/%E4%BD%BF%E7%94%A8betterscroll%E5%8E%BB%E9%99%A4%E6%BB%9A%E5%8A%A8%E6%9D%A1/</link>
+      <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E4%BD%BF%E7%94%A8betterscroll%E5%8E%BB%E9%99%A4%E6%BB%9A%E5%8A%A8%E6%9D%A1/</guid>
+      <description>BetterScroll 去除滚动条的简单使用方法 安装betterscroll 1 yarn add better-scroll 由于typescript的原因，需要安装 1 @types/better-scroll 封装一个通用的Scroll.vue</description>
+    </item>
+    
+    <item>
+      <title>黑曜石记账项目介绍</title>
+      <link>http://gaocarri.top/post/%E9%BB%91%E6%9B%9C%E7%9F%B3%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Thu, 19 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E9%BB%91%E6%9B%9C%E7%9F%B3%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/</guid>
+      <description>黑曜石记账 平台：手机 包含界面 首页详情页面、账目编辑页面、添加记账页面、添加记账标签页面、图表统计页面 功能： 记账：金额 标签 备注 类型 管理标签：添</description>
+    </item>
+    
+  </channel>
+</rss>
