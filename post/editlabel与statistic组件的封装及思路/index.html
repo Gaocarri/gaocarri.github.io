@@ -70,7 +70,7 @@
 
 <meta itemprop="datePublished" content="2020-04-07T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-04-07T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="2105">
+<meta itemprop="wordCount" content="2082">
 
 
 
@@ -374,7 +374,7 @@ if (!doNotTrack) {
             <a href="http://gaocarri.top/categories/%E9%BB%91%E6%9B%9C%E7%9F%B3%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/"> 黑曜石记账项目笔记 </a>
             
           </div>
-        <span class="more-meta"> 约 2105 字 </span>
+        <span class="more-meta"> 约 2082 字 </span>
           <span class="more-meta"> 预计阅读 5 分钟 </span>
 
         
@@ -621,9 +621,7 @@ return {
 
 <p>在动态渲染图表的时候我给组件声明了一个 Porp 从外部拿数据去实现<strong>及时更新</strong>，但是在外部数据改变的时候图表数据并没有更新</p>
 
-<p>后来我以为是 Vue 的<strong>钩子时机问题</strong>，试了很久问了其他人都没有结果，后来就想另辟蹊径看看是不是 <strong>ECharts 的问题</strong>，没想到去网上一搜还有不少人和我遇到了同样的问题</p>
-
-<p>原来不是 Vue 的错，而是 ECharts <strong>默认渲染一次后就不会及时更新数据了，需要设置参数来唤醒它的及时更新</strong></p>
+<p>后来我以为是 Vue 的<strong>钩子时机问题</strong>，试了很久问了其他人都没有结果，后来就想另辟蹊径看看是不是 <strong>ECharts 的问题</strong>，过然我发现必须在数据更新后手动再调用一次setOption方法才能及时更新echarts</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
