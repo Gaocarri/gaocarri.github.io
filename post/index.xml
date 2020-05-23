@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 10 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.top/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>共享博客项目笔记</title>
+      <link>http://gaocarri.top/post/%E5%85%B1%E4%BA%AB%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E5%85%B1%E4%BA%AB%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/</guid>
+      <description>Vuejs 黑曜石共享博客项目 黑曜石共享博客支持注册、登录 可使用markdown语法 功能包含博客的添加，删除，更改 在详情页面点击别的用户名可以查看个人</description>
+    </item>
     
     <item>
       <title>Vue项目部署</title>
@@ -432,15 +441,6 @@
       
       <guid>http://gaocarri.top/post/my-first-blog/</guid>
       <description>大家好 这是我的博客，不定期记录一些文章和学习笔记。</description>
-    </item>
-    
-    <item>
-      <title>共享博客项目笔记</title>
-      <link>http://gaocarri.top/post/%E5%85%B1%E4%BA%AB%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Sat, 20 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/post/%E5%85%B1%E4%BA%AB%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/</guid>
-      <description>Vuejs 黑曜石共享博客项目 黑曜石共享博客支持注册、登录 可使用markdown语法 功能包含博客的添加，删除，更改 在详情页面点击别的用户名可以查看个人</description>
     </item>
     
   </channel>
