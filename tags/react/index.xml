@@ -20,5 +20,14 @@
       <description>JSX注意事项 注意className 1 2 // 要写成 &amp;lt;div className=&amp;#34;red&amp;#34;&amp;gt;n&amp;lt;/div&amp;gt; 插入变量 标签里面的所有JS代码要用{}抱起来 如果有需要的变量n，难么就用{}把n包起来 如</description>
     </item>
     
+    <item>
+      <title>详解React生命周期</title>
+      <link>http://gaocarri.top/post/%E8%AF%A6%E8%A7%A3react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</link>
+      <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E8%AF%A6%E8%A7%A3react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</guid>
+      <description>React生命周期 类比代码 1 2 3 4 5 6 7 8 let div = document.ceateElement(&amp;#39;div&amp;#39;) // 这是div的create/construc过程 div.textContent= &amp;#39;hi&amp;#39; // 这是初始化state document.body.appendChild(div) // 这是div的</description>
+    </item>
+    
   </channel>
 </rss>
