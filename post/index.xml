@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 20 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 01 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.top/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JSX语法几步搞定</title>
+      <link>http://gaocarri.top/post/jsx%E8%AF%AD%E6%B3%95%E5%87%A0%E6%AD%A5%E6%90%9E%E5%AE%9A/</link>
+      <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/jsx%E8%AF%AD%E6%B3%95%E5%87%A0%E6%AD%A5%E6%90%9E%E5%AE%9A/</guid>
+      <description>JSX注意事项 注意className 1 2 // 要写成 &amp;lt;div className=&amp;#34;red&amp;#34;&amp;gt;n&amp;lt;/div&amp;gt; 插入变量 标签里面的所有JS代码要用{}抱起来 如果有需要的变量n，难么就用{}把n包起来 如</description>
+    </item>
     
     <item>
       <title>共享博客项目笔记</title>
