@@ -6,10 +6,46 @@
     <description>Recent content in Posts on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 01 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.top/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>详解React函数组件</title>
+      <link>http://gaocarri.top/post/%E8%AF%A6%E8%A7%A3react%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6/</link>
+      <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E8%AF%A6%E8%A7%A3react%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6/</guid>
+      <description>函数组件相对简单，注意函数组件没有生命周期 函数组件 写法 1 2 3 const App = ()=&amp;gt;{ return &amp;lt;div&amp;gt;app&amp;lt;/div&amp;gt; } 使用函数组件写一个加1 1 2 3 4 5 6 7 8 9 const App = props =&amp;gt; { const [n, setN] = React.useState(0) const onClick</description>
+    </item>
+    
+    <item>
+      <title>详解React生命周期</title>
+      <link>http://gaocarri.top/post/%E8%AF%A6%E8%A7%A3react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E8%AF%A6%E8%A7%A3react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</guid>
+      <description>React生命周期 类比代码 1 2 3 4 5 6 7 8 let div = document.ceateElement(&amp;#39;div&amp;#39;) // 这是div的create/construc过程 div.textContent= &amp;#39;hi&amp;#39; // 这是初始化state document.body.appendChild(div) // 这是div的</description>
+    </item>
+    
+    <item>
+      <title>详解React类组件</title>
+      <link>http://gaocarri.top/post/%E8%AF%A6%E8%A7%A3react%E7%B1%BB%E7%BB%84%E4%BB%B6/</link>
+      <pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E8%AF%A6%E8%A7%A3react%E7%B1%BB%E7%BB%84%E4%BB%B6/</guid>
+      <description>类组件 ES6如何创建组件 1 2 3 4 5 6 7 8 9 10 import React from &amp;#39;react&amp;#39; class B extends React.Component{ constructor(props){ super(props) } render(){ return &amp;lt;div&amp;gt;hi&amp;lt;/div&amp;gt; } } 234行可以省掉（如果不需要在constructor里做什么的话</description>
+    </item>
+    
+    <item>
+      <title>浅析两种React组件</title>
+      <link>http://gaocarri.top/post/%E6%B5%85%E6%9E%90%E4%B8%A4%E7%A7%8Dreact%E7%BB%84%E4%BB%B6/</link>
+      <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E6%B5%85%E6%9E%90%E4%B8%A4%E7%A7%8Dreact%E7%BB%84%E4%BB%B6/</guid>
+      <description>React两种组件 函数组件 1 2 3 4 function Welcome(props){ return &amp;lt;h1&amp;gt;Hello,{props.name}&amp;lt;/h1&amp;gt; } &amp;lt;Welcome name=&amp;#34;carri&amp;#34; /&amp;gt; 类组件(注意this) 1 2 3 4 5 6 class Welcome extends React.Component{ return { &amp;lt;h1&amp;gt;Hello,{this.props.name}&amp;lt;/h1&amp;gt; } } &amp;lt;Welcome name=&amp;#34;carri&amp;#34; /&amp;gt; 关于Welcome组件 &amp;lt;Welcome /&amp;gt</description>
+    </item>
     
     <item>
       <title>JSX语法几步搞定</title>
@@ -18,15 +54,6 @@
       
       <guid>http://gaocarri.top/post/jsx%E8%AF%AD%E6%B3%95%E5%87%A0%E6%AD%A5%E6%90%9E%E5%AE%9A/</guid>
       <description>JSX注意事项 注意className 1 2 // 要写成 &amp;lt;div className=&amp;#34;red&amp;#34;&amp;gt;n&amp;lt;/div&amp;gt; 插入变量 标签里面的所有JS代码要用{}抱起来 如果有需要的变量n，难么就用{}把n包起来 如</description>
-    </item>
-    
-    <item>
-      <title>详解React生命周期</title>
-      <link>http://gaocarri.top/post/%E8%AF%A6%E8%A7%A3react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</link>
-      <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/post/%E8%AF%A6%E8%A7%A3react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</guid>
-      <description>React生命周期 类比代码 1 2 3 4 5 6 7 8 let div = document.ceateElement(&amp;#39;div&amp;#39;) // 这是div的create/construc过程 div.textContent= &amp;#39;hi&amp;#39; // 这是初始化state document.body.appendChild(div) // 这是div的</description>
     </item>
     
     <item>
@@ -432,33 +459,6 @@
       
       <guid>http://gaocarri.top/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</guid>
       <description>一.a标签的用法 1 &amp;lt;a href=&amp;#34;&amp;#34; target=&amp;#34;_blank&amp;#34; download&amp;gt; 1.1属性 href target download rel=noopener 1.2 href 1.2.1 href的取值 1.网址 https:// google.com http:// google.com //google.com 一般情况下用//google.com就可以了，浏览器会自动</description>
-    </item>
-    
-    <item>
-      <title>HTML入门笔记</title>
-      <link>http://gaocarri.top/post/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</link>
-      <pubDate>Mon, 28 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/post/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</guid>
-      <description>HTML是谁发明的 Timothy John Berners-Lee爵士，英国计算机科学家，万维网的发明者 HTML起手应该写什么 1 2 3 4 5 6 7 8 9 10 11 12 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta</description>
-    </item>
-    
-    <item>
-      <title>如何使用Hugo搭建个人博客</title>
-      <link>http://gaocarri.top/post/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
-      <pubDate>Sun, 27 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/post/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
-      <description>关于Hugo Hugo的官方网站https://gohugo.io/ Go语言实现的一个博客生成器 世界上最快的博客生成器 安装Hugo 以下只谈Wi</description>
-    </item>
-    
-    <item>
-      <title>我的第一篇博客</title>
-      <link>http://gaocarri.top/post/my-first-blog/</link>
-      <pubDate>Sat, 26 Oct 2019 15:08:45 +0800</pubDate>
-      
-      <guid>http://gaocarri.top/post/my-first-blog/</guid>
-      <description>大家好 这是我的博客，不定期记录一些文章和学习笔记。</description>
     </item>
     
   </channel>
