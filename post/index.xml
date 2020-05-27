@@ -6,10 +6,28 @@
     <description>Recent content in Posts on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 10 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 15 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.top/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>详解React函数组件</title>
+      <link>http://gaocarri.top/post/hooks%E4%B8%AA%E4%BA%BA%E5%BB%BA%E8%AE%AE%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/</link>
+      <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/hooks%E4%B8%AA%E4%BA%BA%E5%BB%BA%E8%AE%AE%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/</guid>
+      <description>这是一篇个人参考手册！！！ Hooks 详解React Hooks useState 见上一篇博客 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 const App = () =&amp;gt; { const [user, setUser] = React.useState({ name: &amp;#39;carri&amp;#39;, age: 18 }) const onClick = () =&amp;gt; { setUser({ ...user, name:</description>
+    </item>
+    
+    <item>
+      <title>详解React函数组件</title>
+      <link>http://gaocarri.top/post/%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0react%E4%B9%8Busestate/</link>
+      <pubDate>Tue, 12 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0react%E4%B9%8Busestate/</guid>
+      <description>useState原理深入 const [n,setN] = React.use(0) 分析 setN会修改数据x，将n+1存入x setN一定会触发重新渲染（re-render） useState肯定</description>
+    </item>
     
     <item>
       <title>详解React函数组件</title>
@@ -441,24 +459,6 @@
       
       <guid>http://gaocarri.top/post/%E6%B5%85%E6%9E%90url/</guid>
       <description>IP的作用是什么 IP：Internet Protocol 约定了两件事情（作用） 如何定位一台设备 如何封装报文，和其他设备交流 几个特殊的IP 127.0.0.1表</description>
-    </item>
-    
-    <item>
-      <title>CSS的Float,Flex,Grid布局</title>
-      <link>http://gaocarri.top/post/css%E7%9A%84floatflexgrid%E5%B8%83%E5%B1%80/</link>
-      <pubDate>Wed, 30 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/post/css%E7%9A%84floatflexgrid%E5%B8%83%E5%B1%80/</guid>
-      <description>如何选取布局 图片来自饥人谷 Float布局 子元素上加float:left和width 父元素classname上加 clearfix 1 2 3 4 5 clearfix{ content:&amp;#39;&amp;#39;; display:block; clear:both; } Flex</description>
-    </item>
-    
-    <item>
-      <title>HTML常用标签</title>
-      <link>http://gaocarri.top/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</link>
-      <pubDate>Tue, 29 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</guid>
-      <description>一.a标签的用法 1 &amp;lt;a href=&amp;#34;&amp;#34; target=&amp;#34;_blank&amp;#34; download&amp;gt; 1.1属性 href target download rel=noopener 1.2 href 1.2.1 href的取值 1.网址 https:// google.com http:// google.com //google.com 一般情况下用//google.com就可以了，浏览器会自动</description>
     </item>
     
   </channel>
