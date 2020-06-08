@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>卡里的技术博客</title>
+  <title>React函数组件一篇讲通 - 卡里的技术博客</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -22,9 +22,9 @@
 
 <meta name="mobile-web-app-capable" content="yes">
 
-<meta name="author" content="Carri" />
-  <meta name="description" content="卡里的技术博客,主要关注于前端开发，前端开发的个人博客网站" />
-  <meta name="keywords" content="前端开发, Javascript, HTML, CSS, 计算机网络, 前端框架, Vue, React" />
+<meta name="author" content="Carri" /><meta name="description" content="详解React函数组件" />
+<meta name="keywords" content="React" />
+
 
 
 
@@ -34,8 +34,8 @@
 <meta name="generator" content="Hugo 0.59.0" />
 
 
-<link rel="canonical" href="http://gaocarri.top/" />
-<link href="/index.xml" rel="alternate" type="application/rss+xml" title="卡里的技术博客" />
+<link rel="canonical" href="http://gaocarri.top/post/react%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6%E4%B8%80%E7%AF%87%E8%AE%B2%E9%80%9A/" />
+
 
 
 
@@ -58,18 +58,26 @@
 
 
 
-<meta property="og:title" content="卡里的技术博客" />
-<meta property="og:description" content="卡里的技术博客,主要关注于前端开发，前端开发的个人博客网站" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://gaocarri.top/" />
+<meta property="og:title" content="React函数组件一篇讲通" />
+<meta property="og:description" content="详解React函数组件" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://gaocarri.top/post/react%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6%E4%B8%80%E7%AF%87%E8%AE%B2%E9%80%9A/" />
+<meta property="article:published_time" content="2020-05-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-05-18T00:00:00+00:00" />
+<meta itemprop="name" content="React函数组件一篇讲通">
+<meta itemprop="description" content="详解React函数组件">
 
-<meta property="og:updated_time" content="2020-05-30T00:00:00+00:00" />
-<meta itemprop="name" content="卡里的技术博客">
-<meta itemprop="description" content="卡里的技术博客,主要关注于前端开发，前端开发的个人博客网站">
 
+<meta itemprop="datePublished" content="2020-05-18T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-05-18T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="638">
+
+
+
+<meta itemprop="keywords" content="React," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="卡里的技术博客"/>
-<meta name="twitter:description" content="卡里的技术博客,主要关注于前端开发，前端开发的个人博客网站"/>
+<meta name="twitter:title" content="React函数组件一篇讲通"/>
+<meta name="twitter:description" content="详解React函数组件"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -270,7 +278,7 @@ if (!doNotTrack) {
   <ul id="menu" class="menu">
     
     
-        <li class="menu-item active">
+        <li class="menu-item">
         
           
           
@@ -353,272 +361,312 @@ if (!doNotTrack) {
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-<section id="posts" class="posts">
-  
-  
+          <article class="post bg-white">
     
-  
-  
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
+    <header class="post-header">
+      <h1 class="post-title">React函数组件一篇讲通</h1>
       
-      <a class="post-link" href="/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/">JS对象基本用法</a>
-    </h1>
+      <div class="post-meta">
+        <time datetime="2020-05-18" class="post-time">
+          2020-05-18
+        </time>
+        <div class="post-category">
+            <a href="http://gaocarri.top/categories/react/"> React </a>
+            
+          </div>
+        <span class="more-meta"> 约 638 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
     
-    <div class="post-meta">
-      <time datetime="2019-11-04" class="post-time">
-        2019-11-04
-      </time>
-      <div class="post-category">
-          <a href="http://gaocarri.top/categories/javascript/"> JavaScript </a>
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#函数组件">函数组件</a></li>
+<li><a href="#函数组件模拟生命周期">函数组件模拟生命周期</a></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p>函数组件相对简单，注意函数组件没有生命周期，但可以模拟生命周期</p>
+
+<h1 id="函数组件">函数组件</h1>
+
+<ol>
+<li><p>基本写法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">const App = ()=&gt;{
+	return &lt;div&gt;app&lt;/div&gt;
+}</pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>使用函数组件写一个加1</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">const App = props =&gt; {
+const [n, setN] = React.useState(0)
+const onClick = () =&gt; {
+setN(n + 1)
+}
+return (
+&lt;div&gt;&lt;button onClick={onClick}&gt;+1&lt;/button&gt;{n}&lt;/div&gt;
+)
+}</pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>函数组件Tips</p></li>
+</ol>
+
+<ul>
+<li>函数组件没有state,要使用React.useState</li>
+<li>没有生命周期</li>
+</ul>
+
+<h1 id="函数组件模拟生命周期">函数组件模拟生命周期</h1>
+
+<ol>
+<li><p>使用useEffect解决生命周期问题</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">useEffeect(()=&gt;{},[])
+// 空数组代表只在第一次渲染调用，即componentDidMount
+useEffect(()=&gt;{
+	console.log(&#39;n变了&#39;)
+},[n])
+// n变得时候调用(但是第一次渲染也调用了)，即componentDidUpdate
+
+useEffect(()=&gt;{
+	console.log(&#39;n变了&#39;)
+})
+// 不写n 所有state变得时候都会变
+
+useEffect(()=&gt;{
+	console.log(&#39;更新了&#39;)
+	return ()=&gt;{console.log(&#39;销毁了&#39;)}
+})
+// return一个函数代表销毁 即componentWillUmount</pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>模拟Update除去第一次渲染,自定义React Hooks</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">const [nUpdateCount,setNUpdcateCount] = React.useState(0)
+useEffect(()=&gt;{
+	setNUpdateCount(x=&gt;x+1)
+},[n])
+useEffect(()=&gt;{
+	if(nUpdateCount&gt;1){
+		console.log(&#39;n变了&#39;)
+	}
+},[nUpdateCount])
+
+// 更强的写法
+const useUpdate = (fn,dep)=&gt;{
+	const [count,setCount] = React.useState(0)
+	useEffect(()=&gt;{
+		setCount(x=&gt;x+1)
+	},[dep])
+	useEffect(()=&gt;{
+		if(Count&gt;1){
+			fn()
+		}
+	},[count,fn])
+}
+
+const App = ()=&gt;{
+	useUpdate(()=&gt;{console.log(&#39;n变了&#39;)},n)
+}
+// 此时就可以在全局使用useUpdate，甚至可以从别的引入useUpdate</pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Carri</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2020-05-18
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://gaocarri.top/tags/react/">React</a>
           
         </div>
-      <span class="more-meta"> 约 743 字 </span>
-      <span class="more-meta"> 预计阅读 2 分钟 </span>
+
       
-      
-      
-    </div>
-  </header>
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%98%AF%E4%BB%80%E4%B9%88/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">React生命周期是什么</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/%E4%B8%80%E7%AF%87%E8%AF%B4%E9%80%9Areact%E7%B1%BB%E7%BB%84%E4%BB%B6/">
+            <span class="next-text nav-default">一篇说通React类组件</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
   
-  <div class="post-content">
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "gaocarri/comments-for-blog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+  
+
+  
+
+  
+
+  
+
     
-    <div class="post-summary">
-      声明对象的两种语法 1 2 3 4 // 第1种： let obj = { &#39;name&#39;: &#39;frank&#39;, &#39;age&#39;: 18 } // 第2种： let obj = new Object({&#39;name&#39;: &#39;frank&#39;}) 键名必须是字符串，引号大部分时候可以省略（空格和中文时不可省） 就
-    </div>
-    <div class="read-more">
-      <a href="/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
 
   
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">JS基本语法</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2019-11-03" class="post-time">
-        2019-11-03
-      </time>
-      <div class="post-category">
-          <a href="http://gaocarri.top/categories/javascript/"> JavaScript </a>
-          
-        </div>
-      <span class="more-meta"> 约 1952 字 </span>
-      <span class="more-meta"> 预计阅读 4 分钟 </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      表达式和语句 表达式 1+2表达式的值是3 add(1,2)表达式的值是函数的返回值 console.log表达式的值为函数本身 console.lo
-    </div>
-    <div class="read-more">
-      <a href="/post/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/%E5%88%9D%E8%AF%86javascript/">初识JavaScript</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2019-11-01" class="post-time">
-        2019-11-01
-      </time>
-      <div class="post-category">
-          <a href="http://gaocarri.top/categories/javascript/"> JavaScript </a>
-          
-        </div>
-      <span class="more-meta"> 约 593 字 </span>
-      <span class="more-meta"> 预计阅读 2 分钟 </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      JavaScript的诞生(参考阮一峰的博客) 诞生: JavaScript由Brendan Eich于1995年发明（只花了十天）。 目的: 网景公
-    </div>
-    <div class="read-more">
-      <a href="/post/%E5%88%9D%E8%AF%86javascript/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/css%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/">CSS知识总结</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2019-10-31" class="post-time">
-        2019-10-31
-      </time>
-      <div class="post-category">
-          <a href="http://gaocarri.top/categories/css/"> CSS </a>
-          
-        </div>
-      <span class="more-meta"> 约 1408 字 </span>
-      <span class="more-meta"> 预计阅读 3 分钟 </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      一、浏览器渲染原理 参考文章 Google团队写的文章 渲染树构建、布局及绘制 渲染性能 使用transform来实现动画 查看CSS各属性触发什么 CSSTriggers.com 浏
-    </div>
-    <div class="read-more">
-      <a href="/post/css%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/%E6%B5%85%E6%9E%90url/">浅析URL</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2019-10-31" class="post-time">
-        2019-10-31
-      </time>
-      <div class="post-category">
-          <a href="http://gaocarri.top/categories/http/"> HTTP </a>
-          
-        </div>
-      <span class="more-meta"> 约 837 字 </span>
-      <span class="more-meta"> 预计阅读 2 分钟 </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      IP的作用是什么 IP：Internet Protocol 约定了两件事情（作用） 如何定位一台设备 如何封装报文，和其他设备交流 几个特殊的IP 127.0.0.1表
-    </div>
-    <div class="read-more">
-      <a href="/post/%E6%B5%85%E6%9E%90url/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-</section>
-
-
-
-
-
-
-  
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-  <nav class="pagination">
-    <ul>
-      
-      <li >
-        <a href="/">1</a>
-      </li>
-      
-      <li >
-        <a href="/page/2/">2</a>
-      </li>
-      
-      <li >
-        <a href="/page/3/">3</a>
-      </li>
-      
-      <li >
-        <a href="/page/4/">4</a>
-      </li>
-      
-      <li >
-        <a href="/page/5/">5</a>
-      </li>
-      
-      <li >
-        <a href="/page/6/">6</a>
-      </li>
-      
-      <li >
-        <a href="/page/7/">7</a>
-      </li>
-      
-      <li >
-        <a href="/page/8/">8</a>
-      </li>
-      
-      <li >
-        <a href="/page/9/">9</a>
-      </li>
-      
-      <li  class="active" >
-        <a href="/page/10/">10</a>
-      </li>
-      
-      <li >
-        <a href="/page/11/">11</a>
-      </li>
-      
-    </ul>
-  </nav>
-
-  
-  
-
-
-
-
 
         </div>
       </div>
@@ -741,6 +789,13 @@ if (!doNotTrack) {
 
 
 
+  <script type="text/javascript">
+    window.MathJax = {
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 
 

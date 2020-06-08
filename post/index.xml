@@ -6,10 +6,46 @@
     <description>Recent content in Posts on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 15 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.top/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>自己实现React之useState</title>
+      <link>http://gaocarri.top/post/%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0react%E4%B9%8Busestate/</link>
+      <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0react%E4%B9%8Busestate/</guid>
+      <description>模拟useState useState原理深入 1.const [n,setN] = React.useState(0) 2.分析 setN会修改数据x，将n+1存入x setN一定会触发App的重新渲染（re-r</description>
+    </item>
+    
+    <item>
+      <title>React生命周期是什么</title>
+      <link>http://gaocarri.top/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%98%AF%E4%BB%80%E4%B9%88/</link>
+      <pubDate>Fri, 22 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%98%AF%E4%BB%80%E4%B9%88/</guid>
+      <description>React生命周期 1.类比代码 1 2 3 4 5 6 7 8 let div = document.ceateElement(&amp;#39;div&amp;#39;) // 这是div的create/construc过程 div.textContent= &amp;#39;hi&amp;#39; // 这是初始化state document.body.appendChild(div) // 这是di</description>
+    </item>
+    
+    <item>
+      <title>React函数组件一篇讲通</title>
+      <link>http://gaocarri.top/post/react%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6%E4%B8%80%E7%AF%87%E8%AE%B2%E9%80%9A/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/react%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6%E4%B8%80%E7%AF%87%E8%AE%B2%E9%80%9A/</guid>
+      <description>函数组件相对简单，注意函数组件没有生命周期，但可以模拟生命周期 函数组件 基本写法 1 2 3 const App = ()=&amp;gt;{ return &amp;lt;div&amp;gt;app&amp;lt;/div&amp;gt; } 使用函数组件写一个加1 1 2 3 4 5 6 7 8 9 const</description>
+    </item>
+    
+    <item>
+      <title>一篇说通React类组件</title>
+      <link>http://gaocarri.top/post/%E4%B8%80%E7%AF%87%E8%AF%B4%E9%80%9Areact%E7%B1%BB%E7%BB%84%E4%BB%B6/</link>
+      <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E4%B8%80%E7%AF%87%E8%AF%B4%E9%80%9Areact%E7%B1%BB%E7%BB%84%E4%BB%B6/</guid>
+      <description>类组件 1.ES6如何创建组件 1 2 3 4 5 6 7 8 9 10 import React from &amp;#39;react&amp;#39; class B extends React.Component{ constructor(props){ super(props) } render(){ return &amp;lt;div&amp;gt;hi&amp;lt;/div&amp;gt; } } 234行可以省掉（如果不需要在constructor里做什么</description>
+    </item>
     
     <item>
       <title>Hooks个人参考手册</title>
@@ -21,54 +57,18 @@
     </item>
     
     <item>
-      <title>自己实现React之useState</title>
-      <link>http://gaocarri.top/post/%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0react%E4%B9%8Busestate/</link>
-      <pubDate>Tue, 12 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/post/%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0react%E4%B9%8Busestate/</guid>
-      <description>useState原理深入 const [n,setN] = React.use(0) 分析 setN会修改数据x，将n+1存入x setN一定会触发重新渲染（re-render） useState肯定</description>
-    </item>
-    
-    <item>
-      <title>详解React函数组件</title>
-      <link>http://gaocarri.top/post/%E8%AF%A6%E8%A7%A3react%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6/</link>
-      <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/post/%E8%AF%A6%E8%A7%A3react%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6/</guid>
-      <description>函数组件相对简单，注意函数组件没有生命周期 函数组件 写法 1 2 3 const App = ()=&amp;gt;{ return &amp;lt;div&amp;gt;app&amp;lt;/div&amp;gt; } 使用函数组件写一个加1 1 2 3 4 5 6 7 8 9 const App = props =&amp;gt; { const [n, setN] = React.useState(0) const onClick</description>
-    </item>
-    
-    <item>
-      <title>详解React生命周期</title>
-      <link>http://gaocarri.top/post/%E8%AF%A6%E8%A7%A3react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</link>
-      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/post/%E8%AF%A6%E8%A7%A3react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</guid>
-      <description>React生命周期 类比代码 1 2 3 4 5 6 7 8 let div = document.ceateElement(&amp;#39;div&amp;#39;) // 这是div的create/construc过程 div.textContent= &amp;#39;hi&amp;#39; // 这是初始化state document.body.appendChild(div) // 这是div的</description>
-    </item>
-    
-    <item>
-      <title>详解React类组件</title>
-      <link>http://gaocarri.top/post/%E8%AF%A6%E8%A7%A3react%E7%B1%BB%E7%BB%84%E4%BB%B6/</link>
-      <pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/post/%E8%AF%A6%E8%A7%A3react%E7%B1%BB%E7%BB%84%E4%BB%B6/</guid>
-      <description>类组件 ES6如何创建组件 1 2 3 4 5 6 7 8 9 10 import React from &amp;#39;react&amp;#39; class B extends React.Component{ constructor(props){ super(props) } render(){ return &amp;lt;div&amp;gt;hi&amp;lt;/div&amp;gt; } } 234行可以省掉（如果不需要在constructor里做什么的话</description>
-    </item>
-    
-    <item>
       <title>浅析两种React组件</title>
       <link>http://gaocarri.top/post/%E6%B5%85%E6%9E%90%E4%B8%A4%E7%A7%8Dreact%E7%BB%84%E4%BB%B6/</link>
-      <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
       
       <guid>http://gaocarri.top/post/%E6%B5%85%E6%9E%90%E4%B8%A4%E7%A7%8Dreact%E7%BB%84%E4%BB%B6/</guid>
-      <description>React两种组件 函数组件 1 2 3 4 function Welcome(props){ return &amp;lt;h1&amp;gt;Hello,{props.name}&amp;lt;/h1&amp;gt; } &amp;lt;Welcome name=&amp;#34;carri&amp;#34; /&amp;gt; 类组件(注意this) 1 2 3 4 5 6 class Welcome extends React.Component{ return { &amp;lt;h1&amp;gt;Hello,{this.props.name}&amp;lt;/h1&amp;gt; } } &amp;lt;Welcome name=&amp;#34;carri&amp;#34; /&amp;gt; 关于Welcome组件 &amp;lt;Welcome /&amp;gt</description>
+      <description>React两种组件 1.函数组件 1 2 3 4 function Welcome(props){ return &amp;lt;h1&amp;gt;Hello,{props.name}&amp;lt;/h1&amp;gt; } &amp;lt;Welcome name=&amp;#34;carri&amp;#34; /&amp;gt; 2.类组件(注意this) 1 2 3 4 5 6 class Welcome extends React.Component{ return { &amp;lt;h1&amp;gt;Hello,{this.props.name}&amp;lt;/h1&amp;gt; } } &amp;lt;Welcome name=&amp;#34;carri&amp;#34; /&amp;gt; 3.关于这里的Welco</description>
     </item>
     
     <item>
       <title>JSX语法几步搞定</title>
       <link>http://gaocarri.top/post/jsx%E8%AF%AD%E6%B3%95%E5%87%A0%E6%AD%A5%E6%90%9E%E5%AE%9A/</link>
-      <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 11 May 2020 00:00:00 +0000</pubDate>
       
       <guid>http://gaocarri.top/post/jsx%E8%AF%AD%E6%B3%95%E5%87%A0%E6%AD%A5%E6%90%9E%E5%AE%9A/</guid>
       <description>JSX注意事项 注意className 1 2 // 要写成 &amp;lt;div className=&amp;#34;red&amp;#34;&amp;gt;n&amp;lt;/div&amp;gt; 插入变量 标签里面的所有JS代码要用{}抱起来 如果有需要的变量n，难么就用{}把n包起来 如</description>
@@ -84,20 +84,20 @@
     </item>
     
     <item>
-      <title>Vue项目部署</title>
-      <link>http://gaocarri.top/post/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/</link>
+      <title>如何将Vue项目部署到GitHub</title>
+      <link>http://gaocarri.top/post/%E5%A6%82%E4%BD%95%E5%B0%86vue%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%88%B0github/</link>
       <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://gaocarri.top/post/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/</guid>
+      <guid>http://gaocarri.top/post/%E5%A6%82%E4%BD%95%E5%B0%86vue%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%88%B0github/</guid>
       <description>部署 按照官方文档的指示 检查dist是否打包正确 1 2 3 4 5 yarn build yarn global add serve # 全局安装serve serve -s dist 部署到gitHub my-project===我</description>
     </item>
     
     <item>
-      <title>EditLabel与Statistic组件的封装及思路</title>
-      <link>http://gaocarri.top/post/editlabel%E4%B8%8Estatistic%E7%BB%84%E4%BB%B6%E7%9A%84%E5%B0%81%E8%A3%85%E5%8F%8A%E6%80%9D%E8%B7%AF/</link>
+      <title>EditLabel与Statistic组件以及ECharts</title>
+      <link>http://gaocarri.top/post/editlabel%E4%B8%8Estatistic%E7%BB%84%E4%BB%B6%E4%BB%A5%E5%8F%8Aecharts/</link>
       <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://gaocarri.top/post/editlabel%E4%B8%8Estatistic%E7%BB%84%E4%BB%B6%E7%9A%84%E5%B0%81%E8%A3%85%E5%8F%8A%E6%80%9D%E8%B7%AF/</guid>
+      <guid>http://gaocarri.top/post/editlabel%E4%B8%8Estatistic%E7%BB%84%E4%BB%B6%E4%BB%A5%E5%8F%8Aecharts/</guid>
       <description>EditLabel页面 困扰我一个非常久的Bug,input表单输入数字结果不为数字 正确的解决办法 1 &amp;lt;input type=&amp;#34;text&amp;#34; v-model.number.trim=&amp;#34;recordItem.amount&amp;#34; /&amp;gt; 其实就是在v-model后面加上.</description>
     </item>
     

@@ -21,20 +21,20 @@
     </item>
     
     <item>
-      <title>Vue项目部署</title>
-      <link>http://gaocarri.top/post/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/</link>
+      <title>如何将Vue项目部署到GitHub</title>
+      <link>http://gaocarri.top/post/%E5%A6%82%E4%BD%95%E5%B0%86vue%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%88%B0github/</link>
       <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://gaocarri.top/post/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/</guid>
+      <guid>http://gaocarri.top/post/%E5%A6%82%E4%BD%95%E5%B0%86vue%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%88%B0github/</guid>
       <description>部署 按照官方文档的指示 检查dist是否打包正确 1 2 3 4 5 yarn build yarn global add serve # 全局安装serve serve -s dist 部署到gitHub my-project===我</description>
     </item>
     
     <item>
-      <title>EditLabel与Statistic组件的封装及思路</title>
-      <link>http://gaocarri.top/post/editlabel%E4%B8%8Estatistic%E7%BB%84%E4%BB%B6%E7%9A%84%E5%B0%81%E8%A3%85%E5%8F%8A%E6%80%9D%E8%B7%AF/</link>
+      <title>EditLabel与Statistic组件以及ECharts</title>
+      <link>http://gaocarri.top/post/editlabel%E4%B8%8Estatistic%E7%BB%84%E4%BB%B6%E4%BB%A5%E5%8F%8Aecharts/</link>
       <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://gaocarri.top/post/editlabel%E4%B8%8Estatistic%E7%BB%84%E4%BB%B6%E7%9A%84%E5%B0%81%E8%A3%85%E5%8F%8A%E6%80%9D%E8%B7%AF/</guid>
+      <guid>http://gaocarri.top/post/editlabel%E4%B8%8Estatistic%E7%BB%84%E4%BB%B6%E4%BB%A5%E5%8F%8Aecharts/</guid>
       <description>EditLabel页面 困扰我一个非常久的Bug,input表单输入数字结果不为数字 正确的解决办法 1 &amp;lt;input type=&amp;#34;text&amp;#34; v-model.number.trim=&amp;#34;recordItem.amount&amp;#34; /&amp;gt; 其实就是在v-model后面加上.</description>
     </item>
     
