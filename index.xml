@@ -206,9 +206,182 @@ const [m,setM] = myUseState(0)
     </item>
     
     <item>
+      <title>React函数组件一篇讲通</title>
+      <link>http://gaocarri.top/post/react%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6%E4%B8%80%E7%AF%87%E8%AE%B2%E9%80%9A/</link>
+      <pubDate>Thu, 21 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/react%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6%E4%B8%80%E7%AF%87%E8%AE%B2%E9%80%9A/</guid>
+      
+        <description>
+
+&lt;p&gt;函数组件相对简单，注意函数组件没有生命周期，但可以模拟生命周期&lt;/p&gt;
+
+&lt;h1 id=&#34;函数组件&#34;&gt;函数组件&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;基本写法&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;const App = ()=&amp;gt;{
+	return &amp;lt;div&amp;gt;app&amp;lt;/div&amp;gt;
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;使用函数组件写一个加1&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;const App = props =&amp;gt; {
+const [n, setN] = React.useState(0)
+const onClick = () =&amp;gt; {
+setN(n + 1)
+}
+return (
+&amp;lt;div&amp;gt;&amp;lt;button onClick={onClick}&amp;gt;+1&amp;lt;/button&amp;gt;{n}&amp;lt;/div&amp;gt;
+)
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;函数组件Tips&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+&lt;li&gt;函数组件没有state,要使用React.useState&lt;/li&gt;
+&lt;li&gt;没有生命周期&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;函数组件模拟生命周期&#34;&gt;函数组件模拟生命周期&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;使用useEffect解决生命周期问题&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;useEffeect(()=&amp;gt;{},[])
+// 空数组代表只在第一次渲染调用，即componentDidMount
+useEffect(()=&amp;gt;{
+	console.log(&amp;#39;n变了&amp;#39;)
+},[n])
+// n变得时候调用(但是第一次渲染也调用了)，即componentDidUpdate
+
+useEffect(()=&amp;gt;{
+	console.log(&amp;#39;n变了&amp;#39;)
+})
+// 不写n 所有state变得时候都会变
+
+useEffect(()=&amp;gt;{
+	console.log(&amp;#39;更新了&amp;#39;)
+	return ()=&amp;gt;{console.log(&amp;#39;销毁了&amp;#39;)}
+})
+// return一个函数代表销毁 即componentWillUmount&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;模拟Update除去第一次渲染,自定义React Hooks&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;const [nUpdateCount,setNUpdcateCount] = React.useState(0)
+useEffect(()=&amp;gt;{
+	setNUpdateCount(x=&amp;gt;x+1)
+},[n])
+useEffect(()=&amp;gt;{
+	if(nUpdateCount&amp;gt;1){
+		console.log(&amp;#39;n变了&amp;#39;)
+	}
+},[nUpdateCount])
+
+// 更强的写法
+const useUpdate = (fn,dep)=&amp;gt;{
+	const [count,setCount] = React.useState(0)
+	useEffect(()=&amp;gt;{
+		setCount(x=&amp;gt;x+1)
+	},[dep])
+	useEffect(()=&amp;gt;{
+		if(Count&amp;gt;1){
+			fn()
+		}
+	},[count,fn])
+}
+
+const App = ()=&amp;gt;{
+	useUpdate(()=&amp;gt;{console.log(&amp;#39;n变了&amp;#39;)},n)
+}
+// 此时就可以在全局使用useUpdate，甚至可以从别的引入useUpdate&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+      
+    </item>
+    
+    <item>
       <title>React生命周期是什么</title>
       <link>http://gaocarri.top/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%98%AF%E4%BB%80%E4%B9%88/</link>
-      <pubDate>Fri, 22 May 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
       
       <guid>http://gaocarri.top/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%98%AF%E4%BB%80%E4%B9%88/</guid>
       
@@ -518,179 +691,6 @@ const [m,setM] = myUseState(0)
 &lt;li&gt;原则：哪个组件污染哪个组件治理&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>React函数组件一篇讲通</title>
-      <link>http://gaocarri.top/post/react%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6%E4%B8%80%E7%AF%87%E8%AE%B2%E9%80%9A/</link>
-      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/post/react%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6%E4%B8%80%E7%AF%87%E8%AE%B2%E9%80%9A/</guid>
-      
-        <description>
-
-&lt;p&gt;函数组件相对简单，注意函数组件没有生命周期，但可以模拟生命周期&lt;/p&gt;
-
-&lt;h1 id=&#34;函数组件&#34;&gt;函数组件&lt;/h1&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;基本写法&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;const App = ()=&amp;gt;{
-	return &amp;lt;div&amp;gt;app&amp;lt;/div&amp;gt;
-}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;使用函数组件写一个加1&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;const App = props =&amp;gt; {
-const [n, setN] = React.useState(0)
-const onClick = () =&amp;gt; {
-setN(n + 1)
-}
-return (
-&amp;lt;div&amp;gt;&amp;lt;button onClick={onClick}&amp;gt;+1&amp;lt;/button&amp;gt;{n}&amp;lt;/div&amp;gt;
-)
-}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;函数组件Tips&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-&lt;li&gt;函数组件没有state,要使用React.useState&lt;/li&gt;
-&lt;li&gt;没有生命周期&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;函数组件模拟生命周期&#34;&gt;函数组件模拟生命周期&lt;/h1&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;使用useEffect解决生命周期问题&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;useEffeect(()=&amp;gt;{},[])
-// 空数组代表只在第一次渲染调用，即componentDidMount
-useEffect(()=&amp;gt;{
-	console.log(&amp;#39;n变了&amp;#39;)
-},[n])
-// n变得时候调用(但是第一次渲染也调用了)，即componentDidUpdate
-
-useEffect(()=&amp;gt;{
-	console.log(&amp;#39;n变了&amp;#39;)
-})
-// 不写n 所有state变得时候都会变
-
-useEffect(()=&amp;gt;{
-	console.log(&amp;#39;更新了&amp;#39;)
-	return ()=&amp;gt;{console.log(&amp;#39;销毁了&amp;#39;)}
-})
-// return一个函数代表销毁 即componentWillUmount&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;模拟Update除去第一次渲染,自定义React Hooks&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;const [nUpdateCount,setNUpdcateCount] = React.useState(0)
-useEffect(()=&amp;gt;{
-	setNUpdateCount(x=&amp;gt;x+1)
-},[n])
-useEffect(()=&amp;gt;{
-	if(nUpdateCount&amp;gt;1){
-		console.log(&amp;#39;n变了&amp;#39;)
-	}
-},[nUpdateCount])
-
-// 更强的写法
-const useUpdate = (fn,dep)=&amp;gt;{
-	const [count,setCount] = React.useState(0)
-	useEffect(()=&amp;gt;{
-		setCount(x=&amp;gt;x+1)
-	},[dep])
-	useEffect(()=&amp;gt;{
-		if(Count&amp;gt;1){
-			fn()
-		}
-	},[count,fn])
-}
-
-const App = ()=&amp;gt;{
-	useUpdate(()=&amp;gt;{console.log(&amp;#39;n变了&amp;#39;)},n)
-}
-// 此时就可以在全局使用useUpdate，甚至可以从别的引入useUpdate&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-&lt;/ol&gt;
 </description>
       
     </item>
@@ -9793,26 +9793,6 @@ Port 443&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
     </item>
     
     <item>
-      <title>JS面向对象综述</title>
-      <link>http://gaocarri.top/post/js%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BB%BC%E8%BF%B0/</link>
-      <pubDate>Fri, 10 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/post/js%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BB%BC%E8%BF%B0/</guid>
-      
-        <description>
-
-&lt;p&gt;之前发现自己对于面向对象似懂非懂，正好今天也遇到了一道笔试题&lt;/p&gt;
-
-&lt;p&gt;先占个坑，回头再写&lt;/p&gt;
-
-&lt;h2 id=&#34;什么是面向对象&#34;&gt;什么是面向对象&lt;/h2&gt;
-
-&lt;h2 id=&#34;面向对象的方法&#34;&gt;面向对象的方法&lt;/h2&gt;
-</description>
-      
-    </item>
-    
-    <item>
       <title>Vue的响应式原理</title>
       <link>http://gaocarri.top/post/vue%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
@@ -15173,6 +15153,107 @@ animation:1.5s xxx linear infinite alternate-reverse;
 &lt;li&gt;opacity 不为1时&lt;/li&gt;
 &lt;li&gt;有transform&lt;/li&gt;
 &lt;li&gt;flex,grid里index不是auto&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>浅析URL</title>
+      <link>http://gaocarri.top/post/%E6%B5%85%E6%9E%90url/</link>
+      <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E6%B5%85%E6%9E%90url/</guid>
+      
+        <description>
+
+&lt;h1 id=&#34;ip的作用是什么&#34;&gt;IP的作用是什么&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;IP：Internet Protocol&lt;/li&gt;
+&lt;li&gt;约定了两件事情（作用）
+
+&lt;ol&gt;
+&lt;li&gt;如何定位一台设备&lt;/li&gt;
+&lt;li&gt;如何封装报文，和其他设备交流&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;几个特殊的IP
+
+&lt;ol&gt;
+&lt;li&gt;127.0.0.1表示自己&lt;/li&gt;
+&lt;li&gt;localhost通过hosts指定为自己（hosts文件只能以管理员模式打开）&lt;/li&gt;
+&lt;li&gt;0.0.0.0不表示任何设备&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;域名是什么-ping命令怎么用&#34;&gt;域名是什么，ping命令怎么用&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;域名是对IP的别称&lt;/li&gt;
+&lt;li&gt;例：qq.com&lt;/li&gt;
+&lt;li&gt;一个域名可以对应不同的IP，叫做负载均衡&lt;/li&gt;
+&lt;li&gt;一个IP可以对应不同的域名，叫做共享主机&lt;/li&gt;
+&lt;li&gt;命令行输入&lt;code&gt;ping 域名&lt;/code&gt; 可以知道这个域名对应的IP&lt;/li&gt;
+&lt;li&gt;域名级别：
+
+&lt;ol&gt;
+&lt;li&gt;com是顶级域名&lt;/li&gt;
+&lt;li&gt;baidu.com是二级域名（俗称一级域名）&lt;/li&gt;
+&lt;li&gt;www.baidu.com是三级域名（俗称二级域名）
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;dns的作用是什么-nslookup命令怎么用&#34;&gt;DNS的作用是什么，nslookup命令怎么用&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;DNS:Domain Name System 域名系统&lt;/li&gt;
+&lt;li&gt;作用：简而言之将域名解析为IP&lt;/li&gt;
+&lt;li&gt;命令行输入&lt;code&gt;nslookup baidu.com&lt;/code&gt; 会返还baidu.com对应的所有IP&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;url包含哪几部分-每部分分别有什么用&#34;&gt;URL包含哪几部分，每部分分别有什么用&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;URL:Uniform Resource Locator 统一资源定位符&lt;/li&gt;
+&lt;li&gt;URL=协议+域名或IP+端口号+路径+查询字符串+锚点&lt;/li&gt;
+&lt;li&gt;例：&lt;a href=&#34;https://www.baidu.com/s?wd=hello&amp;amp;rsv_spt=1#5&#34;&gt;https://www.baidu.com/s?wd=hello&amp;amp;rsv_spt=1#5&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;注意：
+
+&lt;ol&gt;
+&lt;li&gt;锚点看起来可能有中文，实际不支持中文。&lt;/li&gt;
+&lt;li&gt;锚点是无法在开发者工具的Network面板看到的，因为锚点#后面不会传给服务器&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;当你在chrome输入baidu.com 时发生了什么&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;chrome浏览器会向电信/联通提供的DNS服务器询问baidu.com对应什么IP&lt;/li&gt;
+&lt;li&gt;电信/联通会回答一个IP（具体过程很复杂）&lt;/li&gt;
+&lt;li&gt;然后chrome才会向对应的IP的80/443端口发送请求&lt;/li&gt;
+&lt;li&gt;请求内容是查看baidu.com的首页&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+&lt;li&gt;服务器默认用80端口提供http服务&lt;/li&gt;
+&lt;li&gt;服务器默认用443端口提供https服务&lt;/li&gt;
+&lt;li&gt;可以在开发者工具中的Network看到具体的端口&lt;/li&gt;
+&lt;li&gt;其他端口参考维基百科
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;curl命令&#34;&gt;curl命令&lt;/h1&gt;
+
+&lt;p&gt;&lt;code&gt;curl -v http://baidu.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;url会被curl工具重写，先请求DNS获得IP&lt;/li&gt;
+&lt;li&gt;先进行TCP连接，TCP连接成功后，开始发送HTTP请求&lt;/li&gt;
+&lt;li&gt;请求内容看一遍&lt;/li&gt;
+&lt;li&gt;响应内容看一遍&lt;/li&gt;
+&lt;li&gt;响应结束后，关闭TCP连接（看不出来）&lt;/li&gt;
+&lt;li&gt;真正结束&lt;/li&gt;
 &lt;/ul&gt;
 </description>
       

@@ -21,21 +21,21 @@
     </item>
     
     <item>
-      <title>React生命周期是什么</title>
-      <link>http://gaocarri.top/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%98%AF%E4%BB%80%E4%B9%88/</link>
-      <pubDate>Fri, 22 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%98%AF%E4%BB%80%E4%B9%88/</guid>
-      <description>React生命周期 1.类比代码 1 2 3 4 5 6 7 8 let div = document.ceateElement(&amp;#39;div&amp;#39;) // 这是div的create/construc过程 div.textContent= &amp;#39;hi&amp;#39; // 这是初始化state document.body.appendChild(div) // 这是di</description>
-    </item>
-    
-    <item>
       <title>React函数组件一篇讲通</title>
       <link>http://gaocarri.top/post/react%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6%E4%B8%80%E7%AF%87%E8%AE%B2%E9%80%9A/</link>
-      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 21 May 2020 00:00:00 +0000</pubDate>
       
       <guid>http://gaocarri.top/post/react%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6%E4%B8%80%E7%AF%87%E8%AE%B2%E9%80%9A/</guid>
       <description>函数组件相对简单，注意函数组件没有生命周期，但可以模拟生命周期 函数组件 基本写法 1 2 3 const App = ()=&amp;gt;{ return &amp;lt;div&amp;gt;app&amp;lt;/div&amp;gt; } 使用函数组件写一个加1 1 2 3 4 5 6 7 8 9 const</description>
+    </item>
+    
+    <item>
+      <title>React生命周期是什么</title>
+      <link>http://gaocarri.top/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%98%AF%E4%BB%80%E4%B9%88/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%98%AF%E4%BB%80%E4%B9%88/</guid>
+      <description>React生命周期 1.类比代码 1 2 3 4 5 6 7 8 let div = document.ceateElement(&amp;#39;div&amp;#39;) // 这是div的create/construc过程 div.textContent= &amp;#39;hi&amp;#39; // 这是初始化state document.body.appendChild(div) // 这是di</description>
     </item>
     
     <item>
@@ -255,15 +255,6 @@
     </item>
     
     <item>
-      <title>JS面向对象综述</title>
-      <link>http://gaocarri.top/post/js%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BB%BC%E8%BF%B0/</link>
-      <pubDate>Fri, 10 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/post/js%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BB%BC%E8%BF%B0/</guid>
-      <description>之前发现自己对于面向对象似懂非懂，正好今天也遇到了一道笔试题 先占个坑，回头再写 什么是面向对象 面向对象的方法</description>
-    </item>
-    
-    <item>
       <title>Vue的响应式原理</title>
       <link>http://gaocarri.top/post/vue%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
@@ -459,6 +450,15 @@
       
       <guid>http://gaocarri.top/post/%E6%B5%85%E6%9E%90url/</guid>
       <description>IP的作用是什么 IP：Internet Protocol 约定了两件事情（作用） 如何定位一台设备 如何封装报文，和其他设备交流 几个特殊的IP 127.0.0.1表</description>
+    </item>
+    
+    <item>
+      <title>CSS的Float,Flex,Grid布局</title>
+      <link>http://gaocarri.top/post/css%E7%9A%84floatflexgrid%E5%B8%83%E5%B1%80/</link>
+      <pubDate>Wed, 30 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/css%E7%9A%84floatflexgrid%E5%B8%83%E5%B1%80/</guid>
+      <description>如何选取布局 图片来自饥人谷 Float布局 子元素上加float:left和width 父元素classname上加 clearfix 1 2 3 4 5 clearfix{ content:&amp;#39;&amp;#39;; display:block; clear:both; } Flex</description>
     </item>
     
   </channel>

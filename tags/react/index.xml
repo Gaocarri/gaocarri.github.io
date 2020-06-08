@@ -21,21 +21,21 @@
     </item>
     
     <item>
-      <title>React生命周期是什么</title>
-      <link>http://gaocarri.top/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%98%AF%E4%BB%80%E4%B9%88/</link>
-      <pubDate>Fri, 22 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%98%AF%E4%BB%80%E4%B9%88/</guid>
-      <description>React生命周期 1.类比代码 1 2 3 4 5 6 7 8 let div = document.ceateElement(&amp;#39;div&amp;#39;) // 这是div的create/construc过程 div.textContent= &amp;#39;hi&amp;#39; // 这是初始化state document.body.appendChild(div) // 这是di</description>
-    </item>
-    
-    <item>
       <title>React函数组件一篇讲通</title>
       <link>http://gaocarri.top/post/react%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6%E4%B8%80%E7%AF%87%E8%AE%B2%E9%80%9A/</link>
-      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 21 May 2020 00:00:00 +0000</pubDate>
       
       <guid>http://gaocarri.top/post/react%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6%E4%B8%80%E7%AF%87%E8%AE%B2%E9%80%9A/</guid>
       <description>函数组件相对简单，注意函数组件没有生命周期，但可以模拟生命周期 函数组件 基本写法 1 2 3 const App = ()=&amp;gt;{ return &amp;lt;div&amp;gt;app&amp;lt;/div&amp;gt; } 使用函数组件写一个加1 1 2 3 4 5 6 7 8 9 const</description>
+    </item>
+    
+    <item>
+      <title>React生命周期是什么</title>
+      <link>http://gaocarri.top/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%98%AF%E4%BB%80%E4%B9%88/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%98%AF%E4%BB%80%E4%B9%88/</guid>
+      <description>React生命周期 1.类比代码 1 2 3 4 5 6 7 8 let div = document.ceateElement(&amp;#39;div&amp;#39;) // 这是div的create/construc过程 div.textContent= &amp;#39;hi&amp;#39; // 这是初始化state document.body.appendChild(div) // 这是di</description>
     </item>
     
     <item>
