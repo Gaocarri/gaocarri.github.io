@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>归档 - 卡里的技术博客</title>
+  <title>彻底搞懂301和302状态码 - 卡里的技术博客</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -22,9 +22,9 @@
 
 <meta name="mobile-web-app-capable" content="yes">
 
-<meta name="author" content="Carri" />
-  <meta name="description" content="卡里的技术博客,主要关注于前端开发，前端开发的个人博客网站" />
-  <meta name="keywords" content="前端开发, Javascript, HTML, CSS, 计算机网络, 前端框架, Vue, React" />
+<meta name="author" content="Carri" /><meta name="description" content="彻底搞懂301和302状态码" />
+<meta name="keywords" content="URL, HTTP, 网络" />
+
 
 
 
@@ -34,8 +34,8 @@
 <meta name="generator" content="Hugo 0.59.0" />
 
 
-<link rel="canonical" href="http://gaocarri.top/post/" />
-<link href="/post/index.xml" rel="alternate" type="application/rss+xml" title="卡里的技术博客" />
+<link rel="canonical" href="http://gaocarri.top/post/%E5%BD%BB%E5%BA%95%E6%90%9E%E6%87%82301%E5%92%8C302%E7%8A%B6%E6%80%81%E7%A0%81/" />
+
 
 
 
@@ -58,18 +58,26 @@
 
 
 
-<meta property="og:title" content="Posts" />
-<meta property="og:description" content="卡里的技术博客,主要关注于前端开发，前端开发的个人博客网站" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://gaocarri.top/post/" />
+<meta property="og:title" content="彻底搞懂301和302状态码" />
+<meta property="og:description" content="彻底搞懂301和302状态码" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://gaocarri.top/post/%E5%BD%BB%E5%BA%95%E6%90%9E%E6%87%82301%E5%92%8C302%E7%8A%B6%E6%80%81%E7%A0%81/" />
+<meta property="article:published_time" content="2020-06-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-06-17T00:00:00+00:00" />
+<meta itemprop="name" content="彻底搞懂301和302状态码">
+<meta itemprop="description" content="彻底搞懂301和302状态码">
 
-<meta property="og:updated_time" content="2020-06-17T00:00:00+00:00" />
-<meta itemprop="name" content="Posts">
-<meta itemprop="description" content="卡里的技术博客,主要关注于前端开发，前端开发的个人博客网站">
 
+<meta itemprop="datePublished" content="2020-06-17T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-06-17T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="704">
+
+
+
+<meta itemprop="keywords" content="URL,HTTP,网络," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content="卡里的技术博客,主要关注于前端开发，前端开发的个人博客网站"/>
+<meta name="twitter:title" content="彻底搞懂301和302状态码"/>
+<meta name="twitter:description" content="彻底搞懂301和302状态码"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -281,7 +289,7 @@ if (!doNotTrack) {
 
       </li>
     
-        <li class="menu-item active">
+        <li class="menu-item">
         
           
           
@@ -353,180 +361,198 @@ if (!doNotTrack) {
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-<section id="archive" class="archive">
+          <article class="post bg-white">
     
-      <div class="collection-title">
-        <h2 class="archive-year">2019</h2>
+    <header class="post-header">
+      <h1 class="post-title">彻底搞懂301和302状态码</h1>
+      
+      <div class="post-meta">
+        <time datetime="2020-06-17" class="post-time">
+          2020-06-17
+        </time>
+        <div class="post-category">
+            <a href="http://gaocarri.top/categories/http/"> HTTP </a>
+            
+          </div>
+        <span class="more-meta"> 约 704 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
       </div>
+    </header>
 
-    <div class="archive-post">
-      <time datetime="2019-12-06" class="archive-post-time">
-        2019-12-06
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/%E6%90%9E%E6%87%82js%E9%97%AD%E5%8C%85/" class="archive-post-link">
-          搞懂JS闭包
-        </a>
-      </span>
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#彻底搞懂301和302http状态码">彻底搞懂301和302Http状态码</a>
+<ul>
+<li><a href="#什么是301和302状态码">什么是301和302状态码</a></li>
+<li><a href="#什么是重定向">什么是重定向</a></li>
+<li><a href="#为什么尽量使用301跳转">为什么尽量使用301跳转</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<h1 id="彻底搞懂301和302http状态码">彻底搞懂301和302Http状态码</h1>
+
+<p>​       一直以来对301和302状态码的认识都处于知道是什么，却不知道怎么做的状态，在翻阅许多资料后，总结了本篇博客，希望彻底记下来。</p>
+
+<h2 id="什么是301和302状态码">什么是301和302状态码</h2>
+
+<p>1.官方说明</p>
+
+<ul>
+<li>301：代表资源永久移动</li>
+<li>302:   代表资源临时移动</li>
+</ul>
+
+<p>2.详解</p>
+
+<ul>
+<li>总的来说301和302状态码都表示重定向，当浏览器拿到服务器返回的这两个状态码后会跳转到一个新的url</li>
+<li>该url的地址: 该url可以从响应头中的Location当中获得（用户看到的效果就是他输入的地址A瞬间变成了另一个地址B）</li>
+<li>301与302的不同点
+
+<ul>
+<li>301表示旧地址A的资源已经被永久地移除了（这个资源不可访问了），搜索引擎在抓取新内容的同时也将旧的网址交换为重定向之后的网址</li>
+<li>302表示旧地址A的资源还在（仍然可以访问），这个重定向只是临时地从旧地址A跳转到地址B，搜索引擎会抓取新的内容而保存旧的网址。</li>
+</ul></li>
+</ul>
+
+<h2 id="什么是重定向">什么是重定向</h2>
+
+<p>1.什么是？</p>
+
+<ul>
+<li>通俗来说就是地址A跳转到地址B。重定向就是通过各种方法将各种网络请求重新转到其他位置</li>
+</ul>
+
+<p>2.重定向的可能原因</p>
+
+<ul>
+<li>网站调整（如改变网页目录结构）；</li>
+<li>网页被移到一个新地址；</li>
+<li>网页扩展名改变(如应用需要把.php改成.Html或.shtml)。</li>
+</ul>
+
+<h2 id="为什么尽量使用301跳转">为什么尽量使用301跳转</h2>
+
+<p>因为<strong>网站劫持</strong></p>
+
+<p>比如说，有一个很烂的网站A，还有一个很好的网站B（搜索排名很靠前），A做了一个302跳转到网站B，有时候搜索B的内容，却收录了A的地址，这样就会导致网站B为网站A做贡献，网站A的排名就考前了</p>
+
+<p>而301跳转，他会告诉搜索引擎这个地址弃用了，永远转向新地址。</p>
+
+<p>不过其实这是一个伪命题，是自己的网站想用哪个就用哪个，不是自己的网站也很难管</p>
+
+<p>ok，如果还想到了什么新的点，我会继续补充</p>
+
     </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Carri</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2020-06-17
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
     
 
-    <div class="archive-post">
-      <time datetime="2019-12-02" class="archive-post-time">
-        2019-12-02
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/%E4%BD%BF%E7%94%A8promise/" class="archive-post-link">
-          使用Promise
-        </a>
-      </span>
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://gaocarri.top/tags/url/">URL</a>
+          <a href="http://gaocarri.top/tags/http/">HTTP</a>
+          <a href="http://gaocarri.top/tags/%E7%BD%91%E7%BB%9C/">网络</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/hooks%E4%B8%AA%E4%BA%BA%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C/">
+            <span class="next-text nav-default">Hooks个人参考手册</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "gaocarri/comments-for-blog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
     </div>
+  
+
+  
+
+  
+
+  
+
     
 
-    <div class="archive-post">
-      <time datetime="2019-11-29" class="archive-post-time">
-        2019-11-29
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/%E8%AE%A4%E8%AF%86mvc/" class="archive-post-link">
-          认识MVC
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-11-23" class="archive-post-time">
-        2019-11-23
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/%E5%9B%9B%E7%A7%8D%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="archive-post-link">
-          四种排序算法
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-11-19" class="archive-post-time">
-        2019-11-19
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/%E5%A6%82%E4%BD%95%E5%9C%A8%E5%88%A9%E7%94%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E5%AD%98%E5%82%A8%E7%94%A8%E6%88%B7%E6%93%8D%E4%BD%9C/" class="archive-post-link">
-          如何利用哈希表存储用户操作
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-11-13" class="archive-post-time">
-        2019-11-13
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/jquery%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-post-link">
-          jQuery的使用
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-11-11" class="archive-post-time">
-        2019-11-11
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96dom%E6%93%8D%E4%BD%9C%E6%9D%A5%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD/" class="archive-post-link">
-          如何优化DOM操作来优化性能
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-11-07" class="archive-post-time">
-        2019-11-07
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/%E8%87%AA%E5%B7%B1%E7%94%BB%E5%87%BAjs%E4%B8%96%E7%95%8C/" class="archive-post-link">
-          自己画出JS世界
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-11-05" class="archive-post-time">
-        2019-11-05
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/js%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" class="archive-post-link">
-          JS函数执行时机
-        </a>
-      </span>
-    </div></section>
-
-
-
-
-
-
   
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-  <nav class="pagination">
-    <ul>
-      
-      <li >
-        <a href="/post/">1</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/2/">2</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/3/">3</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/4/">4</a>
-      </li>
-      
-      <li  class="active" >
-        <a href="/post/page/5/">5</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/6/">6</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/7/">7</a>
-      </li>
-      
-    </ul>
-  </nav>
-
-  
-  
-
-
-
-
 
         </div>
       </div>
@@ -649,6 +675,13 @@ if (!doNotTrack) {
 
 
 
+  <script type="text/javascript">
+    window.MathJax = {
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 
 
