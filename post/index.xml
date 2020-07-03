@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 17 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 25 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.top/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vue关于data为什么是函数这件事</title>
+      <link>http://gaocarri.top/post/vue%E5%85%B3%E4%BA%8Edata%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E5%87%BD%E6%95%B0%E8%BF%99%E4%BB%B6%E4%BA%8B/</link>
+      <pubDate>Thu, 25 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/vue%E5%85%B3%E4%BA%8Edata%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E5%87%BD%E6%95%B0%E8%BF%99%E4%BB%B6%E4%BA%8B/</guid>
+      <description>Vue组件data为什么是函数，面试的时候被问到了，感觉解释的不太清楚，借博客整理一下 什么是Vue组件 这里先借用官方的解释: 组件是可复用的 Vue</description>
+    </item>
     
     <item>
       <title>彻底搞懂301和302状态码</title>
@@ -450,15 +459,6 @@
       
       <guid>http://gaocarri.top/post/css%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</guid>
       <description>一、浏览器渲染原理 参考文章 Google团队写的文章 渲染树构建、布局及绘制 渲染性能 使用transform来实现动画 查看CSS各属性触发什么 CSSTriggers.com 浏</description>
-    </item>
-    
-    <item>
-      <title>浅析URL</title>
-      <link>http://gaocarri.top/post/%E6%B5%85%E6%9E%90url/</link>
-      <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/post/%E6%B5%85%E6%9E%90url/</guid>
-      <description>IP的作用是什么 IP：Internet Protocol 约定了两件事情（作用） 如何定位一台设备 如何封装报文，和其他设备交流 几个特殊的IP 127.0.0.1表</description>
     </item>
     
   </channel>

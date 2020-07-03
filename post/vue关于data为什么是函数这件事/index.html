@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>标签 - 卡里的技术博客</title>
+  <title>Vue关于data为什么是函数这件事 - 卡里的技术博客</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -22,9 +22,9 @@
 
 <meta name="mobile-web-app-capable" content="yes">
 
-<meta name="author" content="Carri" />
-  <meta name="description" content="卡里的技术博客,主要关注于前端开发，前端开发的个人博客网站" />
-  <meta name="keywords" content="前端开发, Javascript, HTML, CSS, 计算机网络, 前端框架, Vue, React" />
+<meta name="author" content="Carri" /><meta name="description" content="Vue关于data为什么是函数这件事" />
+<meta name="keywords" content="Vue, 框架" />
+
 
 
 
@@ -34,8 +34,8 @@
 <meta name="generator" content="Hugo 0.59.0" />
 
 
-<link rel="canonical" href="http://gaocarri.top/tags/" />
-<link href="/tags/index.xml" rel="alternate" type="application/rss+xml" title="卡里的技术博客" />
+<link rel="canonical" href="http://gaocarri.top/post/vue%E5%85%B3%E4%BA%8Edata%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E5%87%BD%E6%95%B0%E8%BF%99%E4%BB%B6%E4%BA%8B/" />
+
 
 
 
@@ -58,18 +58,26 @@
 
 
 
-<meta property="og:title" content="Tags" />
-<meta property="og:description" content="卡里的技术博客,主要关注于前端开发，前端开发的个人博客网站" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://gaocarri.top/tags/" />
+<meta property="og:title" content="Vue关于data为什么是函数这件事" />
+<meta property="og:description" content="Vue关于data为什么是函数这件事" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://gaocarri.top/post/vue%E5%85%B3%E4%BA%8Edata%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E5%87%BD%E6%95%B0%E8%BF%99%E4%BB%B6%E4%BA%8B/" />
+<meta property="article:published_time" content="2020-06-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-06-25T00:00:00+00:00" />
+<meta itemprop="name" content="Vue关于data为什么是函数这件事">
+<meta itemprop="description" content="Vue关于data为什么是函数这件事">
 
-<meta property="og:updated_time" content="2020-06-25T00:00:00+00:00" />
-<meta itemprop="name" content="Tags">
-<meta itemprop="description" content="卡里的技术博客,主要关注于前端开发，前端开发的个人博客网站">
 
+<meta itemprop="datePublished" content="2020-06-25T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-06-25T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="979">
+
+
+
+<meta itemprop="keywords" content="Vue,框架," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Tags"/>
-<meta name="twitter:description" content="卡里的技术博客,主要关注于前端开发，前端开发的个人博客网站"/>
+<meta name="twitter:title" content="Vue关于data为什么是函数这件事"/>
+<meta name="twitter:description" content="Vue关于data为什么是函数这件事"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -292,7 +300,7 @@ if (!doNotTrack) {
 
       </li>
     
-        <li class="menu-item active">
+        <li class="menu-item">
         
           
           
@@ -353,7 +361,262 @@ if (!doNotTrack) {
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">Vue关于data为什么是函数这件事</h1>
+      
+      <div class="post-meta">
+        <time datetime="2020-06-25" class="post-time">
+          2020-06-25
+        </time>
+        <div class="post-category">
+            <a href="http://gaocarri.top/categories/vue/"> Vue </a>
+            
+          </div>
+        <span class="more-meta"> 约 979 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#什么是vue组件">什么是Vue组件</a></li>
+<li><a href="#data为啥么是函数不是对象">data为啥么是函数不是对象</a></li>
+<li><a href="#不使用函数和使用函数示例">不使用函数和使用函数示例</a>
+<ul>
+<li><a href="#不使用函数">不使用函数</a></li>
+<li><a href="#使用函数">使用函数</a></li>
+</ul></li>
+<li><a href="#总结">总结</a></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p>Vue组件data为什么是函数，面试的时候被问到了，感觉解释的不太清楚，借博客整理一下</p>
+
+<h1 id="什么是vue组件">什么是Vue组件</h1>
+
+<p>这里先借用官方的解释:</p>
+
+<p>组件是可复用的 Vue 实例，且带有一个名字：在这个例子中是 <code>&lt;button-counter&gt;</code>，如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-vue" data-lang="vue"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-vue" data-lang="vue"><span class="nx">Vue</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">&#39;button-counter&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">count</span><span class="o">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&lt;button v-on:click=&#34;count++&#34;&gt;You clicked me {{ count }} times.&lt;/button&gt;&#39;</span>
+<span class="p">})</span></code></pre></td></tr></table>
+</div>
+</div>
+<h1 id="data为啥么是函数不是对象">data为啥么是函数不是对象</h1>
+
+<p>官方已经解释了，一个vue组件就是一个vue实例。</p>
+
+<p>在JS当中实例是通过构造函数来创建的，每个构造函数可以<code>new</code>出很多个实例，那么每个实例都会继承原型上的方法或属性。</p>
+
+<p>vue的data数据其实是vue组件原型上的属性，数据存在于内存当中</p>
+
+<p>vue组件为了保证每个实例上的data数据的独立性，规定了必须使用函数，而不是对象。</p>
+
+<p>因为使用对象的话，每个实例（组件）上使用的data数据是相互影响的，这当然就不是我们想要的了。对象是对于内存地址的引用，直接定义个对象的话组件之间都会使用这个对象，这样会造成组件之间数据相互影响。</p>
+
+<h1 id="不使用函数和使用函数示例">不使用函数和使用函数示例</h1>
+
+<h2 id="不使用函数">不使用函数</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// 创建一个简单的构建函数
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">MyComponent</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    
+<span class="p">}</span>
+<span class="c1">// 原型链对象上设置data数据，为里为Object
+</span><span class="c1"></span><span class="nx">MyComponent</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;abc&#39;</span><span class="p">,</span>
+  <span class="nx">age</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="c1">// 创建两个实例:小明，小红
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">xiaoming</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MyComponent</span><span class="p">()</span>
+<span class="kd">var</span> <span class="nx">xiaohong</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MyComponent</span><span class="p">()</span>
+<span class="c1">// 默认状态下小明和小红的年龄一样
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xiaoming</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">age</span> <span class="o">===</span> <span class="nx">xiaohong</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span> <span class="c1">// true
+</span><span class="c1">// 改变一下小明的年龄
+</span><span class="c1"></span><span class="nx">xiaoming</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="c1">// 打印下小红的年龄，发现因为改变了小明的年龄，结果造成小红的年龄也变了
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xiaoming</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span><span class="c1">// 30
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xiaohong</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span> <span class="c1">// 30
+</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>这是因为小红和小明的<code>data</code>都引用的是同一个内存地址</p>
+
+<h2 id="使用函数">使用函数</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// 创建一个简单的构建函数
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">MyComponent</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// ... code here
+</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="c1">// 原型链对象上设置data数据，为里为Object
+</span><span class="c1"></span><span class="nx">MyComponent</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;abc&#39;</span><span class="p">,</span>
+      <span class="nx">age</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+<span class="c1">// 创建两个实例:小明，小红
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">xiaoming</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MyComponent</span><span class="p">()</span>
+<span class="kd">var</span> <span class="nx">xiaohong</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MyComponent</span><span class="p">()</span>
+<span class="c1">// 默认状态下小明和小红的年龄一样
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xiaoming</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">age</span> <span class="o">===</span> <span class="nx">xiaohong</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span> <span class="c1">// true
+</span><span class="c1">// 改变一下小明的年龄
+</span><span class="c1"></span><span class="nx">xiaoming</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="c1">// 打印下小红的年龄，发现因为必变了小明的年龄，结果造成小红的年龄也变了
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xiaoming</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span><span class="c1">//30
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xiaohong</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span> <span class="c1">// 20
+</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>使用函数后，使用的是data()函数，data()函数中的this指向的是当前实例本身</p>
+
+<h1 id="总结">总结</h1>
+
+<p>当一个组件被定义， data 必须声明为返回一个初始数据对象的函数，因为组件可能被用来创建多个实例。如果 data 仍然是一个纯粹的对象，则所有的实例将共享引用同一个数据对象！通过提供 data 函数，每次创建一个新实例后，我们能够调用 data 函数，从而返回初始数据的一个全新副本数据对象。</p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Carri</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2020-06-25
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://gaocarri.top/tags/vue/">Vue</a>
+          <a href="http://gaocarri.top/tags/%E6%A1%86%E6%9E%B6/">框架</a>
           
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/%E5%BD%BB%E5%BA%95%E6%90%9E%E6%87%82301%E5%92%8C302%E7%8A%B6%E6%80%81%E7%A0%81/">
+            <span class="next-text nav-default">彻底搞懂301和302状态码</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
   
   
   
@@ -361,488 +624,31 @@ if (!doNotTrack) {
 
   
   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="tag-cloud" style="padding: 5px 15px">
-      <div class="tag-cloud-title">
-        共计 42 个标签
-      </div>
-      <div class="tag-cloud-tags">
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/ajax/"
-          style="font-size:1rem">ajax</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/css%E5%9F%BA%E7%A1%80/"
-          style="font-size:1rem">css基础</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/css%E5%B8%83%E5%B1%80/"
-          style="font-size:1rem">css布局</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/dom/"
-          style="font-size:1.5412732100717952rem">dom</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/element-ui/"
-          style="font-size:1rem">element-ui</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/es6/"
-          style="font-size:1rem">es6</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/flex/"
-          style="font-size:1rem">flex</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/float/"
-          style="font-size:1rem">float</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/git/"
-          style="font-size:1rem">git</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/grid/"
-          style="font-size:1rem">grid</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/hashmap/"
-          style="font-size:1rem">hashmap</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/html/"
-          style="font-size:1.3415053730454294rem">html</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/http/"
-          style="font-size:1.3415053730454294rem">http</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/hugo/"
-          style="font-size:1rem">hugo</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/javascript/"
-          style="font-size:2.3002321629736344rem">javascript</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/javascript%E5%85%A5%E9%97%A8/"
-          style="font-size:1.683010746090859rem">javascript入门</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/javascript%E8%AF%AD%E6%B3%95/"
-          style="font-size:1.5412732100717952rem">javascript语法</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/jquery/"
-          style="font-size:1rem">jquery</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/js/"
-          style="font-size:2.082546420143591rem">js</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/js%E5%BA%93/"
-          style="font-size:1rem">js库</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/react/"
-          style="font-size:1.9587267899282046rem">react</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/this/"
-          style="font-size:1rem">this</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/typescript/"
-          style="font-size:2.1344562932746016rem">typescript</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/url/"
-          style="font-size:1.3415053730454294rem">url</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/vue/"
-          style="font-size:2.475961666320031rem">vue</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/%E5%87%BD%E6%95%B0/"
-          style="font-size:1rem">函数</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8/"
-          style="font-size:1.3415053730454294rem">博客使用</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/%E5%8E%9F%E5%9E%8B/"
-          style="font-size:1.3415053730454294rem">原型</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/%E5%AF%B9%E8%B1%A1/"
-          style="font-size:1rem">对象</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/%E5%BC%82%E6%AD%A5/"
-          style="font-size:1rem">异步</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/"
-          style="font-size:1rem">执行时机</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/%E6%8E%92%E5%BA%8F/"
-          style="font-size:1rem">排序</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"
-          style="font-size:1.8827785831172248rem">数据结构</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"
-          style="font-size:1.8827785831172248rem">数据结构与算法</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/%E6%A1%86%E6%9E%B6/"
-          style="font-size:2.475961666320031rem">框架</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/"
-          style="font-size:1rem">浏览器渲染原理</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/"
-          style="font-size:1rem">盒模型</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/%E7%AC%94%E8%AE%B0/"
-          style="font-size:1.3415053730454294rem">笔记</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/%E7%BB%A7%E6%89%BF/"
-          style="font-size:1rem">继承</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/%E7%BD%91%E7%BB%9C/"
-          style="font-size:1.3415053730454294rem">网络</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/%E8%B7%A8%E5%9F%9F/"
-          style="font-size:1rem">跨域</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="http://gaocarri.top/tags/%E9%97%AD%E5%8C%85/"
-          style="font-size:1rem">闭包</a>
-        
-      
-      </div>
+
+  
+
+  
+  
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "gaocarri/comments-for-blog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
     </div>
   
+
   
 
+  
+
+  
+
+    
+
+  
 
         </div>
       </div>
@@ -965,6 +771,13 @@ if (!doNotTrack) {
 
 
 
+  <script type="text/javascript">
+    window.MathJax = {
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 
 
