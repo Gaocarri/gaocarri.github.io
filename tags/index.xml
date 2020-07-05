@@ -6,10 +6,19 @@
     <description>Recent content in Tags on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 25 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 04 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.top/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HTML</title>
+      <link>http://gaocarri.top/tags/html/</link>
+      <pubDate>Sat, 04 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/tags/html/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Vue</title>
@@ -350,15 +359,6 @@
       <pubDate>Wed, 30 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>http://gaocarri.top/tags/grid/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>HTML</title>
-      <link>http://gaocarri.top/tags/html/</link>
-      <pubDate>Tue, 29 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/tags/html/</guid>
       <description></description>
     </item>
     
