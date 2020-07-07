@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 04 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.top/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CSS关于文本换行与不换行的那些事</title>
+      <link>http://gaocarri.top/post/css%E5%85%B3%E4%BA%8E%E6%96%87%E6%9C%AC%E6%8D%A2%E8%A1%8C%E4%B8%8E%E4%B8%8D%E6%8D%A2%E8%A1%8C%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/css%E5%85%B3%E4%BA%8E%E6%96%87%E6%9C%AC%E6%8D%A2%E8%A1%8C%E4%B8%8E%E4%B8%8D%E6%8D%A2%E8%A1%8C%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/</guid>
+      <description>关于换行的样式属性 标粗的是常用属性，会在后面的场景里用到 1.white-space: normal | pre | nowrap | pre-wrap | pre-line | inherit; white-space 属性设置如何处理元素内的空白 设值说明： normal 默认。空白会被浏览</description>
+    </item>
     
     <item>
       <title>详述meta标签</title>
@@ -450,15 +459,6 @@
       
       <guid>http://gaocarri.top/post/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
       <description>表达式和语句 表达式 1+2表达式的值是3 add(1,2)表达式的值是函数的返回值 console.log表达式的值为函数本身 console.lo</description>
-    </item>
-    
-    <item>
-      <title>初识JavaScript</title>
-      <link>http://gaocarri.top/post/%E5%88%9D%E8%AF%86javascript/</link>
-      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/post/%E5%88%9D%E8%AF%86javascript/</guid>
-      <description>JavaScript的诞生(参考阮一峰的博客) 诞生: JavaScript由Brendan Eich于1995年发明（只花了十天）。 目的: 网景公</description>
     </item>
     
   </channel>

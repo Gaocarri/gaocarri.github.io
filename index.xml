@@ -6,7 +6,7 @@
     <description>Recent content on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 04 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jul 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="http://gaocarri.top/index.xml" rel="self" type="application/rss+xml" />
     
@@ -39,6 +39,162 @@
 &lt;li&gt;主要用于记录一些文章，学习笔记，偶尔分享一下心情&lt;/li&gt;
 &lt;li&gt;技艺不精，本站会陆续添加其他功能，敬请期待！&lt;/li&gt;
 &lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>CSS关于文本换行与不换行的那些事</title>
+      <link>http://gaocarri.top/post/css%E5%85%B3%E4%BA%8E%E6%96%87%E6%9C%AC%E6%8D%A2%E8%A1%8C%E4%B8%8E%E4%B8%8D%E6%8D%A2%E8%A1%8C%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/css%E5%85%B3%E4%BA%8E%E6%96%87%E6%9C%AC%E6%8D%A2%E8%A1%8C%E4%B8%8E%E4%B8%8D%E6%8D%A2%E8%A1%8C%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/</guid>
+      
+        <description>
+
+&lt;h1 id=&#34;关于换行的样式属性&#34;&gt;关于换行的样式属性&lt;/h1&gt;
+
+&lt;p&gt;标粗的是常用属性，会在后面的场景里用到&lt;/p&gt;
+
+&lt;h4 id=&#34;1-white-space-normal-pre-nowrap-pre-wrap-pre-line-inherit&#34;&gt;1.white-space: normal | pre | nowrap | pre-wrap | pre-line | inherit;&lt;/h4&gt;
+
+&lt;p&gt;white-space 属性设置如何处理元素内的空白&lt;/p&gt;
+
+&lt;p&gt;设值说明：
+ normal 默认。空白会被浏览器忽略。
+ pre 空白会被浏览器保留。其行为方式类似 HTML 中的 pre 标签。
+ &lt;strong&gt;nowrap文本不会换行，文本会在在同一行上继续，直到遇到 br 标签为止。&lt;/strong&gt;
+ pre-wrap 保留空白符序列，但是正常地进行换行。
+ pre-line 合并空白符序列，但是保留换行符。
+ inherit 规定应该从父元素继承 white-space 属性的值。&lt;/p&gt;
+
+&lt;h4 id=&#34;2-word-wrap-normal-break-word&#34;&gt;2.word-wrap: normal|break-word;&lt;/h4&gt;
+
+&lt;p&gt;word-wrap 属性用来标明是否允许浏览器在单词内进行断句，这是为了防止当一个字符串太长而找不到它的自然断句点时产生溢出现象。&lt;/p&gt;
+
+&lt;p&gt;设置说明：
+ normal: 只在允许的断字点换行(浏览器保持默认处理)
+ &lt;strong&gt;break-word:在长单词或URL地址内部进行换行&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;3-word-break-normal-break-all-keep-all&#34;&gt;3.word-break: normal|break-all|keep-all;&lt;/h4&gt;
+
+&lt;p&gt;word-break 属性用来标明怎么样进行单词内的断句。&lt;/p&gt;
+
+&lt;p&gt;设值说明：
+ normal：使用浏览器默认的换行规则。
+ &lt;strong&gt;break-all:允许在单词内换行&lt;/strong&gt;
+ keep-all:只能在半角空格或连字符处换行&lt;/p&gt;
+
+&lt;h1 id=&#34;常见的场景&#34;&gt;常见的场景&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;强制文本一行展示，超出一行范围的文本用省略号表示；&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;设置文本一行或多行（规定行）展示，超出规定范围的文本直接隐藏；&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;自动换行，过长英文单词进行强制断行；&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;场景1&#34;&gt;场景1&lt;/h1&gt;
+
+&lt;p&gt;强制文本一行展示，超出一行范围的文本用省略号表示&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;// HTML
+&amp;lt;p id=&amp;#34;txt&amp;#34;&amp;gt;爱是一盏灯，黑暗中照亮前行的远方；爱是一首诗，冰冷中温暖渴求的心房；爱是夏日的风，是冬日的阳，是春日的雨，是秋日的果。&amp;lt;/p&amp;gt;
+
+// CSS
+#txt{
+  border:1px solid red;
+  
+  width:300px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a href=&#34;https://jsbin.com/magalubive/edit?html,css,output&#34;&gt;点击查看效果&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;场景2&#34;&gt;场景2&lt;/h1&gt;
+
+&lt;p&gt;设置文本一行或多行（规定行）展示，超出规定范围的文本直接隐藏；&lt;/p&gt;
+
+&lt;p&gt;场景2相对而言比较复杂，下面提供两种解决方式：&lt;/p&gt;
+
+&lt;h3 id=&#34;使用-webkit的css扩展属性-该方法-适用于webkit浏览器及移动端&#34;&gt;使用&lt;strong&gt;WebKit的CSS扩展属性&lt;/strong&gt;，该方法&lt;strong&gt;适用于WebKit浏览器及移动端&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://jsbin.com/zufozuroba/edit?html,css,output&#34;&gt;点击查看效果&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;注明：CSS3 text-overflow 属性主要有：clip，ellipsis，string。（不在本文讨论范围内）&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;clip: 修剪文本&lt;/li&gt;
+&lt;li&gt;ellipsis：显示省略号来代表被修剪的文本&lt;/li&gt;
+&lt;li&gt;string:  显示给定的字符串来代表修剪的文本&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;利用-绝对定位和padding-跨浏览器-解决方案&#34;&gt;利用&lt;strong&gt;绝对定位和padding&lt;/strong&gt;;(&lt;strong&gt;跨浏览器&lt;/strong&gt;解决方案)&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://jsbin.com/ceyebadacu/edit?html,css,output&#34;&gt;点击查看效果&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;原理：首先在包含文字的元素里，&lt;strong&gt;嵌入一个…&lt;/strong&gt;，然后包含文字的元素右侧留出…的位置(&lt;strong&gt;padding-right&lt;/strong&gt;),最后利用&lt;strong&gt;绝对定位&lt;/strong&gt;将…定位至右侧的padding-right区域。&lt;/p&gt;
+
+&lt;h1 id=&#34;场景3&#34;&gt;场景3&lt;/h1&gt;
+
+&lt;p&gt;自动换行，过长英文单词进行强制断行；&lt;/p&gt;
+
+&lt;p&gt;主要就是两个:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;word-wrap: 允许单词内断句，首先会尝试挪到下一行，看看下一行的宽度够不够，不够的话就进行单词内的断句&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;word{
+	word-wrap:break-word
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;word-break: 断句时，不会把长单词挪到下一行，而是直接进行单词内的断句&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;.word{
+	word-break:break-all;
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://jsbin.com/lemidifuqo/1/edit?html,css,output&#34;&gt;点击案例预览&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;结语&#34;&gt;结语&lt;/h1&gt;
+
+&lt;p&gt;其实这篇写这篇博客的原因是因为字节三面的时候问到了场景2的问题，当时实在憋不出来，思考得出后说应该用JavaScript处理字符串。。。虽然挂的原因方方面面，但是在这种问题上还是不应该出错。&lt;/p&gt;
 </description>
       
     </item>
@@ -14988,362 +15144,6 @@ let person = Object.create(common)&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&g
 &lt;/div&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;可以查看是否含有自身的属性（不包括共有属性），这里的false说明toString是共有属性&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>JS基本语法</title>
-      <link>http://gaocarri.top/post/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
-      <pubDate>Sun, 03 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/post/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
-      
-        <description>
-
-&lt;h1 id=&#34;表达式和语句&#34;&gt;表达式和语句&lt;/h1&gt;
-
-&lt;ol&gt;
-&lt;li&gt;表达式
-
-&lt;ul&gt;
-&lt;li&gt;1+2表达式的值是3&lt;/li&gt;
-&lt;li&gt;add(1,2)表达式的值是函数的返回值&lt;/li&gt;
-&lt;li&gt;console.log表达式的值为函数本身&lt;/li&gt;
-&lt;li&gt;console.log(3)表达式的值为undefined&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;语句
-
-&lt;ul&gt;
-&lt;li&gt;var a =1 是一个语句&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;区别
-
-&lt;ul&gt;
-&lt;li&gt;表达式一般都有值，语句可能有可能没有&lt;/li&gt;
-&lt;li&gt;语句一般会改变环境（赋值，变量）&lt;/li&gt;
-&lt;li&gt;上面两句话并不是绝对的&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&#34;大小写与空格&#34;&gt;大小写与空格&lt;/h1&gt;
-
-&lt;ol&gt;
-&lt;li&gt;JS大小写敏感&lt;/li&gt;
-&lt;li&gt;空格和回车没有实际意义（当return后面跟空格会返回undefined）&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&#34;标识符&#34;&gt;标识符&lt;/h1&gt;
-
-&lt;ol&gt;
-&lt;li&gt;第一个字符,可以是Unicode字母或$或_或中文&lt;/li&gt;
-&lt;li&gt;后面的字符，除了上述字符还可以是数字&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&#34;区块block&#34;&gt;区块block&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;将代码包在一起&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;常常与if/while/for在一起使用&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;{
-let a = 1
-let b = 2
-}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;if语句&#34;&gt;if语句&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;if结构先判断一个表达式的布尔值，然后根据布尔值的真伪，执行不同的语句。所谓布尔值，指的是 JavaScript 的两个特殊值，true表示真，false表示伪&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;if (a === 1){
-console.log(&amp;#39;a是1&amp;#39;)
-}else if(a === 2){
-console.log(&amp;#39;a是2&amp;#39;)
-}else{
-console.log(&amp;#39;a不是1和2&amp;#39;)
-}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;建议总是在if语句中使用大括号，因为这样方便插入语句。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;注意，if后面的表达式之中，不要混淆赋值表达式（=）、严格相等运算符（===）和相等运算符（==）。尤其是赋值表达式不具有比较作用。&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;switch语句&#34;&gt;switch语句&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;多个if&amp;hellip;else连在一起使用的时候，可以转为使用更方便的switch结构。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;switch(fruit){
- case &amp;#39;banana&amp;#39;: 1;
- break;
- case &amp;#39;apple&amp;#39;: 2;
- break;
- case &amp;#39;peach&amp;#39;: 3;
- break;
- default;
-}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;上面代码根据变量fruit的值，选择执行相应的case。如果所有case都不符合，则执行最后的default部分。需要注意的是，每个case代码块内部的break语句不能少，否则会接下去执行下一个case代码块，而不是跳出switch结构。&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;三元运算符&#34;&gt;三元运算符&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;如果条件为true，返回表达式1，否则返回表达式2（if&amp;hellip;else的简写形式）&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;(条件)?表达式1:表达式2&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;while循环&#34;&gt;while循环&lt;/h1&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;var i = 0;
-
-while (i &amp;lt; 100) {
-  console.log(&amp;#39;i 当前为：&amp;#39; + i);
-  i = i + 1;
-}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;上面代码将循环100次直到i=100为止&lt;/li&gt;
-&lt;li&gt;当循环条件为真，会无限循环&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;for循环&#34;&gt;for循环&lt;/h1&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;for (初始化表达式; 条件; 递增表达式) {
-  语句
-}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;初始化表达式（initialize）：确定循环变量的初始值，只在循环开始时执行一次。&lt;/li&gt;
-&lt;li&gt;条件表达式（test）：每轮循环开始时，都要执行这个条件表达式，只有值为真，才继续进行循环。&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;递增表达式（increment）：每轮循环的最后一个操作，通常用来递增循环变量。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;var x = 3;
-for (var i = 0; i &amp;lt; x; i++) {
-console.log(i);
-}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;上面代码中，初始化表达式是var i = 0，即初始化一个变量i；测试表达式是i &amp;lt; x，即只要i小于x，就会执行循环；递增表达式是i++，即每次循环结束后，i增大1。&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;break语句和continue语句&#34;&gt;break语句和continue语句&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;break语句和continue语句都具有跳转作用，可以让代码不按既有的顺序执行。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;while(i &amp;lt; 100) {
-console.log(&amp;#39;i 当前为：&amp;#39; + i);
-i++;
-if (i === 10) break;
-}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;break语句用于跳出代码块或循环。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;上面代码只会执行10次循环，一旦i等于10，就会跳出循环。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;for循环也可以使用break语句跳出循环。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;var i = 0;
-
-while (i &amp;lt; 100){
-i++;
-if (i % 2 === 0) continue;
-console.log(&amp;#39;i 当前为：&amp;#39; + i);
-}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;continue语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮循环。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;上面代码只有在i为奇数时，才会输出i的值。如果i为偶数，则直接进入下一轮循环。&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;label-标签&#34;&gt;label（标签）&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;JavaScript 语言允许，语句的前面有标签（label），相当于定位符，用于跳转到程序的任意位置，标签的格式如下。&lt;/li&gt;
-&lt;li&gt;标签可以是任意的标识符，但不能是保留字，语句部分可以是任意语句。&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;标签通常与break语句和continue语句配合使用，跳出特定的循环。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;top:
-for (var i = 0; i &amp;lt; 3; i++){
-for (var j = 0; j &amp;lt; 3; j++){
-  if (i === 1 &amp;amp;&amp;amp; j === 1) break top;
-  console.log(&amp;#39;i=&amp;#39; + i + &amp;#39;, j=&amp;#39; + j);
-}
-}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;上面代码为一个双重循环区块，break命令后面加上了top标签（注意，top不用加引号），满足条件时，直接跳出双层循环。如果break语句后面不使用标签，则只能跳出内层循环，进入下一次的外层循环。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;foo: {
-console.log(1);
-break foo;
-console.log(&amp;#39;本行不会输出&amp;#39;);
-}
-console.log(2);
-// 1
-// 2&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;标签也可以用于跳出代码块。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;上面代码执行到break foo，就会跳出区块&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;top:
-for (var i = 0; i &amp;lt; 3; i++){
-for (var j = 0; j &amp;lt; 3; j++){
-  if (i === 1 &amp;amp;&amp;amp; j === 1) continue top;
-  console.log(&amp;#39;i=&amp;#39; + i + &amp;#39;, j=&amp;#39; + j);
-}
-}
-// i=0, j=0
-// i=0, j=1
-// i=0, j=2
-// i=1, j=0
-// i=2, j=0
-// i=2, j=1
-// i=2, j=2&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;continue语句也可以与标签配合使用。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;上面代码中，continue命令后面有一个标签名，满足条件时，会跳过当前循环，直接进入下一轮外层循环。如果continue语句后面不使用标签，则只能进入下一轮的内层循环。&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
       
