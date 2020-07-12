@@ -217,11 +217,14 @@
 
 &lt;h2 id=&#34;meta标签的属性分类&#34;&gt;meta标签的属性分类&lt;/h2&gt;
 
-&lt;p&gt;直接参考MDN：
-* 如果设置了 charset 属性，meta 元素是一个字符集声明，告诉文档使用哪种字符编码。
-* 如果设置了 name 属性，meta 元素提供的是文档级别（document-level）的元数据，应用于整个页面。
-* 如果设置了 http-equiv 属性，meta 元素则是编译指令，提供的信息与类似命名的HTTP头部相同。
-* 如果设置了 itemprop 属性，meta 元素提供用户定义的元数据。&lt;/p&gt;
+&lt;p&gt;直接参考MDN：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;如果设置了 charset 属性，meta 元素是一个字符集声明，告诉文档使用哪种字符编码。&lt;/li&gt;
+&lt;li&gt;如果设置了 name 属性，meta 元素提供的是文档级别（document-level）的元数据，应用于整个页面。&lt;/li&gt;
+&lt;li&gt;如果设置了 http-equiv 属性，meta 元素则是编译指令，提供的信息与类似命名的HTTP头部相同。&lt;/li&gt;
+&lt;li&gt;如果设置了 itemprop 属性，meta 元素提供用户定义的元数据。&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;这里主要讨论前三种&lt;/p&gt;
 
