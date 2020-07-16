@@ -6,7 +6,7 @@
     <description>Recent content on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 07 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jul 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="http://gaocarri.top/index.xml" rel="self" type="application/rss+xml" />
     
@@ -39,6 +39,216 @@
 &lt;li&gt;主要用于记录一些文章，学习笔记，偶尔分享一下心情&lt;/li&gt;
 &lt;li&gt;技艺不精，本站会陆续添加其他功能，敬请期待！&lt;/li&gt;
 &lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Vue冷门api之provide</title>
+      <link>http://gaocarri.top/post/vue%E5%86%B7%E9%97%A8api%E4%B9%8Bprovide/</link>
+      <pubDate>Thu, 16 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/vue%E5%86%B7%E9%97%A8api%E4%B9%8Bprovide/</guid>
+      
+        <description>
+
+&lt;h1 id=&#34;常见的组件通信方式&#34;&gt;常见的组件通信方式&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;props&lt;/li&gt;
+&lt;li&gt;eventBus&lt;/li&gt;
+&lt;li&gt;ref与$children,$parent访问组件实例&lt;/li&gt;
+&lt;li&gt;Vuex&lt;/li&gt;
+&lt;li&gt;以上不做赘述了&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;provide-inject作用&#34;&gt;provide/inject作用&lt;/h1&gt;
+
+&lt;p&gt;我们先来看看官网的例子&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 父级组件提供 &amp;#39;foo&amp;#39;
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Provider&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;nx&#34;&gt;provide&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;nx&#34;&gt;foo&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;bar&amp;#39;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;// ...
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;// 子组件注入 &amp;#39;foo&amp;#39;
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Child&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;nx&#34;&gt;inject&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;foo&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;
+  &lt;span class=&#34;nx&#34;&gt;created&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;foo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// =&amp;gt; &amp;#34;bar&amp;#34;
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;// ...
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;我们顾名思义，provide(提供)就是指定我们想要&lt;strong&gt;提供给&lt;/strong&gt;后代组件的数据或方法，而inject是用来&lt;strong&gt;接受&lt;/strong&gt;provide提供的数据或方法。&lt;/p&gt;
+
+&lt;p&gt;其实这种方式很像React Hooks里的useContext，关于hooks的内容可以参见我之前的博客。&lt;/p&gt;
+
+&lt;h1 id=&#34;使用provide作全局状态管理&#34;&gt;使用provide作全局状态管理&lt;/h1&gt;
+
+&lt;p&gt;一般全局状态管理都用Vuex，其实provide也可以实现全局状态管理。&lt;/p&gt;
+
+&lt;p&gt;如何做全局状态管理呢？很多人可能想到在根组件中传入变量，然后在后代组件中使用。我们来通过这个例子看一看它的利弊&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;// 根组件提供一个非响应式变量给后代组件
+export default {
+  provide () {
+    return {
+      text: &amp;#39;bar&amp;#39;
+    }
+  }
+}
+
+// 后代组件注入 &amp;#39;app&amp;#39;
+&amp;lt;template&amp;gt;
+	&amp;lt;div&amp;gt;{{this.text}}&amp;lt;/div&amp;gt;
+&amp;lt;/template&amp;gt;
+&amp;lt;script&amp;gt;
+  export default {
+    inject: [&amp;#39;text&amp;#39;],
+    created() {
+      this.text = &amp;#39;baz&amp;#39; // 在模板中，依然显示 &amp;#39;bar&amp;#39;
+    }
+  }
+&amp;lt;/script&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;首先，官方文档中有这样一句提示&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;提示：provide 和 inject 绑定并不是可响应的。这是刻意为之的。然而，如果你传入了一个可监听的对象，那么其对象的属性还是可响应的。&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;结合上面的例子，我们发现传入的text并不是响应式的（也就是说无法对provide提供的数据进行响应式处理，除非提供一个响应式的数据）&lt;/p&gt;
+
+&lt;p&gt;那么如何解决响应式的问题呢？很简单，我们可以将组件本身全部注入provide,此时我们就可以在后代中任意访问根组件中的所有状态。&lt;/p&gt;
+
+&lt;p&gt;来看下面这个例子&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 根组件提供将自身提供给后代组件
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;default&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;nx&#34;&gt;provide&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+      &lt;span class=&#34;nx&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+  &lt;span class=&#34;nx&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+      &lt;span class=&#34;nx&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;bar&amp;#39;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;// 后代组件注入 &amp;#39;app&amp;#39;
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;template&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{{&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}}&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;/template&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;kr&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;default&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;nx&#34;&gt;inject&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;app&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;
+    &lt;span class=&#34;nx&#34;&gt;created&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+      &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;text&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;baz&amp;#39;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 在模板中，显示 &amp;#39;baz&amp;#39;
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;/script&amp;gt;	&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;那么问题来了，我们可以直接通过this.$root来获取根组件为什么还要使用provide&lt;/p&gt;
+
+&lt;p&gt;答：使用provide可以在不同模块的入口组件传数据给各自的模块，如果放在根模块，很容易造成冲突。&lt;/p&gt;
+
+&lt;h1 id=&#34;慎用provide&#34;&gt;慎用provide&lt;/h1&gt;
+
+&lt;p&gt;既然 provide/inject 如此好用，那么，为什么 Vue 官方还要推荐我们使用 Vuex，而不是用原生的 API 呢？&lt;/p&gt;
+
+&lt;p&gt;我在前面提到过，Vuex 和 provide/inject 最大的区别在于，Vuex 中的全局状态的每次修改是可以追踪回溯的（使用Vue Devtools），而 provide/inject 中变量的修改是无法控制的，换句话说，你不知道是哪个组件修改了这个全局状态。&lt;/p&gt;
+
+&lt;p&gt;Vue 的设计理念借鉴了 React 中的单向数据流原则，而 provide/inject 明显破坏了单向数据流原则。试想，如果有多个后代组件同时依赖于一个祖先组件提供的状态，那么只要有一个组件修改了该状态，那么所有组件都会受到影响。这会导致数据的不可控。&lt;/p&gt;
+
+&lt;h1 id=&#34;总结&#34;&gt;总结&lt;/h1&gt;
+
+&lt;p&gt;尽管provide/inject是一个冷门api，但是在特殊的情况下它仍有其作用。花了点时间了解了一下，感觉看到了不一样的风景&lt;/p&gt;
 </description>
       
     </item>
@@ -15003,150 +15213,6 @@ console.log(j)
 &lt;/div&gt;
 &lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>JS对象基本用法</title>
-      <link>http://gaocarri.top/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</link>
-      <pubDate>Mon, 04 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</guid>
-      
-        <description>
-
-&lt;h1 id=&#34;声明对象的两种语法&#34;&gt;声明对象的两种语法&lt;/h1&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;// 第1种：
-let obj = { &amp;#39;name&amp;#39;: &amp;#39;frank&amp;#39;, &amp;#39;age&amp;#39;: 18 }
-// 第2种：
-let obj = new Object({&amp;#39;name&amp;#39;: &amp;#39;frank&amp;#39;})&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;键名必须是字符串，引号大部分时候可以省略（空格和中文时不可省）&lt;/li&gt;
-&lt;li&gt;就算引号省略了，字符串还是字符串&lt;/li&gt;
-&lt;li&gt;第2种是标准的写法，但大多数时候下用第1种即可&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;如何删除对象的属性&#34;&gt;如何删除对象的属性&lt;/h1&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;delete obj.name
-//或
-delete obj[&amp;#39;name&amp;#39;]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;可以删除&amp;rsquo;name&amp;rsquo;这个属性&lt;/li&gt;
-&lt;li&gt;obj.xxx===undefined 不能判断xxx是不是obj的属性，也有可能有这个属性但是未定义&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;如何查看对象的属性&#34;&gt;如何查看对象的属性&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;Object.keys(obj)&lt;/code&gt;查看obj的属性有哪些&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;console.dir(obj)&lt;/code&gt;查看obj的属性及属性值&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;obj[&#39;name&#39;]&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;obj.name&lt;/code&gt;注意这里的name是字符串&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;obj[name]&lt;/code&gt;注意这里的name是变量&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;如何修改或增加对象的属性&#34;&gt;如何修改或增加对象的属性&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;直接赋值&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;let obj = {name: &amp;#39;frank&amp;#39;} // name是字符串
-obj.name = &amp;#39;frank&amp;#39; // name是字符串
-obj[&amp;#39;name&amp;#39;] = &amp;#39;frank&amp;#39;
-obj[name] = &amp;#39;frank&amp;#39; // name是变量，所以错，无法这么赋值
-obj[&amp;#39;na&amp;#39;+&amp;#39;me&amp;#39;] = &amp;#39;frank&amp;#39;
-let key = &amp;#39;name&amp;#39;; obj[key] = &amp;#39;frank&amp;#39;
-let key = &amp;#39;name&amp;#39;; obj.key = &amp;#39;frank&amp;#39; //错，因为等价于obj.key等价于obj[&amp;#39;key&amp;#39;]，但key是变量&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;批量赋值&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;Object.assign(obj, {age: 18, gender: &amp;#39;man&amp;#39;})&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;无法通过自身来修改原型，一般不要修改原型(可以obj.&lt;strong&gt;proto&lt;/strong&gt;.toString = &amp;lsquo;xxx&amp;rsquo;，但不要这么做，容易混乱)&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;let common = {
-&amp;#39;国&amp;#39;:&amp;#39;中国&amp;#39;，
-hairColor:&amp;#39;black&amp;#39;
-}
-let person = Object.create(common)&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;以common为原型创造person&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;person的原型就是common，但是common有原型&lt;strong&gt;proto&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;name-in-obj和obj-hasownproperty-name-的区别&#34;&gt;&amp;lsquo;name&amp;rsquo; in obj和obj.hasOwnProperty(&amp;lsquo;name&amp;rsquo;) 的区别&lt;/h1&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&amp;#39;xxx&amp;#39; in obj === false&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;false说明不含该属性，true说明含该属性&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;可以看共有属性是否含有（区别）&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;obj.hasOwnProperty(&amp;#39;toString&amp;#39;) === false&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;可以查看是否含有自身的属性（不包括共有属性），这里的false说明toString是共有属性&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
       

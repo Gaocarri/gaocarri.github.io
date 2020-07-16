@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 07 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://gaocarri.top/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vue冷门api之provide</title>
+      <link>http://gaocarri.top/post/vue%E5%86%B7%E9%97%A8api%E4%B9%8Bprovide/</link>
+      <pubDate>Thu, 16 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/vue%E5%86%B7%E9%97%A8api%E4%B9%8Bprovide/</guid>
+      <description>常见的组件通信方式 props eventBus ref与$children,$parent访问组件实例 Vuex 以上不做赘述了 provide/inject作用 我们先来看看官网</description>
+    </item>
     
     <item>
       <title>CSS关于文本换行与不换行的那些事</title>
@@ -450,15 +459,6 @@
       
       <guid>http://gaocarri.top/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</guid>
       <description>声明对象的两种语法 1 2 3 4 // 第1种： let obj = { &amp;#39;name&amp;#39;: &amp;#39;frank&amp;#39;, &amp;#39;age&amp;#39;: 18 } // 第2种： let obj = new Object({&amp;#39;name&amp;#39;: &amp;#39;frank&amp;#39;}) 键名必须是字符串，引号大部分时候可以省略（空格和中文时不可省） 就</description>
-    </item>
-    
-    <item>
-      <title>JS基本语法</title>
-      <link>http://gaocarri.top/post/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
-      <pubDate>Sun, 03 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/post/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
-      <description>表达式和语句 表达式 1+2表达式的值是3 add(1,2)表达式的值是函数的返回值 console.log表达式的值为函数本身 console.lo</description>
     </item>
     
   </channel>
