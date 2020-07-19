@@ -70,7 +70,7 @@
 
 <meta itemprop="datePublished" content="2019-11-23T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-23T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="654">
+<meta itemprop="wordCount" content="575">
 
 
 
@@ -374,7 +374,7 @@ if (!doNotTrack) {
             <a href="http://gaocarri.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"> 数据结构与算法 </a>
             
           </div>
-        <span class="more-meta"> 约 654 字 </span>
+        <span class="more-meta"> 约 575 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
 
         
@@ -429,40 +429,20 @@ if (!doNotTrack) {
 </span><span class="lnt">10
 </span><span class="lnt">11
 </span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">    let min = (numbers) =&gt; {
-        if (numbers.length &gt; 2) {
-            return min([numbers[0], min(numbers.slice(1))]);
-        } else {
-            return Math.min.apply(null, numbers)
-        }
-    }
-        //2. 用递归排序数组
-    let minIndex = (numbers) =&gt; {
-        return numbers.indexOf(min(numbers))
-    }
+<pre class="chroma">function choseSort(arr){
+for(let i = 0;i&lt;arr.length-1;i++){
+for(let j = i;j&lt;arr.length;j++){
+  if(arr[j]&lt;arr[i]){
+    [arr[i],arr[j]] = [arr[j],arr[i]]
+  }
+}
+}
+return arr
+}
 
-    let sort = (numbers) =&gt; {
-        if (numbers.length &gt; 2) {
-            let Index = minIndex(numbers);
-            let min = numbers[Index];
-            numbers.splice(Index, 1);
-            return [min].concat(sort(numbers));
-        } else {
-            return numbers[0] &lt; numbers[1] ? numbers : numbers.reverse()
-        }
-    }</pre></td></tr></table>
+console.log(choseSort([1,5,2,3,6,2,3,6]))</pre></td></tr></table>
 </div>
 </div></li>
 </ul>
@@ -470,7 +450,7 @@ if (!doNotTrack) {
 <h1 id="快速排序">快速排序</h1>
 
 <ul>
-<li><p>快速排序的思想，将数组分成两段，抽出中间这个数，将其他数与其比较大小，将小的放到它的左边，大的放到它右边，重复此过程</p>
+<li><p>快速排序的思想，将数组分成两段，抽出一个基准，将其他数与其比较大小，将小的放到它的左边，大的放到它右边，重复此过程</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt"> 1
@@ -491,26 +471,40 @@ if (!doNotTrack) {
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">    let quickSort = (arr) =&gt; {
-        if (arr.length &lt;= 1) {
-            return arr;
-        }
-        let pivotIndex = Math.floor(arr.length / 2);
-        let pivot = arr.splice(pivotIndex, 1)[0];
-        let left = [];
-        let right = [];
-        for (let i = 0; i &lt; arr.length; i++) {
-            if (arr[i] &lt; pivot) {
-                left.push(arr[i]);
-            } else {
-                right.push(arr[i])
-            }
-        }
-        return quickSort(left).concat([pivot], quickSort(right));
-    }
-    let x = [8, 2, 9, 4, 6, 1, 1];</pre></td></tr></table>
+<pre class="chroma">   function quickSort(arr){
+function partition(arr,left,right){
+let pivot = arr[right]
+let storeIndex = left
+for(let i = left;i&lt;right;i++){
+  if(arr[i]&lt;pivot){
+    [arr[left],arr[storeIndex]] = [arr[storeIndex],arr[left]]
+    storeIndex++
+  }
+}
+[arr[storeIndex],arr[right]] = [arr[right],arr[storeIndex]]
+return storeIndex
+}
+function sort(arr,left,right){
+ if(left&gt;=right) return
+ let storeIndex = partition(arr,left,right)
+ console.log(storeIndex)
+ sort(arr,left,storeIndex-1)
+ sort(arr,storeIndex+1,right)
+}
+sort(arr,0,arr.length-1)
+return arr
+}
+
+console.log(quickSort([8, 4, 90,1000,29]));</pre></td></tr></table>
 </div>
 </div></li>
 </ul>
