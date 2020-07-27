@@ -14,7 +14,7 @@
     <item>
       <title>关于我</title>
       <link>http://gaocarri.top/%E5%85%B3%E4%BA%8E%E6%88%91/</link>
-      <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 14 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>http://gaocarri.top/%E5%85%B3%E4%BA%8E%E6%88%91/</guid>
       
@@ -30,6 +30,7 @@
 &lt;li&gt;然而并没有什么卵用&lt;/li&gt;
 &lt;li&gt;我是非科班 半路出家&lt;/li&gt;
 &lt;li&gt;自知起步不如别人 所以会加倍努力&lt;/li&gt;
+&lt;li&gt;目前技术栈Vue+TypeScript,React也会点儿&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;关于本站&#34;&gt;关于本站&lt;/h2&gt;
@@ -1209,8 +1210,9 @@ const [m,setM] = myUseState(0)
 &lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;5.因为顺序的原因，myUse不能放在if..else..里,可以自己尝试一下原版的useState，提示组件调用的Hook不能有顺序变化
-6.myUseState还有一个问题，两个组件不能同时用这个_state和index&lt;/p&gt;
+&lt;p&gt;5.因为顺序的原因，myUse不能放在if..else..里,可以自己尝试一下原版的useState，提示组件调用的Hook不能有顺序变化&lt;/p&gt;
+
+&lt;p&gt;6.myUseState还有一个问题，两个组件不能同时用这个_state和index&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;React的解决办法，放在组件对应的虚拟节点对象上&lt;/li&gt;
@@ -1222,7 +1224,7 @@ const [m,setM] = myUseState(0)
 &lt;li&gt;每个函数组件对应一个React节点&lt;/li&gt;
 &lt;li&gt;每个节点保存着state和index&lt;/li&gt;
 &lt;li&gt;useState会读取state[index]&lt;/li&gt;
-&lt;li&gt;index由useState出现的顺序决定&lt;/li&gt;
+&lt;li&gt;index由useState出现的顺序决定(当组件重新渲染的时候会将index置为0，然后根据调用的顺序来取用state，所以不能把useState放在if判断里)&lt;/li&gt;
 &lt;li&gt;setState会修改state，并触发更新&lt;/li&gt;
 &lt;/ul&gt;
 

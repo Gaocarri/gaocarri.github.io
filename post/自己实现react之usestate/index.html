@@ -70,7 +70,7 @@
 
 <meta itemprop="datePublished" content="2020-05-30T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-05-30T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="721">
+<meta itemprop="wordCount" content="782">
 
 
 
@@ -374,7 +374,7 @@ if (!doNotTrack) {
             <a href="http://gaocarri.top/categories/react/"> React </a>
             
           </div>
-        <span class="more-meta"> 约 721 字 </span>
+        <span class="more-meta"> 约 782 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
 
         
@@ -522,8 +522,9 @@ const [m,setM] = myUseState(0)
 </div></li>
 </ul>
 
-<p>5.因为顺序的原因，myUse不能放在if..else..里,可以自己尝试一下原版的useState，提示组件调用的Hook不能有顺序变化
-6.myUseState还有一个问题，两个组件不能同时用这个_state和index</p>
+<p>5.因为顺序的原因，myUse不能放在if..else..里,可以自己尝试一下原版的useState，提示组件调用的Hook不能有顺序变化</p>
+
+<p>6.myUseState还有一个问题，两个组件不能同时用这个_state和index</p>
 
 <ul>
 <li>React的解决办法，放在组件对应的虚拟节点对象上</li>
@@ -535,7 +536,7 @@ const [m,setM] = myUseState(0)
 <li>每个函数组件对应一个React节点</li>
 <li>每个节点保存着state和index</li>
 <li>useState会读取state[index]</li>
-<li>index由useState出现的顺序决定</li>
+<li>index由useState出现的顺序决定(当组件重新渲染的时候会将index置为0，然后根据调用的顺序来取用state，所以不能把useState放在if判断里)</li>
 <li>setState会修改state，并触发更新</li>
 </ul>
 
