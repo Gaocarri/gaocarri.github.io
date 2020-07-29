@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Vue冷门api之provide - 卡里的技术博客</title>
+  <title>axios拦截器原理 - 卡里的技术博客</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -22,8 +22,8 @@
 
 <meta name="mobile-web-app-capable" content="yes">
 
-<meta name="author" content="Carri" /><meta name="description" content="Vue冷门api之provide" />
-<meta name="keywords" content="Vue, 框架" />
+<meta name="author" content="Carri" /><meta name="description" content="axios拦截器原理" />
+<meta name="keywords" content="javascript, 库" />
 
 
 
@@ -34,7 +34,7 @@
 <meta name="generator" content="Hugo 0.59.0" />
 
 
-<link rel="canonical" href="http://gaocarri.top/post/vue%E5%86%B7%E9%97%A8api%E4%B9%8Bprovide/" />
+<link rel="canonical" href="http://gaocarri.top/post/axios%E6%8B%A6%E6%88%AA%E5%99%A8%E5%8E%9F%E7%90%86/" />
 
 
 
@@ -58,26 +58,26 @@
 
 
 
-<meta property="og:title" content="Vue冷门api之provide" />
-<meta property="og:description" content="Vue冷门api之provide" />
+<meta property="og:title" content="axios拦截器原理" />
+<meta property="og:description" content="axios拦截器原理" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://gaocarri.top/post/vue%E5%86%B7%E9%97%A8api%E4%B9%8Bprovide/" />
-<meta property="article:published_time" content="2020-07-16T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-07-16T00:00:00+00:00" />
-<meta itemprop="name" content="Vue冷门api之provide">
-<meta itemprop="description" content="Vue冷门api之provide">
+<meta property="og:url" content="http://gaocarri.top/post/axios%E6%8B%A6%E6%88%AA%E5%99%A8%E5%8E%9F%E7%90%86/" />
+<meta property="article:published_time" content="2020-07-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-29T00:00:00+00:00" />
+<meta itemprop="name" content="axios拦截器原理">
+<meta itemprop="description" content="axios拦截器原理">
 
 
-<meta itemprop="datePublished" content="2020-07-16T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-07-16T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1177">
+<meta itemprop="datePublished" content="2020-07-29T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-07-29T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1895">
 
 
 
-<meta itemprop="keywords" content="Vue,框架," />
+<meta itemprop="keywords" content="javascript,库," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Vue冷门api之provide"/>
-<meta name="twitter:description" content="Vue冷门api之provide"/>
+<meta name="twitter:title" content="axios拦截器原理"/>
+<meta name="twitter:description" content="axios拦截器原理"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -364,18 +364,18 @@ if (!doNotTrack) {
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">Vue冷门api之provide</h1>
+      <h1 class="post-title">axios拦截器原理</h1>
       
       <div class="post-meta">
-        <time datetime="2020-07-16" class="post-time">
-          2020-07-16
+        <time datetime="2020-07-29" class="post-time">
+          2020-07-29
         </time>
         <div class="post-category">
-            <a href="http://gaocarri.top/categories/vue/"> Vue </a>
+            <a href="http://gaocarri.top/categories/javascript/"> javascript </a>
             
           </div>
-        <span class="more-meta"> 约 1177 字 </span>
-          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        <span class="more-meta"> 约 1895 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
 
         
         
@@ -396,11 +396,10 @@ if (!doNotTrack) {
   <div class="post-toc-content">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#常见的组件通信方式">常见的组件通信方式</a></li>
-<li><a href="#provide-inject作用">provide/inject作用</a></li>
-<li><a href="#使用provide作全局状态管理">使用provide作全局状态管理</a></li>
-<li><a href="#慎用provide">慎用provide</a></li>
-<li><a href="#总结">总结</a></li>
+<li><a href="#拦截器是什么">拦截器是什么</a></li>
+<li><a href="#怎么使用拦截器">怎么使用拦截器</a></li>
+<li><a href="#axios拦截器原理">axios拦截器原理</a></li>
+<li><a href="#参考">参考</a></li>
 </ul>
 </nav>
   </div>
@@ -410,129 +409,26 @@ if (!doNotTrack) {
     <div class="post-content">
       
 
-<h1 id="常见的组件通信方式">常见的组件通信方式</h1>
+<h1 id="拦截器是什么">拦截器是什么</h1>
+
+<p>页面发送http请求时，很多情况我们要对<strong>请求和其响应</strong>进行<strong>特定的处理</strong>；</p>
+
+<p>例如</p>
 
 <ul>
-<li>props</li>
-<li>eventBus</li>
-<li>ref与$children,$parent访问组件实例</li>
-<li>Vuex</li>
-<li>以上不做赘述了</li>
+<li>每个请求都附带后端返回的token</li>
+<li>拿到response之前loading动画的展示等。</li>
 </ul>
 
-<h1 id="provide-inject作用">provide/inject作用</h1>
+<p>如果请求数非常多，这样处理起来会非常的麻烦，程序的优雅性也会大打折扣。在这种情况下，axios为开发者提供了这样一个API：<strong>拦截器</strong>。拦截器分为 请求（request）拦截器和 响应（response）拦截器。</p>
 
-<p>我们先来看看官网的例子</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// 父级组件提供 &#39;foo&#39;
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">Provider</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">provide</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">foo</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span>
-  <span class="p">},</span>
-  <span class="c1">// ...
-</span><span class="c1"></span><span class="p">}</span>
+<h1 id="怎么使用拦截器">怎么使用拦截器</h1>
 
-<span class="c1">// 子组件注入 &#39;foo&#39;
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">Child</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">inject</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">],</span>
-  <span class="nx">created</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">foo</span><span class="p">)</span> <span class="c1">// =&gt; &#34;bar&#34;
-</span><span class="c1"></span>  <span class="p">}</span>
-  <span class="c1">// ...
-</span><span class="c1"></span><span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div>
-<p>我们顾名思义，provide(提供)就是指定我们想要<strong>提供给</strong>后代组件的数据或方法，而inject是用来<strong>接受</strong>provide提供的数据或方法。</p>
+<p>1.请求拦截器</p>
 
-<p>其实这种方式很像React Hooks里的useContext，关于hooks的内容可以参见我之前的博客。</p>
+<p>请求拦截器的作用是在请求发送前进行一些操作，例如在每个请求体里加上token，统一做处理的好处在于以后想改的时候直接就能改。</p>
 
-<h1 id="使用provide作全局状态管理">使用provide作全局状态管理</h1>
-
-<p>一般全局状态管理都用Vuex，其实provide也可以实现全局状态管理。</p>
-
-<p>如何做全局状态管理呢？很多人可能想到在根组件中传入变量，然后在后代组件中使用。我们来通过这个例子看一看它的利弊</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">// 根组件提供一个非响应式变量给后代组件
-export default {
-  provide () {
-    return {
-      text: &#39;bar&#39;
-    }
-  }
-}
-
-// 后代组件注入 &#39;app&#39;
-&lt;template&gt;
-	&lt;div&gt;{{this.text}}&lt;/div&gt;
-&lt;/template&gt;
-&lt;script&gt;
-  export default {
-    inject: [&#39;text&#39;],
-    created() {
-      this.text = &#39;baz&#39; // 在模板中，依然显示 &#39;bar&#39;
-    }
-  }
-&lt;/script&gt;</pre></td></tr></table>
-</div>
-</div>
-<p>首先，官方文档中有这样一句提示</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">提示：provide 和 inject 绑定并不是可响应的。这是刻意为之的。然而，如果你传入了一个可监听的对象，那么其对象的属性还是可响应的。</pre></td></tr></table>
-</div>
-</div>
-<p>结合上面的例子，我们发现传入的text并不是响应式的（也就是说无法对provide提供的数据进行响应式处理，除非提供一个响应式的数据）</p>
-
-<p>那么如何解决响应式的问题呢？很简单，我们可以将组件本身全部注入provide,此时我们就可以在后代中任意访问根组件中的所有状态。</p>
-
-<p>来看下面这个例子</p>
+<p>使用方法:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
@@ -563,50 +459,262 @@ export default {
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// 根组件提供将自身提供给后代组件
-</span><span class="c1"></span><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
-  <span class="nx">provide</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">{</span>
-      <span class="nx">app</span><span class="o">:</span> <span class="k">this</span>
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">service</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
+  <span class="nx">config</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// 在发送请求之前做什么
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">method</span> <span class="o">===</span> <span class="s2">&#34;post&#34;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// 序列化
+</span><span class="c1"></span>      <span class="c1">// config.data = qs.stringify(config.data);
+</span><span class="c1"></span>      <span class="c1">// config.data = JSON.stringify(config.data);
+</span><span class="c1"></span>    <span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">store</span><span class="p">.</span><span class="nx">getters</span><span class="p">.</span><span class="nx">token</span><span class="p">)</span> <span class="p">{</span>
+               <span class="c1">// 若是有做鉴权token , 就给头部带上token
+</span><span class="c1"></span>               <span class="c1">// 让每个请求携带token-- [&#39;X-Token&#39;]为自定义key 请根据实际情况自行修改
+</span><span class="c1"></span>               <span class="c1">// 若是需要跨站点,存放到 cookie 会好一点,限制也没那么多,有些浏览环境限制了 localstorage (隐身模式)的使用
+</span><span class="c1"></span>                <span class="nx">config</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="s1">&#39;X-Token&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">getToken</span><span class="p">()</span>
+          <span class="p">}</span>
     <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">config</span><span class="p">;</span>
   <span class="p">},</span>
-  <span class="nx">data</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">{</span>
-      <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span>
-    <span class="p">}</span>
+  <span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// 对请求错误做些什么，自己定义
+</span><span class="c1"></span>    <span class="nx">Message</span><span class="p">({</span>                  <span class="c1">//比如可以使用element-ui的message进行信息提示
+</span><span class="c1"></span>      <span class="nx">showClose</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nx">message</span><span class="o">:</span> <span class="nx">error</span><span class="p">,</span>
+      <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;warning&#34;</span>
+    <span class="p">});</span>
+    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
   <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// 后代组件注入 &#39;app&#39;
-</span><span class="c1"></span><span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
-	<span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span><span class="p">{{</span><span class="k">this</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">text</span><span class="p">}}</span><span class="o">&lt;</span><span class="err">/div&gt;</span>
-<span class="o">&lt;</span><span class="err">/template&gt;</span>
-<span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
-  <span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
-    <span class="nx">inject</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;app&#39;</span><span class="p">],</span>
-    <span class="nx">created</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">text</span> <span class="o">=</span> <span class="s1">&#39;baz&#39;</span> <span class="c1">// 在模板中，显示 &#39;baz&#39;
-</span><span class="c1"></span>    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="o">&lt;</span><span class="err">/script&gt;	</span>
 </code></pre></td></tr></table>
 </div>
 </div>
-<p>那么问题来了，我们可以直接通过this.$root来获取根组件为什么还要使用provide</p>
+<p>这里说一下token，一般是在登录完成之后，将用户的token通过localStorage或者cookie存在本地，然后用户每次在进入页面的时候，会首先从本地存储中读取token，如果token存在说明用户已经登陆过，则更新vuex中的token状态。然后，在每次请求接口的时候，都会在请求的header中携带token，服务器就可以根据你携带的token来判断你的登录是否过期，如果没有携带，则说明没有登录过。</p>
 
-<p>答：使用provide可以在不同模块的入口组件传数据给各自的模块，如果放在根模块，很容易造成冲突。</p>
+<p>2.响应拦截器</p>
 
-<h1 id="慎用provide">慎用provide</h1>
+<p>响应拦截器的作用是在接收到响应后进行一些操作，例如在服务器返回登录状态失效，需要重新登录的时候，跳转到登录页等。</p>
 
-<p>既然 provide/inject 如此好用，那么，为什么 Vue 官方还要推荐我们使用 Vuex，而不是用原生的 API 呢？</p>
+<p>使用方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// response interceptor
+</span><span class="c1"></span><span class="nx">service</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
+    <span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="c1">// 如果返回的状态码为200，说明接口请求成功，可以正常拿到数据
+</span><span class="c1"></span>        <span class="c1">// 否则的话抛出错误
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="c1">// 服务器状态码不是2开头的的情况
+</span><span class="c1"></span>    <span class="c1">// 然后根据返回的状态码进行一些操作，例如登录过期提示，错误提示等等
+</span><span class="c1"></span>    <span class="c1">// 下面列举几个常见的操作，其他需求可自行扩展
+</span><span class="c1"></span>    <span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">switch</span> <span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// 例如401: 未登录
+</span><span class="c1"></span>                <span class="c1">// 未登录则跳转登录页面，并携带当前页面的路径
+</span><span class="c1"></span>                <span class="c1">// 在登录成功后返回当前页面，这一步需要在登录页操作。
+</span><span class="c1"></span>                <span class="k">case</span> <span class="mi">401</span><span class="o">:</span>
+                    <span class="nx">router</span><span class="p">.</span><span class="nx">replace</span><span class="p">({</span>
+                        <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/login&#39;</span><span class="p">,</span>
+                        <span class="nx">query</span><span class="o">:</span> <span class="p">{</span>
+                            <span class="nx">redirect</span><span class="o">:</span> <span class="nx">router</span><span class="p">.</span><span class="nx">currentRoute</span><span class="p">.</span><span class="nx">fullPath</span>
+                        <span class="p">}</span>
+                    <span class="p">});</span>
+                    <span class="k">break</span><span class="p">;</span>
 
-<p>我在前面提到过，Vuex 和 provide/inject 最大的区别在于，Vuex 中的全局状态的每次修改是可以追踪回溯的（使用Vue Devtools），而 provide/inject 中变量的修改是无法控制的，换句话说，你不知道是哪个组件修改了这个全局状态。</p>
+                <span class="c1">// 403 token过期
+</span><span class="c1"></span>                <span class="c1">// 登录过期对用户进行提示
+</span><span class="c1"></span>                <span class="c1">// 清除本地token和清空vuex中token对象
+</span><span class="c1"></span>                <span class="c1">// 跳转登录页面
+</span><span class="c1"></span>                <span class="k">case</span> <span class="mi">403</span><span class="o">:</span>
+                      <span class="nx">Message</span><span class="p">({</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;登录过期，请重新登录&#39;</span><span class="p">,</span>
+                        <span class="nx">duration</span><span class="o">:</span> <span class="mi">1000</span><span class="p">,</span>
+                        <span class="nx">forbidClick</span><span class="o">:</span> <span class="kc">true</span>
+                    <span class="p">});</span>
+                    <span class="c1">// 清除token
+</span><span class="c1"></span>                    <span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">);</span>
+                    <span class="nx">store</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="s1">&#39;loginSuccess&#39;</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+                    <span class="c1">// 跳转登录页面，并将要浏览的页面fullPath传过去，登录成功后跳转需要访问的页面
+</span><span class="c1"></span>                    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                        <span class="nx">router</span><span class="p">.</span><span class="nx">replace</span><span class="p">({</span>
+                            <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/login&#39;</span><span class="p">,</span>
+                            <span class="nx">query</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="nx">redirect</span><span class="o">:</span> <span class="nx">router</span><span class="p">.</span><span class="nx">currentRoute</span><span class="p">.</span><span class="nx">fullPath</span>
+                            <span class="p">}</span>
+                        <span class="p">});</span>
+                    <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+                    <span class="k">break</span><span class="p">;</span>
 
-<p>Vue 的设计理念借鉴了 React 中的单向数据流原则，而 provide/inject 明显破坏了单向数据流原则。试想，如果有多个后代组件同时依赖于一个祖先组件提供的状态，那么只要有一个组件修改了该状态，那么所有组件都会受到影响。这会导致数据的不可控。</p>
+                <span class="c1">// 404请求不存在
+</span><span class="c1"></span>                <span class="k">case</span> <span class="mi">404</span><span class="o">:</span>
+                    <span class="nx">Message</span><span class="p">({</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;网络请求不存在&#39;</span><span class="p">,</span>
+                        <span class="nx">duration</span><span class="o">:</span> <span class="mi">1500</span><span class="p">,</span>
+                        <span class="nx">forbidClick</span><span class="o">:</span> <span class="kc">true</span>
+                    <span class="p">});</span>
+                    <span class="k">break</span><span class="p">;</span>
+                <span class="c1">// 其他错误，直接抛出错误提示
+</span><span class="c1"></span>                <span class="k">default</span><span class="o">:</span>
+                    <span class="nx">Message</span><span class="p">({</span>
+                        <span class="nx">message</span><span class="o">:</span> <span class="nx">error</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">message</span><span class="p">,</span>
+                        <span class="nx">duration</span><span class="o">:</span> <span class="mi">1500</span><span class="p">,</span>
+                        <span class="nx">forbidClick</span><span class="o">:</span> <span class="kc">true</span>
+                    <span class="p">});</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">response</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>响应拦截器很好理解，就是服务器返回给我们的数据，我们在拿到之前可以对他进行一些处理。例如：如果后台返回的状态码是200，则正常返回数据，否则的根据错误的状态码类型进行一些我们需要的错误，其实这里主要就是进行了错误的统一处理和没登录或登录过期后调整登录页的一个操作。</p>
 
-<h1 id="总结">总结</h1>
+<h1 id="axios拦截器原理">axios拦截器原理</h1>
 
-<p>尽管provide/inject是一个冷门api，但是在特殊的情况下它仍有其作用。花了点时间了解了一下，感觉看到了不一样的风景</p>
+<p>首先直接看源代码吧，注意chain这个数组</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript">  <span class="c1">// 1. 定义拦截器中间件钩子
+</span><span class="c1"></span>  <span class="c1">// dispatchRequest是真正开始下发请求，执行config中设置的adapter方法
+</span><span class="c1"></span>  <span class="kd">var</span> <span class="nx">chain</span> <span class="o">=</span> <span class="p">[</span><span class="nx">dispatchRequest</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">];</span>
+  <span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">config</span><span class="p">);</span>
+  <span class="c1">// 添加请求前钩子
+</span><span class="c1"></span>  <span class="k">this</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="nx">unshiftRequestInterceptors</span><span class="p">(</span><span class="nx">interceptor</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">chain</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="nx">interceptor</span><span class="p">.</span><span class="nx">fulfilled</span><span class="p">,</span> <span class="nx">interceptor</span><span class="p">.</span><span class="nx">rejected</span><span class="p">);</span>
+  <span class="p">});</span>
+  <span class="c1">// 添加请求后钩子
+</span><span class="c1"></span>  <span class="k">this</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="nx">pushResponseInterceptors</span><span class="p">(</span><span class="nx">interceptor</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">chain</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">interceptor</span><span class="p">.</span><span class="nx">fulfilled</span><span class="p">,</span> <span class="nx">interceptor</span><span class="p">.</span><span class="nx">rejected</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="c1">// 2. chain链关键代码，promise链路传递下去
+</span><span class="c1"></span>  <span class="k">while</span> <span class="p">(</span><span class="nx">chain</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">promise</span> <span class="o">=</span> <span class="nx">promise</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">chain</span><span class="p">.</span><span class="nx">shift</span><span class="p">(),</span> <span class="nx">chain</span><span class="p">.</span><span class="nx">shift</span><span class="p">());</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">promise</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>我们来通俗地捋一下拦截器原理吧</p>
+
+<ol>
+<li>创建一个chain数组，数组中保存了拦截器相应方法以及dispatchRequest（dispatchRequest这个函数调用才会真正的开始下发请求）</li>
+<li>我们需要把请求拦截器的方法放到chain数组中dispatchRequest的前面</li>
+<li>把响应拦截器的方法放到chain数组中dispatchRequest的后面</li>
+<li>2，3两步依赖forEach将它们分别unshift,push到chain数组中</li>
+<li>为了保证它们的执行顺序，需要使用promise，以出队列的方式对chain数组中的方法挨个执行</li>
+</ol>
+
+<h1 id="参考">参考</h1>
+
+<p><a href="https://www.jianshu.com/p/646ed4edf51f">axios拦截器接口配置与使用</a></p>
+
+<p><a href="https://lq782655835.github.io/blogs/project/axios-usage-theory.html">axios用法及原理</a></p>
 
     </div>
 
@@ -620,7 +728,7 @@ export default {
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-      2020-07-16
+      2020-07-29
       
     </span>
   </p>
@@ -637,30 +745,17 @@ export default {
 
     <footer class="post-footer">
       <div class="post-tags">
-          <a href="http://gaocarri.top/tags/vue/">Vue</a>
-          <a href="http://gaocarri.top/tags/%E6%A1%86%E6%9E%B6/">框架</a>
+          <a href="http://gaocarri.top/tags/javascript/">javascript</a>
+          <a href="http://gaocarri.top/tags/%E5%BA%93/">库</a>
           
         </div>
 
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/axios%E6%8B%A6%E6%88%AA%E5%99%A8%E5%8E%9F%E7%90%86/">
-            
-            <i class="iconfont">
-              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="18" height="18">
-  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
-</svg>
-
-            </i>
-            <span class="prev-text nav-default">axios拦截器原理</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
         
-          <a class="next" href="/post/css%E5%85%B3%E4%BA%8E%E6%96%87%E6%9C%AC%E6%8D%A2%E8%A1%8C%E4%B8%8E%E4%B8%8D%E6%8D%A2%E8%A1%8C%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/">
-            <span class="next-text nav-default">CSS关于文本换行与不换行的那些事</span>
+          <a class="next" href="/post/vue%E5%86%B7%E9%97%A8api%E4%B9%8Bprovide/">
+            <span class="next-text nav-default">Vue冷门api之provide</span>
             <span class="prev-text nav-mobile">下一篇</span>
             
             <i class="iconfont">

@@ -9,22 +9,57 @@
   </url>
   
   <url>
+    <loc>http://gaocarri.top/post/axios%E6%8B%A6%E6%88%AA%E5%99%A8%E5%8E%9F%E7%90%86/</loc>
+    <lastmod>2020-07-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://gaocarri.top/categories/</loc>
-    <lastmod>2020-07-16T00:00:00+00:00</lastmod>
+    <lastmod>2020-07-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gaocarri.top/tags/javascript/</loc>
+    <lastmod>2020-07-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gaocarri.top/categories/javascript/</loc>
+    <lastmod>2020-07-29T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://gaocarri.top/post/</loc>
-    <lastmod>2020-07-16T00:00:00+00:00</lastmod>
+    <lastmod>2020-07-29T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://gaocarri.top/tags/</loc>
-    <lastmod>2020-07-16T00:00:00+00:00</lastmod>
+    <lastmod>2020-07-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gaocarri.top/</loc>
+    <lastmod>2020-07-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://gaocarri.top/tags/%E5%BA%93/</loc>
+    <lastmod>2020-07-29T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -51,13 +86,6 @@
   </url>
   
   <url>
-    <loc>http://gaocarri.top/</loc>
-    <lastmod>2020-07-16T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://gaocarri.top/tags/%E6%A1%86%E6%9E%B6/</loc>
     <lastmod>2020-07-16T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -65,14 +93,14 @@
   </url>
   
   <url>
-    <loc>http://gaocarri.top/categories/css/</loc>
+    <loc>http://gaocarri.top/tags/css/</loc>
     <lastmod>2020-07-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gaocarri.top/tags/css/</loc>
+    <loc>http://gaocarri.top/categories/css/</loc>
     <lastmod>2020-07-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -156,14 +184,14 @@
   </url>
   
   <url>
-    <loc>http://gaocarri.top/tags/react/</loc>
+    <loc>http://gaocarri.top/categories/react/</loc>
     <lastmod>2020-06-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://gaocarri.top/categories/react/</loc>
+    <loc>http://gaocarri.top/tags/react/</loc>
     <lastmod>2020-06-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -458,20 +486,6 @@
   
   <url>
     <loc>http://gaocarri.top/tags/ajax/</loc>
-    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://gaocarri.top/categories/javascript/</loc>
-    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://gaocarri.top/tags/javascript/</loc>
     <lastmod>2019-12-13T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
