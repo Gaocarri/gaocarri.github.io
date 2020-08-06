@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/%E6%90%9E%E6%87%82js%E9%97%AD%E5%8C%85/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,11 +66,9 @@
 <meta property="article:modified_time" content="2019-12-06T00:00:00+00:00" />
 <meta itemprop="name" content="搞懂JS闭包">
 <meta itemprop="description" content="搞懂JS闭包">
-
-
-<meta itemprop="datePublished" content="2019-12-06T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-06T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="887">
+<meta itemprop="datePublished" content="2019-12-06T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-12-06T00:00:00+00:00" />
+<meta itemprop="wordCount" content="888">
 
 
 
@@ -374,7 +372,7 @@ if (!doNotTrack) {
             <a href="http://gaocarri.top/categories/javascript/"> JavaScript </a>
             
           </div>
-        <span class="more-meta"> 约 887 字 </span>
+        <span class="more-meta"> 约 888 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
 
         
@@ -394,38 +392,25 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#闭包是什么">闭包是什么</a></li>
-<li><a href="#闭包的用途">闭包的用途</a></li>
-<li><a href="#闭包的缺点">闭包的缺点</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<p>算是对之前学习的查缺补漏吧</p>
-
+      <p>算是对之前学习的查缺补漏吧</p>
 <p>本文包括：</p>
-
 <ul>
 <li>闭包是什么</li>
 <li>闭包的用途</li>
 <li>闭包的缺点</li>
 </ul>
-
 <h1 id="闭包是什么">闭包是什么</h1>
-
 <p>一句话概括：<code>函数</code>和<code>函数内部能访问到的变量（也叫环境）</code>的总和，就是一个闭包。这是由JavaScript的作用域决定的</p>
-
 <p>以以下一段代码为例</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -435,9 +420,9 @@ if (!doNotTrack) {
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">let saySomething = () =&gt; {
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">let saySomething = () =&gt; {
     let foo = &#39;hi&#39; //声明一个变量
     let bar = () =&gt; {
         console.log(foo) //使用这个变量
@@ -446,11 +431,10 @@ if (!doNotTrack) {
 }
 
 let sayHi = saySomething()
-sayHi() //hi</pre></td></tr></table>
+sayHi() //hi
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>从第一行开始我们做了这样的事情</p>
-
+</div><p>从第一行开始我们做了这样的事情</p>
 <ul>
 <li>声明了一个函数<code>saySomething</code></li>
 <li>在这个函数内部声明了一个变量<code>foo</code></li>
@@ -459,32 +443,25 @@ sayHi() //hi</pre></td></tr></table>
 <li>将<code>saySomething</code>的返回值赋值给了<code>sayHi</code></li>
 <li>调用<code>sayHi</code>就可以访问到<code>foo</code>这个变量</li>
 </ul>
-
 <p>只是为了方便理解，这是一个强行凑出来的例子（- -！），总而言之，我们可以间接访问到foo这个变量啦，那么这就是一个闭包。</p>
-
 <p>关于return:如果不return的话，我们就无法使用这个闭包了，return bar和window.bar = bar是一个意思</p>
-
 <h1 id="闭包的用途">闭包的用途</h1>
-
 <p>一句话概括：闭包用来间接访问一个变量(即隐藏一个变量)。为什么要这样呢，我来举一个例子</p>
-
 <p>如果我是一个超人</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">    window.me = superMan</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">    window.me = superMan
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这样很不妥啊，我不想让所有人都知道我是superMan,而且这样他们能乱改我的身份啊！</p>
-
+</div><p>这样很不妥啊，我不想让所有人都知道我是superMan,而且这样他们能乱改我的身份啊！</p>
 <p>所以我不要上面这个代码了，我要把自己是超人这件事给隐藏起来（用局部变量），但我还是希望有一些相关人士能知道我的身份和帮我改身份（让别人可以间接访问）</p>
-
 <p>一般闭包和立即执行函数一起用</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -498,9 +475,10 @@ sayHi() //hi</pre></td></tr></table>
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
-</span></pre></td>
+</span><span class="lnt">15
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">!function () {
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">!function () {
     var me = &#39;superMan&#39;
         window.getSecret = function () {
             console.log(me)
@@ -513,22 +491,18 @@ sayHi() //hi</pre></td></tr></table>
 getSecret() //知道了我是superMan
 me //没有用，你不知道我是什么
 createSecret(&#39;spiderMan&#39;) //我把自己变成了蜘蛛侠
-getSecret() //知道我现在是蜘蛛侠了</pre></td></tr></table>
-</div>
-</div>
-<p>好了，现在我就可以把这个函数告诉其他人（其他的JS文件），其他人就可以通过<code>getSecret()</code>和<code>createSecret()</code>方法来得知或者更改我现在的身份了</p>
+getSecret() //知道我现在是蜘蛛侠了
 
+</code></pre></td></tr></table>
+</div>
+</div><p>好了，现在我就可以把这个函数告诉其他人（其他的JS文件），其他人就可以通过<code>getSecret()</code>和<code>createSecret()</code>方法来得知或者更改我现在的身份了</p>
 <p>我把它的用处总结为以下几点</p>
-
 <ol>
 <li>函数外部可以访问到函数内部的变量或者对象</li>
 <li>避免了垃圾回收(可以一直能访问这个变量)</li>
 </ol>
-
 <h1 id="闭包的缺点">闭包的缺点</h1>
-
 <p>那么闭包有没有缺点呢？有</p>
-
 <ol>
 <li>常驻内存，增加内存使用量</li>
 <li>在IE中（IE有Bug），使用不当造成内存泄漏（乱用闭包，造成很多多余无用的变量占据内存空间）</li>

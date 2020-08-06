@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/%E8%87%AA%E5%B7%B1%E7%94%BB%E5%87%BAjs%E4%B8%96%E7%95%8C/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,11 +66,9 @@
 <meta property="article:modified_time" content="2019-11-07T00:00:00+00:00" />
 <meta itemprop="name" content="自己画出JS世界">
 <meta itemprop="description" content="自己画出JS世界">
-
-
-<meta itemprop="datePublished" content="2019-11-07T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-11-07T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="770">
+<meta itemprop="datePublished" content="2019-11-07T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-11-07T00:00:00+00:00" />
+<meta itemprop="wordCount" content="794">
 
 
 
@@ -374,7 +372,7 @@ if (!doNotTrack) {
             <a href="http://gaocarri.top/categories/javascript/"> JavaScript </a>
             
           </div>
-        <span class="more-meta"> 约 770 字 </span>
+        <span class="more-meta"> 约 794 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
 
         
@@ -394,69 +392,69 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#关于一个js世界是如何形成的">关于一个JS世界是如何形成的？</a></li>
-<li><a href="#完整的图示">完整的图示</a></li>
-<li><a href="#js三大公理">JS三大公理</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="关于一个js世界是如何形成的">关于一个JS世界是如何形成的？</h1>
-
+      <h1 id="关于一个js世界是如何形成的">关于一个JS世界是如何形成的？</h1>
 <ol>
-<li><p>创建根对象#101(它有toString等属性)、根对象无名字（它的<strong>proto</strong>:null）
-<a href="https://imgchr.com/i/Mk9Qtf"><img src="https://s2.ax1x.com/2019/11/07/Mk9Qtf.png" alt="Mk9Qtf.png" /></a></p></li>
-
-<li><p>创建函数的原型#208(它有call,apply等属性),原型<strong>proto</strong>的地址为#101
-<a href="https://imgchr.com/i/Mk9mnA"><img src="https://s2.ax1x.com/2019/11/07/Mk9mnA.png" alt="Mk9mnA.png" /></a></p></li>
-
-<li><p>创建数组的原型#404(它有push,pop等属性),原型<strong>proto</strong>的地址为#101
-<a href="https://imgchr.com/i/Mk9n0I"><img src="https://s2.ax1x.com/2019/11/07/Mk9n0I.png" alt="Mk9n0I.png" /></a></p></li>
-
-<li><p>创建Function（实际没有名字）#342，原型<strong>proto</strong>的地址为#208</p></li>
-
-<li><p>让Function的prototype地址为#208</p></li>
-
-<li><p>此时发现Function的<strong>proto</strong>和prototype都是#208
-<a href="https://imgchr.com/i/Mk9u7t"><img src="https://s2.ax1x.com/2019/11/07/Mk9u7t.png" alt="Mk9u7t.png" /></a></p></li>
-
-<li><p>用Function创建Object（实际没有名字）</p></li>
-
-<li><p>让Object.prototype的地址为#101
-<a href="https://imgchr.com/i/Mk9MAP"><img src="https://s2.ax1x.com/2019/11/07/Mk9MAP.png" alt="Mk9MAP.png" /></a></p></li>
-
-<li><p>用Function创建Array（实际没有名字）</p></li>
-
-<li><p>让Array.prototype的地址为#404
-<a href="https://imgchr.com/i/Mk9lh8"><img src="https://s2.ax1x.com/2019/11/07/Mk9lh8.png" alt="Mk9lh8.png" /></a></p></li>
-
-<li><p>创建window对象（它不属于JS世界）</p></li>
-
-<li><p>用window的&rdquo;Function&rdquo;&ldquo;Object&rdquo;&ldquo;Array&rdquo;属性将他们命名
-<a href="https://imgchr.com/i/Mk939S"><img src="https://s2.ax1x.com/2019/11/07/Mk939S.png" alt="Mk939S.png" /></a></p></li>
-
-<li><p>记住一点JS创建一个对象时，不会给它名字</p></li>
+<li>
+<p>创建根对象#101(它有toString等属性)、根对象无名字（它的__proto__:null）
+<a href="https://imgchr.com/i/Mk9Qtf"><img src="https://s2.ax1x.com/2019/11/07/Mk9Qtf.png" alt="Mk9Qtf.png"></a></p>
+</li>
+<li>
+<p>创建函数的原型#208(它有call,apply等属性),原型__proto__的地址为#101
+<a href="https://imgchr.com/i/Mk9mnA"><img src="https://s2.ax1x.com/2019/11/07/Mk9mnA.png" alt="Mk9mnA.png"></a></p>
+</li>
+<li>
+<p>创建数组的原型#404(它有push,pop等属性),原型__proto__的地址为#101
+<a href="https://imgchr.com/i/Mk9n0I"><img src="https://s2.ax1x.com/2019/11/07/Mk9n0I.png" alt="Mk9n0I.png"></a></p>
+</li>
+<li>
+<p>创建Function（实际没有名字）#342，原型__proto__的地址为#208</p>
+</li>
+<li>
+<p>让Function的prototype地址为#208</p>
+</li>
+<li>
+<p>此时发现Function的__proto__和prototype都是#208
+<a href="https://imgchr.com/i/Mk9u7t"><img src="https://s2.ax1x.com/2019/11/07/Mk9u7t.png" alt="Mk9u7t.png"></a></p>
+</li>
+<li>
+<p>用Function创建Object（实际没有名字）</p>
+</li>
+<li>
+<p>让Object.prototype的地址为#101
+<a href="https://imgchr.com/i/Mk9MAP"><img src="https://s2.ax1x.com/2019/11/07/Mk9MAP.png" alt="Mk9MAP.png"></a></p>
+</li>
+<li>
+<p>用Function创建Array（实际没有名字）</p>
+</li>
+<li>
+<p>让Array.prototype的地址为#404
+<a href="https://imgchr.com/i/Mk9lh8"><img src="https://s2.ax1x.com/2019/11/07/Mk9lh8.png" alt="Mk9lh8.png"></a></p>
+</li>
+<li>
+<p>创建window对象（它不属于JS世界）</p>
+</li>
+<li>
+<p>用window的&quot;Function&quot;&ldquo;Object&quot;&ldquo;Array&quot;属性将他们命名
+<a href="https://imgchr.com/i/Mk939S"><img src="https://s2.ax1x.com/2019/11/07/Mk939S.png" alt="Mk939S.png"></a></p>
+</li>
+<li>
+<p>记住一点JS创建一个对象时，不会给它名字</p>
+</li>
 </ol>
-
 <h1 id="完整的图示">完整的图示</h1>
-
-<p><img src="https://s2.ax1x.com/2019/11/07/MkiUHA.png" alt="MkiUHA.png" /></p>
-
+<p><img src="https://s2.ax1x.com/2019/11/07/MkiUHA.png" alt="MkiUHA.png"></p>
 <h1 id="js三大公理">JS三大公理</h1>
-
 <ol>
-<li>对象.<strong>proto</strong>===其构造函数.prototype</li>
+<li>对象.__proto__===其构造函数.prototype</li>
 <li>根公理：Object.prototype是所有对象（直接或间接）的原型</li>
-<li>函数公理：所有函数都是由Function构造的，任何函数<strong>proto</strong>===Function.prototype(任何函数有Object/Array/Function)</li>
+<li>函数公理：所有函数都是由Function构造的，任何函数__proto__===Function.prototype(任何函数有Object/Array/Function)</li>
 </ol>
-
 <ul>
 <li>Object.prototype是所有对象的原型，Object是Function构造出来的，所以Function构造了Object.prototype,推论，Function才是万物之源啊（错）</li>
 <li>错的理由:Function构造了Object.prototype这个地址，但没有构造它对应的根对象，根对象是原本就存在的！</li>

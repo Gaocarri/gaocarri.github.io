@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3vue%E7%9A%84sync%E4%BF%AE%E9%A5%B0%E7%AC%A6/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,10 +66,8 @@
 <meta property="article:modified_time" content="2020-02-13T00:00:00+00:00" />
 <meta itemprop="name" content="深入理解Vue的sync修饰符">
 <meta itemprop="description" content="深入理解Vue的sync修饰符">
-
-
-<meta itemprop="datePublished" content="2020-02-13T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-02-13T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2020-02-13T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-02-13T00:00:00+00:00" />
 <meta itemprop="wordCount" content="856">
 
 
@@ -395,63 +393,50 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#说明">说明</a></li>
-<li><a href="#示例">示例</a></li>
-<li><a href="#总结">总结</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#说明">说明</a></li>
+    <li><a href="#示例">示例</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h2 id="说明">说明</h2>
-
-<p>官方文档对.sync修饰符的解释：<a href="https://cn.vuejs.org/v2/guide/components-custom-events.html#sync-修饰符">https://cn.vuejs.org/v2/guide/components-custom-events.html#sync-%E4%BF%AE%E9%A5%B0%E7%AC%A6</a></p>
-
+      <h2 id="说明">说明</h2>
+<p>官方文档对.sync修饰符的解释：<a href="https://cn.vuejs.org/v2/guide/components-custom-events.html#sync-%E4%BF%AE%E9%A5%B0%E7%AC%A6">https://cn.vuejs.org/v2/guide/components-custom-events.html#sync-%E4%BF%AE%E9%A5%B0%E7%AC%A6</a></p>
 <p>首先，一句话来概括.sync修饰符的作用：它会被扩展成一个自动更新父组件属性的v-on监听器（它作为一个编译时的语法糖存在）</p>
-
 <p>来看以下示例,父组件当中：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-vue" data-lang="vue"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-vue" data-lang="vue"><span class="p">&lt;</span><span class="nt">Child</span> <span class="o">:</span><span class="na">money.sync</span> <span class="err">=</span> <span class="err">&#34;</span><span class="na">total</span><span class="err">&#34;</span><span class="p">&gt;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-vue" data-lang="vue"><span class="p">&lt;</span><span class="nt">Child</span> <span class="o">:</span><span class="na">money.sync</span> <span class="err">=</span> <span class="err">&#34;</span><span class="na">total</span><span class="err">&#34;</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>它会被扩展成($event储存子组件传入事件的参数)</p>
+</div><p>它会被扩展成($event储存子组件传入事件的参数)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-vue" data-lang="vue"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-vue" data-lang="vue"><span class="p">&lt;</span><span class="nt">Child</span> <span class="nt">:money</span><span class="s">=&#34;total&#34;</span> <span class="err">@</span><span class="na">update</span><span class="o">:</span><span class="na">money</span><span class="o">=</span><span class="s">&#34;total = $event&#34;</span><span class="p">&gt;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-vue" data-lang="vue"><span class="p">&lt;</span><span class="nt">Child</span> <span class="nt">:money</span><span class="s">=&#34;total&#34;</span> <span class="err">@</span><span class="na">update</span><span class="o">:</span><span class="na">money</span><span class="o">=</span><span class="s">&#34;total = $event&#34;</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="示例">示例</h2>
-
+</div><h2 id="示例">示例</h2>
 <p>上面的解释可能太过浅显，我们来看一个例子</p>
-
 <p>这个例子是这样的</p>
-
 <ul>
 <li>父亲（父组件）答应给儿子（子组件）1000块钱，但是这1000块钱是放在父亲那里的</li>
 <li>儿每花掉100，父亲那里存放的钱就会-100</li>
 </ul>
-
 <p>代码如下：</p>
-
 <p>父组件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-vue" data-lang="vue"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -496,13 +481,13 @@ if (!doNotTrack) {
     <span class="p">};</span>
   <span class="p">}</span>
 <span class="p">};</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span></code></pre></td></tr></table>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>子组件</p>
+</div><p>子组件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-vue" data-lang="vue"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -529,27 +514,23 @@ if (!doNotTrack) {
   <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Child&#34;</span><span class="p">,</span>
   <span class="nx">props</span><span class="o">:</span> <span class="p">[</span><span class="s2">&#34;money&#34;</span><span class="p">]</span>
 <span class="p">};</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span></code></pre></td></tr></table>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>初始状态</p>
-
-<p><img src="/images/花钱初始.png" alt="" /></p>
-
+</div><p>初始状态</p>
+<p><img src="/images/%E8%8A%B1%E9%92%B1%E5%88%9D%E5%A7%8B.png" alt=""></p>
 <p>花钱结束（点击花掉100元后）</p>
-
-<p><img src="/images/花钱结束.png" alt="" /></p>
-
+<p><img src="/images/%E8%8A%B1%E9%92%B1%E7%BB%93%E6%9D%9F.png" alt=""></p>
 <h2 id="总结">总结</h2>
-
 <p>vue修饰符sync的作用就是当一个子组件改变了一个prop的值时，这个变化也会同步到父组件上。如果不用.sync，想要实现上面示例的功能，我们也可以用v-on监听子组件传过来的事件，但是毫无疑问使用.sync会更加简洁</p>
-
 <p>但是官方文档中提到有两点需要注意，这里直接展示了</p>
-
 <ul>
-<li><p>注意带有 <code>.sync</code> 修饰符的 <code>v-bind</code> <strong>不能</strong>和表达式一起使用 (例如 <code>v-bind:title.sync=”doc.title + ‘!’”</code> 是无效的)。取而代之的是，你只能提供你想要绑定的属性名，类似 <code>v-model</code>。</p></li>
-
-<li><p>将 <code>v-bind.sync</code> 用在一个字面量的对象上，例如 <code>v-bind.sync=”{ title: doc.title }”</code>，是无法正常工作的，因为在解析一个像这样的复杂表达式的时候，有很多边缘情况需要考虑。</p></li>
+<li>
+<p>注意带有 <code>.sync</code> 修饰符的 <code>v-bind</code> <strong>不能</strong>和表达式一起使用 (例如 <code>v-bind:title.sync=”doc.title + ‘!’”</code> 是无效的)。取而代之的是，你只能提供你想要绑定的属性名，类似 <code>v-model</code>。</p>
+</li>
+<li>
+<p>将 <code>v-bind.sync</code> 用在一个字面量的对象上，例如 <code>v-bind.sync=”{ title: doc.title }”</code>，是无法正常工作的，因为在解析一个像这样的复杂表达式的时候，有很多边缘情况需要考虑。</p>
+</li>
 </ul>
 
     </div>

@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/%E5%A6%82%E4%BD%95%E5%9C%A8%E5%88%A9%E7%94%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E5%AD%98%E5%82%A8%E7%94%A8%E6%88%B7%E6%93%8D%E4%BD%9C/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,10 +66,8 @@
 <meta property="article:modified_time" content="2019-11-19T00:00:00+00:00" />
 <meta itemprop="name" content="如何利用哈希表存储用户操作">
 <meta itemprop="description" content="如何利用哈希表存储用户操作">
-
-
-<meta itemprop="datePublished" content="2019-11-19T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-11-19T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2019-11-19T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-11-19T00:00:00+00:00" />
 <meta itemprop="wordCount" content="439">
 
 
@@ -395,111 +393,106 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#具体的过程">具体的过程</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#具体的过程">具体的过程</a></li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<p>这几天学完jQuery尝试做了一个导航网站的小项目
+      <p>这几天学完jQuery尝试做了一个导航网站的小项目
 <a href="https://github.com/Gaocarri/Arknights-nav">github地址</a></p>
-
 <p>为了实现页面刷新或重启后用户的新增网站不被删除，使用了哈希表将用户的数据存储在了浏览器本地</p>
-
 <h2 id="具体的过程">具体的过程</h2>
-
 <ul>
-<li><p>首先是一段读取缓存的代码</p>
+<li>首先是一段读取缓存的代码</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">const x = localStorage.getItem(&#39;x&#39;); //读取缓存
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">const x = localStorage.getItem(&#39;x&#39;); //读取缓存
 const xObject = JSON.parse(x)
-const hashMap = xObject || [];</pre></td></tr></table>
+const hashMap = xObject || [];
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
-<p>具体步骤 ：</p>
-
+</div><p>具体步骤 ：</p>
 <ol>
-<li><p>首先声明一个变量<code>x</code>,它代表了缓存。</p></li>
-
-<li><p>然后我们利用<code>JSON.parse()</code>将从浏览器中读取到的缓存转换为数组</p></li>
-
-<li><p>声明一个哈希表,它的值就是这个数组，但是初次打开该网站时缓存为空，所以我们需要使用逻辑运算符<code>||</code>来让它有一个初始的空值</p></li>
-
-<li><p>好了，现在哈希表就有了</p></li>
+<li>
+<p>首先声明一个变量<code>x</code>,它代表了缓存。</p>
+</li>
+<li>
+<p>然后我们利用<code>JSON.parse()</code>将从浏览器中读取到的缓存转换为数组</p>
+</li>
+<li>
+<p>声明一个哈希表,它的值就是这个数组，但是初次打开该网站时缓存为空，所以我们需要使用逻辑运算符<code>||</code>来让它有一个初始的空值</p>
+</li>
+<li>
+<p>好了，现在哈希表就有了</p>
+</li>
 </ol>
-
 <ul>
-<li><p>往哈希表里增删数据</p>
+<li>往哈希表里增删数据</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">hashMap.push({
-    logo: simplifyUrl($url)[0].toUpperCase(),
-    url: $url
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">    hashMap.push({
+        logo: simplifyUrl($url)[0].toUpperCase(),
+        url: $url
 
-hashMap.splice(index, 1)</pre></td></tr></table>
+    hashMap.splice(index, 1)
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
-<p>具体步骤：</p>
-
+</div><p>具体步骤：</p>
 <ol>
-<li><p>我们只需要像数组一样将数据push或者slice</p></li>
-
-<li><p>这样我们就有了存储数据的哈希表</p></li>
+<li>
+<p>我们只需要像数组一样将数据push或者slice</p>
+</li>
+<li>
+<p>这样我们就有了存储数据的哈希表</p>
+</li>
 </ol>
-
 <ul>
-<li><p>接下来要保存数据</p>
+<li>接下来要保存数据</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">window.onbeforeunload = () =&gt; {
-const string = JSON.stringify(hashMap);
-localStorage.setItem(&#39;x&#39;, string) //自动保存
-}</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">window.onbeforeunload = () =&gt; {
+    const string = JSON.stringify(hashMap);
+    localStorage.setItem(&#39;x&#39;, string) //自动保存
+}
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
-<p><code>window.onbeforeunload</code>是指在浏览器关闭前</p>
-
+</div><p><code>window.onbeforeunload</code>是指在浏览器关闭前</p>
 <p>具体步骤：</p>
-
 <ol>
-<li><p>将哈希表转换为字符串</p></li>
-
-<li><p>将字符串<code>string</code>的数据保存到浏览器本地缓存</p></li>
-
-<li><p>现在浏览器就保存这个数据了，我们可以使用清除浏览器缓存来清除它</p></li>
+<li>
+<p>将哈希表转换为字符串</p>
+</li>
+<li>
+<p>将字符串<code>string</code>的数据保存到浏览器本地缓存</p>
+</li>
+<li>
+<p>现在浏览器就保存这个数据了，我们可以使用清除浏览器缓存来清除它</p>
+</li>
 </ol>
 
     </div>

@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96dom%E6%93%8D%E4%BD%9C%E6%9D%A5%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,10 +66,8 @@
 <meta property="article:modified_time" content="2019-11-11T00:00:00+00:00" />
 <meta itemprop="name" content="如何优化DOM操作来优化性能">
 <meta itemprop="description" content="如何优化DOM操作来优化性能">
-
-
-<meta itemprop="datePublished" content="2019-11-11T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-11-11T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2019-11-11T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-11-11T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1255">
 
 
@@ -395,41 +393,35 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#为什么dom操作很慢">为什么DOM操作很慢</a></li>
-<li><a href="#几种优化方案">几种优化方案</a>
-<ul>
-<li><a href="#批量读写方案">批量读写方案</a></li>
-<li><a href="#先操作属性-再添加回render-tree">先操作属性，再添加回Render Tree</a></li>
-<li><a href="#面对样式修改">面对样式修改</a></li>
-<li><a href="#使用requestanimationframe">使用requestAnimationFrame</a></li>
-<li><a href="#一些个人感想">一些个人感想</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#批量读写方案">批量读写方案</a></li>
+    <li><a href="#先操作属性再添加回render-tree">先操作属性，再添加回Render Tree</a></li>
+    <li><a href="#面对样式修改">面对样式修改</a></li>
+    <li><a href="#使用requestanimationframe">使用requestAnimationFrame</a></li>
+    <li><a href="#一些个人感想">一些个人感想</a></li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="为什么dom操作很慢">为什么DOM操作很慢</h1>
-
+      <h1 id="为什么dom操作很慢">为什么DOM操作很慢</h1>
 <ul>
-<li><p>一句话概括：DOM对象本身也是一个js对象，所以严格来说，并不是操作这个对象慢，而是说操作了这个对象后，会触发一些浏览器行为，比如布局（layout）和绘制（paint）。</p></li>
-
-<li><p>用文字描述浏览器呈现一张页面的过程：</p>
-
+<li>
+<p>一句话概括：DOM对象本身也是一个js对象，所以严格来说，并不是操作这个对象慢，而是说操作了这个对象后，会触发一些浏览器行为，比如布局（layout）和绘制（paint）。</p>
+</li>
+<li>
+<p>用文字描述浏览器呈现一张页面的过程：</p>
 <ol>
 <li>解析HTML，并生成一棵DOM tree</li>
 <li>解析各种样式并结合DOM tree生成一棵Render tree</li>
 <li>对Render tree的各个节点计算布局信息，比如box的位置与尺寸</li>
 <li>根据Render tree并利用浏览器的UI层进行绘制</li>
-</ol></li>
-
-<li><p>浏览器触发layout的情况</p>
-
+</ol>
+</li>
+<li>
+<p>浏览器触发layout的情况</p>
 <ol>
 <li>通过js获取需要计算的DOM属性</li>
 <li>添加或删除DOM元素</li>
@@ -437,17 +429,15 @@ if (!doNotTrack) {
 <li>改变字体</li>
 <li>css伪类的激活，比如:hover</li>
 <li>通过js修改DOM元素样式且该样式涉及到尺寸的改变</li>
-</ol></li>
+</ol>
+</li>
 </ul>
-
 <h1 id="几种优化方案">几种优化方案</h1>
-
 <h2 id="批量读写方案">批量读写方案</h2>
-
 <p>对于一段这样的代码</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -464,9 +454,9 @@ if (!doNotTrack) {
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">// Read
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">// Read
 var h1 = element1.clientHeight;
 
 // Write (invalidates layout)
@@ -482,15 +472,14 @@ element2.style.height = (h2 * 2) + &#39;px&#39;;
 var h3 = element3.clientHeight;
 
 // Write (invalidates layout)
-element3.style.height = (h3 * 2) + &#39;px&#39;;</pre></td></tr></table>
+element3.style.height = (h3 * 2) + &#39;px&#39;;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>其中<code>clientHeight</code>这个属性是计算得到的，每计算一次，浏览器就会进行一次layout</p>
-
+</div><p>其中<code>clientHeight</code>这个属性是计算得到的，每计算一次，浏览器就会进行一次layout</p>
 <p>下面给出一种优化这段代码的方法，只需要预先读取所需要的属性，在一起修改即可：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -499,9 +488,9 @@ element3.style.height = (h3 * 2) + &#39;px&#39;;</pre></td></tr></table>
 </span><span class="lnt">7
 </span><span class="lnt">8
 </span><span class="lnt">9
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">// Read
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">// Read
 var h1 = element1.clientHeight;
 var h2 = element2.clientHeight;
 var h3 = element3.clientHeight;
@@ -509,44 +498,40 @@ var h3 = element3.clientHeight;
 // Write (invalidates layout)
 element1.style.height = (h1 * 2) + &#39;px&#39;;
 element2.style.height = (h2 * 2) + &#39;px&#39;;
-element3.style.height = (h3 * 2) + &#39;px&#39;;</pre></td></tr></table>
+element3.style.height = (h3 * 2) + &#39;px&#39;;
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="先操作属性-再添加回render-tree">先操作属性，再添加回Render Tree</h2>
-
+</div><h2 id="先操作属性再添加回render-tree">先操作属性，再添加回Render Tree</h2>
 <p>以下列代码为例</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">var fragment = document.createDocumentFragment();
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">var fragment = document.createDocumentFragment();
 for (var i=0; i &lt; items.length; i++){
   var item = document.createElement(&#34;li&#34;);
   item.appendChild(document.createTextNode(&#34;Option &#34; + i);
   fragment.appendChild(item);
 }
-list.appendChild(fragment);</pre></td></tr></table>
+list.appendChild(fragment);
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>核心思想就是先对一个不在Render tree上的节点进行一系列操作，再把这个节点添加回Render tree，这样无论多么复杂的DOM操作，最终都只会触发一次layout。</p>
-
+</div><p>核心思想就是先对一个不在Render tree上的节点进行一系列操作，再把这个节点添加回Render tree，这样无论多么复杂的DOM操作，最终都只会触发一次layout。</p>
 <h2 id="面对样式修改">面对样式修改</h2>
-
 <ul>
 <li>针对样式的改变，我们首先需要知道并不是所有样式的修改都会触发layout，因为我们知道layout的工作是计算RenderObject的尺寸和大小信息，那么我如果只是改变一个颜色，是不会触发layout的。</li>
 </ul>
-
 <p>特别提一下JS动画,比如以下这段代码</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -557,9 +542,9 @@ list.appendChild(fragment);</pre></td></tr></table>
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">function animate (from, to) {
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">function animate (from, to) {
   if (from === to) return
 
   requestAnimationFrame(function () {
@@ -569,23 +554,20 @@ list.appendChild(fragment);</pre></td></tr></table>
   })
 }
 
-animate(100, 500)</pre></td></tr></table>
+animate(100, 500)
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>动画的每一帧都会导致layout，这是无法避免的，但是为了减少动画带来的layout的性能损失，可以将动画元素绝对定位，这样动画元素脱离文本流，layout的计算量会减少很多。</p>
-
+</div><p>动画的每一帧都会导致layout，这是无法避免的，但是为了减少动画带来的layout的性能损失，可以将动画元素绝对定位，这样动画元素脱离文本流，layout的计算量会减少很多。</p>
 <h2 id="使用requestanimationframe">使用requestAnimationFrame</h2>
-
 <ul>
 <li>window.requestAnimationFrame() 告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行(MDN)</li>
 <li>任何可能导致重绘的操作都应该放入requestAnimationFrame</li>
 <li>在现实项目中，代码按模块划分，很难像上例那样组织批量读写。那么这时可以把写操作放在</li>
 </ul>
-
 <p>requestAnimationFrame的callback中，统一让写操作在下一次paint之前执行。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -600,9 +582,9 @@ animate(100, 500)</pre></td></tr></table>
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">// Read
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">// Read
 var h1 = element1.clientHeight;
 
 // Write
@@ -616,11 +598,10 @@ var h2 = element2.clientHeight;
 // Write
 requestAnimationFrame(function() {
   element2.style.height = (h2 * 2) + &#39;px&#39;;
-});</pre></td></tr></table>
+});
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="一些个人感想">一些个人感想</h2>
-
+</div><h2 id="一些个人感想">一些个人感想</h2>
 <p>或许这就是更深层次点的东西，写出代码容易，写好难。</p>
 
     </div>

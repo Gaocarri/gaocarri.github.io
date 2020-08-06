@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/%E4%B8%80%E7%AF%87%E8%AF%B4%E9%80%9Areact%E7%B1%BB%E7%BB%84%E4%BB%B6/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,11 +66,9 @@
 <meta property="article:modified_time" content="2020-05-17T00:00:00+00:00" />
 <meta itemprop="name" content="一篇说通React类组件">
 <meta itemprop="description" content="一篇说通React类组件">
-
-
-<meta itemprop="datePublished" content="2020-05-17T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-05-17T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="648">
+<meta itemprop="datePublished" content="2020-05-17T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-05-17T00:00:00+00:00" />
+<meta itemprop="wordCount" content="649">
 
 
 
@@ -374,7 +372,7 @@ if (!doNotTrack) {
             <a href="http://gaocarri.top/categories/react/"> React </a>
             
           </div>
-        <span class="more-meta"> 约 648 字 </span>
+        <span class="more-meta"> 约 649 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
 
         
@@ -394,25 +392,17 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#类组件">类组件</a></li>
-<li><a href="#类组件事件绑定">类组件事件绑定</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="类组件">类组件</h1>
-
+      <h1 id="类组件">类组件</h1>
 <p>1.ES6如何创建组件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -433,20 +423,19 @@ if (!doNotTrack) {
 	<span class="nx">render</span><span class="p">(){</span>
 		<span class="k">return</span> <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="nx">hi</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 	<span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
+</div><ul>
 <li>234行可以省掉（如果不需要在constructor里做什么的话）</li>
 </ul>
-
 <p>2.props</p>
-
 <ul>
-<li><p>传数据给B组件</p>
+<li>传数据给B组件</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -464,27 +453,28 @@ if (!doNotTrack) {
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">class</span> <span class="nx">Parent</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Components</span><span class="p">{</span>
-<span class="nx">construtor</span><span class="p">(</span><span class="nx">props</span><span class="p">){</span>
+    <span class="nx">construtor</span><span class="p">(</span><span class="nx">props</span><span class="p">){</span>
 	<span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span>
-<span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="s1">&#39;carri&#39;</span><span class="p">}</span>
-<span class="p">}</span>
-<span class="nx">onClick</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;{}</span>
-<span class="nx">render</span><span class="p">(){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="s1">&#39;carri&#39;</span><span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nx">onClick</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;{}</span>
+    <span class="nx">render</span><span class="p">(){</span>
 		<span class="k">return</span> <span class="p">&lt;</span><span class="nt">B</span> <span class="na">name</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span>
-               <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">onClick</span><span class="p">}</span>
-               <span class="p">&gt;</span><span class="nx">hi</span><span class="p">&lt;/</span><span class="nt">B</span><span class="p">&gt;</span>
-<span class="p">}</span>
+                   <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">onClick</span><span class="p">}</span>
+                   <span class="p">&gt;</span><span class="nx">hi</span><span class="p">&lt;/</span><span class="nt">B</span><span class="p">&gt;</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 <span class="c1">// 外部数据被包装为一个对象
 </span><span class="c1">// {name:&#39;carri&#39;,onClick:...,children:&#39;hi&#39;}
-</span><span class="c1"></span><span class="err">// 此处onClick是一个回调</span></code></pre></td></tr></table>
+</span><span class="c1">// 此处onClick是一个回调
+</span></code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>B组件</p>
+</div><ul>
+<li>B组件</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -499,14 +489,15 @@ if (!doNotTrack) {
 	<span class="p">}</span>
 	<span class="nx">reder</span><span class="p">(){}</span>
 <span class="p">}</span>
-<span class="err">// 这么做了之后，this.props就是外部数据对象的地址了</span></code></pre></td></tr></table>
+<span class="c1">// 这么做了之后，this.props就是外部数据对象的地址了
+</span></code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>读取</p>
+</div><ul>
+<li>读取</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -533,77 +524,73 @@ if (!doNotTrack) {
 			<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 		<span class="p">)</span>
 	<span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>写props</p>
-
+</div><ul>
+<li>写props
 <ul>
 <li>react的原则就是应该由数据的主人对数据进行更改</li>
 <li>不要自己修改props的值和属性</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>3.props的作用</p>
-
 <ul>
 <li>接受外部的数据</li>
 <li>接受外部的函数</li>
 </ul>
-
 <p>4.state&amp;setState</p>
-
 <ul>
-<li><p>setState不会立即改变state，它是异步的</p>
+<li>setState不会立即改变state，它是异步的</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">onClick=()=&gt;{
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">onClick=()=&gt;{
 	this.setState({x:this.state.x+1})
 	this.setState({x:this.state.x+1})
 }
 
-// 只会加一次1</pre></td></tr></table>
+// 只会加一次1
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>函数型写法可以解决上面的问题</p>
+</div><ul>
+<li>函数型写法可以解决上面的问题</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
+</span><span class="lnt">5
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">onClick2=()=&gt;{
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">onClick2=()=&gt;{
 	this.setState((state)=&gt;({x:state.x+1})
 	this.setState((state)=&gt;({x:state.x+1})
-}</pre></td></tr></table>
+}
+
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>setState接受两个参数，第二个是fn(写入成功后执行的函数，不常见)</p></li>
-
-<li><p>setState写时会自动进行shallow merge，但只对新的state和旧的state进行一级合并</p></li>
-
-<li><p>this.state.n+=1 不推荐用，不render</p></li>
+</div><ul>
+<li>setState接受两个参数，第二个是fn(写入成功后执行的函数，不常见)</li>
+<li>setState写时会自动进行shallow merge，但只对新的state和旧的state进行一级合并</li>
+<li>this.state.n+=1 不推荐用，不render</li>
 </ul>
-
 <h1 id="类组件事件绑定">类组件事件绑定</h1>
-
 <p>1.类组件事件绑定</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -611,22 +598,22 @@ if (!doNotTrack) {
 </span><span class="lnt">6
 </span><span class="lnt">7
 </span><span class="lnt">8
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">class Welcome extends React.Component{
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">class Welcome extends React.Component{
 	addN=()=&gt;this.setState({n:this.state.n+1})
 	render(){
 		return(
 			&lt;div onClick={this.addN}&gt;111&lt;/div&gt;
 		)
 	}
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>2.一个举例,为什么用箭头函数</p>
+</div><p>2.一个举例,为什么用箭头函数</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -648,9 +635,9 @@ if (!doNotTrack) {
 </span><span class="lnt">20
 </span><span class="lnt">21
 </span><span class="lnt">22
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">class Person{
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">class Person{
 sayHi()
 }
 
@@ -671,7 +658,8 @@ const p2 = new Person(2)
 // p2的sayHi方法在p2自己身上，对象上
 
 
-这是语法自己定义的</pre></td></tr></table>
+这是语法自己定义的
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

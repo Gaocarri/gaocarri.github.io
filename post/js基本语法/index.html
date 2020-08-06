@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/js%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,10 +66,8 @@
 <meta property="article:modified_time" content="2019-11-03T00:00:00+00:00" />
 <meta itemprop="name" content="JS基本语法">
 <meta itemprop="description" content="JS基本语法">
-
-
-<meta itemprop="datePublished" content="2019-11-03T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-11-03T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2019-11-03T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-11-03T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1952">
 
 
@@ -394,126 +392,99 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#表达式和语句">表达式和语句</a></li>
-<li><a href="#大小写与空格">大小写与空格</a></li>
-<li><a href="#标识符">标识符</a></li>
-<li><a href="#区块block">区块block</a></li>
-<li><a href="#if语句">if语句</a></li>
-<li><a href="#switch语句">switch语句</a></li>
-<li><a href="#三元运算符">三元运算符</a></li>
-<li><a href="#while循环">while循环</a></li>
-<li><a href="#for循环">for循环</a></li>
-<li><a href="#break语句和continue语句">break语句和continue语句</a></li>
-<li><a href="#label-标签">label（标签）</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="表达式和语句">表达式和语句</h1>
-
+      <h1 id="表达式和语句">表达式和语句</h1>
 <ol>
 <li>表达式
-
 <ul>
 <li>1+2表达式的值是3</li>
 <li>add(1,2)表达式的值是函数的返回值</li>
 <li>console.log表达式的值为函数本身</li>
 <li>console.log(3)表达式的值为undefined</li>
-</ul></li>
+</ul>
+</li>
 <li>语句
-
 <ul>
 <li>var a =1 是一个语句</li>
-</ul></li>
+</ul>
+</li>
 <li>区别
-
 <ul>
 <li>表达式一般都有值，语句可能有可能没有</li>
 <li>语句一般会改变环境（赋值，变量）</li>
 <li>上面两句话并不是绝对的</li>
-</ul></li>
+</ul>
+</li>
 </ol>
-
 <h1 id="大小写与空格">大小写与空格</h1>
-
 <ol>
 <li>JS大小写敏感</li>
 <li>空格和回车没有实际意义（当return后面跟空格会返回undefined）</li>
 </ol>
-
 <h1 id="标识符">标识符</h1>
-
 <ol>
 <li>第一个字符,可以是Unicode字母或$或_或中文</li>
 <li>后面的字符，除了上述字符还可以是数字</li>
 </ol>
-
 <h1 id="区块block">区块block</h1>
-
 <ul>
 <li>将代码包在一起</li>
-
-<li><p>常常与if/while/for在一起使用</p>
+<li>常常与if/while/for在一起使用</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">{
-let a = 1
-let b = 2
-}</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
+    let a = 1
+    let b = 2
+}
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
-<h1 id="if语句">if语句</h1>
-
+</div><h1 id="if语句">if语句</h1>
 <ul>
-<li><p>if结构先判断一个表达式的布尔值，然后根据布尔值的真伪，执行不同的语句。所谓布尔值，指的是 JavaScript 的两个特殊值，true表示真，false表示伪</p>
+<li>if结构先判断一个表达式的布尔值，然后根据布尔值的真伪，执行不同的语句。所谓布尔值，指的是 JavaScript 的两个特殊值，true表示真，false表示伪</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">if (a === 1){
-console.log(&#39;a是1&#39;)
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">if (a === 1){
+    console.log(&#39;a是1&#39;)
 }else if(a === 2){
-console.log(&#39;a是2&#39;)
+    console.log(&#39;a是2&#39;)
 }else{
-console.log(&#39;a不是1和2&#39;)
-}</pre></td></tr></table>
+    console.log(&#39;a不是1和2&#39;)
+}
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>建议总是在if语句中使用大括号，因为这样方便插入语句。</p></li>
-
-<li><p>注意，if后面的表达式之中，不要混淆赋值表达式（=）、严格相等运算符（===）和相等运算符（==）。尤其是赋值表达式不具有比较作用。</p></li>
+</div><ul>
+<li>建议总是在if语句中使用大括号，因为这样方便插入语句。</li>
+<li>注意，if后面的表达式之中，不要混淆赋值表达式（=）、严格相等运算符（===）和相等运算符（==）。尤其是赋值表达式不具有比较作用。</li>
 </ul>
-
 <h1 id="switch语句">switch语句</h1>
-
 <ul>
-<li><p>多个if&hellip;else连在一起使用的时候，可以转为使用更方便的switch结构。</p>
+<li>多个if&hellip;else连在一起使用的时候，可以转为使用更方便的switch结构。</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -522,181 +493,173 @@ console.log(&#39;a不是1和2&#39;)
 </span><span class="lnt">7
 </span><span class="lnt">8
 </span><span class="lnt">9
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">switch(fruit){
- case &#39;banana&#39;: 1;
- break;
- case &#39;apple&#39;: 2;
- break;
- case &#39;peach&#39;: 3;
- break;
- default;
-}</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">switch(fruit){
+     case &#39;banana&#39;: 1;
+     break;
+     case &#39;apple&#39;: 2;
+     break;
+     case &#39;peach&#39;: 3;
+     break;
+     default;
+}
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>上面代码根据变量fruit的值，选择执行相应的case。如果所有case都不符合，则执行最后的default部分。需要注意的是，每个case代码块内部的break语句不能少，否则会接下去执行下一个case代码块，而不是跳出switch结构。</p></li>
+</div><ul>
+<li>上面代码根据变量fruit的值，选择执行相应的case。如果所有case都不符合，则执行最后的default部分。需要注意的是，每个case代码块内部的break语句不能少，否则会接下去执行下一个case代码块，而不是跳出switch结构。</li>
 </ul>
-
 <h1 id="三元运算符">三元运算符</h1>
-
 <ul>
-<li><p>如果条件为true，返回表达式1，否则返回表达式2（if&hellip;else的简写形式）</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">(条件)?表达式1:表达式2</pre></td></tr></table>
-</div>
-</div></li>
+<li>如果条件为true，返回表达式1，否则返回表达式2（if&hellip;else的简写形式）</li>
 </ul>
-
-<h1 id="while循环">while循环</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">(条件)?表达式1:表达式2
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="while循环">while循环</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">var i = 0;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">var i = 0;
 
 while (i &lt; 100) {
   console.log(&#39;i 当前为：&#39; + i);
   i = i + 1;
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
+</div><ul>
 <li>上面代码将循环100次直到i=100为止</li>
 <li>当循环条件为真，会无限循环</li>
 </ul>
-
 <h1 id="for循环">for循环</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">for (初始化表达式; 条件; 递增表达式) {
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">for (初始化表达式; 条件; 递增表达式) {
   语句
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
+</div><ul>
 <li>初始化表达式（initialize）：确定循环变量的初始值，只在循环开始时执行一次。</li>
 <li>条件表达式（test）：每轮循环开始时，都要执行这个条件表达式，只有值为真，才继续进行循环。</li>
-
-<li><p>递增表达式（increment）：每轮循环的最后一个操作，通常用来递增循环变量。</p>
+<li>递增表达式（increment）：每轮循环的最后一个操作，通常用来递增循环变量。</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">var x = 3;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">var x = 3;
 for (var i = 0; i &lt; x; i++) {
-console.log(i);
-}</pre></td></tr></table>
+  console.log(i);
+}
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>上面代码中，初始化表达式是var i = 0，即初始化一个变量i；测试表达式是i &lt; x，即只要i小于x，就会执行循环；递增表达式是i++，即每次循环结束后，i增大1。</p></li>
+</div><ul>
+<li>上面代码中，初始化表达式是var i = 0，即初始化一个变量i；测试表达式是i &lt; x，即只要i小于x，就会执行循环；递增表达式是i++，即每次循环结束后，i增大1。</li>
 </ul>
-
 <h1 id="break语句和continue语句">break语句和continue语句</h1>
-
 <ul>
-<li><p>break语句和continue语句都具有跳转作用，可以让代码不按既有的顺序执行。</p>
+<li>break语句和continue语句都具有跳转作用，可以让代码不按既有的顺序执行。</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">while(i &lt; 100) {
-console.log(&#39;i 当前为：&#39; + i);
-i++;
-if (i === 10) break;
-}</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">while(i &lt; 100) {
+  console.log(&#39;i 当前为：&#39; + i);
+  i++;
+  if (i === 10) break;
+}
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>break语句用于跳出代码块或循环。</p></li>
-
-<li><p>上面代码只会执行10次循环，一旦i等于10，就会跳出循环。</p></li>
-
-<li><p>for循环也可以使用break语句跳出循环。</p>
+</div><ul>
+<li>break语句用于跳出代码块或循环。</li>
+<li>上面代码只会执行10次循环，一旦i等于10，就会跳出循环。</li>
+<li>for循环也可以使用break语句跳出循环。</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">var i = 0;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">var i = 0;
 
 while (i &lt; 100){
-i++;
-if (i % 2 === 0) continue;
-console.log(&#39;i 当前为：&#39; + i);
-}</pre></td></tr></table>
+  i++;
+  if (i % 2 === 0) continue;
+  console.log(&#39;i 当前为：&#39; + i);
+}
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>continue语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮循环。</p></li>
-
-<li><p>上面代码只有在i为奇数时，才会输出i的值。如果i为偶数，则直接进入下一轮循环。</p></li>
+</div><ul>
+<li>continue语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮循环。</li>
+<li>上面代码只有在i为奇数时，才会输出i的值。如果i为偶数，则直接进入下一轮循环。</li>
 </ul>
-
-<h1 id="label-标签">label（标签）</h1>
-
+<h1 id="label标签">label（标签）</h1>
 <ul>
 <li>JavaScript 语言允许，语句的前面有标签（label），相当于定位符，用于跳转到程序的任意位置，标签的格式如下。</li>
 <li>标签可以是任意的标识符，但不能是保留字，语句部分可以是任意语句。</li>
-
-<li><p>标签通常与break语句和continue语句配合使用，跳出特定的循环。</p>
+<li>标签通常与break语句和continue语句配合使用，跳出特定的循环。</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">top:
-for (var i = 0; i &lt; 3; i++){
-for (var j = 0; j &lt; 3; j++){
-  if (i === 1 &amp;&amp; j === 1) break top;
-  console.log(&#39;i=&#39; + i + &#39;, j=&#39; + j);
-}
-}</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">top:
+  for (var i = 0; i &lt; 3; i++){
+    for (var j = 0; j &lt; 3; j++){
+      if (i === 1 &amp;&amp; j === 1) break top;
+      console.log(&#39;i=&#39; + i + &#39;, j=&#39; + j);
+    }
+  }
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>上面代码为一个双重循环区块，break命令后面加上了top标签（注意，top不用加引号），满足条件时，直接跳出双层循环。如果break语句后面不使用标签，则只能跳出内层循环，进入下一次的外层循环。</p>
+</div><ul>
+<li>上面代码为一个双重循环区块，break命令后面加上了top标签（注意，top不用加引号），满足条件时，直接跳出双层循环。如果break语句后面不使用标签，则只能跳出内层循环，进入下一次的外层循环。</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -704,25 +667,25 @@ for (var j = 0; j &lt; 3; j++){
 </span><span class="lnt">6
 </span><span class="lnt">7
 </span><span class="lnt">8
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">foo: {
-console.log(1);
-break foo;
-console.log(&#39;本行不会输出&#39;);
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">foo: {
+  console.log(1);
+  break foo;
+  console.log(&#39;本行不会输出&#39;);
 }
 console.log(2);
 // 1
-// 2</pre></td></tr></table>
+// 2
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>标签也可以用于跳出代码块。</p></li>
-
-<li><p>上面代码执行到break foo，就会跳出区块</p>
+</div><ul>
+<li>标签也可以用于跳出代码块。</li>
+<li>上面代码执行到break foo，就会跳出区块</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -736,28 +699,27 @@ console.log(2);
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">top:
-for (var i = 0; i &lt; 3; i++){
-for (var j = 0; j &lt; 3; j++){
-  if (i === 1 &amp;&amp; j === 1) continue top;
-  console.log(&#39;i=&#39; + i + &#39;, j=&#39; + j);
-}
-}
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">top:
+  for (var i = 0; i &lt; 3; i++){
+    for (var j = 0; j &lt; 3; j++){
+      if (i === 1 &amp;&amp; j === 1) continue top;
+      console.log(&#39;i=&#39; + i + &#39;, j=&#39; + j);
+    }
+  }
 // i=0, j=0
 // i=0, j=1
 // i=0, j=2
 // i=1, j=0
 // i=2, j=0
 // i=2, j=1
-// i=2, j=2</pre></td></tr></table>
+// i=2, j=2
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>continue语句也可以与标签配合使用。</p></li>
-
-<li><p>上面代码中，continue命令后面有一个标签名，满足条件时，会跳过当前循环，直接进入下一轮外层循环。如果continue语句后面不使用标签，则只能进入下一轮的内层循环。</p></li>
+</div><ul>
+<li>continue语句也可以与标签配合使用。</li>
+<li>上面代码中，continue命令后面有一个标签名，满足条件时，会跳过当前循环，直接进入下一轮外层循环。如果continue语句后面不使用标签，则只能进入下一轮的内层循环。</li>
 </ul>
 
     </div>

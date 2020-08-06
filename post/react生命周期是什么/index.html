@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%98%AF%E4%BB%80%E4%B9%88/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,11 +66,9 @@
 <meta property="article:modified_time" content="2020-05-18T00:00:00+00:00" />
 <meta itemprop="name" content="React生命周期是什么">
 <meta itemprop="description" content="React生命周期是什么">
-
-
-<meta itemprop="datePublished" content="2020-05-18T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-05-18T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1240">
+<meta itemprop="datePublished" content="2020-05-18T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-05-18T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1285">
 
 
 
@@ -374,7 +372,7 @@ if (!doNotTrack) {
             <a href="http://gaocarri.top/categories/react/"> React </a>
             
           </div>
-        <span class="more-meta"> 约 1240 字 </span>
+        <span class="more-meta"> 约 1285 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
 
         
@@ -394,24 +392,17 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#react生命周期">React生命周期</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="react生命周期">React生命周期</h1>
-
+      <h1 id="react生命周期">React生命周期</h1>
 <p>1.类比代码</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -428,11 +419,10 @@ if (!doNotTrack) {
 </span><span class="c1"></span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">div</span><span class="p">)</span>
 <span class="c1">// 这是div的update过程
 </span><span class="c1"></span><span class="nx">div</span><span class="p">.</span><span class="nx">remove</span>
-<span class="err">// 这是div的unmount过程</span></code></pre></td></tr></table>
+<span class="c1">// 这是div的unmount过程
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<p>2.生命周期列表</p>
-
+</div><p>2.生命周期列表</p>
 <ul>
 <li>constructor() &ndash;在这里初始化state</li>
 <li>static getDerivedStateFromProps() 不常用</li>
@@ -445,25 +435,21 @@ if (!doNotTrack) {
 <li>static getDerivedFromError() 不常用</li>
 <li>componentDidCatch() 不常用</li>
 </ul>
-
 <p>3.constructor</p>
-
 <ul>
 <li>初始化props</li>
 <li>初始化state,但不能调用setState</li>
 <li>可不写</li>
 </ul>
-
 <p>4.shouldComponentUpdate</p>
-
 <ul>
 <li>返回true表示不阻止UI更新</li>
 <li>返回false表示阻止UI更新</li>
-
-<li><p>它可以让我们手动判断是否要进行组件更新，我们可以根据应用场景灵活地设置返回值，以避免不必要的更新，性能优化</p>
+<li>它可以让我们手动判断是否要进行组件更新，我们可以根据应用场景灵活地设置返回值，以避免不必要的更新，性能优化</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -498,48 +484,49 @@ if (!doNotTrack) {
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">class</span> <span class="nx">App</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
-<span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
-<span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span>
-<span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">n</span><span class="o">:</span> <span class="mi">1</span>
-<span class="p">}</span>
-<span class="p">}</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">n</span><span class="o">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
 
-<span class="nx">onClick</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-<span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">(</span><span class="nx">state</span> <span class="p">=&gt;</span> <span class="p">({</span> <span class="nx">n</span><span class="o">:</span> <span class="nx">state</span><span class="p">.</span><span class="nx">n</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}))</span>
-<span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">(</span><span class="nx">state</span> <span class="p">=&gt;</span> <span class="p">({</span> <span class="nx">n</span><span class="o">:</span> <span class="nx">state</span><span class="p">.</span><span class="nx">n</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">}))</span>
-<span class="p">}</span>
+  <span class="nx">onClick</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">(</span><span class="nx">state</span> <span class="p">=&gt;</span> <span class="p">({</span> <span class="nx">n</span><span class="o">:</span> <span class="nx">state</span><span class="p">.</span><span class="nx">n</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}))</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">(</span><span class="nx">state</span> <span class="p">=&gt;</span> <span class="p">({</span> <span class="nx">n</span><span class="o">:</span> <span class="nx">state</span><span class="p">.</span><span class="nx">n</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">}))</span>
+  <span class="p">}</span>
 
-<span class="nx">shouldComponentUpdate</span><span class="p">(</span><span class="nx">nextProps</span><span class="p">,</span> <span class="nx">nextState</span><span class="p">)</span> <span class="p">{</span>
-<span class="k">if</span> <span class="p">(</span><span class="nx">nextState</span><span class="p">.</span><span class="nx">n</span> <span class="o">===</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="kc">false</span> <span class="c1">// 不更新
-</span><span class="c1"></span><span class="p">}</span>
-<span class="p">}</span>
+  <span class="nx">shouldComponentUpdate</span><span class="p">(</span><span class="nx">nextProps</span><span class="p">,</span> <span class="nx">nextState</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">nextState</span><span class="p">.</span><span class="nx">n</span> <span class="o">===</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kc">false</span> <span class="c1">// 不更新
+</span><span class="c1"></span>    <span class="p">}</span>
+  <span class="p">}</span>
 
-<span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
-<span class="k">return</span> <span class="p">(</span>
-  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="nx">App</span>
-    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">n</span><span class="p">}</span>
-      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">onClick</span><span class="p">}&gt;</span><span class="o">+</span><span class="mi">1</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">)</span>
-<span class="p">}</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="nx">App</span>
+        <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">n</span><span class="p">}</span>
+          <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">onClick</span><span class="p">}&gt;</span><span class="o">+</span><span class="mi">1</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">)</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="c1">// 前后n没变，没有该生命周期的时候点击会再render一次（因为react的两个n不是一个n，有办法让它比比较，见后面），有的时候不会再render
-</span><span class="c1"></span><span class="err">// render不是更新UI，render是虚拟DOM里面的</span></code></pre></td></tr></table>
+</span><span class="c1">// render不是更新UI，render是虚拟DOM里面的
+</span></code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>内置的pureComponent</p></li>
-</ul>
-
+</div><ul>
+<li>
+<p>内置的pureComponent</p>
 <p>PureComponent 会在 render 之前对比新 state 和旧 state 的每一个 key，以及新 props 和旧 props 的每一个 key。
-  如果所有 key 的值全都一样，就不会 render；如果有任何一个 key 的值不同，就会 render。</p>
+如果所有 key 的值全都一样，就不会 render；如果有任何一个 key 的值不同，就会 render。</p>
+</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -550,48 +537,47 @@ if (!doNotTrack) {
 	<span class="nx">render</span><span class="p">(){</span>
 		<span class="k">return</span> <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="nx">App</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 	<span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
+</div><ul>
 <li>react修改对象setState返回新对象，不直接在this.state上改</li>
 </ul>
-
 <p>5.render</p>
-
 <ul>
-<li>return一个虚拟DOM</li>
-
-<li><p>只能有一个根元素，否则用<React.Fragment></React.Fragment>包起来，这个元素不渲染，只用来做个占位，可以用<strong>空标签</strong>代替&lt;&gt;&lt;/&gt;</p></li>
-
-<li><p>技巧</p>
-
+<li>
+<p>return一个虚拟DOM</p>
+</li>
+<li>
+<p>只能有一个根元素，否则用&lt;React.Fragment&gt;&lt;/React.Fragment&gt;包起来，这个元素不渲染，只用来做个占位，可以用<strong>空标签</strong>代替&lt;&gt;&lt;/&gt;</p>
+</li>
+<li>
+<p>技巧</p>
 <ul>
 <li>还可以写if..else</li>
-
-<li><p>还可以map(一定要写key)</p>
+<li>还可以map(一定要写key)</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">render</span><span class="p">(){</span>
-	<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">array</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">n</span><span class="p">=&gt;&lt;</span><span class="nt">span</span> <span class="na">key</span><span class="o">=</span><span class="p">{</span><span class="nx">n</span><span class="p">}&gt;{</span><span class="nx">n</span><span class="p">}&lt;/</span><span class="nt">span</span><span class="p">&gt;)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">array</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">n</span><span class="p">=&gt;&lt;</span><span class="nt">span</span> <span class="na">key</span><span class="o">=</span><span class="p">{</span><span class="nx">n</span><span class="p">}&gt;{</span><span class="nx">n</span><span class="p">}&lt;/</span><span class="nt">span</span><span class="p">&gt;)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-</ul></li>
 </ul>
-
 <p>6.componentdidMount</p>
-
 <ul>
-<li><p>执行依赖于DOM的方法</p>
+<li>执行依赖于DOM的方法</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -634,14 +620,15 @@ if (!doNotTrack) {
 		<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;xxx&#34;</span><span class="p">&gt;</span><span class="nx">Hello</span> <span class="nx">World</span><span class="p">{</span><span class="nx">width</span><span class="p">}&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 		<span class="p">)</span>
 	<span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>题外话ref语法</p>
+</div><ul>
+<li>题外话ref语法</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -662,7 +649,7 @@ if (!doNotTrack) {
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">class</span> <span class="nx">App</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">PureComponent</span><span class="p">{</span>
-<span class="nx">divRef</span> <span class="o">=</span> <span class="kc">undefined</span> <span class="c1">// 推荐写上，便于阅读
+    <span class="nx">divRef</span> <span class="o">=</span> <span class="kc">undefined</span> <span class="c1">// 推荐写上，便于阅读
 </span><span class="c1"></span>	<span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">){</span>
 		<span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span>
 		<span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="o">=</span><span class="p">{</span>
@@ -678,37 +665,32 @@ if (!doNotTrack) {
 <span class="p">}</span>
             
 <span class="c1">// 此时在任何地方都可以this.divRef获取到div
-</span><span class="c1"></span><span class="err">// this.div = this.divRef.current</span></code></pre></td></tr></table>
+</span><span class="c1">// this.div = this.divRef.current
+</span></code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>发起加载数据的AJAX请求（官方推荐）</p></li>
-
-<li><p>首次渲染会执行</p></li>
+</div><ul>
+<li>发起加载数据的AJAX请求（官方推荐）</li>
+<li>首次渲染会执行</li>
 </ul>
-
 <p>7.componentDidUpdate()</p>
-
 <ul>
 <li>视图更新后执行代码</li>
 <li>此处也可以发起AJAX，用于更新数据</li>
 <li>此处setState可能会引起无限循环，除非放在if里</li>
 <li>如果shouldComponentUpdate的为false，则不会触发此钩子</li>
 </ul>
-
 <p>8.componentWillUnmount</p>
-
 <ul>
 <li>组件要被<strong>移出页面然后被销毁时</strong>执行代码</li>
 <li>举例
-
 <ul>
 <li>如果你在c&hellip;DidMount里面创建了Timer</li>
 <li>那么你就要在c..WillUnmount里面取消Timer</li>
 <li>如果在c..DidMount里面创建了AJAX</li>
 <li>那就要在c..WillUnmount里面取消请求</li>
 <li>原则：哪个组件污染哪个组件治理</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 
     </div>

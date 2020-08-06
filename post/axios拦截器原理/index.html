@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/axios%E6%8B%A6%E6%88%AA%E5%99%A8%E5%8E%9F%E7%90%86/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,10 +66,8 @@
 <meta property="article:modified_time" content="2020-07-29T00:00:00+00:00" />
 <meta itemprop="name" content="axios拦截器原理">
 <meta itemprop="description" content="axios拦截器原理">
-
-
-<meta itemprop="datePublished" content="2020-07-29T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-07-29T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2020-07-29T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-07-29T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1895">
 
 
@@ -394,44 +392,27 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#拦截器是什么">拦截器是什么</a></li>
-<li><a href="#怎么使用拦截器">怎么使用拦截器</a></li>
-<li><a href="#axios拦截器原理">axios拦截器原理</a></li>
-<li><a href="#参考">参考</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="拦截器是什么">拦截器是什么</h1>
-
+      <h1 id="拦截器是什么">拦截器是什么</h1>
 <p>页面发送http请求时，很多情况我们要对<strong>请求和其响应</strong>进行<strong>特定的处理</strong>；</p>
-
 <p>例如</p>
-
 <ul>
 <li>每个请求都附带后端返回的token</li>
 <li>拿到response之前loading动画的展示等。</li>
 </ul>
-
 <p>如果请求数非常多，这样处理起来会非常的麻烦，程序的优雅性也会大打折扣。在这种情况下，axios为开发者提供了这样一个API：<strong>拦截器</strong>。拦截器分为 请求（request）拦截器和 响应（response）拦截器。</p>
-
 <h1 id="怎么使用拦截器">怎么使用拦截器</h1>
-
 <p>1.请求拦截器</p>
-
 <p>请求拦截器的作用是在请求发送前进行一些操作，例如在每个请求体里加上token，统一做处理的好处在于以后想改的时候直接就能改。</p>
-
 <p>使用方法:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -487,17 +468,13 @@ if (!doNotTrack) {
   <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>这里说一下token，一般是在登录完成之后，将用户的token通过localStorage或者cookie存在本地，然后用户每次在进入页面的时候，会首先从本地存储中读取token，如果token存在说明用户已经登陆过，则更新vuex中的token状态。然后，在每次请求接口的时候，都会在请求的header中携带token，服务器就可以根据你携带的token来判断你的登录是否过期，如果没有携带，则说明没有登录过。</p>
-
+</div><p>这里说一下token，一般是在登录完成之后，将用户的token通过localStorage或者cookie存在本地，然后用户每次在进入页面的时候，会首先从本地存储中读取token，如果token存在说明用户已经登陆过，则更新vuex中的token状态。然后，在每次请求接口的时候，都会在请求的header中携带token，服务器就可以根据你携带的token来判断你的登录是否过期，如果没有携带，则说明没有登录过。</p>
 <p>2.响应拦截器</p>
-
 <p>响应拦截器的作用是在接收到响应后进行一些操作，例如在服务器返回登录状态失效，需要重新登录的时候，跳转到登录页等。</p>
-
 <p>使用方法：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -647,15 +624,12 @@ if (!doNotTrack) {
 <span class="p">});</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>响应拦截器很好理解，就是服务器返回给我们的数据，我们在拿到之前可以对他进行一些处理。例如：如果后台返回的状态码是200，则正常返回数据，否则的根据错误的状态码类型进行一些我们需要的错误，其实这里主要就是进行了错误的统一处理和没登录或登录过期后调整登录页的一个操作。</p>
-
+</div><p>响应拦截器很好理解，就是服务器返回给我们的数据，我们在拿到之前可以对他进行一些处理。例如：如果后台返回的状态码是200，则正常返回数据，否则的根据错误的状态码类型进行一些我们需要的错误，其实这里主要就是进行了错误的统一处理和没登录或登录过期后调整登录页的一个操作。</p>
 <h1 id="axios拦截器原理">axios拦截器原理</h1>
-
 <p>首先直接看源代码吧，注意chain这个数组</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -699,9 +673,7 @@ if (!doNotTrack) {
 <span class="p">};</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>我们来通俗地捋一下拦截器原理吧</p>
-
+</div><p>我们来通俗地捋一下拦截器原理吧</p>
 <ol>
 <li>创建一个chain数组，数组中保存了拦截器相应方法以及dispatchRequest（dispatchRequest这个函数调用才会真正的开始下发请求）</li>
 <li>我们需要把请求拦截器的方法放到chain数组中dispatchRequest的前面</li>
@@ -709,11 +681,8 @@ if (!doNotTrack) {
 <li>2，3两步依赖forEach将它们分别unshift,push到chain数组中</li>
 <li>为了保证它们的执行顺序，需要使用promise，以出队列的方式对chain数组中的方法挨个执行</li>
 </ol>
-
 <h1 id="参考">参考</h1>
-
 <p><a href="https://www.jianshu.com/p/646ed4edf51f">axios拦截器接口配置与使用</a></p>
-
 <p><a href="https://lq782655835.github.io/blogs/project/axios-usage-theory.html">axios用法及原理</a></p>
 
     </div>
@@ -753,6 +722,19 @@ if (!doNotTrack) {
       
       <nav class="post-nav">
         
+          <a class="prev" href="/post/test/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">test</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
         
           <a class="next" href="/post/vue%E5%86%B7%E9%97%A8api%E4%B9%8Bprovide/">
             <span class="next-text nav-default">Vue冷门api之provide</span>

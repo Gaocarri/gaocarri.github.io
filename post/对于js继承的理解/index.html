@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/%E5%AF%B9%E4%BA%8Ejs%E7%BB%A7%E6%89%BF%E7%9A%84%E7%90%86%E8%A7%A3/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,10 +66,8 @@
 <meta property="article:modified_time" content="2019-12-10T00:00:00+00:00" />
 <meta itemprop="name" content="对于JS继承的理解">
 <meta itemprop="description" content="对于JS继承的理解">
-
-
-<meta itemprop="datePublished" content="2019-12-10T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-10T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2019-12-10T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-12-10T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1233">
 
 
@@ -395,44 +393,36 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#基于原型的继承">基于原型的继承</a></li>
-<li><a href="#基于class的继承">基于class的继承</a></li>
-<li><a href="#补充-关于new做了什么">补充 关于new做了什么</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#基于原型的继承">基于原型的继承</a></li>
+    <li><a href="#基于class的继承">基于class的继承</a></li>
+    <li><a href="#补充-关于new做了什么">补充 关于new做了什么</a></li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<p>同样又是一个查缺补漏，这几天疯狂看博客，把不清楚的知识给弄清楚</p>
-
+      <p>同样又是一个查缺补漏，这几天疯狂看博客，把不清楚的知识给弄清楚</p>
 <p>首先，谈JS的继承就得提到原型以及原型链，<code>对象_proto_===其构造函数.prototype</code>,他们共同指向了一个地址，这个地址是这个对象的原型，它里面存着各种属性和方法，<code>Object.prototype</code>是所有对象的直接或间接原型，而所有函数的原型都是<code>Function.prototype</code>。举个例子：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">let obj = [1, 2, 3]
-obj.toString()</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">let obj = [1, 2, 3]
+obj.toString()
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>当调用obj.toString时，js 首先在obj对象自身上查找toString方法；未找到，继续沿着原型链查找Array.prototype上有没有toString；未找到，继续沿着原型链在Object.prototype上查找。最终在Object.prototype上找到了toString方法，这就是原型链和它的作用。</p>
-
+</div><p>当调用obj.toString时，js 首先在obj对象自身上查找toString方法；未找到，继续沿着原型链查找Array.prototype上有没有toString；未找到，继续沿着原型链在Object.prototype上查找。最终在Object.prototype上找到了toString方法，这就是原型链和它的作用。</p>
 <p>好了正式讲讲及继承吧
 ES5和ES6分别提供了不同继承的方法，基于原型的继承和基于class的继承,我查了博客找出了他们之间的区别</p>
-
 <h2 id="基于原型的继承">基于原型的继承</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -447,9 +437,9 @@ ES5和ES6分别提供了不同继承的方法，基于原型的继承和基于cl
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">function Person(name){
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">function Person(name){
     this.name = name
 }
 Person.prototype.sayHi = function(){
@@ -463,19 +453,16 @@ function Child(name,age){
 
 let xw = new Child(&#39;小王&#39;,10)
 xw.name  //小王
-xw.sayHi() //报错</pre></td></tr></table>
+xw.sayHi() //报错
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>在ES5中通过call,bind方法指定this是this(即<code>Child</code>)，使得<code>Child</code>继承了<code>Person</code>的属性，但是它并没有继承<code>Person</code>原型上的<code>sayHi</code>方法,这是由于这种方法对原型链上的继承没有实现。此时<code>Child.__proto__===Function.prototype</code>，而<code>Child.__proto__！==Person</code></p>
-
+</div><p>在ES5中通过call,bind方法指定this是this(即<code>Child</code>)，使得<code>Child</code>继承了<code>Person</code>的属性，但是它并没有继承<code>Person</code>原型上的<code>sayHi</code>方法,这是由于这种方法对原型链上的继承没有实现。此时<code>Child.__proto__===Function.prototype</code>，而<code>Child.__proto__！==Person</code></p>
 <p>要想实现对原型链上的继承可以在声明<code>xw</code>前加上<code>Child.prototype = Object.create(Person.prototype)</code>,它的意思是把<code>Child.prototype</code>上的<code>_proto_</code>属性指向了<code>Person.prototype</code>.</p>
-
 <p>上面这样很麻烦，所以ES6有了class，上面这段函数用class写是这样的</p>
-
 <h2 id="基于class的继承">基于class的继承</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -494,9 +481,9 @@ xw.sayHi() //报错</pre></td></tr></table>
 </span><span class="lnt">17
 </span><span class="lnt">18
 </span><span class="lnt">19
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">class Person{
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">class Person{
     constructor(name){
         this.name=name
     }
@@ -514,17 +501,13 @@ class Child extends Person{
 
 let xw = new Child(&#39;小王&#39;,10)
 xw.name//&#39;小王&#39;
-xw.sayHi()//&#39;你好，我是小王&#39;</pre></td></tr></table>
+xw.sayHi()//&#39;你好，我是小王&#39;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>此时<code>Child.__proto__===Person</code>，自然它就有sayHi方法了</p>
-
+</div><p>此时<code>Child.__proto__===Person</code>，自然它就有sayHi方法了</p>
 <p>class其实是一种语法糖，它也是利用原型实现继承的，怎么实现就不讲了。。。</p>
-
 <h2 id="补充-关于new做了什么">补充 关于new做了什么</h2>
-
 <p>直接照搬MDN啦</p>
-
 <ol>
 <li>创建一个空的简单JavaScript对象（即{}）；</li>
 <li>链接该对象（即设置该对象的构造函数）到另一个对象 ；</li>

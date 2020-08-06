@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/money%E7%BB%84%E4%BB%B6%E7%9A%84%E5%B0%81%E8%A3%85%E5%8F%8A%E6%80%9D%E8%B7%AF/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,10 +66,8 @@
 <meta property="article:modified_time" content="2020-04-03T00:00:00+00:00" />
 <meta itemprop="name" content="Money组件的封装及思路">
 <meta itemprop="description" content="Money组件的封装及思路">
-
-
-<meta itemprop="datePublished" content="2020-04-03T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-04-03T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2020-04-03T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-04-03T00:00:00+00:00" />
 <meta itemprop="wordCount" content="990">
 
 
@@ -395,28 +393,23 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#money-vue的封装">Money.vue的封装</a></li>
-<li><a href="#展示每个日期支出收入">展示每个日期支出收入</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#moneyvue的封装">Money.vue的封装</a></li>
+    <li><a href="#展示每个日期支出收入">展示每个日期支出收入</a></li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h2 id="money-vue的封装">Money.vue的封装</h2>
-
+      <h2 id="moneyvue的封装">Money.vue的封装</h2>
 <ol>
-<li><p>封装MoneyHead.vue,MoneyList.vue和MoneyContent.vue并引入Money</p>
+<li>封装MoneyHead.vue,MoneyList.vue和MoneyContent.vue并引入Money</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -425,45 +418,46 @@ if (!doNotTrack) {
 </span><span class="lnt">7
 </span><span class="lnt">8
 </span><span class="lnt">9
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;template&gt;
- &lt;div&gt;
-   &lt;Layout&gt;
-     &lt;money-head /&gt;
-     &lt;money-list /&gt;
-     &lt;money-content /&gt;
-   &lt;/Layout&gt;
- &lt;/div&gt;
-&lt;/template&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">   &lt;template&gt;
+     &lt;div&gt;
+       &lt;Layout&gt;
+         &lt;money-head /&gt;
+         &lt;money-list /&gt;
+         &lt;money-content /&gt;
+       &lt;/Layout&gt;
+     &lt;/div&gt;
+   &lt;/template&gt;
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>MoneyHead的封装</p></li>
+</div><ol start="2">
+<li>MoneyHead的封装</li>
 </ol>
-
 <ul>
-<li><p>下拉选择日期</p>
-
+<li>
+<p>下拉选择日期</p>
 <ul>
-<li><p>使用year和month保存选中的年份，使用years和month保存选项们</p>
+<li>使用year和month保存选中的年份，使用years和month保存选项们</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;select name=&#34;year&#34; v-model=&#34;year&#34; class=&#34;year&#34;&gt;
-  &lt;option v-for=&#34;y in years&#34; :value=&#34;y&#34; :key=&#34;y&#34;&gt;{{y}}年&lt;/option&gt;
-&lt;/select&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"> &lt;select name=&#34;year&#34; v-model=&#34;year&#34; class=&#34;year&#34;&gt;
+        &lt;option v-for=&#34;y in years&#34; :value=&#34;y&#34; :key=&#34;y&#34;&gt;{{y}}年&lt;/option&gt;
+ &lt;/select&gt;
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>filter函数获取当前日期的recordList的amount，这里以结余为例</p>
+</div><ul>
+<li>filter函数获取当前日期的recordList的amount，这里以结余为例</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -494,53 +488,51 @@ if (!doNotTrack) {
 </span><span class="lnt">29
 </span><span class="lnt">30
 </span><span class="lnt">31
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">get monthBalance() {
-// 支出
-const expendRecordList = this.recordList.filter((i: RecordItem) =&gt; {
-return (
-  dayjs(i.createdAt)
-    .year()
-    .toString() === this.year &amp;&amp;
-  (dayjs(i.createdAt).month() + 1).toString() === this.month &amp;&amp;
-  i.type === &#34;-&#34;
-);
-});
-// 收入
-const includeRecordList = this.recordList.filter((i: RecordItem) =&gt; {
-return (
-  dayjs(i.createdAt)
-    .year()
-    .toString() === this.year &amp;&amp;
-  (dayjs(i.createdAt).month() + 1).toString() === this.month &amp;&amp;
-  i.type === &#34;+&#34;
-);
-});
-let balance = 0;
-for (let i = 0; i &lt; expendRecordList.length; i++) {
-balance -= expendRecordList[i].amount;
-}
-for (let i = 0; i &lt; includeRecordList.length; i++) {
-balance += includeRecordList[i].amount;
-}
-// 保留两位小数
-return balance.toFixed(2);
-}</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">  get monthBalance() {
+    // 支出
+    const expendRecordList = this.recordList.filter((i: RecordItem) =&gt; {
+      return (
+        dayjs(i.createdAt)
+          .year()
+          .toString() === this.year &amp;&amp;
+        (dayjs(i.createdAt).month() + 1).toString() === this.month &amp;&amp;
+        i.type === &#34;-&#34;
+      );
+    });
+    // 收入
+    const includeRecordList = this.recordList.filter((i: RecordItem) =&gt; {
+      return (
+        dayjs(i.createdAt)
+          .year()
+          .toString() === this.year &amp;&amp;
+        (dayjs(i.createdAt).month() + 1).toString() === this.month &amp;&amp;
+        i.type === &#34;+&#34;
+      );
+    });
+    let balance = 0;
+    for (let i = 0; i &lt; expendRecordList.length; i++) {
+      balance -= expendRecordList[i].amount;
+    }
+    for (let i = 0; i &lt; includeRecordList.length; i++) {
+      balance += includeRecordList[i].amount;
+    }
+    // 保留两位小数
+    return balance.toFixed(2);
+  }
+</code></pre></td></tr></table>
 </div>
 </div></li>
-</ul></li>
 </ul>
-
 <h2 id="展示每个日期支出收入">展示每个日期支出收入</h2>
-
 <ol>
 <li>这里需要的就是将同一日期的recordItem存到一起，所以同样需要引入dayjs对日期进行处理</li>
-
-<li><p>使用计算属性获得所需数据</p>
+<li>使用计算属性获得所需数据</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-typescript" data-lang="typescript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -581,51 +573,51 @@ return balance.toFixed(2);
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-typescript" data-lang="typescript"><span class="c1">// 数据
-</span><span class="c1"></span><span class="nx">get</span> <span class="nx">dataList() {</span>
-<span class="kd">let</span> <span class="nx">dataList</span> <span class="o">=</span> <span class="p">[];</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">recordList</span><span class="p">);</span>
-<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">recordList</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">y</span>: <span class="kt">0</span><span class="p">,</span>
-    <span class="nx">m</span>: <span class="kt">0</span><span class="p">,</span>
-    <span class="nx">d</span>: <span class="kt">0</span><span class="p">,</span>
-    <span class="nx">record</span><span class="o">:</span> <span class="p">[]</span>
-  <span class="p">}</span> <span class="kr">as</span> <span class="nx">Data</span><span class="p">;</span>
-  <span class="nx">data</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">dayjs</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">recordList</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">createdAt</span><span class="p">).</span><span class="nx">year</span><span class="p">();</span>
-  <span class="nx">data</span><span class="p">.</span><span class="nx">m</span> <span class="o">=</span> <span class="nx">dayjs</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">recordList</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">createdAt</span><span class="p">).</span><span class="nx">month</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="nx">data</span><span class="p">.</span><span class="nx">d</span> <span class="o">=</span> <span class="nx">dayjs</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">recordList</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">createdAt</span><span class="p">).</span><span class="nx">date</span><span class="p">();</span>
+</span><span class="c1"></span>  <span class="nx">get</span> <span class="nx">dataList() {</span>
+    <span class="kd">let</span> <span class="nx">dataList</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">recordList</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">recordList</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">y</span>: <span class="kt">0</span><span class="p">,</span>
+        <span class="nx">m</span>: <span class="kt">0</span><span class="p">,</span>
+        <span class="nx">d</span>: <span class="kt">0</span><span class="p">,</span>
+        <span class="nx">record</span><span class="o">:</span> <span class="p">[]</span>
+      <span class="p">}</span> <span class="kr">as</span> <span class="nx">Data</span><span class="p">;</span>
+      <span class="nx">data</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">dayjs</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">recordList</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">createdAt</span><span class="p">).</span><span class="nx">year</span><span class="p">();</span>
+      <span class="nx">data</span><span class="p">.</span><span class="nx">m</span> <span class="o">=</span> <span class="nx">dayjs</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">recordList</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">createdAt</span><span class="p">).</span><span class="nx">month</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="nx">data</span><span class="p">.</span><span class="nx">d</span> <span class="o">=</span> <span class="nx">dayjs</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">recordList</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">createdAt</span><span class="p">).</span><span class="nx">date</span><span class="p">();</span>
 
-  <span class="c1">// 判断日期是否为同一天
-</span><span class="c1"></span>  <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// 存入recordItem
-</span><span class="c1"></span>    <span class="nx">data</span><span class="p">.</span><span class="nx">record</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">recordList</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-    <span class="nx">dataList</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span>
-    <span class="c1">// 日期不重复的情况
-</span><span class="c1"></span>    <span class="nx">data</span><span class="p">.</span><span class="nx">y</span> <span class="o">!=</span> <span class="nx">dayjs</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">recordList</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">createdAt</span><span class="p">).</span><span class="nx">year</span><span class="p">()</span> <span class="o">||</span>
-    <span class="nx">data</span><span class="p">.</span><span class="nx">m</span> <span class="o">!=</span>
-      <span class="nx">dayjs</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">recordList</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">createdAt</span><span class="p">).</span><span class="nx">month</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">||</span>
-    <span class="nx">data</span><span class="p">.</span><span class="nx">d</span> <span class="o">!=</span> <span class="nx">dayjs</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">recordList</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">createdAt</span><span class="p">).</span><span class="nx">date</span><span class="p">()</span>
-  <span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// 存入recordItem
-</span><span class="c1"></span>    <span class="nx">data</span><span class="p">.</span><span class="nx">record</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">recordList</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
-    <span class="nx">dataList</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="nx">dataList</span><span class="p">[</span><span class="nx">dataList</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">record</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">recordList</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
-    <span class="p">);</span>
+      <span class="c1">// 判断日期是否为同一天
+</span><span class="c1"></span>      <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 存入recordItem
+</span><span class="c1"></span>        <span class="nx">data</span><span class="p">.</span><span class="nx">record</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">recordList</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+        <span class="nx">dataList</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span>
+        <span class="c1">// 日期不重复的情况
+</span><span class="c1"></span>        <span class="nx">data</span><span class="p">.</span><span class="nx">y</span> <span class="o">!=</span> <span class="nx">dayjs</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">recordList</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">createdAt</span><span class="p">).</span><span class="nx">year</span><span class="p">()</span> <span class="o">||</span>
+        <span class="nx">data</span><span class="p">.</span><span class="nx">m</span> <span class="o">!=</span>
+          <span class="nx">dayjs</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">recordList</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">createdAt</span><span class="p">).</span><span class="nx">month</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">||</span>
+        <span class="nx">data</span><span class="p">.</span><span class="nx">d</span> <span class="o">!=</span> <span class="nx">dayjs</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">recordList</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">createdAt</span><span class="p">).</span><span class="nx">date</span><span class="p">()</span>
+      <span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 存入recordItem
+</span><span class="c1"></span>        <span class="nx">data</span><span class="p">.</span><span class="nx">record</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">recordList</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+        <span class="nx">dataList</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">dataList</span><span class="p">[</span><span class="nx">dataList</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">record</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">recordList</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+        <span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">dataList</span><span class="p">;</span>
   <span class="p">}</span>
-<span class="p">}</span>
-<span class="k">return</span> <span class="nx">dataList</span><span class="p">;</span>
-<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>对当日收入和支出进行一次计算</p>
+</div><ol start="3">
+<li>对当日收入和支出进行一次计算</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-typescript" data-lang="typescript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -648,40 +640,38 @@ return balance.toFixed(2);
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-typescript" data-lang="typescript"><span class="c1">// 获取当日支出
-</span><span class="c1"></span><span class="nx">getExpend</span><span class="p">(</span><span class="nx">data</span>: <span class="kt">Data</span><span class="p">)</span> <span class="p">{</span>
-<span class="kd">let</span> <span class="nx">expend</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">record</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">record</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">type</span> <span class="o">===</span> <span class="s2">&#34;-&#34;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">expend</span> <span class="o">+=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">record</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">amount</span><span class="p">;</span>
+</span><span class="c1"></span>  <span class="nx">getExpend</span><span class="p">(</span><span class="nx">data</span>: <span class="kt">Data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">expend</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">record</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">record</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">type</span> <span class="o">===</span> <span class="s2">&#34;-&#34;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">expend</span> <span class="o">+=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">record</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">amount</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">expend</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
   <span class="p">}</span>
-<span class="p">}</span>
-<span class="k">return</span> <span class="nx">expend</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="c1">// 获取当日收入
-</span><span class="c1"></span><span class="nx">getInclude</span><span class="p">(</span><span class="nx">data</span>: <span class="kt">Data</span><span class="p">)</span> <span class="p">{</span>
-<span class="kd">let</span> <span class="nx">include</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">record</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">record</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">type</span> <span class="o">===</span> <span class="s2">&#34;+&#34;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">include</span> <span class="o">+=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">record</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">amount</span><span class="p">;</span>
+  <span class="c1">// 获取当日收入
+</span><span class="c1"></span>  <span class="nx">getInclude</span><span class="p">(</span><span class="nx">data</span>: <span class="kt">Data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">include</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">record</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">record</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">type</span> <span class="o">===</span> <span class="s2">&#34;+&#34;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">include</span> <span class="o">+=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">record</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">amount</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">include</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
   <span class="p">}</span>
-<span class="p">}</span>
-<span class="k">return</span> <span class="nx">include</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>如何展示首页最上方年月的记录</p></li>
+</div><ol start="4">
+<li>如何展示首页最上方年月的记录</li>
 </ol>
-
 <ul>
 <li>首先需要在store中记录当前的年月（需要引入dayjs）</li>
 <li>在MoneyHead中的select，监听年月的变化从而commit更改store的当前年月</li>
-
-<li><p>在MoneyList使用filter函数获得当前年月的记录</p>
+<li>在MoneyList使用filter函数获得当前年月的记录</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-typescript" data-lang="typescript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -701,45 +691,44 @@ return balance.toFixed(2);
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-typescript" data-lang="typescript"><span class="c1">// 获取首页展示的年月
-</span><span class="c1"></span><span class="nx">get</span> <span class="nx">year() {</span>
-<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">currentYear</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nx">get</span> <span class="nx">month() {</span>
-<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">currentMonth</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nx">get</span> <span class="nx">currentRecordList() {</span>
-<span class="kr">const</span> <span class="nx">currentRecordList</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">recordList</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span>
-  <span class="p">(</span><span class="nx">item</span>: <span class="kt">RecordItem</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span>
-      <span class="nx">dayjs</span><span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">createdAt</span><span class="p">).</span><span class="nx">year</span><span class="p">()</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="nx">year</span> <span class="o">&amp;&amp;</span>
-      <span class="nx">dayjs</span><span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">createdAt</span><span class="p">).</span><span class="nx">month</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="nx">month</span>
-    <span class="p">);</span>
+<pre class="chroma"><code class="language-typescript" data-lang="typescript">  <span class="c1">// 获取首页展示的年月
+</span><span class="c1"></span>  <span class="nx">get</span> <span class="nx">year() {</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">currentYear</span><span class="p">;</span>
   <span class="p">}</span>
-<span class="p">);</span>
-<span class="k">return</span> <span class="nx">currentRecordList</span><span class="p">;</span>
-<span class="p">}</span>
+  <span class="nx">get</span> <span class="nx">month() {</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">currentMonth</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nx">get</span> <span class="nx">currentRecordList() {</span>
+    <span class="kr">const</span> <span class="nx">currentRecordList</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">recordList</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span>
+      <span class="p">(</span><span class="nx">item</span>: <span class="kt">RecordItem</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span>
+          <span class="nx">dayjs</span><span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">createdAt</span><span class="p">).</span><span class="nx">year</span><span class="p">()</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="nx">year</span> <span class="o">&amp;&amp;</span>
+          <span class="nx">dayjs</span><span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">createdAt</span><span class="p">).</span><span class="nx">month</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="nx">month</span>
+        <span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">);</span>
+    <span class="k">return</span> <span class="nx">currentRecordList</span><span class="p">;</span>
+  <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>另外使用currentYear和currentMoney获取当前记录的长度，在Money.vue中利用v-if以获得要显示的内容</p>
+</div><ul>
+<li>另外使用currentYear和currentMoney获取当前记录的长度，在Money.vue中利用v-if以获得要显示的内容</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">  &lt;Scroll class=&#34;content&#34;&gt;
-    &lt;money-list v-if=&#34;length&gt;0&#34; /&gt;
-    &lt;money-blank v-else /&gt;
-  &lt;/Scroll&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">      &lt;Scroll class=&#34;content&#34;&gt;
+        &lt;money-list v-if=&#34;length&gt;0&#34; /&gt;
+        &lt;money-blank v-else /&gt;
+      &lt;/Scroll&gt;
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
+</div>
     </div>
 
     

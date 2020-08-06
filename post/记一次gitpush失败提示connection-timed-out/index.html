@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/%E8%AE%B0%E4%B8%80%E6%AC%A1gitpush%E5%A4%B1%E8%B4%A5%E6%8F%90%E7%A4%BAconnection-timed-out/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,10 +66,8 @@
 <meta property="article:modified_time" content="2020-01-20T00:00:00+00:00" />
 <meta itemprop="name" content="记一次git push失败，提示connection timed out">
 <meta itemprop="description" content="记一次git push失败，提示connection time out">
-
-
-<meta itemprop="datePublished" content="2020-01-20T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-01-20T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2020-01-20T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-01-20T00:00:00+00:00" />
 <meta itemprop="wordCount" content="289">
 
 
@@ -394,86 +392,82 @@ if (!doNotTrack) {
 
     
     <div class="post-content">
-      
-
-<p>首先，报错信息</p>
+      <p>首先，报错信息</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">ssh: connect to host github.com port 22: Connection timed out
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh: connect to host github.com port 22: Connection timed out
 fatal: Could not read from remote repository.
 
-Please make sure you have the correct access rights and the repository exists.</pre></td></tr></table>
+Please make sure you have the correct access rights and the repository exists.
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这可能是防火墙导致的，解决方法参考官方帮助文档
+</div><p>这可能是防火墙导致的，解决方法参考官方帮助文档
 <a href="https://help.github.com/en/github/authenticating-to-github/using-ssh-over-the-https-port">https://help.github.com/en/github/authenticating-to-github/using-ssh-over-the-https-port</a></p>
-
 <h2 id="具体的解决步骤">具体的解决步骤</h2>
-
 <ol>
-<li><p>先测试可用性</p>
+<li>先测试可用性</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">ssh -T -p 443 git@ssh.github.com</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh -T -p 443 git@ssh.github.com
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>提示如下证明可用</p>
+</div><p>提示如下证明可用</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">Hi username! You’ve successfully authenticated, but GitHub does not
-provide shell access.</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Hi username! You’ve successfully authenticated, but GitHub does not
+provide shell access.
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>然后编辑~/.ssh/config 文件，如果没有config文件的话就直接vim ~/.ssh/config加入如下内容</p>
+</div><ol start="2">
+<li>然后编辑~/.ssh/config 文件，如果没有config文件的话就直接vim ~/.ssh/config加入如下内容</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">Host github.com
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Host github.com
 Hostname ssh.github.com
-Port 443</pre></td></tr></table>
+Port 443
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>再次测试</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">ssh -T git@github.com</pre></td></tr></table>
-</div>
-</div>
-<p>提示如下即可用</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">Hi username! You’ve successfully authenticated, but GitHub does not provide shell access.</pre></td></tr></table>
-</div>
-</div></li>
+</div><ol start="3">
+<li>再次测试</li>
 </ol>
-
-<p>问题解决！</p>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh -T git@github.com
+</code></pre></td></tr></table>
+</div>
+</div><p>提示如下即可用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Hi username! You’ve successfully authenticated, but GitHub does not provide shell access.
+</code></pre></td></tr></table>
+</div>
+</div><p>问题解决！</p>
 <p>奇妙的是我把它更改为443端口后再更改回22端口，居然不报错了，尚不清楚为什么，如果有人有新的发现，请给我留言，非常感谢(已更正，并不能- -！)</p>
 
     </div>

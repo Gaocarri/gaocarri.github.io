@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/cannot-read-property-length-of-undefined%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,10 +66,8 @@
 <meta property="article:modified_time" content="2019-12-26T00:00:00+00:00" />
 <meta itemprop="name" content="[Vue warn]: Error in render: TypeError: Cannot read property &#39;length&#39; of undefined解决方法">
 <meta itemprop="description" content="[Vue warn]: Error in render: TypeError: Cannot read property &#39;length&#39; of undefined解决方法">
-
-
-<meta itemprop="datePublished" content="2019-12-26T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-26T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2019-12-26T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-12-26T00:00:00+00:00" />
 <meta itemprop="wordCount" content="825">
 
 
@@ -395,84 +393,70 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#错误及其解决方法">错误及其解决方法</a></li>
-<li><a href="#举一反三">举一反三</a>
-<ul>
-<li><a href="#子组件接受到父组件传入值的时间">子组件接受到父组件传入值的时间</a></li>
-<li><a href="#vue的mustache语法里的特殊符号">Vue的mustache语法里的特殊符号[]</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#错误及其解决方法">错误及其解决方法</a></li>
+    <li><a href="#举一反三">举一反三</a>
+      <ul>
+        <li><a href="#子组件接受到父组件传入值的时间">子组件接受到父组件传入值的时间</a></li>
+        <li><a href="#vue的mustache语法里的特殊符号">Vue的mustache语法里的特殊符号[]</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<p>今天在使用vue做项目的时候遇到了一个错误，不断尝试后终于找到了解决方法，顺便举一反三一波</p>
-
-<p><img src="/images/191226.png" alt="错误信息" /></p>
-
+      <p>今天在使用vue做项目的时候遇到了一个错误，不断尝试后终于找到了解决方法，顺便举一反三一波</p>
+<p><img src="/images/191226.png" alt="错误信息"></p>
 <h2 id="错误及其解决方法">错误及其解决方法</h2>
-
 <p>我给一个组件的子组件传递了一个对象,它的结构大概是这种形式(goods里有一个shopInfo对象，shopInfo对象里有一个数组)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">goods：{
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">goods：{
     ItemInfo：{...},
     shopInfo:{
             services:[obj1,obj2,obj3,obj4]
         },
     ...
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>obj4</code>是一个对象，里面有一个属性<code>name</code>，现在，我在子组件中想使用这个<code>name</code>属性,就出现了上面的报错提示，但是奇怪的是页面中成功显示了这个<code>name</code></p>
+</div><p><code>obj4</code>是一个对象，里面有一个属性<code>name</code>，现在，我在子组件中想使用这个<code>name</code>属性,就出现了上面的报错提示，但是奇怪的是页面中成功显示了这个<code>name</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;span&gt;{{goods.shopInfo.services[goods.shopInfo.services.length-1].name}}&lt;/span&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;span&gt;{{goods.shopInfo.services[goods.shopInfo.services.length-1].name}}&lt;/span&gt;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>先说解决报错的方法,给span加上v-if判断<code>goods.shopInfo.services</code>的存在</p>
+</div><p>先说解决报错的方法,给span加上v-if判断<code>goods.shopInfo.services</code>的存在</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;span v-if=&#34;goods.shopInfo.services&#34;&gt;{{goods.shopInfo.services[goods.shopInfo.services.length-1].name}}&lt;/span&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;span v-if=&#34;goods.shopInfo.services&#34;&gt;{{goods.shopInfo.services[goods.shopInfo.services.length-1].name}}&lt;/span&gt;
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="举一反三">举一反三</h2>
-
+</div><h2 id="举一反三">举一反三</h2>
 <h3 id="子组件接受到父组件传入值的时间">子组件接受到父组件传入值的时间</h3>
-
 <p>为了探寻报错的原因，我在子组件的生命周期函数<code>created</code>,<code>mounted</code>,<code>updated</code>分别<code>console.log(goods.shopInfo.services)</code>,结果只有<code>updated</code>函数中打印出了这个对象，其余两个都是undefined,同样的<code>console.log(goods)</code>只有<code>updated</code>里访问到了这个对象。</p>
-
 <p><strong>以上log说明子组件接受到父组件<code>props</code>来的对象发生在<code>mounted</code>之后！！</strong></p>
-
 <h3 id="vue的mustache语法里的特殊符号">Vue的mustache语法里的特殊符号[]</h3>
-
 <p>为什么html中<code>{{goods.shopinfo.services}}</code>没有问题而<code>{{goods.shopinfo.services[goods.shopInfo.services.length-1].name}}</code>就报错呢？</p>
-
 <p>原因就出在这个<code>[]</code>里面，页面在数据更新的时候会替换掉<code>{{}}</code>，但是更新之前<code>{{}}</code>含有<code>[]</code>符号，浏览器会直接进行解析，而<code>goods.shopInfo.service</code>还不存在，所以根本没有<code>length</code>，故发出警告,页面更新之后<code>length</code>存在，于是数据正常更新出来</p>
-
 <p>由于现在也是刚刚开始熟悉vue，对底层原理了解还不是很深入，如果这段写错了，还请批评指正，在下方给我留言，学习学习</p>
 
     </div>

@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/%E5%9C%A8vue&#43;typescript%E4%B8%AD%E4%BD%BF%E7%94%A8toast/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,10 +66,8 @@
 <meta property="article:modified_time" content="2020-03-21T00:00:00+00:00" />
 <meta itemprop="name" content="在Vue&#43;TypeScript中使用Toast">
 <meta itemprop="description" content="在Vue&#43;TypeScript中使用Toast">
-
-
-<meta itemprop="datePublished" content="2020-03-21T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-03-21T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2020-03-21T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-03-21T00:00:00+00:00" />
 <meta itemprop="wordCount" content="659">
 
 
@@ -394,27 +392,20 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#typescript中使用toast">TypeScript中使用toast</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="typescript中使用toast">TypeScript中使用toast</h1>
-
+      <h1 id="typescript中使用toast">TypeScript中使用toast</h1>
 <ol>
 <li>建立一个文件夹 toast</li>
-
-<li><p>封装一个Toast组件(css略)</p>
+<li>封装一个Toast组件(css略)</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -439,12 +430,12 @@ if (!doNotTrack) {
 </span><span class="lnt">23
 </span><span class="lnt">24
 </span><span class="lnt">25
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;template&gt;
-&lt;div class=&#34;toast&#34; v-show=&#34;isShow&#34;&gt;
-&lt;div&gt;{{message}}&lt;/div&gt;
-&lt;/div&gt;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;template&gt;
+  &lt;div class=&#34;toast&#34; v-show=&#34;isShow&#34;&gt;
+    &lt;div&gt;{{message}}&lt;/div&gt;
+  &lt;/div&gt;
 &lt;/template&gt;
 
 &lt;script lang=&#39;ts&#39;&gt;
@@ -453,26 +444,27 @@ import { Component } from &#34;vue-property-decorator&#34;;
 
 @Component
 export default class Toast extends Vue {
-message: string = &#34;&#34;;
-isShow: boolean = false;
+  message: string = &#34;&#34;;
+  isShow: boolean = false;
 
-show(message: string, duration = 1500) {
-this.isShow = true;
-this.message = message;
-setTimeout(() =&gt; {
-  this.isShow = false;
-  this.message = &#34;&#34;;
-}, duration);
+  show(message: string, duration = 1500) {
+    this.isShow = true;
+    this.message = message;
+    setTimeout(() =&gt; {
+      this.isShow = false;
+      this.message = &#34;&#34;;
+    }, duration);
+  }
 }
-}
-&lt;/script&gt;</pre></td></tr></table>
+&lt;/script&gt;
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>在index.ts中使用</p>
+</div><ol start="3">
+<li>在index.ts中使用</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -489,117 +481,123 @@ setTimeout(() =&gt; {
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">import Toast from &#39;./Toast.vue&#39;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">import Toast from &#39;./Toast.vue&#39;
 
 const obj = {} as any
 
 obj.install = (Vue: any) =&gt; {
-// 1.创建一个组件构造器
-const toastConstructor = Vue.extend(Toast)
-// 2.new的方式，根据组件构造器，可以创建出来一个组件对象
-const toast = new toastConstructor()
-// 3.将组件对象，手动挂载到某一个元素上
-toast.$mount(document.createElement(&#39;div&#39;))
-// 4.tost.$el对应的就是div(这样才真正的加到了界面上面)
-document.body.appendChild(toast.$el)
-Vue.prototype.$toast = toast
+  // 1.创建一个组件构造器
+  const toastConstructor = Vue.extend(Toast)
+  // 2.new的方式，根据组件构造器，可以创建出来一个组件对象
+  const toast = new toastConstructor()
+  // 3.将组件对象，手动挂载到某一个元素上
+  toast.$mount(document.createElement(&#39;div&#39;))
+  // 4.tost.$el对应的就是div(这样才真正的加到了界面上面)
+  document.body.appendChild(toast.$el)
+  Vue.prototype.$toast = toast
 }
 
-export default obj</pre></td></tr></table>
+export default obj
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>在main.ts中安装toast</p>
+</div><ol start="4">
+<li>在main.ts中安装toast</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">import toast from &#39;@/components/common/toast&#39;
-Vue.use(toast)</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">import toast from &#39;@/components/common/toast&#39;
+Vue.use(toast)
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>这时在任意Vue组件中使用toast即可</p>
+</div><ol start="5">
+<li>这时在任意Vue组件中使用toast即可</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">this.$toast.show(&#39;这是一句提示&#39;,1000)</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">this.$toast.show(&#39;这是一句提示&#39;,1000)
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>但是很不巧这里在TypeScript中会报错（$toast提示没定义问题）解决方法：</p>
-
+</div><ol start="6">
+<li>
+<p>但是很不巧这里在TypeScript中会报错（$toast提示没定义问题）解决方法：</p>
 <ul>
-<li><p>在shims-vue.d.ts中</p>
+<li>在shims-vue.d.ts中</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">declare module &#39;vue/types/vue&#39; {
-// 3. 声明为 Vue 补充的东西
-interface Vue {
-$toast: any
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">declare module &#39;vue/types/vue&#39; {
+  // 3. 声明为 Vue 补充的东西
+  interface Vue {
+    $toast: any
+  }
 }
-}</pre></td></tr></table>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>这样等于告诉编辑器，你这个属性是有的</p></li>
-</ul></li>
-
-<li><p>记一个踩过的坑，如何在vuex的store中更据不同的结果返回不同的toast</p>
-
+</div><ul>
+<li>这样等于告诉编辑器，你这个属性是有的</li>
+</ul>
+</li>
+<li>
+<p>记一个踩过的坑，如何在vuex的store中更据不同的结果返回不同的toast</p>
 <ul>
-<li><p>首先在state中声明一个属性</p>
+<li>首先在state中声明一个属性</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">state:{
-	toastMessage:&#39;&#39;
-}</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">state:{
+ toastMessage:&#39;&#39;
+}
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>mutations中声明一个updateToastMessage的方法</p>
+</div><ul>
+<li>mutations中声明一个updateToastMessage的方法</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">mutations:{
-// toastMessage方法
-updateToastMessage(state, message) {
- state.toastMessage = message
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">mutations:{
+    // toastMessage方法
+    updateToastMessage(state, message) {
+      state.toastMessage = message
+    }
 }
-}</pre></td></tr></table>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>当其他方法改变toast时，如</p>
+</div><ul>
+<li>当其他方法改变toast时，如</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -608,32 +606,33 @@ updateToastMessage(state, message) {
 </span><span class="lnt">7
 </span><span class="lnt">8
 </span><span class="lnt">9
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">mutations:{
-createTag{
-	if(true){
-		store.commit(&#39;updateToastMessage&#39;,1)
-	}else{
-		store.commit(&#39;updateToastMessage&#39;,1)
-	}
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">mutations:{
+ createTag{
+     if(true){
+         store.commit(&#39;updateToastMessage&#39;,1)
+     }else{
+         store.commit(&#39;updateToastMessage&#39;,1)
+     }
+ }
 }
-}</pre></td></tr></table>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>此时我们在组件中想要使用toast，可以：</p>
+</div><ul>
+<li>此时我们在组件中想要使用toast，可以：</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">this.$store.commit(&#34;createTag&#34;, this.selectedTag);
-this.$toast.show(this.$store.state.toastMessage);</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">    this.$store.commit(&#34;createTag&#34;, this.selectedTag);
+    this.$toast.show(this.$store.state.toastMessage);
+</code></pre></td></tr></table>
 </div>
 </div></li>
-</ul></li>
 </ol>
 
     </div>

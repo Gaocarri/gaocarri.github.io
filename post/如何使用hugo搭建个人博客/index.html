@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,11 +66,9 @@
 <meta property="article:modified_time" content="2019-10-27T00:00:00+00:00" />
 <meta itemprop="name" content="如何使用Hugo搭建个人博客">
 <meta itemprop="description" content="如何使用Hugo搭建个人博客">
-
-
-<meta itemprop="datePublished" content="2019-10-27T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-10-27T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1009">
+<meta itemprop="datePublished" content="2019-10-27T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-10-27T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1008">
 
 
 
@@ -374,7 +372,7 @@ if (!doNotTrack) {
             <a href="http://gaocarri.top/categories/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8/"> 博客使用 </a>
             
           </div>
-        <span class="more-meta"> 约 1009 字 </span>
+        <span class="more-meta"> 约 1008 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
 
         
@@ -394,68 +392,55 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#关于hugo">关于Hugo</a></li>
-<li><a href="#安装hugo">安装Hugo</a></li>
-<li><a href="#快速搭建博客-具体参考hugo官网-quick-start">快速搭建博客(具体参考hugo官网&gt;&gt;Quick Start)</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="关于hugo">关于Hugo</h1>
-
-<p>Hugo的官方网站<a href="https://gohugo.io/">https://gohugo.io/</a></p>
-
+      <h1 id="关于hugo">关于Hugo</h1>
+<p>Hugo的官方网站https://gohugo.io/</p>
 <ul>
 <li>Go语言实现的一个博客生成器</li>
-<li>世界上最快的博客生成器
-<br /></li>
+<li>世界上最快的博客生成器</li>
 </ul>
-
 <h1 id="安装hugo">安装Hugo</h1>
-
 <p>以下只谈Windows的安装方式</p>
-
 <ol>
 <li>根据个人电脑的系统下载Hugo <a href="https://github.com/gohugoio/hugo/releases">https://github.com/gohugoio/hugo/releases</a></li>
 <li>解压，将<code>hugo.exe</code>添加到指定地址，比如我添加到<code>D:\Software\hugo\hugo.exe</code></li>
-<li>把<code>D:\Software\hugo\</code>加到path当中（此电脑&gt;&gt;右击属性&gt;&gt;系统高级设置&gt;&gt;环境变量&gt;&gt;在系统变量中找到Path&gt;&gt;新建将地址添加）</li>
+<li>把<code>D:\Software\hugo\</code>加到path当中（此电脑&raquo;右击属性&raquo;系统高级设置&raquo;环境变量&raquo;在系统变量中找到Path&raquo;新建将地址添加）</li>
 <li>重启终端，输入<code>hugo version</code>,如果上述操作成功则会显示安装的hugo版本</li>
 </ol>
-
-<h1 id="快速搭建博客-具体参考hugo官网-quick-start">快速搭建博客(具体参考hugo官网&gt;&gt;Quick Start)</h1>
-
+<h1 id="快速搭建博客具体参考hugo官网quick-start">快速搭建博客(具体参考hugo官网&raquo;Quick Start)</h1>
 <ol>
-<li><p>创建一个新的目录,在终端中输入(XXX为你的GitHub用户名)</p>
+<li>创建一个新的目录,在终端中输入(XXX为你的GitHub用户名)</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">hugo new site XXX.github.io-crearter</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">hugo new site XXX.github.io-crearter
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>使用终端进入<code>XXX.github.io-crearter</code></p>
+</div><ol start="2">
+<li>使用终端进入<code>XXX.github.io-crearter</code></li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">cd XXXX</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">cd XXXX
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>添加主题</p>
+</div><ol start="3">
+<li>添加主题</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -468,9 +453,9 @@ if (!doNotTrack) {
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">git init
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git init
 git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
 # Note for non-git users:
 #   - If you do not have git installed, you can download the archive of the latest
@@ -482,42 +467,42 @@ git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/anan
 
 # Edit your config.toml configuration file
 # and add the Ananke theme.
-echo &#39;theme = &#34;ananke&#34;&#39; &gt;&gt; config.toml</pre></td></tr></table>
+echo &#39;theme = &#34;ananke&#34;&#39; &gt;&gt; config.toml
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>创建一篇新的文章</p>
+</div><ol start="4">
+<li>创建一篇新的文章</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">hugo new posts/my-first-post.md</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">hugo new posts/my-first-post.md
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>你可以编辑你的新文章，文章将会显示以下内容</p>
+</div><p>你可以编辑你的新文章，文章将会显示以下内容</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">---
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">---
 title: &#34;My First Post&#34;
 date: 2019-03-26T08:47:11+01:00
 draft: true
----</pre></td></tr></table>
+---
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>将draft：true改为false,代表文章是在网页中可见的</p></li>
-
-<li><p>运行Hugo server</p>
+</div><p>将draft：true改为false,代表文章是在网页中可见的
+5. 运行Hugo server</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -538,20 +523,20 @@ draft: true
 </span><span class="lnt">19
 </span><span class="lnt">20
 </span><span class="lnt">21
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">hugo server -D
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">hugo server -D
 
-               | EN
+                   | EN
 +------------------+----+
-Pages            | 10
-Paginator pages  |  0
-Non-page files   |  0
-Static files     |  3
-Processed images |  0
-Aliases          |  1
-Sitemaps         |  1
-Cleaned          |  0
+  Pages            | 10
+  Paginator pages  |  0
+  Non-page files   |  0
+  Static files     |  3
+  Processed images |  0
+  Aliases          |  1
+  Sitemaps         |  1
+  Cleaned          |  0
 
 Total in 11 ms
 Watching for changes in /Users/bep/quickstart/{content,data,layouts,static,themes}
@@ -560,65 +545,65 @@ Environment: &#34;development&#34;
 Serving pages from memory
 Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
 Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
-Press Ctrl+C to stop</pre></td></tr></table>
+Press Ctrl+C to stop
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>按住Cltrl+C，点击上面显示的网址<code>http://localhost:1313/</code> 就可以在本地看到你的个人博客了</p></li>
-
-<li><p>配置主题
-使用文本编辑器打开<code>config.toml</code>，你会看到如下文字</p>
+</div><pre><code>按住Cltrl+C，点击上面显示的网址`http://localhost:1313/` 就可以在本地看到你的个人博客了
+</code></pre>
+<ol start="6">
+<li>配置主题
+使用文本编辑器打开<code>config.toml</code>，你会看到如下文字</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">baseURL = &#34;https://example.org/&#34;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">baseURL = &#34;https://example.org/&#34;
 languageCode = &#34;en-us&#34;
 title = &#34;My New Hugo Site&#34;
-theme = &#34;ananke&#34;</pre></td></tr></table>
+theme = &#34;ananke&#34;
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>重新打开一个终端运行hugo</p>
+</div><ol start="7">
+<li>重新打开一个终端运行hugo</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">hugo</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">hugo
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>此操作会在目录当中创建一个名为public的文件夹，
-在目录中创建一个名为<code>.gitignore</code>的文件，在里面写入/public/</p></li>
-
-<li><p>在Github上创建一个新的仓库:名为<code>XXX.github.io</code>XXX是你的用户名</p></li>
-
-<li><p>进入<code>public</code>并上传到GitHub新创建的仓库中</p>
+</div><p>此操作会在目录当中创建一个名为public的文件夹，
+在目录中创建一个名为<code>.gitignore</code>的文件，在里面写入/public/
+8. 在Github上创建一个新的仓库:名为<code>XXX.github.io</code>XXX是你的用户名
+9. 进入<code>public</code>并上传到GitHub新创建的仓库中</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">cd public
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">cd public
 git init
 git add .
 git commit -v
 git remote add origin git@github.com:XXX.github.io
-git push -u origin master</pre></td></tr></table>
+git push -u origin master
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>刷新页面 在仓库的<code>Settings</code>当中找到网址<code>XXX.github.io</code>即可进入你的个人博客了</p></li>
+</div><ol start="10">
+<li>刷新页面 在仓库的<code>Settings</code>当中找到网址<code>XXX.github.io</code>即可进入你的个人博客了</li>
 </ol>
-
 <p>enjoy it!</p>
 
     </div>

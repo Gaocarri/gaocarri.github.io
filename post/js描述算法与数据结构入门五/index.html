@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/js%E6%8F%8F%E8%BF%B0%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%85%A5%E9%97%A8%E4%BA%94/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,11 +66,9 @@
 <meta property="article:modified_time" content="2020-01-28T00:00:00+00:00" />
 <meta itemprop="name" content="JS描述数据结构与算法（五）">
 <meta itemprop="description" content="JS描述数据结构与算法（五）">
-
-
-<meta itemprop="datePublished" content="2020-01-28T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-01-28T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="3359">
+<meta itemprop="datePublished" content="2020-01-28T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-01-28T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3363">
 
 
 
@@ -374,7 +372,7 @@ if (!doNotTrack) {
             <a href="http://gaocarri.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"> 数据结构与算法 </a>
             
           </div>
-        <span class="more-meta"> 约 3359 字 </span>
+        <span class="more-meta"> 约 3363 字 </span>
           <span class="more-meta"> 预计阅读 7 分钟 </span>
 
         
@@ -394,37 +392,28 @@ if (!doNotTrack) {
 
     
     <div class="post-content">
-      
-
-<ul>
+      <ul>
 <li>包含红黑树与图论</li>
 </ul>
-
 <h2 id="红黑树">红黑树</h2>
-
 <ol>
 <li>保持二叉搜索树的平衡性</li>
 </ol>
-
 <p>为了能以较快的时间O(logN)来操作一棵树，我们需要保证树总是平衡的</p>
-
 <ul>
 <li>至少大部分是平衡的，那么时间复杂度也是接近O(logN)的</li>
 <li>也就是说树中<strong>每个节点左边的子孙节点</strong>的个数，应该尽可能的<strong>等于右边子孙节点的个数</strong></li>
 <li>常见的平衡树：
-
 <ul>
 <li>AVL树</li>
 <li>红黑树</li>
-</ul></li>
 </ul>
-
-<ol>
+</li>
+</ul>
+<ol start="2">
 <li>红黑树的规则</li>
 </ol>
-
 <p>红黑树除了符合二叉搜索树的基本规则外，还添加了以下性质：</p>
-
 <ul>
 <li>节点是红色或者黑色</li>
 <li>根节点是黑色</li>
@@ -432,179 +421,151 @@ if (!doNotTrack) {
 <li>每个红色节点的两个子节点都是黑色。（从每个叶子到根的所有路径上不能有两个连续的红色节点）</li>
 <li>从任一节点到其每个叶子的所有路径都包含相同数目的黑色节点</li>
 </ul>
-
-<ol>
+<ol start="3">
 <li>红黑树的相对平衡</li>
 </ol>
-
 <ul>
 <li>从<strong>根到叶子</strong>的<strong>最长可能路径</strong>，不会超过<strong>最短可能路径</strong>的<strong>两倍长</strong></li>
 <li>结果就是这个树<strong>基本</strong>是平衡的</li>
 <li>虽然没有做到绝对的平衡，但是可以保证在最坏的情况下，依然是高效的</li>
 <li>为什么可以做到最长的路径不超过最短路径的两倍长
-
 <ul>
 <li><strong>性质4</strong>决定了路径不能有两个相连的红色节点</li>
 <li>最短的可能路径都是黑色节点</li>
 <li>最长的可能路径都是黑色节点</li>
 <li><strong>性质5</strong>所有路径都有相同数目的黑色节点</li>
 <li>这就表明了没有路径能多余其他路径的两倍长</li>
-</ul></li>
 </ul>
-
-<ol>
+</li>
+</ul>
+<ol start="4">
 <li>变色</li>
 </ol>
-
 <ul>
 <li>插入一个新节点时，有可能树不再平衡，可以通过三种方式的变换，让树保持平衡
-
 <ul>
 <li>换色-左旋转-右旋转</li>
-</ul></li>
+</ul>
+</li>
 <li>变色
-
 <ul>
 <li>为了重新符合红黑树的规则，尝试把<strong>红色节点</strong>变为黑色、或者把<strong>黑色</strong>节点变为红色</li>
-</ul></li>
+</ul>
+</li>
 <li>首先，需要直到<strong>插入的新的节点</strong>通常是<strong>红色节点</strong>
-
 <ul>
 <li>因为在<strong>插入节点为红色</strong>的时候，有可能插入依次是<strong>不违反红黑树任何规则</strong></li>
 <li>而<strong>插入黑色节点</strong>，必然会导致有一条路径上<strong>多了黑色节点</strong>，这是很难调整的</li>
 <li>红色节点可能导致出现<strong>红红相连</strong>的情况，但是这种情况可以通<strong>过颜色变换和旋转来调整</strong></li>
-</ul></li>
 </ul>
-
-<ol>
+</li>
+</ul>
+<ol start="5">
 <li>旋转</li>
 </ol>
-
 <ul>
 <li>左旋转
-
 <ul>
 <li>逆时针旋转红黑树的两个节点，使得父节点被自己的右孩子取代，而自己成为自己的左孩子</li>
 <li>它们有子树是否会影响旋转？ 答：不会</li>
-</ul></li>
+</ul>
+</li>
 <li>右旋转
-
 <ul>
 <li>顺时针旋转红黑树的两个节点，使得父节点被自己的左孩子取代，而自己成为自己的右孩子</li>
 <li>它们有子树是否会影响旋转？答：不会</li>
-</ul></li>
 </ul>
-
-<ol>
-<li>插入操作</li>
-</ol>
-
+</li>
+</ul>
+<ol start="6">
+<li>
+<p>插入操作</p>
 <p>设要插入<strong>节点为N</strong>，其<strong>父节点为P</strong></p>
-
 <p>其<strong>祖父节点为G</strong>，其父亲的<strong>兄弟节点为U</strong>（即P和U是同一个节点的子节点）</p>
-
+</li>
+</ol>
 <ul>
-<li>情况一</li>
-</ul>
-
-<p><img src="/images/红黑树插入情况1.jpg" alt="红黑树插入情况1" /></p>
-
+<li>
+<p>情况一</p>
+<p><img src="/images/%E7%BA%A2%E9%BB%91%E6%A0%91%E6%8F%92%E5%85%A5%E6%83%85%E5%86%B51.jpg" alt="红黑树插入情况1"></p>
 <ul>
 <li>新节点N位于树的根上，没有父节点</li>
-
-<li><p>这种情况下，我们直接将红色变为黑色即可，这样满足性质2</p></li>
-
-<li><p>情况二</p></li>
+<li>这种情况下，我们直接将红色变为黑色即可，这样满足性质2</li>
 </ul>
-
-<p><img src="/images/红黑树插入情况2.jpg" alt="红黑树插入情况2" /></p>
-
+</li>
+<li>
+<p>情况二</p>
+<p><img src="/images/%E7%BA%A2%E9%BB%91%E6%A0%91%E6%8F%92%E5%85%A5%E6%83%85%E5%86%B52.jpg" alt="红黑树插入情况2"></p>
 <ul>
 <li>新节点的父节点P是黑色</li>
 <li>性质四没有失效（新节点是红色的），性质5也没有人和问题</li>
-
-<li><p>尽管新节点N有两个黑色的叶子节点NIL，但是新节点N是红色的，所以通过它的路径中黑色节点的个数依然相同，满足性质5</p></li>
-
-<li><p>情况三</p></li>
+<li>尽管新节点N有两个黑色的叶子节点NIL，但是新节点N是红色的，所以通过它的路径中黑色节点的个数依然相同，满足性质5</li>
 </ul>
-
-<p><img src="/images/红黑树插入情况3.jpg" alt="红黑树插入情况3" /></p>
-
+</li>
+<li>
+<p>情况三</p>
+<p><img src="/images/%E7%BA%A2%E9%BB%91%E6%A0%91%E6%8F%92%E5%85%A5%E6%83%85%E5%86%B53.jpg" alt="红黑树插入情况3"></p>
 <ul>
 <li>P为红色，U也是红色</li>
 <li>父红，叔红，祖黑</li>
 <li>变为 父黑，叔黑，祖红</li>
-
-<li><p>可能出现的问题</p>
-
+<li>可能出现的问题
 <ul>
 <li>但是,G的父节点也可能是红色，这就违反了性质3，可以递归地调整颜色</li>
 <li>但是如果递归调整颜色到了根节点，就需要进行旋转了（见后例）</li>
-</ul></li>
-
-<li><p>情况四</p></li>
 </ul>
-
-<p><img src="/images/红黑树插入情况4.jpg" alt="红黑树插入情况4" /></p>
-
+</li>
+</ul>
+</li>
+<li>
+<p>情况四</p>
+<p><img src="/images/%E7%BA%A2%E9%BB%91%E6%A0%91%E6%8F%92%E5%85%A5%E6%83%85%E5%86%B54.jpg" alt="红黑树插入情况4"></p>
 <ul>
 <li>N的叔叔U是黑色，且N是左儿子</li>
 <li>父红，叔黑，祖黑，N是左儿子</li>
-
-<li><p>变成父黑祖红，进行右旋转，（先变色再旋转）</p></li>
-
-<li><p>情况五</p></li>
+<li>变成父黑祖红，进行右旋转，（先变色再旋转）</li>
 </ul>
-
-<p><img src="/images/红黑树插入情况5.jpg" alt="红黑树插入情况5" /></p>
-
+</li>
+<li>
+<p>情况五</p>
+<p><img src="/images/%E7%BA%A2%E9%BB%91%E6%A0%91%E6%8F%92%E5%85%A5%E6%83%85%E5%86%B55.jpg" alt="红黑树插入情况5"></p>
 <ul>
 <li>N的叔叔U是黑色节点，且N是右孩子</li>
 <li>父红，叔黑，祖黑，且N是右儿子</li>
 <li>先以P为根进行左旋转，将P作为新插入的红色节点考虑即可，此时同情况四，将自己变成黑色，祖父变成红色，以祖为根进行左旋转</li>
 </ul>
-
-<ol>
+</li>
+</ul>
+<ol start="7">
 <li>插入案例</li>
 </ol>
-
 <ul>
 <li>依次插入10 9 8 7 6 5 4 3 2 1</li>
 </ul>
-
-<p><img src="/images/红黑树插入案例1.jpg" alt="" /></p>
-
-<p><img src="/images/红黑树插入案例2.jpg" alt="" /></p>
-
-<p><img src="/images/红黑树插入案例3.jpg" alt="" /></p>
-
+<p><img src="/images/%E7%BA%A2%E9%BB%91%E6%A0%91%E6%8F%92%E5%85%A5%E6%A1%88%E4%BE%8B1.jpg" alt=""></p>
+<p><img src="/images/%E7%BA%A2%E9%BB%91%E6%A0%91%E6%8F%92%E5%85%A5%E6%A1%88%E4%BE%8B2.jpg" alt=""></p>
+<p><img src="/images/%E7%BA%A2%E9%BB%91%E6%A0%91%E6%8F%92%E5%85%A5%E6%A1%88%E4%BE%8B3.jpg" alt=""></p>
 <h2 id="图论">图论</h2>
-
 <ol>
 <li>什么是图</li>
 </ol>
-
 <ul>
 <li>图结构是一种与树结构有些相似的树结构</li>
 <li>图论是数学的一个分支，并且，在数学的概念上，<strong>树是图的一种</strong></li>
 <li>它以图为研究对象，研究<strong>顶点</strong>和<strong>边</strong>组成的<strong>图形的数学理论和方法</strong></li>
 <li>主要研究的目的是<strong>事物之间的关系</strong>，<strong>顶点</strong>代表<strong>事物</strong>，<strong>边</strong>代表两个事物间的<strong>关系</strong></li>
 </ul>
-
-<ol>
+<ol start="2">
 <li>六度空间理论</li>
 </ol>
-
 <ul>
 <li>理论上认为世界上任何两个互相不认识的两人</li>
 <li>只需要很少的中间人就可以建立联系</li>
 <li>并非一定要经过6步，只是需要很少的步骤</li>
 </ul>
-
-<ol>
+<ol start="3">
 <li>图的现实案例</li>
 </ol>
-
 <ul>
 <li>人的关系网</li>
 <li>北京地铁线路</li>
@@ -612,22 +573,18 @@ if (!doNotTrack) {
 <li>互联网各个终端</li>
 <li>&hellip;&hellip;</li>
 </ul>
-
-<ol>
+<ol start="4">
 <li>图的通常特点</li>
 </ol>
-
 <ul>
 <li>一组顶点：通常用E（Vertex）表示顶点的集合</li>
 <li>一组边：通常用E（Edge）表示边的集合</li>
 <li>边可以是无向的，也可以是有向的</li>
 <li>比如A &mdash; B,通常表示无向，A &ndash;&gt; B,通常表示有向</li>
 </ul>
-
-<ol>
+<ol start="5">
 <li>图一笔画的充要条件</li>
 </ol>
-
 <ul>
 <li>奇点的数目不是0个就是2个</li>
 <li>连到一点的<strong>边的数目</strong>如是奇数条，就称为奇点</li>
@@ -635,104 +592,94 @@ if (!doNotTrack) {
 <li>要想一笔画成，必须中间点均是偶点</li>
 <li>也就是有来路必有另一条去路，奇点只能在两端，因此任何图能一笔画成，奇点要么没有要么在两端</li>
 </ul>
-
-<ol>
+<ol start="6">
 <li>图的术语</li>
 </ol>
-
 <ul>
 <li>顶点
-
 <ul>
 <li>表示图的一个<strong>节点</strong></li>
 <li>如某个村庄/某个车站/人际关系中的人</li>
-</ul></li>
-<li>边
-
-<ul>
+</ul>
+</li>
+<li>边</li>
 <li>表示顶点与顶点之间的连线</li>
 <li>注意不要称为路径，路径有别的含义</li>
-</ul></li>
 <li>相邻顶点
-
 <ul>
 <li>由一条边相连的两个节点</li>
-</ul></li>
+</ul>
+</li>
 <li>度
-
 <ul>
 <li>一个顶点的度是<strong>相邻顶点的数量</strong></li>
-</ul></li>
+</ul>
+</li>
 <li>路径
-
 <ul>
 <li>路径是顶点到另一个顶点</li>
 <li>简单路径：简单路径要求不包含重复的顶点，比如 0  1 5 9 是一条简单路径</li>
 <li>回路：第一个顶点和最后一个顶点<strong>相同</strong>的路径称为回路</li>
-</ul></li>
+</ul>
+</li>
 <li>无向图，有向图
-
 <ul>
 <li>无向图：任何边都没有方向</li>
 <li>有向图：边有方向</li>
-</ul></li>
+</ul>
+</li>
 <li>无权图，带权图
-
 <ul>
 <li>无权图：不表达边的长短，意义</li>
 <li>带权图：表示边有一定的权重，比如距离或者花费的时间或者票价（任意你希望表示的数据）</li>
-</ul></li>
 </ul>
-
-<ol>
+</li>
+</ul>
+<ol start="7">
 <li>图的表示</li>
 </ol>
-
 <ul>
-<li><p>邻接矩阵</p>
-
+<li>
+<p>邻接矩阵</p>
 <ul>
-<li><p>每个节点和一个整数相关联，该整数作为数组的下标值</p></li>
-
-<li><p>我们用一个二维数组来表示顶点之间的连接</p></li>
-
-<li><p>二维数组0 2 &ndash;&gt; A &ndash;&gt; C</p></li>
-
-<li><p>在二维数组中，0表示没有连线，1表示有连线</p></li>
-
-<li><p>通过二维数组，可以很快找到一个顶点和哪些顶点有联系</p></li>
+<li>
+<p>每个节点和一个整数相关联，该整数作为数组的下标值</p>
+</li>
+<li>
+<p>我们用一个二维数组来表示顶点之间的连接</p>
+</li>
+<li>
+<p>二维数组0 2 &ndash;&gt; A &ndash;&gt; C</p>
+</li>
+<li>
+<p>在二维数组中，0表示没有连线，1表示有连线</p>
+</li>
+<li>
+<p>通过二维数组，可以很快找到一个顶点和哪些顶点有联系</p>
+<p>A  B  C  D  E</p>
+</li>
 </ul>
-
-<p>A  B  C  D  E</p></li>
-</ul>
-
 <p>A     0  1   0  1  1</p>
-
 <p>B    &hellip;&hellip;</p>
-
-<p>C &hellip;&hellip;</p>
-
+<p>C	&hellip;&hellip;</p>
 <p>D    &hellip;&hellip;</p>
-
-<p>E &hellip;&hellip;</p>
-
-<ul>
-<li><p>邻接表</p>
-
+<p>E	&hellip;&hellip;</p>
+</li>
+<li>
+<p>邻接表</p>
 <ul>
 <li>由图中每个顶点以及顶点相邻的顶点列表组成</li>
-<li>这个列表有很多种方式来存储：<strong>数组/链表/字典（哈希表）</strong>都可以</li>
-</ul></li>
+<li>这个列表有很多种方式来存储：**数组/链表/字典（哈希表）**都可以</li>
 </ul>
-
-<ol>
+</li>
+</ul>
+<ol start="8">
 <li>使用邻接表封装图</li>
 </ol>
-
 <p>使用到了队列和字典</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">  1
+<pre class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -1016,44 +963,38 @@ if (!doNotTrack) {
   <span class="o">&lt;</span><span class="err">/script&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<ol>
+</div><ol>
 <li>图的遍历</li>
 </ol>
-
 <ul>
 <li>图的遍历思想
-
 <ul>
 <li>图的遍历思想和树的遍历思想是一样的</li>
 <li>图的遍历意味着需要将图中<strong>每个顶点访问一边</strong>，并且不能有重复</li>
-</ul></li>
+</ul>
+</li>
 <li>遍历的两种算法
-
 <ul>
 <li>广度优先搜索(Breadth-First Search,简称<strong>BFS</strong>)</li>
 <li>深度优先搜索（Dep-First Search,简称<strong>DFS</strong>)</li>
 <li>两种遍历算法，都需要明确指定<strong>第一个被访问的顶点</strong></li>
-</ul></li>
-<li>BFS:基于队列，入队列的顶点先被探索（图片来源博客：<a href="https://www.cnblogs.com/skywang12345/p/3711483.html）">https://www.cnblogs.com/skywang12345/p/3711483.html）</a></li>
 </ul>
-
-<p><img src="/images/广度优先.jpg" alt="" /></p>
-
+</li>
+<li>BFS:基于队列，入队列的顶点先被探索（图片来源博客：https://www.cnblogs.com/skywang12345/p/3711483.html）</li>
+</ul>
+<p><img src="/images/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88.jpg" alt=""></p>
 <ul>
-<li>DFS：基于栈或者使用递归，通过将顶点存入栈中，顶点是沿着路径被探索的，存在新的相邻顶点就去访问（图片来源博客：<a href="https://www.cnblogs.com/skywang12345/p/3711483.html）">https://www.cnblogs.com/skywang12345/p/3711483.html）</a></li>
+<li>DFS：基于栈或者使用递归，通过将顶点存入栈中，顶点是沿着路径被探索的，存在新的相邻顶点就去访问（图片来源博客：https://www.cnblogs.com/skywang12345/p/3711483.html）</li>
 </ul>
-
-<p><img src="/images/深度优先.jpg" alt="" /></p>
-
+<p><img src="/images/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88.jpg" alt=""></p>
 <ul>
 <li>为了记录顶点是否被访问过，我们使用三种颜色来反应它们的状态
-
 <ul>
 <li>白色：该顶点未被访问</li>
 <li>灰色：表示该顶点被访问过，但未被探索</li>
 <li>黑色：表示该顶点被访问且被完全探索过</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 
     </div>

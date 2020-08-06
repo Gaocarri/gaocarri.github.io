@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/js%E6%8F%8F%E8%BF%B0%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%85%A5%E9%97%A8%E4%B8%80/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,11 +66,9 @@
 <meta property="article:modified_time" content="2020-01-12T00:00:00+00:00" />
 <meta itemprop="name" content="JS描述数据结构与算法（一）">
 <meta itemprop="description" content="JS描述数据结构与算法（一）">
-
-
-<meta itemprop="datePublished" content="2020-01-12T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-01-12T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1649">
+<meta itemprop="datePublished" content="2020-01-12T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-01-12T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1653">
 
 
 
@@ -374,7 +372,7 @@ if (!doNotTrack) {
             <a href="http://gaocarri.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"> 数据结构与算法 </a>
             
           </div>
-        <span class="more-meta"> 约 1649 字 </span>
+        <span class="more-meta"> 约 1653 字 </span>
           <span class="more-meta"> 预计阅读 4 分钟 </span>
 
         
@@ -394,58 +392,48 @@ if (!doNotTrack) {
 
     
     <div class="post-content">
-      
-
-<ul>
+      <ul>
 <li>包含数组，栈，队列（使用数组实现）</li>
 </ul>
-
 <h2 id="什么是算法和数据结构">什么是算法和数据结构</h2>
-
 <ul>
 <li>数据结构：计算机中存储和组织数据的方式</li>
 <li>算法：解决办法的逻辑/操作</li>
 </ul>
-
 <h2 id="数组">数组</h2>
-
 <p>JS数组就是API的调用</p>
-
 <h2 id="栈结构">栈结构</h2>
-
 <ol>
 <li>栈是受限的线性结构：（生活中类似于自助餐的托盘）</li>
 </ol>
-
 <ul>
 <li><strong>只能在一端添加/删除元素</strong>（栈顶）</li>
 <li>进入：进栈（压栈）</li>
 <li>出去：出栈（退 栈）</li>
 </ul>
-
-<ol>
-<li><p>函数调用栈</p>
-
+<ol start="2">
+<li>
+<p>函数调用栈</p>
 <ul>
 <li>A调用B，B调C，C调D</li>
 <li>D,C,B,A的弹栈顺序</li>
-</ul></li>
-
-<li><p>一个栈结构面试题</p>
-
+</ul>
+</li>
+<li>
+<p>一个栈结构面试题</p>
 <ul>
 <li>有6个元素 6，5，4，3，2，1的顺序进栈（要考虑到可以一边入栈一边出栈）
-
 <ul>
 <li>3，4，6，5，2，1不合法</li>
-</ul></li>
-</ul></li>
-</ol>
-
+</ul>
+</li>
+</ul>
 <p>4.使用数组实现栈</p>
+</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -567,15 +555,13 @@ if (!doNotTrack) {
 </span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span> <span class="c1">//将栈结构的内容以字符串形式返回
 </span></code></pre></td></tr></table>
 </div>
-</div>
-<ol>
-<li>十进制转二进制</li>
-</ol>
-
+</div><ol start="5">
+<li>
+<p>十进制转二进制</p>
 <p>利用栈结构来实现</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -597,45 +583,44 @@ if (!doNotTrack) {
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript">    <span class="c1">// 函数：将十进制转为二进制
-</span><span class="c1"></span>       <span class="kd">function</span> <span class="nx">dec2bin</span><span class="p">(</span><span class="nx">decNumber</span><span class="p">)</span> <span class="p">{</span>
-         <span class="c1">// 1.定义栈对象
-</span><span class="c1"></span>         <span class="kd">var</span> <span class="nx">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stack</span><span class="p">()</span>
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"> <span class="c1">// 函数：将十进制转为二进制
+</span><span class="c1"></span>    <span class="kd">function</span> <span class="nx">dec2bin</span><span class="p">(</span><span class="nx">decNumber</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// 1.定义栈对象
+</span><span class="c1"></span>      <span class="kd">var</span> <span class="nx">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stack</span><span class="p">()</span>
    
-         <span class="c1">// 2.循环操作
-</span><span class="c1"></span>         <span class="k">while</span> <span class="p">(</span><span class="nx">decNumber</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-           <span class="c1">// 2.1获取余数并放到栈中
-</span><span class="c1"></span>           <span class="nx">stack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">decNumber</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
+      <span class="c1">// 2.循环操作
+</span><span class="c1"></span>      <span class="k">while</span> <span class="p">(</span><span class="nx">decNumber</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 2.1获取余数并放到栈中
+</span><span class="c1"></span>        <span class="nx">stack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">decNumber</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
    
-           <span class="c1">// 2.2获取整除后的结果作为下一次运行的数字
-</span><span class="c1"></span>           <span class="nx">decNumber</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">decNumber</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
-         <span class="p">}</span>
-         <span class="c1">// 3.从栈中取出0和1
-</span><span class="c1"></span>         <span class="kd">var</span> <span class="nx">binaryString</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-         <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nx">stack</span><span class="p">.</span><span class="nx">isEmpty</span><span class="p">())</span> <span class="p">{</span>
-           <span class="nx">binaryString</span> <span class="o">+=</span> <span class="nx">stack</span><span class="p">.</span><span class="nx">pop</span><span class="p">()</span>
-         <span class="p">}</span>
-         <span class="k">return</span> <span class="nx">binaryString</span>
-       <span class="p">}</span>
+        <span class="c1">// 2.2获取整除后的结果作为下一次运行的数字
+</span><span class="c1"></span>        <span class="nx">decNumber</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">decNumber</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+      <span class="p">}</span>
+      <span class="c1">// 3.从栈中取出0和1
+</span><span class="c1"></span>      <span class="kd">var</span> <span class="nx">binaryString</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+      <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="nx">stack</span><span class="p">.</span><span class="nx">isEmpty</span><span class="p">())</span> <span class="p">{</span>
+        <span class="nx">binaryString</span> <span class="o">+=</span> <span class="nx">stack</span><span class="p">.</span><span class="nx">pop</span><span class="p">()</span>
+      <span class="p">}</span>
+      <span class="k">return</span> <span class="nx">binaryString</span>
+    <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ol>
 <h2 id="队列">队列</h2>
-
 <ol>
 <li>一种受限的线性表，<strong>先进先出</strong></li>
 </ol>
-
 <ul>
 <li>类似于生活中的电影影院，厕所排队，商场</li>
 <li>优先排队的人优先处理</li>
 </ul>
-
-<ol>
-<li><p>基于数组实现队列<strong>,基于数组实现性能不高</strong>(因为删除，从前面删除后，每个元素要往前移动)</p>
+<ol start="2">
+<li>基于数组实现队列**,基于数组实现性能不高**(因为删除，从前面删除后，每个元素要往前移动)</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -688,73 +673,72 @@ if (!doNotTrack) {
 </span><span class="lnt">51
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// 基于数组实现性能不高(因为删除，从前面删除后，每个元素要往前移动)
-</span><span class="c1">// 封装队列类
-</span><span class="c1"></span><span class="kd">function</span> <span class="nx">Queue</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// 属性
-</span><span class="c1"></span>  <span class="k">this</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="c1">// 方法
-</span><span class="c1"></span>    <span class="c1">// 1.将元素加入到队列
-</span><span class="c1"></span>  <span class="nx">Queue</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">enqueue</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span>
+<pre class="chroma"><code class="language-javascript" data-lang="javascript">    <span class="c1">// 基于数组实现性能不高(因为删除，从前面删除后，每个元素要往前移动)
+</span><span class="c1"></span>    <span class="c1">// 封装队列类
+</span><span class="c1"></span>    <span class="kd">function</span> <span class="nx">Queue</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// 属性
+</span><span class="c1"></span>      <span class="k">this</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1">// 方法
+</span><span class="c1"></span>        <span class="c1">// 1.将元素加入到队列
+</span><span class="c1"></span>      <span class="nx">Queue</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">enqueue</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="c1">// 2.从队列中删除前端元素
+</span><span class="c1"></span>      <span class="nx">Queue</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">dequeue</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">shift</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="c1">// 3.查看前端元素
+</span><span class="c1"></span>      <span class="nx">Queue</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">front</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="p">}</span>
+        <span class="c1">// 4.查看队列是否为空
+</span><span class="c1"></span>      <span class="nx">Queue</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">isEmpty</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="p">}</span>
+        <span class="c1">// 5.查看队列中元素的个数
+</span><span class="c1"></span>      <span class="nx">Queue</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">size</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span>
+        <span class="p">}</span>
+        <span class="c1">// 6.toString方法
+</span><span class="c1"></span>      <span class="nx">Queue</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">resultString</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">resultString</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nx">resultString</span>
+      <span class="p">}</span>
     <span class="p">}</span>
-    <span class="c1">// 2.从队列中删除前端元素
-</span><span class="c1"></span>  <span class="nx">Queue</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">dequeue</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">shift</span><span class="p">()</span>
-    <span class="p">}</span>
-    <span class="c1">// 3.查看前端元素
-</span><span class="c1"></span>  <span class="nx">Queue</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">front</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="p">}</span>
-    <span class="c1">// 4.查看队列是否为空
-</span><span class="c1"></span>  <span class="nx">Queue</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">isEmpty</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span>
-    <span class="p">}</span>
-    <span class="c1">// 5.查看队列中元素的个数
-</span><span class="c1"></span>  <span class="nx">Queue</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">size</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span>
-    <span class="p">}</span>
-    <span class="c1">// 6.toString方法
-</span><span class="c1"></span>  <span class="nx">Queue</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">resultString</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">resultString</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="nx">resultString</span>
-  <span class="p">}</span>
-<span class="p">}</span>
 
-<span class="c1">// 使用队列
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Queue</span><span class="p">()</span>
-<span class="nx">queue</span><span class="p">.</span><span class="nx">enqueue</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>
-<span class="nx">queue</span><span class="p">.</span><span class="nx">enqueue</span><span class="p">(</span><span class="s1">&#39;cba&#39;</span><span class="p">)</span>
-<span class="nx">queue</span><span class="p">.</span><span class="nx">enqueue</span><span class="p">(</span><span class="s1">&#39;nba&#39;</span><span class="p">)</span>
-<span class="nx">queue</span><span class="p">.</span><span class="nx">enqueue</span><span class="p">(</span><span class="s1">&#39;mba&#39;</span><span class="p">)</span>
-<span class="nx">alert</span><span class="p">(</span><span class="nx">queue</span><span class="p">)</span>
+    <span class="c1">// 使用队列
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Queue</span><span class="p">()</span>
+    <span class="nx">queue</span><span class="p">.</span><span class="nx">enqueue</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>
+    <span class="nx">queue</span><span class="p">.</span><span class="nx">enqueue</span><span class="p">(</span><span class="s1">&#39;cba&#39;</span><span class="p">)</span>
+    <span class="nx">queue</span><span class="p">.</span><span class="nx">enqueue</span><span class="p">(</span><span class="s1">&#39;nba&#39;</span><span class="p">)</span>
+    <span class="nx">queue</span><span class="p">.</span><span class="nx">enqueue</span><span class="p">(</span><span class="s1">&#39;mba&#39;</span><span class="p">)</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="nx">queue</span><span class="p">)</span>
 
-<span class="nx">queue</span><span class="p">.</span><span class="nx">dequeue</span><span class="p">()</span>
-<span class="nx">alert</span><span class="p">(</span><span class="nx">queue</span><span class="p">)</span>
+    <span class="nx">queue</span><span class="p">.</span><span class="nx">dequeue</span><span class="p">()</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="nx">queue</span><span class="p">)</span>
 
-<span class="nx">alert</span><span class="p">(</span><span class="nx">queue</span><span class="p">.</span><span class="nx">front</span><span class="p">())</span>
-<span class="nx">alert</span><span class="p">(</span><span class="nx">queue</span><span class="p">.</span><span class="nx">isEmpty</span><span class="p">())</span>
-<span class="nx">alert</span><span class="p">(</span><span class="nx">queue</span><span class="p">.</span><span class="nx">size</span><span class="p">())</span>
-<span class="nx">alert</span><span class="p">(</span><span class="nx">queue</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="nx">queue</span><span class="p">.</span><span class="nx">front</span><span class="p">())</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="nx">queue</span><span class="p">.</span><span class="nx">isEmpty</span><span class="p">())</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="nx">queue</span><span class="p">.</span><span class="nx">size</span><span class="p">())</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="nx">queue</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span>
 </code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>击鼓传花面试算法题</p></li>
-</ol>
-
+</div><ol start="3">
+<li>
+<p>击鼓传花面试算法题</p>
 <p>规则</p>
-
 <ul>
 <li>几个朋友一起玩一个游戏，围城一圈，开始叔叔，数到某个数字的人自动出局</li>
-
-<li><p>最后剩下的人会胜利，请问最后剩下的是在<strong>哪一个位置</strong>的人</p>
+<li>最后剩下的人会胜利，请问最后剩下的是在<strong>哪一个位置</strong>的人</li>
+</ul>
+</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -781,48 +765,44 @@ if (!doNotTrack) {
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">passGame</span><span class="p">(</span><span class="nx">nameList</span><span class="p">,</span> <span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// 1.创建一个队列
-</span><span class="c1"></span>  <span class="kd">var</span> <span class="nx">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Queue</span><span class="p">()</span>
-    <span class="c1">// 2.将所有人依次加入到队列中
-</span><span class="c1"></span>  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">nameList</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">queue</span><span class="p">.</span><span class="nx">enqueue</span><span class="p">(</span><span class="nx">nameList</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
-  <span class="p">}</span>
-  <span class="c1">// 3. 开始数数字
-</span><span class="c1"></span>  <span class="k">while</span> <span class="p">(</span><span class="nx">queue</span><span class="p">.</span><span class="nx">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// 不是num的时候，重新加入到队列的末尾
-</span><span class="c1"></span>    <span class="c1">// 是num的时候，将其从队列中删除
-</span><span class="c1"></span>    <span class="c1">// 3.1num数字之前的人重新放入到队列的末尾
-</span><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">queue</span><span class="p">.</span><span class="nx">enqueue</span><span class="p">(</span><span class="nx">queue</span><span class="p">.</span><span class="nx">dequeue</span><span class="p">())</span>
+<pre class="chroma"><code class="language-javascript" data-lang="javascript">    <span class="kd">function</span> <span class="nx">passGame</span><span class="p">(</span><span class="nx">nameList</span><span class="p">,</span> <span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// 1.创建一个队列
+</span><span class="c1"></span>      <span class="kd">var</span> <span class="nx">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Queue</span><span class="p">()</span>
+        <span class="c1">// 2.将所有人依次加入到队列中
+</span><span class="c1"></span>      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">nameList</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">queue</span><span class="p">.</span><span class="nx">enqueue</span><span class="p">(</span><span class="nx">nameList</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+      <span class="p">}</span>
+      <span class="c1">// 3. 开始数数字
+</span><span class="c1"></span>      <span class="k">while</span> <span class="p">(</span><span class="nx">queue</span><span class="p">.</span><span class="nx">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 不是num的时候，重新加入到队列的末尾
+</span><span class="c1"></span>        <span class="c1">// 是num的时候，将其从队列中删除
+</span><span class="c1"></span>        <span class="c1">// 3.1num数字之前的人重新放入到队列的末尾
+</span><span class="c1"></span>        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">queue</span><span class="p">.</span><span class="nx">enqueue</span><span class="p">(</span><span class="nx">queue</span><span class="p">.</span><span class="nx">dequeue</span><span class="p">())</span>
+        <span class="p">}</span>
+        <span class="c1">// 3.2num对应的人删除掉
+</span><span class="c1"></span>        <span class="nx">queue</span><span class="p">.</span><span class="nx">dequeue</span><span class="p">()</span>
+      <span class="p">}</span>
+      <span class="kd">var</span> <span class="nx">endName</span> <span class="o">=</span> <span class="nx">queue</span><span class="p">.</span><span class="nx">front</span><span class="p">()</span>
+      <span class="k">return</span> <span class="nx">nameList</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">endName</span><span class="p">)</span>
     <span class="p">}</span>
-    <span class="c1">// 3.2num对应的人删除掉
-</span><span class="c1"></span>    <span class="nx">queue</span><span class="p">.</span><span class="nx">dequeue</span><span class="p">()</span>
-  <span class="p">}</span>
-  <span class="kd">var</span> <span class="nx">endName</span> <span class="o">=</span> <span class="nx">queue</span><span class="p">.</span><span class="nx">front</span><span class="p">()</span>
-  <span class="k">return</span> <span class="nx">nameList</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">endName</span><span class="p">)</span>
-<span class="p">}</span>
 
-<span class="nx">nameList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Lily&#39;</span><span class="p">,</span> <span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;LiLei&#39;</span><span class="p">,</span> <span class="s1">&#39;carri&#39;</span><span class="p">,</span> <span class="s1">&#39;taozi&#39;</span><span class="p">]</span>
+    <span class="nx">nameList</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Lily&#39;</span><span class="p">,</span> <span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;LiLei&#39;</span><span class="p">,</span> <span class="s1">&#39;carri&#39;</span><span class="p">,</span> <span class="s1">&#39;taozi&#39;</span><span class="p">]</span>
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">passGame</span><span class="p">(</span><span class="nx">nameList</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">passGame</span><span class="p">(</span><span class="nx">nameList</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span>
 </code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
-<ol>
+</div><ol start="4">
 <li>优先级队列</li>
 </ol>
-
 <ul>
 <li>如头等舱和商务舱乘客的优先级高于经济舱</li>
 <li>医院会优先处理病情比较严重的患者</li>
-
-<li><p>每个元素不仅包含元素还包含优先级</p>
+<li>每个元素不仅包含元素还包含优先级</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -862,47 +842,45 @@ if (!doNotTrack) {
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// 只有插入方法和数组不同
-</span><span class="c1">// 如头等舱和商务舱乘客的优先级高于经济舱
-</span><span class="c1">// 医院会优先处理病情比较严重的患者
+</span><span class="c1"></span>    <span class="c1">// 如头等舱和商务舱乘客的优先级高于经济舱
+</span><span class="c1"></span>    <span class="c1">// 医院会优先处理病情比较严重的患者
 </span><span class="c1"></span>
-<span class="kd">function</span> <span class="nx">PriorityQueue</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// 在PriorityQueue重新创建了一个类，可以理解内部类
-</span><span class="c1"></span>  <span class="kd">function</span> <span class="nx">QueueElement</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">priority</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">element</span> <span class="o">=</span> <span class="nx">element</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">priority</span> <span class="o">=</span> <span class="nx">priority</span>
-  <span class="p">}</span>
+   <span class="kd">function</span> <span class="nx">PriorityQueue</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// 在PriorityQueue重新创建了一个类，可以理解内部类
+</span><span class="c1"></span>      <span class="kd">function</span> <span class="nx">QueueElement</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">priority</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">element</span> <span class="o">=</span> <span class="nx">element</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">priority</span> <span class="o">=</span> <span class="nx">priority</span>
+      <span class="p">}</span>
 
-  <span class="c1">// 封装属性
-</span><span class="c1"></span>  <span class="k">this</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="p">[]</span>
+      <span class="c1">// 封装属性
+</span><span class="c1"></span>      <span class="k">this</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="p">[]</span>
 
-  <span class="c1">//实现插入方法
-</span><span class="c1"></span>  <span class="nx">PriorityQueue</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">enqueue</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">priority</span><span class="p">)</span> <span class="p">{</span>
-      <span class="c1">// 1.创建QueueElement对象
-</span><span class="c1"></span>      <span class="kd">var</span> <span class="nx">queueElement</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">QueueElement</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">priority</span><span class="p">)</span>
+      <span class="c1">//实现插入方法
+</span><span class="c1"></span>      <span class="nx">PriorityQueue</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">enqueue</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">priority</span><span class="p">)</span> <span class="p">{</span>
+          <span class="c1">// 1.创建QueueElement对象
+</span><span class="c1"></span>          <span class="kd">var</span> <span class="nx">queueElement</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">QueueElement</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">priority</span><span class="p">)</span>
 
-      <span class="c1">// 2.判断队列是否为空
-</span><span class="c1"></span>      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">queueElement</span><span class="p">)</span>
-      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">added</span> <span class="o">=</span> <span class="kc">false</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-          <span class="k">if</span> <span class="p">(</span><span class="nx">queueElement</span><span class="p">.</span><span class="nx">priority</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">priority</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">queueElement</span><span class="p">)</span>
-            <span class="nx">added</span> <span class="o">=</span> <span class="kc">true</span>
-            <span class="k">break</span>
+          <span class="c1">// 2.判断队列是否为空
+</span><span class="c1"></span>          <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">queueElement</span><span class="p">)</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">added</span> <span class="o">=</span> <span class="kc">false</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+              <span class="k">if</span> <span class="p">(</span><span class="nx">queueElement</span><span class="p">.</span><span class="nx">priority</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">priority</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">queueElement</span><span class="p">)</span>
+                <span class="nx">added</span> <span class="o">=</span> <span class="kc">true</span>
+                <span class="k">break</span>
+              <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">added</span><span class="p">)</span> <span class="p">{</span>
+              <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">queueElement</span><span class="p">)</span>
+            <span class="p">}</span>
           <span class="p">}</span>
         <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">added</span><span class="p">)</span> <span class="p">{</span>
-          <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">queueElement</span><span class="p">)</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+   <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
+</div>
     </div>
 
     

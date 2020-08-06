@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,11 +66,9 @@
 <meta property="article:modified_time" content="2019-11-04T00:00:00+00:00" />
 <meta itemprop="name" content="JS对象基本用法">
 <meta itemprop="description" content="JS对象基本用法">
-
-
-<meta itemprop="datePublished" content="2019-11-04T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-11-04T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="743">
+<meta itemprop="datePublished" content="2019-11-04T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-11-04T00:00:00+00:00" />
+<meta itemprop="wordCount" content="747">
 
 
 
@@ -374,7 +372,7 @@ if (!doNotTrack) {
             <a href="http://gaocarri.top/categories/javascript/"> JavaScript </a>
             
           </div>
-        <span class="more-meta"> 约 743 字 </span>
+        <span class="more-meta"> 约 747 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
 
         
@@ -394,63 +392,50 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#声明对象的两种语法">声明对象的两种语法</a></li>
-<li><a href="#如何删除对象的属性">如何删除对象的属性</a></li>
-<li><a href="#如何查看对象的属性">如何查看对象的属性</a></li>
-<li><a href="#如何修改或增加对象的属性">如何修改或增加对象的属性</a></li>
-<li><a href="#name-in-obj和obj-hasownproperty-name-的区别">&lsquo;name&rsquo; in obj和obj.hasOwnProperty(&lsquo;name&rsquo;) 的区别</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="声明对象的两种语法">声明对象的两种语法</h1>
+      <h1 id="声明对象的两种语法">声明对象的两种语法</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">// 第1种：
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 第1种：
 let obj = { &#39;name&#39;: &#39;frank&#39;, &#39;age&#39;: 18 }
 // 第2种：
-let obj = new Object({&#39;name&#39;: &#39;frank&#39;})</pre></td></tr></table>
+let obj = new Object({&#39;name&#39;: &#39;frank&#39;})
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
+</div><ul>
 <li>键名必须是字符串，引号大部分时候可以省略（空格和中文时不可省）</li>
 <li>就算引号省略了，字符串还是字符串</li>
 <li>第2种是标准的写法，但大多数时候下用第1种即可</li>
 </ul>
-
 <h1 id="如何删除对象的属性">如何删除对象的属性</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">delete obj.name
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">delete obj.name
 //或
-delete obj[&#39;name&#39;]</pre></td></tr></table>
+delete obj[&#39;name&#39;]
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
+</div><ul>
 <li>可以删除&rsquo;name&rsquo;这个属性</li>
 <li>obj.xxx===undefined 不能判断xxx是不是obj的属性，也有可能有这个属性但是未定义</li>
 </ul>
-
 <h1 id="如何查看对象的属性">如何查看对象的属性</h1>
-
 <ul>
 <li><code>Object.keys(obj)</code>查看obj的属性有哪些</li>
 <li><code>console.dir(obj)</code>查看obj的属性及属性值</li>
@@ -458,88 +443,87 @@ delete obj[&#39;name&#39;]</pre></td></tr></table>
 <li><code>obj.name</code>注意这里的name是字符串</li>
 <li><code>obj[name]</code>注意这里的name是变量</li>
 </ul>
-
 <h1 id="如何修改或增加对象的属性">如何修改或增加对象的属性</h1>
-
 <ul>
-<li><p>直接赋值</p>
+<li>直接赋值</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">let obj = {name: &#39;frank&#39;} // name是字符串
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">let obj = {name: &#39;frank&#39;} // name是字符串
 obj.name = &#39;frank&#39; // name是字符串
 obj[&#39;name&#39;] = &#39;frank&#39;
 obj[name] = &#39;frank&#39; // name是变量，所以错，无法这么赋值
 obj[&#39;na&#39;+&#39;me&#39;] = &#39;frank&#39;
 let key = &#39;name&#39;; obj[key] = &#39;frank&#39;
-let key = &#39;name&#39;; obj.key = &#39;frank&#39; //错，因为等价于obj.key等价于obj[&#39;key&#39;]，但key是变量</pre></td></tr></table>
+let key = &#39;name&#39;; obj.key = &#39;frank&#39; //错，因为等价于obj.key等价于obj[&#39;key&#39;]，但key是变量
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>批量赋值</p>
+</div><ul>
+<li>批量赋值</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">Object.assign(obj, {age: 18, gender: &#39;man&#39;})</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Object.assign(obj, {age: 18, gender: &#39;man&#39;})
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>无法通过自身来修改原型，一般不要修改原型(可以obj.<strong>proto</strong>.toString = &lsquo;xxx&rsquo;，但不要这么做，容易混乱)</p>
+</div><ul>
+<li>无法通过自身来修改原型，一般不要修改原型(可以obj.<strong>proto</strong>.toString = &lsquo;xxx&rsquo;，但不要这么做，容易混乱)</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">let common = {
-&#39;国&#39;:&#39;中国&#39;，
-hairColor:&#39;black&#39;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">let common = {
+    &#39;国&#39;:&#39;中国&#39;，
+    hairColor:&#39;black&#39;
 }
-let person = Object.create(common)</pre></td></tr></table>
+let person = Object.create(common)
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>以common为原型创造person</p></li>
-
-<li><p>person的原型就是common，但是common有原型<strong>proto</strong></p></li>
+</div><ul>
+<li>以common为原型创造person</li>
+<li>person的原型就是common，但是common有原型__proto__</li>
 </ul>
-
-<h1 id="name-in-obj和obj-hasownproperty-name-的区别">&lsquo;name&rsquo; in obj和obj.hasOwnProperty(&lsquo;name&rsquo;) 的区别</h1>
+<h1 id="name-in-obj和objhasownpropertyname-的区别">&lsquo;name&rsquo; in obj和obj.hasOwnProperty(&lsquo;name&rsquo;) 的区别</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&#39;xxx&#39; in obj === false</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&#39;xxx&#39; in obj === false
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
+</div><ul>
 <li>false说明不含该属性，true说明含该属性</li>
-
-<li><p>可以看共有属性是否含有（区别）</p>
+<li>可以看共有属性是否含有（区别）</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">obj.hasOwnProperty(&#39;toString&#39;) === false</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">obj.hasOwnProperty(&#39;toString&#39;) === false
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>可以查看是否含有自身的属性（不包括共有属性），这里的false说明toString是共有属性</p></li>
+</div><ul>
+<li>可以查看是否含有自身的属性（不包括共有属性），这里的false说明toString是共有属性</li>
 </ul>
 
     </div>

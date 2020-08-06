@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/js%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,11 +66,9 @@
 <meta property="article:modified_time" content="2019-11-05T00:00:00+00:00" />
 <meta itemprop="name" content="JS函数执行时机">
 <meta itemprop="description" content="JS函数执行时机">
-
-
-<meta itemprop="datePublished" content="2019-11-05T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-11-05T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="618">
+<meta itemprop="datePublished" content="2019-11-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-11-05T00:00:00+00:00" />
+<meta itemprop="wordCount" content="617">
 
 
 
@@ -374,7 +372,7 @@ if (!doNotTrack) {
             <a href="http://gaocarri.top/categories/javascript/"> JavaScript </a>
             
           </div>
-        <span class="more-meta"> 约 618 字 </span>
+        <span class="more-meta"> 约 617 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
 
         
@@ -394,19 +392,19 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
       <p>今天学习到了关于JS函数执行时机方面的知识。</p>
-
 <ul>
-<li><p>以下两个for循环各自独立</p>
+<li>以下两个for循环各自独立</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -419,69 +417,75 @@ if (!doNotTrack) {
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">// 第一个：
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 第一个：
 let i = 0
 for(i = 0; i&lt;6; i++){
-setTimeout(()=&gt;{
-console.log(i)
-},0)
+  setTimeout(()=&gt;{
+    console.log(i)
+  },0)
 }
 // 第二个：
 for(let i = 0; i&lt;6; i++){
-setTimeout(()=&gt;{
-console.log(i)
-},0)
-}</pre></td></tr></table>
+  setTimeout(()=&gt;{
+    console.log(i)
+  },0)
+}
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>运行代码我们可以知道第一个for循环会在后台打印出6个6，第二个for循环会在后台打印出0，1，2，3，4，5</p></li>
-
-<li><p>下面分析造成这种情况的原因</p>
-
+</div><ul>
+<li>
+<p>运行代码我们可以知道第一个for循环会在后台打印出6个6，第二个for循环会在后台打印出0，1，2，3，4，5</p>
+</li>
+<li>
+<p>下面分析造成这种情况的原因</p>
 <ol>
 <li>setTimeout()的用法
-
 <ul>
 <li>setTimeout()方法设置一个定时器，该定时器在定时器到期后执行一个函数或指定的一段代码</li>
 <li>delay：延迟的毫秒数 (一秒等于1000毫秒)，函数的调用会在该延迟之后发生。如果省略该参数，delay取默认值0，意味着“马上”执行，或者尽快执行。不管是哪种情况，实际的延迟时间可能会比期待的(delay毫秒数) 值长，原因请查看<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/setTimeout#Reasons_for_delays_longer_than_specified">Reasons for delays longer than specified</a></li>
-</ul></li>
+</ul>
+</li>
 <li>第一段代码因为setTimeout()这个函数,<code>console.log(i)</code>会在for循环全部执行后才执行，此时i变为了6，因此会打印出6个6。举个例子，老板让你搬100个箱子，在你搬箱子的时候老板说去打印一个文件，你就会在搬完100个箱子的时候再去打印这个文件，通俗来说就是等一会，同理setTimeout.</li>
 <li>那么第二段代码为什么不一样了呢，这就是JS的坑爹之处：
-
 <ul>
 <li>因为JS在for和let一起用的时候会加东西</li>
 <li>每次for循环会多创建一个i（坑爹），所以打印出了6个不同的i</li>
-</ul></li>
-
-<li><p>其他方法，使用立即执行函数：</p>
+</ul>
+</li>
+<li>其他方法，使用立即执行函数：</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
-</span><span class="lnt">8
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">for(var i = 0; i &lt; 6; i++) {
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">for(var i = 0; i &lt; 6; i++) {
 !function() {
-	  var j = i
-setTimeout(() =&gt; {
-console.log(j)
-},0)
+    var j = i
+  setTimeout(() =&gt; {
+    console.log(j)
+  },0)
 }()  
-}</pre></td></tr></table>
+</code></pre></td></tr></table>
 </div>
 </div></li>
-</ol></li>
 </ul>
-
+<p>}</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"></code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     

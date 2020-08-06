@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/css%E5%85%B3%E4%BA%8E%E6%96%87%E6%9C%AC%E6%8D%A2%E8%A1%8C%E4%B8%8E%E4%B8%8D%E6%8D%A2%E8%A1%8C%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,10 +66,8 @@
 <meta property="article:modified_time" content="2020-07-07T00:00:00+00:00" />
 <meta itemprop="name" content="CSS关于文本换行与不换行的那些事">
 <meta itemprop="description" content="CSS关于文本换行与不换行的那些事">
-
-
-<meta itemprop="datePublished" content="2020-07-07T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-07-07T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2020-07-07T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-07-07T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1137">
 
 
@@ -395,89 +393,67 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#关于换行的样式属性">关于换行的样式属性</a>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#1-white-space-normal-pre-nowrap-pre-wrap-pre-line-inherit">1.white-space: normal | pre | nowrap | pre-wrap | pre-line | inherit;</a></li>
-<li><a href="#2-word-wrap-normal-break-word">2.word-wrap: normal|break-word;</a></li>
-<li><a href="#3-word-break-normal-break-all-keep-all">3.word-break: normal|break-all|keep-all;</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li><a href="#常见的场景">常见的场景</a></li>
-<li><a href="#场景1">场景1</a></li>
-<li><a href="#场景2">场景2</a>
-<ul>
-<li>
-<ul>
-<li><a href="#使用-webkit的css扩展属性-该方法-适用于webkit浏览器及移动端">使用<strong>WebKit的CSS扩展属性</strong>，该方法<strong>适用于WebKit浏览器及移动端</strong></a></li>
-<li><a href="#利用-绝对定位和padding-跨浏览器-解决方案">利用<strong>绝对定位和padding</strong>;(<strong>跨浏览器</strong>解决方案)</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#场景3">场景3</a></li>
-<li><a href="#结语">结语</a></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#使用webkit的css扩展属性该方法适用于webkit浏览器及移动端">使用<strong>WebKit的CSS扩展属性</strong>，该方法<strong>适用于WebKit浏览器及移动端</strong></a></li>
+        <li><a href="#利用绝对定位和padding跨浏览器解决方案">利用<strong>绝对定位和padding</strong>;(<strong>跨浏览器</strong>解决方案)</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="关于换行的样式属性">关于换行的样式属性</h1>
-
+      <h1 id="关于换行的样式属性">关于换行的样式属性</h1>
 <p>标粗的是常用属性，会在后面的场景里用到</p>
-
-<h4 id="1-white-space-normal-pre-nowrap-pre-wrap-pre-line-inherit">1.white-space: normal | pre | nowrap | pre-wrap | pre-line | inherit;</h4>
-
+<h4 id="1white-space-normal--pre--nowrap--pre-wrap--pre-line--inherit">1.white-space: normal | pre | nowrap | pre-wrap | pre-line | inherit;</h4>
 <p>white-space 属性设置如何处理元素内的空白</p>
-
 <p>设值说明：
- normal 默认。空白会被浏览器忽略。
- pre 空白会被浏览器保留。其行为方式类似 HTML 中的 pre 标签。
- <strong>nowrap文本不会换行，文本会在在同一行上继续，直到遇到 br 标签为止。</strong>
- pre-wrap 保留空白符序列，但是正常地进行换行。
- pre-line 合并空白符序列，但是保留换行符。
- inherit 规定应该从父元素继承 white-space 属性的值。</p>
-
-<h4 id="2-word-wrap-normal-break-word">2.word-wrap: normal|break-word;</h4>
-
+normal 默认。空白会被浏览器忽略。
+pre 空白会被浏览器保留。其行为方式类似 HTML 中的 pre 标签。
+<strong>nowrap文本不会换行，文本会在在同一行上继续，直到遇到 br 标签为止。</strong>
+pre-wrap 保留空白符序列，但是正常地进行换行。
+pre-line 合并空白符序列，但是保留换行符。
+inherit 规定应该从父元素继承 white-space 属性的值。</p>
+<h4 id="2word-wrap-normalbreak-word">2.word-wrap: normal|break-word;</h4>
 <p>word-wrap 属性用来标明是否允许浏览器在单词内进行断句，这是为了防止当一个字符串太长而找不到它的自然断句点时产生溢出现象。</p>
-
 <p>设置说明：
- normal: 只在允许的断字点换行(浏览器保持默认处理)
- <strong>break-word:在长单词或URL地址内部进行换行</strong></p>
-
-<h4 id="3-word-break-normal-break-all-keep-all">3.word-break: normal|break-all|keep-all;</h4>
-
+normal: 只在允许的断字点换行(浏览器保持默认处理)
+<strong>break-word:在长单词或URL地址内部进行换行</strong></p>
+<h4 id="3word-break-normalbreak-allkeep-all">3.word-break: normal|break-all|keep-all;</h4>
 <p>word-break 属性用来标明怎么样进行单词内的断句。</p>
-
 <p>设值说明：
- normal：使用浏览器默认的换行规则。
- <strong>break-all:允许在单词内换行</strong>
- keep-all:只能在半角空格或连字符处换行</p>
-
+normal：使用浏览器默认的换行规则。
+<strong>break-all:允许在单词内换行</strong>
+keep-all:只能在半角空格或连字符处换行</p>
 <h1 id="常见的场景">常见的场景</h1>
-
 <ol>
-<li><p>强制文本一行展示，超出一行范围的文本用省略号表示；</p></li>
-
-<li><p>设置文本一行或多行（规定行）展示，超出规定范围的文本直接隐藏；</p></li>
-
-<li><p>自动换行，过长英文单词进行强制断行；</p></li>
+<li>
+<p>强制文本一行展示，超出一行范围的文本用省略号表示；</p>
+</li>
+<li>
+<p>设置文本一行或多行（规定行）展示，超出规定范围的文本直接隐藏；</p>
+</li>
+<li>
+<p>自动换行，过长英文单词进行强制断行；</p>
+</li>
 </ol>
-
 <h1 id="场景1">场景1</h1>
-
 <p>强制文本一行展示，超出一行范围的文本用省略号表示</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -489,9 +465,9 @@ if (!doNotTrack) {
 </span><span class="lnt">10
 </span><span class="lnt">11
 </span><span class="lnt">12
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">// HTML
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">// HTML
 &lt;p id=&#34;txt&#34;&gt;爱是一盏灯，黑暗中照亮前行的远方；爱是一首诗，冰冷中温暖渴求的心房；爱是夏日的风，是冬日的阳，是春日的雨，是秋日的果。&lt;/p&gt;
 
 // CSS
@@ -502,75 +478,59 @@ if (!doNotTrack) {
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><a href="https://jsbin.com/magalubive/edit?html,css,output">点击查看效果</a></p>
-
+</div><p><a href="https://jsbin.com/magalubive/edit?html,css,output">点击查看效果</a></p>
 <h1 id="场景2">场景2</h1>
-
 <p>设置文本一行或多行（规定行）展示，超出规定范围的文本直接隐藏；</p>
-
 <p>场景2相对而言比较复杂，下面提供两种解决方式：</p>
-
-<h3 id="使用-webkit的css扩展属性-该方法-适用于webkit浏览器及移动端">使用<strong>WebKit的CSS扩展属性</strong>，该方法<strong>适用于WebKit浏览器及移动端</strong></h3>
-
+<h3 id="使用webkit的css扩展属性该方法适用于webkit浏览器及移动端">使用<strong>WebKit的CSS扩展属性</strong>，该方法<strong>适用于WebKit浏览器及移动端</strong></h3>
 <p><a href="https://jsbin.com/zufozuroba/edit?html,css,output">点击查看效果</a></p>
-
 <p>注明：CSS3 text-overflow 属性主要有：clip，ellipsis，string。（不在本文讨论范围内）</p>
-
 <ul>
 <li>clip: 修剪文本</li>
 <li>ellipsis：显示省略号来代表被修剪的文本</li>
 <li>string:  显示给定的字符串来代表修剪的文本</li>
 </ul>
-
-<h3 id="利用-绝对定位和padding-跨浏览器-解决方案">利用<strong>绝对定位和padding</strong>;(<strong>跨浏览器</strong>解决方案)</h3>
-
+<h3 id="利用绝对定位和padding跨浏览器解决方案">利用<strong>绝对定位和padding</strong>;(<strong>跨浏览器</strong>解决方案)</h3>
 <p><a href="https://jsbin.com/ceyebadacu/edit?html,css,output">点击查看效果</a></p>
-
 <p>原理：首先在包含文字的元素里，<strong>嵌入一个…</strong>，然后包含文字的元素右侧留出…的位置(<strong>padding-right</strong>),最后利用<strong>绝对定位</strong>将…定位至右侧的padding-right区域。</p>
-
 <h1 id="场景3">场景3</h1>
-
 <p>自动换行，过长英文单词进行强制断行；</p>
-
 <p>主要就是两个:</p>
-
 <ul>
-<li><p>word-wrap: 允许单词内断句，首先会尝试挪到下一行，看看下一行的宽度够不够，不够的话就进行单词内的断句</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">word{
-	word-wrap:break-word
-}</pre></td></tr></table>
-</div>
-</div></li>
-
-<li><p>word-break: 断句时，不会把长单词挪到下一行，而是直接进行单词内的断句</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">.word{
-	word-break:break-all;
-}</pre></td></tr></table>
-</div>
-</div></li>
+<li>word-wrap: 允许单词内断句，首先会尝试挪到下一行，看看下一行的宽度够不够，不够的话就进行单词内的断句</li>
 </ul>
-
-<p><a href="https://jsbin.com/lemidifuqo/1/edit?html,css,output">点击案例预览</a></p>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">word{
+	word-wrap:break-word
+}
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>word-break: 断句时，不会把长单词挪到下一行，而是直接进行单词内的断句</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">.word{
+	word-break:break-all;
+}
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="https://jsbin.com/lemidifuqo/1/edit?html,css,output">点击案例预览</a></p>
 <h1 id="结语">结语</h1>
-
 <p>其实这篇写这篇博客的原因是因为字节三面的时候问到了场景2的问题，当时实在憋不出来，思考得出后说应该用JavaScript处理字符串。。。虽然挂的原因方方面面，但是在这种问题上还是不应该出错。</p>
 
     </div>

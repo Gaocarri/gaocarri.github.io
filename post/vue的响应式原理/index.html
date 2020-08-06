@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/vue%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,10 +66,8 @@
 <meta property="article:modified_time" content="2020-01-01T00:00:00+00:00" />
 <meta itemprop="name" content="Vue的响应式原理">
 <meta itemprop="description" content="Vue的响应式原理">
-
-
-<meta itemprop="datePublished" content="2020-01-01T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-01-01T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2020-01-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-01-01T00:00:00+00:00" />
 <meta itemprop="wordCount" content="926">
 
 
@@ -395,34 +393,26 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#监听数据的改变">监听数据的改变</a></li>
-<li><a href="#发布者订阅者模式">发布者订阅者模式</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#监听数据的改变">监听数据的改变</a></li>
+    <li><a href="#发布者订阅者模式">发布者订阅者模式</a></li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<p>Vue的响应式原理主要分为两大部分</p>
-
+      <p>Vue的响应式原理主要分为两大部分</p>
 <ol>
 <li>修改数据，Vue内部监听数据的改变（Object.defineProperty 监听对象属性改变）</li>
 <li>发布者订阅者模式</li>
 </ol>
-
 <h2 id="监听数据的改变">监听数据的改变</h2>
-
 <p>声明一个对象，然后对该对象的key进行遍历</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -441,9 +431,9 @@ if (!doNotTrack) {
 </span><span class="lnt">17
 </span><span class="lnt">18
 </span><span class="lnt">19
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">const obj = {
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">const obj = {
   message:&#39;我是data里的属性1&#39;,
   name:&#39;我是data里的属性2&#39;
 }
@@ -461,22 +451,19 @@ Object.keys(obj).forEach(key=&gt;{
       return value
     }
   })
-})</pre></td></tr></table>
+})
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Object.defineProperty里的：</p>
-
+</div><p>Object.defineProperty里的：</p>
 <ul>
 <li>set方法根据解析Html，获取哪些地方用到了这个属性</li>
 <li>get方法将值返回给用到该属性的每个地方</li>
 </ul>
-
 <h2 id="发布者订阅者模式">发布者订阅者模式</h2>
-
 <p>发布者：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -491,9 +478,9 @@ Object.keys(obj).forEach(key=&gt;{
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">  class Dep {
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">  class Dep {
     constructor() {
       this.subs = []
     }
@@ -507,13 +494,13 @@ Object.keys(obj).forEach(key=&gt;{
     }
   }
 
-  const dep = new Dep()</pre></td></tr></table>
+  const dep = new Dep()
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>订阅者</p>
+</div><p>订阅者</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -531,9 +518,9 @@ Object.keys(obj).forEach(key=&gt;{
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">  class Watcher {
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">  class Watcher {
     constructor(name) {
       this.name = name
     }
@@ -550,43 +537,40 @@ Object.keys(obj).forEach(key=&gt;{
   dep.addSub(w3)
 
   // 发布
-  dep.notify()</pre></td></tr></table>
+  dep.notify()
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>说下这个过程吧：</p>
-
+</div><p>说下这个过程吧：</p>
 <ul>
 <li>new了一个发布者<code>dep</code>,一个<code>data</code>属性会对应一个不同的<code>dep</code></li>
 <li>new了订阅者（相当于Vue实例中的每一个用到data其中一个属性的地方，给它们每个人都起个名字），例如new了<code>w1</code>之后，会调用发布者<code>dep.addSub()</code>方法(在<code>Object.defineProperty</code>的<code>get</code>方法中调用)，让其真正成为发布者的订阅者（加入到订阅者数组中）</li>
 <li>当某个订阅者值发生改变时，会调用发布者<code>dep.notify()</code>方法，通知所有订阅者它们的值发生改变了，执行订阅者的<code>update()</code>。</li>
 <li>于是乎,当值发生改变时,在<code>Object.defineProperty</code>的<code>set</code>方法中,就会调用<code>dep.notify()</code>来更新所有订阅者的值</li>
 </ul>
-
 <p>图解响应式原理
-<img src="/images/200101.jpg" alt="响应式原理" /></p>
+<img src="/images/200101.jpg" alt="响应式原理"></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">new Vue({
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">new Vue({
   el:&#39;#app&#39;,
   data:{
 
   }
-})</pre></td></tr></table>
+})
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
+</div><ul>
 <li>el会走Compile过程，data会走Observer过程</li>
 <li>Observer即<code>Object.defineProperty</code></li>
 </ul>
-
 <p>言语都在图中(我这字简直不像研究生写出来的- -！)</p>
 
     </div>

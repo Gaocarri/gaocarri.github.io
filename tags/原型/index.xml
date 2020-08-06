@@ -26,7 +26,7 @@
       <pubDate>Thu, 07 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>http://gaocarri.top/post/%E8%87%AA%E5%B7%B1%E7%94%BB%E5%87%BAjs%E4%B8%96%E7%95%8C/</guid>
-      <description>关于一个JS世界是如何形成的？ 创建根对象#101(它有toString等属性)、根对象无名字（它的proto:null） 创建函数的原型#20</description>
+      <description>关于一个JS世界是如何形成的？ 创建根对象#101(它有toString等属性)、根对象无名字（它的__proto__:null） 创建函数的原</description>
     </item>
     
   </channel>

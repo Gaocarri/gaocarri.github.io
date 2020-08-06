@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/%E6%B5%85%E6%9E%90url/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,10 +66,8 @@
 <meta property="article:modified_time" content="2019-10-31T00:00:00+00:00" />
 <meta itemprop="name" content="浅析URL">
 <meta itemprop="description" content="浅析URL">
-
-
-<meta itemprop="datePublished" content="2019-10-31T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-10-31T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2019-10-31T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-10-31T00:00:00+00:00" />
 <meta itemprop="wordCount" content="837">
 
 
@@ -394,43 +392,30 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#ip的作用是什么">IP的作用是什么</a></li>
-<li><a href="#域名是什么-ping命令怎么用">域名是什么，ping命令怎么用</a></li>
-<li><a href="#dns的作用是什么-nslookup命令怎么用">DNS的作用是什么，nslookup命令怎么用</a></li>
-<li><a href="#url包含哪几部分-每部分分别有什么用">URL包含哪几部分，每部分分别有什么用</a></li>
-<li><a href="#curl命令">curl命令</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="ip的作用是什么">IP的作用是什么</h1>
-
+      <h1 id="ip的作用是什么">IP的作用是什么</h1>
 <ul>
 <li>IP：Internet Protocol</li>
 <li>约定了两件事情（作用）
-
 <ol>
 <li>如何定位一台设备</li>
 <li>如何封装报文，和其他设备交流</li>
-</ol></li>
+</ol>
+</li>
 <li>几个特殊的IP
-
 <ol>
 <li>127.0.0.1表示自己</li>
 <li>localhost通过hosts指定为自己（hosts文件只能以管理员模式打开）</li>
 <li>0.0.0.0不表示任何设备</li>
-</ol></li>
+</ol>
+</li>
 </ul>
-
-<h1 id="域名是什么-ping命令怎么用">域名是什么，ping命令怎么用</h1>
-
+<h1 id="域名是什么ping命令怎么用">域名是什么，ping命令怎么用</h1>
 <ul>
 <li>域名是对IP的别称</li>
 <li>例：qq.com</li>
@@ -438,58 +423,55 @@ if (!doNotTrack) {
 <li>一个IP可以对应不同的域名，叫做共享主机</li>
 <li>命令行输入<code>ping 域名</code> 可以知道这个域名对应的IP</li>
 <li>域名级别：
-
 <ol>
 <li>com是顶级域名</li>
 <li>baidu.com是二级域名（俗称一级域名）</li>
-<li>www.baidu.com是三级域名（俗称二级域名）
-<br /></li>
-</ol></li>
+<li><a href="http://www.baidu.com">www.baidu.com</a>是三级域名（俗称二级域名）</li>
+</ol>
+</li>
 </ul>
-
-<h1 id="dns的作用是什么-nslookup命令怎么用">DNS的作用是什么，nslookup命令怎么用</h1>
-
+<h1 id="dns的作用是什么nslookup命令怎么用">DNS的作用是什么，nslookup命令怎么用</h1>
 <ul>
 <li>DNS:Domain Name System 域名系统</li>
 <li>作用：简而言之将域名解析为IP</li>
 <li>命令行输入<code>nslookup baidu.com</code> 会返还baidu.com对应的所有IP</li>
 </ul>
-
-<h1 id="url包含哪几部分-每部分分别有什么用">URL包含哪几部分，每部分分别有什么用</h1>
-
+<h1 id="url包含哪几部分每部分分别有什么用">URL包含哪几部分，每部分分别有什么用</h1>
 <ul>
-<li>URL:Uniform Resource Locator 统一资源定位符</li>
-<li>URL=协议+域名或IP+端口号+路径+查询字符串+锚点</li>
-<li>例：<a href="https://www.baidu.com/s?wd=hello&amp;rsv_spt=1#5">https://www.baidu.com/s?wd=hello&amp;rsv_spt=1#5</a></li>
-<li>注意：
-
+<li>
+<p>URL:Uniform Resource Locator 统一资源定位符</p>
+</li>
+<li>
+<p>URL=协议+域名或IP+端口号+路径+查询字符串+锚点</p>
+</li>
+<li>
+<p>例：https://www.baidu.com/s?wd=hello&amp;rsv_spt=1#5</p>
+</li>
+<li>
+<p>注意：</p>
 <ol>
 <li>锚点看起来可能有中文，实际不支持中文。</li>
 <li>锚点是无法在开发者工具的Network面板看到的，因为锚点#后面不会传给服务器</li>
-</ol></li>
-
-<li><p>当你在chrome输入baidu.com 时发生了什么</p>
-
+</ol>
+</li>
+<li>
+<p>当你在chrome输入baidu.com 时发生了什么</p>
 <ol>
 <li>chrome浏览器会向电信/联通提供的DNS服务器询问baidu.com对应什么IP</li>
 <li>电信/联通会回答一个IP（具体过程很复杂）</li>
 <li>然后chrome才会向对应的IP的80/443端口发送请求</li>
 <li>请求内容是查看baidu.com的首页</li>
 </ol>
-
 <ul>
 <li>服务器默认用80端口提供http服务</li>
 <li>服务器默认用443端口提供https服务</li>
 <li>可以在开发者工具中的Network看到具体的端口</li>
-<li>其他端口参考维基百科
-<br /></li>
-</ul></li>
+<li>其他端口参考维基百科</li>
 </ul>
-
+</li>
+</ul>
 <h1 id="curl命令">curl命令</h1>
-
 <p><code>curl -v http://baidu.com</code></p>
-
 <ul>
 <li>url会被curl工具重写，先请求DNS获得IP</li>
 <li>先进行TCP连接，TCP连接成功后，开始发送HTTP请求</li>

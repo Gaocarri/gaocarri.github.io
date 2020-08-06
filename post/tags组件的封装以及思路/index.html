@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/tags%E7%BB%84%E4%BB%B6%E7%9A%84%E5%B0%81%E8%A3%85%E4%BB%A5%E5%8F%8A%E6%80%9D%E8%B7%AF/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,10 +66,8 @@
 <meta property="article:modified_time" content="2020-03-24T00:00:00+00:00" />
 <meta itemprop="name" content="Tags组件的封装以及思路">
 <meta itemprop="description" content="Tags组件的封装以及思路">
-
-
-<meta itemprop="datePublished" content="2020-03-24T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-03-24T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2020-03-24T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-03-24T00:00:00+00:00" />
 <meta itemprop="wordCount" content="531">
 
 
@@ -394,49 +392,44 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#tags-vue的封装">Tags.vue的封装</a></li>
-<li><a href="#tags-vue的selected方法-遇到的坑">Tags.vue的selected方法（遇到的坑）</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="tags-vue的封装">Tags.vue的封装</h1>
-
+      <h1 id="tagsvue的封装">Tags.vue的封装</h1>
 <ol>
-<li><p>Tags.vue拥有的组件</p>
+<li>Tags.vue拥有的组件</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">components: {
-	Scroll,
-TagsNav,
-TagSelected,
-TagList
-}</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">  components: {
+  	Scroll,
+    TagsNav,
+    TagSelected,
+    TagList
+  }
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>TagsNav的封装</p>
-
+</div><ol start="2">
+<li>TagsNav的封装
 <ul>
-<li><p>无难点，注意判断完成的点击状态，以及complete方法传入新添的tag即可</p>
+<li>无难点，注意判断完成的点击状态，以及complete方法传入新添的tag即可</li>
+</ul>
+</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -445,46 +438,45 @@ TagList
 </span><span class="lnt">7
 </span><span class="lnt">8
 </span><span class="lnt">9
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;template&gt;
-&lt;header&gt;
-&lt;div class=&#34;back&#34; @click=&#34;back&#34;&gt;
-&lt;Icon name=&#34;back&#34; /&gt;
-&lt;/div&gt;
-&lt;span&gt;添加支出类别&lt;/span&gt;
-&lt;span class=&#34;complete&#34; :class=&#34;{&#39;complete-clicked&#39;:clicked}&#34; @click=&#34;complete&#34;&gt;完成&lt;/span&gt;
-&lt;/header&gt;
-&lt;/template&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;template&gt;
+  &lt;header&gt;
+    &lt;div class=&#34;back&#34; @click=&#34;back&#34;&gt;
+      &lt;Icon name=&#34;back&#34; /&gt;
+    &lt;/div&gt;
+    &lt;span&gt;添加支出类别&lt;/span&gt;
+    &lt;span class=&#34;complete&#34; :class=&#34;{&#39;complete-clicked&#39;:clicked}&#34; @click=&#34;complete&#34;&gt;完成&lt;/span&gt;
+  &lt;/header&gt;
+&lt;/template&gt;
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul></li>
-
-<li><p>TagSelected的封装</p>
-
+</div><ol start="3">
+<li>TagSelected的封装
 <ul>
-<li><p>无难点，只需从Tags.vue中传入选中的tag即可</p>
+<li>无难点，只需从Tags.vue中传入选中的tag即可</li>
+</ul>
+</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">@Prop({ default: { name: &#34;餐饮&#34;, id: 1 }, type: Object }) selectedTag?: Tag;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">   @Prop({ default: { name: &#34;餐饮&#34;, id: 1 }, type: Object }) selectedTag?: Tag;
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul></li>
-
-<li><p>TagsList的封装</p></li>
+</div><ol start="4">
+<li>TagsList的封装</li>
 </ol>
-
 <ul>
 <li>这里需要从Tags.vue中传入tagList和selectTag从而正确的显示</li>
 <li>点击Icon后会得到一个selectTag从而给其添加样式</li>
-
-<li><p>通过判断当前选中的tag的id是否与当前Icon的id一致来判断是否添加class</p>
+<li>通过判断当前选中的tag的id是否与当前Icon的id一致来判断是否添加class</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -504,59 +496,58 @@ TagList
 </span><span class="lnt">18
 </span><span class="lnt">19
 </span><span class="lnt">20
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;ul class=&#34;icons&#34;&gt;
-  &lt;li v-for=&#34;tag in tagList&#34; :key=&#34;tag.id&#34;&gt;
-    &lt;Icon
-      class=&#34;icon&#34;
-      :name=&#34;tag.name&#34;
-      @click.native=&#34;selectTag(tag)&#34;
-      :class=&#34;{&#39;selected&#39;:selectedTag.id===tag.id}&#34;
-    /&gt;
-    &lt;span&gt;{{tag.name}}&lt;/span&gt;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;ul class=&#34;icons&#34;&gt;
+      &lt;li v-for=&#34;tag in tagList&#34; :key=&#34;tag.id&#34;&gt;
+        &lt;Icon
+          class=&#34;icon&#34;
+          :name=&#34;tag.name&#34;
+          @click.native=&#34;selectTag(tag)&#34;
+          :class=&#34;{&#39;selected&#39;:selectedTag.id===tag.id}&#34;
+        /&gt;
+        &lt;span&gt;{{tag.name}}&lt;/span&gt;
 &lt;/li&gt;
 
 @Component
 export default class TagList extends Vue {
-@Prop() readonly tagList!: Tag[];
-@Prop() selectedTag?: Tag;
+  @Prop() readonly tagList!: Tag[];
+  @Prop() selectedTag?: Tag;
 
-selectTag(tag: Tag) {
-this.$emit(&#34;selectTag&#34;, tag);
+  selectTag(tag: Tag) {
+    this.$emit(&#34;selectTag&#34;, tag);
+  }
 }
-}</pre></td></tr></table>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
-<h1 id="tags-vue的selected方法-遇到的坑">Tags.vue的selected方法（遇到的坑）</h1>
+</div><h1 id="tagsvue的selected方法遇到的坑">Tags.vue的selected方法（遇到的坑）</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">  selectTag(tag: Tag) {
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">  selectTag(tag: Tag) {
     this.selectedTag = tag;
-  } // 正确的写法，会同步更新</pre></td></tr></table>
+  } // 正确的写法，会同步更新
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">  selectTag(tag: Tag) {
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">  selectTag(tag: Tag) {
     this.selectedTag.name = tag.name
     this.selectedTag.id = tag.id
-  }// 错误的写法，selectedTag不会同步更新</pre></td></tr></table>
+  }// 错误的写法，selectedTag不会同步更新
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>原因：以这种方式修改对象属性不会自动更新</p>
+</div><p>原因：以这种方式修改对象属性不会自动更新</p>
 
     </div>
 

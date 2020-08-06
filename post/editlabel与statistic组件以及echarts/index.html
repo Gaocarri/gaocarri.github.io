@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/editlabel%E4%B8%8Estatistic%E7%BB%84%E4%BB%B6%E4%BB%A5%E5%8F%8Aecharts/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,11 +66,9 @@
 <meta property="article:modified_time" content="2020-04-07T00:00:00+00:00" />
 <meta itemprop="name" content="EditLabel与Statistic组件以及ECharts">
 <meta itemprop="description" content="EditLabel与Statistic组件以及ECharts">
-
-
-<meta itemprop="datePublished" content="2020-04-07T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-04-07T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="2082">
+<meta itemprop="datePublished" content="2020-04-07T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-04-07T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2083">
 
 
 
@@ -374,7 +372,7 @@ if (!doNotTrack) {
             <a href="http://gaocarri.top/categories/%E9%BB%91%E6%9B%9C%E7%9F%B3%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/"> 黑曜石记账项目笔记 </a>
             
           </div>
-        <span class="more-meta"> 约 2082 字 </span>
+        <span class="more-meta"> 约 2083 字 </span>
           <span class="more-meta"> 预计阅读 5 分钟 </span>
 
         
@@ -395,53 +393,45 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#editlabel页面">EditLabel页面</a></li>
-<li><a href="#statistics界面">Statistics界面</a></li>
-</ul></li>
-<li><a href="#vue-ts使用echarts">Vue+Ts使用echarts</a></li>
-</ul>
+  <ul>
+    <li><a href="#editlabel页面">EditLabel页面</a></li>
+    <li><a href="#statistics界面">Statistics界面</a></li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h2 id="editlabel页面">EditLabel页面</h2>
-
+      <h2 id="editlabel页面">EditLabel页面</h2>
 <ol>
-<li>困扰我一个非常久的Bug,input表单输入数字结果不为数字</li>
-</ol>
-
+<li>
+<p>困扰我一个非常久的Bug,input表单输入数字结果不为数字</p>
 <p>正确的解决办法</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">   &lt;input type=&#34;text&#34; v-model.number.trim=&#34;recordItem.amount&#34; /&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;input type=&#34;text&#34; v-model.number.trim=&#34;recordItem.amount&#34; /&gt;
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
+</div><ul>
 <li>其实就是在v-model后面加上.number和.trim修饰符</li>
 <li>两者缺一不可</li>
 </ul>
-
+</li>
+</ol>
 <h2 id="statistics界面">Statistics界面</h2>
-
 <ol>
 <li>如何切换年月日以及支出收入</li>
 </ol>
-
 <ul>
-<li><p>子组件中</p>
+<li>子组件中</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-typescript" data-lang="typescript"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -455,26 +445,26 @@ if (!doNotTrack) {
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-typescript" data-lang="typescript"><span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nx">li</span> <span class="kd">@click</span><span class="o">=</span><span class="s2">&#34;selectYmw(&#39;week&#39;)&#34;</span> <span class="o">:</span><span class="kr">class</span><span class="o">=</span><span class="s2">&#34;{&#39;selected&#39;:ymw==&#39;week&#39;}&#34;</span><span class="o">&gt;</span><span class="err">周</span><span class="o">&lt;</span><span class="err">/li&gt;</span>
-<span class="o">&lt;</span><span class="nx">li</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;middle-li&#34;</span> <span class="kd">@click</span><span class="o">=</span><span class="s2">&#34;selectYmw(&#39;month&#39;)&#34;</span> <span class="o">:</span><span class="kr">class</span><span class="o">=</span><span class="s2">&#34;{&#39;selected&#39;:ymw==&#39;month&#39;}&#34;</span><span class="o">&gt;</span><span class="err">月</span><span class="o">&lt;</span><span class="err">/li&gt;</span>
-<span class="o">&lt;</span><span class="nx">li</span> <span class="kd">@click</span><span class="o">=</span><span class="s2">&#34;selectYmw(&#39;year&#39;)&#34;</span> <span class="o">:</span><span class="kr">class</span><span class="o">=</span><span class="s2">&#34;{&#39;selected&#39;:ymw==&#39;year&#39;}&#34;</span><span class="o">&gt;</span><span class="err">年</span><span class="o">&lt;</span><span class="err">/li&gt;</span>
-<span class="o">&lt;</span><span class="err">/ul&gt;</span>
+<pre class="chroma"><code class="language-typescript" data-lang="typescript">  <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">&#34;selectYmw(&#39;week&#39;)&#34;</span> <span class="err">:</span><span class="na">class</span><span class="o">=</span><span class="s">&#34;{&#39;selected&#39;:ymw==&#39;week&#39;}&#34;</span><span class="p">&gt;</span><span class="err">周</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;middle-li&#34;</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">&#34;selectYmw(&#39;month&#39;)&#34;</span> <span class="err">:</span><span class="na">class</span><span class="o">=</span><span class="s">&#34;{&#39;selected&#39;:ymw==&#39;month&#39;}&#34;</span><span class="p">&gt;</span><span class="err">月</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">&#34;selectYmw(&#39;year&#39;)&#34;</span> <span class="err">:</span><span class="na">class</span><span class="o">=</span><span class="s">&#34;{&#39;selected&#39;:ymw==&#39;year&#39;}&#34;</span><span class="p">&gt;</span><span class="err">年</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
 
-<span class="nx">selectYmw</span><span class="p">(</span><span class="nx">ymw</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
-<span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">ymw</span> <span class="o">!==</span> <span class="nx">ymw</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">ymw</span> <span class="o">=</span> <span class="nx">ymw</span><span class="p">;</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="s2">&#34;selectYmw&#34;</span><span class="p">,</span> <span class="nx">ymw</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="p">}</span>
+  <span class="nx">selectYmw</span><span class="p">(</span><span class="nx">ymw</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">ymw</span> <span class="o">!==</span> <span class="nx">ymw</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">ymw</span> <span class="o">=</span> <span class="nx">ymw</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="s2">&#34;selectYmw&#34;</span><span class="p">,</span> <span class="nx">ymw</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>父组件中</p>
+</div><ul>
+<li>父组件中</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-vue" data-lang="vue"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -485,19 +475,18 @@ if (!doNotTrack) {
 <pre class="chroma"><code class="language-vue" data-lang="vue"><span class="p">&lt;</span><span class="nt">statistics-date</span> <span class="nt">@selectYmw</span><span class="s">=&#34;selectYmw&#34;</span> <span class="p">/&gt;</span>
 <span class="p">&lt;</span><span class="nt">Scroll</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;content&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">Scroll</span><span class="p">&gt;</span>
       
-<span class="nx">selectYmw</span><span class="p">(</span><span class="nx">ymw</span><span class="o">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
-<span class="k">this</span><span class="p">.</span><span class="nx">ymw</span> <span class="o">=</span> <span class="nx">ymw</span><span class="p">;</span>
-<span class="p">}</span></code></pre></td></tr></table>
+  <span class="nx">selectYmw</span><span class="p">(</span><span class="nx">ymw</span><span class="o">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">ymw</span> <span class="o">=</span> <span class="nx">ymw</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>这样就可以在首页获取所对应的年月日和支出收入了</p></li>
+</div><ul>
+<li>这样就可以在首页获取所对应的年月日和支出收入了</li>
 </ul>
-
-<h1 id="vue-ts使用echarts">Vue+Ts使用echarts</h1>
+<h1 id="vuets使用echarts">Vue+Ts使用echarts</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -555,9 +544,9 @@ if (!doNotTrack) {
 </span><span class="lnt">56
 </span><span class="lnt">57
 </span><span class="lnt">58
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;template&gt;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;template&gt;
   &lt;div id=&#34;myEcharts&#34; style=&#34;width:100vw ;height:40vh;&#34;&gt;&lt;/div&gt;
 &lt;/template&gt;
 
@@ -614,32 +603,37 @@ get options() {
 &lt;/script&gt;
 
 &lt;style lang=&#34;scss&#34; scoped&gt;
-&lt;/style&gt;</pre></td></tr></table>
+&lt;/style&gt;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>在动态渲染图表的时候我给组件声明了一个 Porp 从外部拿数据去实现<strong>及时更新</strong>，但是在外部数据改变的时候图表数据并没有更新</p>
-
+</div><p>在动态渲染图表的时候我给组件声明了一个 Porp 从外部拿数据去实现<strong>及时更新</strong>，但是在外部数据改变的时候图表数据并没有更新</p>
 <p>后来我以为是 Vue 的<strong>钩子时机问题</strong>，试了很久问了其他人都没有结果，后来就想另辟蹊径看看是不是 <strong>ECharts 的问题</strong>，过然我发现必须在数据更新后手动再调用一次setOption方法才能及时更新echarts</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text">chart.setOption(option, notMerge, lazyUpdate);</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-text" data-lang="text">chart.setOption(option, notMerge, lazyUpdate);
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>问题的根源就在这句代码上</p>
-
+</div><p>问题的根源就在这句代码上</p>
 <ul>
-<li><strong>option</strong>： 是我们自己配置的 options</li>
-<li><strong>notMerge（导致不能及时更新的关键参数）</strong>：可选，这个参数意思就是当数据变化的时候，是否<strong>不</strong>跟之前设置的数据合并，这个参数默认为 <strong>false</strong>，也就是合并，把它改成 <strong>true</strong>，然后它就不会默认合并之前的数据了</li>
-
-<li><p><strong>lazyUpdate</strong>：可选，在设置完<code>option</code>后是否不立即更新图表，默认为<strong>false</strong>，即立即更新，这个设置 <strong>false</strong> 就行</p></li>
-
-<li><p>设置watch监听变化</p>
+<li>
+<p><strong>option</strong>： 是我们自己配置的 options</p>
+</li>
+<li>
+<p><strong>notMerge（导致不能及时更新的关键参数）</strong>：可选，这个参数意思就是当数据变化的时候，是否<strong>不</strong>跟之前设置的数据合并，这个参数默认为 <strong>false</strong>，也就是合并，把它改成 <strong>true</strong>，然后它就不会默认合并之前的数据了</p>
+</li>
+<li>
+<p><strong>lazyUpdate</strong>：可选，在设置完<code>option</code>后是否不立即更新图表，默认为<strong>false</strong>，即立即更新，这个设置 <strong>false</strong> 就行</p>
+</li>
+<li>
+<p>设置watch监听变化</p>
+</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -679,57 +673,56 @@ get options() {
 </span><span class="lnt">38
 </span><span class="lnt">39
 </span><span class="lnt">40
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">@Watch(&#34;ymw&#34;)
-changeX() {
-// 获取当前月份天数
-const day = dayjs().daysInMonth();
-let dayArray = [];
-for (let i = 1; i &lt;= day; i++) {
-  dayArray.push(i);
-}
-let data: string[] = [];
-switch (this.ymw) {
-  case &#34;week&#34;:
-    data = [&#34;周一&#34;, &#34;周二&#34;, &#34;周三&#34;, &#34;周四&#34;, &#34;周五&#34;, &#34;周六&#34;, &#34;周日&#34;];
-    break;
-  case &#34;month&#34;:
-    data = dayArray.map(i =&gt; i + &#34;日&#34;);
-    break;
-  case &#34;year&#34;:
-    data = [
-      &#34;一月&#34;,
-      &#34;二月&#34;,
-      &#34;三月&#34;,
-      &#34;四月&#34;,
-      &#34;五月&#34;,
-      &#34;六月&#34;,
-      &#34;七月&#34;,
-      &#34;八月&#34;,
-      &#34;九月&#34;,
-      &#34;十月&#34;,
-      &#34;十一月&#34;,
-      &#34;十二月&#34;
-    ];
-    break;
-  default:
-    data = [&#34;周一&#34;, &#34;周二&#34;, &#34;周三&#34;, &#34;周四&#34;, &#34;周五&#34;, &#34;周六&#34;, &#34;周日&#34;];
-}
-this.x = data;
-const ele = document.getElementById(&#34;myEcharts&#34;);
-const chart: any = this.$echarts.init(ele);
-chart.setOption(this.options, true, false);
-}</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">  @Watch(&#34;ymw&#34;)
+  changeX() {
+    // 获取当前月份天数
+    const day = dayjs().daysInMonth();
+    let dayArray = [];
+    for (let i = 1; i &lt;= day; i++) {
+      dayArray.push(i);
+    }
+    let data: string[] = [];
+    switch (this.ymw) {
+      case &#34;week&#34;:
+        data = [&#34;周一&#34;, &#34;周二&#34;, &#34;周三&#34;, &#34;周四&#34;, &#34;周五&#34;, &#34;周六&#34;, &#34;周日&#34;];
+        break;
+      case &#34;month&#34;:
+        data = dayArray.map(i =&gt; i + &#34;日&#34;);
+        break;
+      case &#34;year&#34;:
+        data = [
+          &#34;一月&#34;,
+          &#34;二月&#34;,
+          &#34;三月&#34;,
+          &#34;四月&#34;,
+          &#34;五月&#34;,
+          &#34;六月&#34;,
+          &#34;七月&#34;,
+          &#34;八月&#34;,
+          &#34;九月&#34;,
+          &#34;十月&#34;,
+          &#34;十一月&#34;,
+          &#34;十二月&#34;
+        ];
+        break;
+      default:
+        data = [&#34;周一&#34;, &#34;周二&#34;, &#34;周三&#34;, &#34;周四&#34;, &#34;周五&#34;, &#34;周六&#34;, &#34;周日&#34;];
+    }
+    this.x = data;
+    const ele = document.getElementById(&#34;myEcharts&#34;);
+    const chart: any = this.$echarts.init(ele);
+    chart.setOption(this.options, true, false);
+  }
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
-<ol>
-<li><p>动态获取年月日数据</p>
+</div><ol>
+<li>动态获取年月日数据</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -789,84 +782,88 @@ chart.setOption(this.options, true, false);
 </span><span class="lnt">58
 </span><span class="lnt">59
 </span><span class="lnt">60
-</span></pre></td>
+</span><span class="lnt">61
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">getTotal() {
-let data: any[] = [];
-const recordList = this.$store.state.recordList;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">getTotal() {
+    let data: any[] = [];
+    const recordList = this.$store.state.recordList;
 
-if (this.ymw == &#34;week&#34;) {
-  // 当前选择为周
-  data = [0, 0, 0, 0, 0, 0, 0];
-  const startDay = dayjs().startOf(&#34;week&#34;);
-  const record = recordList.filter((item: RecordItem) =&gt; {
-    return dayjs(item.createdAt) &gt;= startDay &amp;&amp; this.type == item.type;
-  });
-  for (let i = 0; i &lt; 7; i++) {
-    for (let j = 0; j &lt; record.length; j++) {
-      if (i == dayjs(record[j].createdAt).day()) {
-        data[i] += record[j].amount;
+    if (this.ymw == &#34;week&#34;) {
+      // 当前选择为周
+      data = [0, 0, 0, 0, 0, 0, 0];
+      const startDay = dayjs().startOf(&#34;week&#34;);
+      const record = recordList.filter((item: RecordItem) =&gt; {
+        return dayjs(item.createdAt) &gt;= startDay &amp;&amp; this.type == item.type;
+      });
+      for (let i = 0; i &lt; 7; i++) {
+        for (let j = 0; j &lt; record.length; j++) {
+          if (i == dayjs(record[j].createdAt).day()) {
+            data[i] += record[j].amount;
+          }
+        }
+      }
+    } else if (this.ymw == &#34;month&#34;) {
+      // 获取当前月
+      const day = dayjs().daysInMonth();
+      for (let i = 0; i &lt; day; i++) {
+        data.push(0);
+      }
+      const record = recordList.filter((item: RecordItem) =&gt; {
+        return (
+          dayjs().month() == dayjs(item.createdAt).month() &amp;&amp;
+          this.type == item.type
+        );
+      });
+      for (let i = 0; i &lt; day; i++) {
+        for (let j = 0; j &lt; record.length; j++) {
+          if (i == dayjs(record[j].createdAt).date()) {
+            data[i] += record[j].amount;
+          }
+        }
+      }
+    } else if (this.ymw == &#34;year&#34;) {
+      // 当前的选择是年
+      const year = dayjs().year();
+      for (let i = 0; i &lt; 12; i++) {
+        data.push(0);
+      }
+      const record = recordList.filter((item: RecordItem) =&gt; {
+        return (
+          dayjs().year() == dayjs(item.createdAt).year() &amp;&amp;
+          this.type == item.type
+        );
+      });
+      console.log(record);
+      for (let i = 0; i &lt; 12; i++) {
+        for (let j = 0; j &lt; record.length; j++) {
+          if (i == dayjs(record[j].createdAt).month() + 1) {
+            data[i] += record[j].amount;
+          }
+        }
       }
     }
+    this.y = data;
   }
-} else if (this.ymw == &#34;month&#34;) {
-  // 获取当前月
-  const day = dayjs().daysInMonth();
-  for (let i = 0; i &lt; day; i++) {
-    data.push(0);
-  }
-  const record = recordList.filter((item: RecordItem) =&gt; {
-    return (
-      dayjs().month() == dayjs(item.createdAt).month() &amp;&amp;
-      this.type == item.type
-    );
-  });
-  for (let i = 0; i &lt; day; i++) {
-    for (let j = 0; j &lt; record.length; j++) {
-      if (i == dayjs(record[j].createdAt).date()) {
-        data[i] += record[j].amount;
-      }
-    }
-  }
-} else if (this.ymw == &#34;year&#34;) {
-  // 当前的选择是年
-  const year = dayjs().year();
-  for (let i = 0; i &lt; 12; i++) {
-    data.push(0);
-  }
-  const record = recordList.filter((item: RecordItem) =&gt; {
-    return (
-      dayjs().year() == dayjs(item.createdAt).year() &amp;&amp;
-      this.type == item.type
-    );
-  });
-  console.log(record);
-  for (let i = 0; i &lt; 12; i++) {
-    for (let j = 0; j &lt; record.length; j++) {
-      if (i == dayjs(record[j].createdAt).month() + 1) {
-        data[i] += record[j].amount;
-      }
-    }
-  }
-}
-this.y = data;
-}</pre></td></tr></table>
+
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>使用map动态获取tag以及对应的数据</p>
-
+</div><ol start="4">
+<li>使用map动态获取tag以及对应的数据
 <ul>
 <li>v-for遍历map
-
 <ul>
-<li>v-for=&ldquo;(tag,name) in tagList&rdquo;</li>
+<li>v-for=&rdquo;(tag,name) in tagList&rdquo;</li>
 <li>tag 是键和键值对的数组,name是index</li>
-</ul></li>
-
-<li><div class="highlight"><div class="chroma">
+</ul>
+</li>
+<li></li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -907,54 +904,52 @@ this.y = data;
 </span><span class="lnt">39
 </span><span class="lnt">40
 </span><span class="lnt">41
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">getTagMoney() {
-function getMap(record: any) {
-let map = new Map();
-for (let i = 0; i &lt; record.length; i++) {
-if (!map.has(record[i].tag.name)) {
-  map.set(record[i].tag.name, record[i].amount);
-} else {
-  const newValue = map.get(record[i].tag.name) + record[i].amount;
-  map.set(record[i].tag.name, newValue);
-}
-}
-return map;
-}
-const recordList = this.$store.state.recordList;
-if (this.ymw == &#34;week&#34;) {
-// 本周的各标签
-const startDay = dayjs().startOf(&#34;week&#34;);
-const record = recordList.filter((item: RecordItem) =&gt; {
-return dayjs(item.createdAt) &gt;= startDay &amp;&amp; this.type == item.type;
-});
-this.tagList = getMap(record);
-} else if (this.ymw == &#34;month&#34;) {
-// 本月的各标签
-const record = recordList.filter((item: RecordItem) =&gt; {
-return (
-  dayjs(item.createdAt).month() == dayjs().month() &amp;&amp;
-  this.type == item.type
-);
-});
-this.tagList = getMap(record);
-} else if (this.ymw == &#34;year&#34;) {
-//本年的各标签
-const record = recordList.filter((item: RecordItem) =&gt; {
-return (
-  dayjs(item.createdAt).year() == dayjs().year() &amp;&amp;
-  this.type == item.type
-);
-});
-this.tagList = getMap(record);
-}
-}</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">getTagMoney() {
+    function getMap(record: any) {
+      let map = new Map();
+      for (let i = 0; i &lt; record.length; i++) {
+        if (!map.has(record[i].tag.name)) {
+          map.set(record[i].tag.name, record[i].amount);
+        } else {
+          const newValue = map.get(record[i].tag.name) + record[i].amount;
+          map.set(record[i].tag.name, newValue);
+        }
+      }
+      return map;
+    }
+    const recordList = this.$store.state.recordList;
+    if (this.ymw == &#34;week&#34;) {
+      // 本周的各标签
+      const startDay = dayjs().startOf(&#34;week&#34;);
+      const record = recordList.filter((item: RecordItem) =&gt; {
+        return dayjs(item.createdAt) &gt;= startDay &amp;&amp; this.type == item.type;
+      });
+      this.tagList = getMap(record);
+    } else if (this.ymw == &#34;month&#34;) {
+      // 本月的各标签
+      const record = recordList.filter((item: RecordItem) =&gt; {
+        return (
+          dayjs(item.createdAt).month() == dayjs().month() &amp;&amp;
+          this.type == item.type
+        );
+      });
+      this.tagList = getMap(record);
+    } else if (this.ymw == &#34;year&#34;) {
+      //本年的各标签
+      const record = recordList.filter((item: RecordItem) =&gt; {
+        return (
+          dayjs(item.createdAt).year() == dayjs().year() &amp;&amp;
+          this.type == item.type
+        );
+      });
+      this.tagList = getMap(record);
+    }
+  }
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul></li>
-</ol>
-
+</div>
     </div>
 
     

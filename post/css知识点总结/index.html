@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/css%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,10 +66,8 @@
 <meta property="article:modified_time" content="2019-10-31T00:00:00+00:00" />
 <meta itemprop="name" content="CSS知识总结">
 <meta itemprop="description" content="CSS知识总结">
-
-
-<meta itemprop="datePublished" content="2019-10-31T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-10-31T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2019-10-31T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-10-31T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1408">
 
 
@@ -395,59 +393,46 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#一-浏览器渲染原理">一、浏览器渲染原理</a>
-<ul>
-<li><a href="#参考文章">参考文章</a></li>
-<li><a href="#浏览器渲染过程">浏览器渲染过程</a></li>
-<li><a href="#三种样式的更新方式">三种样式的更新方式</a></li>
-</ul></li>
-<li><a href="#二-css动画的两种做法-transition和animation">二、CSS动画的两种做法(transition和animation)</a>
-<ul>
-<li><a href="#transition-过渡">transition（过渡）</a></li>
-<li><a href="#animation-动画">animation(动画)</a></li>
-</ul></li>
-<li><a href="#三-css其他知识点">三、CSS其他知识点</a>
-<ul>
-<li><a href="#css盒模型">CSS盒模型</a></li>
-<li><a href="#外边距合并">外边距合并</a></li>
-<li><a href="#position定位">position定位</a></li>
-<li><a href="#如何创建层叠上下文-z-index">如何创建层叠上下文，z-index</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#参考文章">参考文章</a></li>
+    <li><a href="#浏览器渲染过程">浏览器渲染过程</a></li>
+    <li><a href="#三种样式的更新方式">三种样式的更新方式</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#transition过渡">transition（过渡）</a></li>
+    <li><a href="#animation动画">animation(动画)</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#css盒模型">CSS盒模型</a></li>
+    <li><a href="#外边距合并">外边距合并</a></li>
+    <li><a href="#position定位">position定位</a></li>
+    <li><a href="#如何创建层叠上下文z-index">如何创建层叠上下文，z-index</a></li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="一-浏览器渲染原理">一、浏览器渲染原理</h1>
-
+      <h1 id="一浏览器渲染原理">一、浏览器渲染原理</h1>
 <h2 id="参考文章">参考文章</h2>
-
 <ul>
 <li>Google团队写的文章</li>
 </ul>
-
 <ol>
 <li><a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction">渲染树构建、布局及绘制</a></li>
 <li><a href="https://developers.google.com/web/fundamentals/performance/rendering/">渲染性能</a></li>
 <li><a href="https://developers.google.com/web/fundamentals/performance/rendering/stick-to-compositor-only-properties-and-manage-layer-count">使用transform来实现动画</a></li>
 </ol>
-
 <ul>
 <li>查看CSS各属性触发什么</li>
 </ul>
-
 <ol>
-<li><a href="https://csstriggers.com/">CSSTriggers.com</a>
-<br /></li>
+<li><a href="https://csstriggers.com/">CSSTriggers.com</a></li>
 </ol>
-
 <h2 id="浏览器渲染过程">浏览器渲染过程</h2>
-
 <ol>
 <li>根据HTML构建HTML树(DOM)</li>
 <li>更具CSS构建CSS树(CSSOM)</li>
@@ -456,56 +441,52 @@ if (!doNotTrack) {
 <li>Paint绘制(把边框颜色、文字颜色、阴影等画出来)</li>
 <li>Compose合成(更具层叠关系展示画面)</li>
 </ol>
-
 <h2 id="三种样式的更新方式">三种样式的更新方式</h2>
-
 <ol>
 <li>JS/CSS &gt; 样式 &gt; 布局 &gt; 绘制 &gt; 合成</li>
 <li>JS/CSS &gt; 样式 &gt; 绘制 &gt; 合成</li>
 <li>JS/CSS &gt; 样式 &gt; 合成</li>
 </ol>
-
 <ul>
-<li><p>如何知道如何更新？ 使用开发者工具自己尝试或者访问<a href="https://csstriggers.com/">CSSTriggers.com</a></p></li>
-
-<li><p>流程越少，性能越好。</p></li>
-
-<li><p>资料来源：饥人谷</p></li>
+<li>
+<p>如何知道如何更新？ 使用开发者工具自己尝试或者访问<a href="https://csstriggers.com/">CSSTriggers.com</a></p>
+</li>
+<li>
+<p>流程越少，性能越好。</p>
+</li>
+<li>
+<p>资料来源：饥人谷</p>
+</li>
 </ul>
-
-<h1 id="二-css动画的两种做法-transition和animation">二、CSS动画的两种做法(transition和animation)</h1>
-
+<h1 id="二css动画的两种做法transition和animation">二、CSS动画的两种做法(transition和animation)</h1>
 <ul>
 <li>它们的优点：没有repaint过程，比使用left(改变属性)性能好</li>
 </ul>
-
-<h2 id="transition-过渡">transition（过渡）</h2>
+<h2 id="transition过渡">transition（过渡）</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">#xxx {
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">#xxx {
     transition:all 1s ease-in-out 3s;
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
+</div><ul>
 <li>配合<code>transform</code>属性使用，它的用法<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transform">MDN</a></li>
 <li><code>all</code>表示需要需要过渡的属性，可以是<code>width</code> <code>background</code>等，不是所有元素都能过渡。特别注意: <code>display:block&gt;none</code>无法过渡，但是<code>visibility:visible&gt;hidden</code>可以过渡</li>
 <li><code>1s</code>表示过渡完整的时间</li>
 <li><code>ease-in-out</code>表示动画的过渡方式，还有<code>linear</code> <code>ease</code>等</li>
 <li><code>3s</code>是指3s后才开始动画</li>
-<li>其他属性用法参考MDN
-<br /></li>
+<li>其他属性用法参考MDN</li>
 </ul>
-
-<h2 id="animation-动画">animation(动画)</h2>
+<h2 id="animation动画">animation(动画)</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -513,79 +494,69 @@ if (!doNotTrack) {
 </span><span class="lnt">6
 </span><span class="lnt">7
 </span><span class="lnt">8
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">@keyframes xxx {
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">@keyframes xxx {
     from {
         transform:translateX(0%);
     }
     to {
         transform:tanslateX(100%);
     }
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>或者</p>
+</div><p>或者</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">@keyframes xxx{
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">@keyframes xxx{
     0% {top:0;left:0;}
     30%{top:50px;}
     100%{top:100px;left:100%}
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
-<li><p><code>keyframes</code>关键帧，使用animation即设定关键帧。</p>
+</div><ul>
+<li><code>keyframes</code>关键帧，使用animation即设定关键帧。</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">#xxx {
-animation:1.5s xxx linear infinite alternate-reverse;
-}</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">#xxx {
+    animation:1.5s xxx linear infinite alternate-reverse;
+}
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p><code>1.5s</code>指过渡的时间</p></li>
-
-<li><p><code>xxx</code>进行动画的id名</p></li>
-
-<li><p><code>linear</code>过渡效果，同transition</p></li>
-
-<li><p><code>infinite</code>表示过渡的次数无限大,也可以是<code>10</code>次等具体次数</p></li>
-
-<li><p><code>alternate-reverse</code>变换相反进行动画，如果是<code>forwards</code>会停在动画的最后一帧，具体参考MDN</p></li>
+</div><ul>
+<li><code>1.5s</code>指过渡的时间</li>
+<li><code>xxx</code>进行动画的id名</li>
+<li><code>linear</code>过渡效果，同transition</li>
+<li><code>infinite</code>表示过渡的次数无限大,也可以是<code>10</code>次等具体次数</li>
+<li><code>alternate-reverse</code>变换相反进行动画，如果是<code>forwards</code>会停在动画的最后一帧，具体参考MDN</li>
 </ul>
-
-<h1 id="三-css其他知识点">三、CSS其他知识点</h1>
-
+<h1 id="三css其他知识点">三、CSS其他知识点</h1>
 <h2 id="css盒模型">CSS盒模型</h2>
-
 <ul>
 <li>CSS盒模型分为两种，一种是content-box,一种是border-box,它们的区别在于content-box的高和宽只包含content,而 border-box的高和宽包含border、padding、content</li>
 <li>一般使用border-box，因为border-box更好用</li>
 </ul>
-
 <h2 id="外边距合并">外边距合并</h2>
-
 <ul>
 <li>同一父亲的两个孩子的外边距会合并(float或者变为inline-block就不会合并)</li>
 <li>父子外边距合并，只有上下合并，左右不合并。margin和margin合并的前提是parent和children之间parent没有border,padding或者加overflow：hidden</li>
 </ul>
-
 <h2 id="position定位">position定位</h2>
-
 <ul>
 <li>static 默认值</li>
 <li>relative 相对定位，升起来，但不脱离文档流（占的位子不变，但是显示的位子变了）</li>
@@ -593,9 +564,7 @@ animation:1.5s xxx linear infinite alternate-reverse;
 <li>fixed 固定定位，定位基准是视口viewport(有诈) 加了transform就变了，手机上不要用(bug太多)</li>
 <li>sticky 粘滞定位（会让它粘在屏幕的最上边），兼容性极差。</li>
 </ul>
-
-<h2 id="如何创建层叠上下文-z-index">如何创建层叠上下文，z-index</h2>
-
+<h2 id="如何创建层叠上下文z-index">如何创建层叠上下文，z-index</h2>
 <ul>
 <li>可以使z-index不为auto,并加上定位relative或者absolute</li>
 <li>只要定位position：fixed 就会创建</li>

@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/js%E6%8F%8F%E8%BF%B0%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%85%A5%E9%97%A8%E4%BA%8C/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,10 +66,8 @@
 <meta property="article:modified_time" content="2020-01-14T00:00:00+00:00" />
 <meta itemprop="name" content="JS描述数据结构与算法（二）">
 <meta itemprop="description" content="JS描述数据结构与算法（二）">
-
-
-<meta itemprop="datePublished" content="2020-01-14T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-01-14T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2020-01-14T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-01-14T00:00:00+00:00" />
 <meta itemprop="wordCount" content="3355">
 
 
@@ -394,57 +392,52 @@ if (!doNotTrack) {
 
     
     <div class="post-content">
-      
-
-<ul>
+      <ul>
 <li>包含链表</li>
 </ul>
-
 <h2 id="链表">链表</h2>
-
 <ol>
 <li>数组和链表优缺点</li>
 </ol>
-
 <ul>
-<li>链表和数组一样，可以存储一系列的元素，但是链表和数组的实现机制完全不同</li>
-
-<li><p>数组：</p>
-
+<li>
+<p>链表和数组一样，可以存储一系列的元素，但是链表和数组的实现机制完全不同</p>
+</li>
+<li>
+<p>数组：</p>
 <ul>
 <li>数组创建通常需要一段<strong>连续的内存空间</strong>（一整块内存），并且<strong>大小是固定的</strong>（大多数编程语言是固定的），所以当当前数组不能满足容量需求时，需要<strong>扩容</strong>（一般情况下申请一个更大的数组，把原来的数组复制过去）</li>
 <li>而且数组的开头或中间位置<strong>插入数据成本很高</strong>，需要进行大量的元素位移</li>
 <li>尽管我们已经学过JavaScript的Array类方法可以帮我们做这些事，但背后的原理依然是这样</li>
-</ul></li>
-
-<li><p>链表</p>
-
+</ul>
+</li>
+<li>
+<p>链表</p>
 <ul>
 <li>不同于数组，链表中的元素在内存中<strong>不必是连续的空间</strong></li>
 <li>链表的每个元素有一个<strong>存储元素本身的节点</strong>和一个指向<strong>下一个元素的引用</strong></li>
 <li>链表不必在创建的时候就<strong>确定大小</strong></li>
 <li>链表在<strong>插入和删除数据时</strong>，时间复杂度可以达到O(1),相对数组效率高很多</li>
 <li>缺点：链表访问任何一个位置的元素的时候，都需要<strong>从头开始访问</strong>（无法跳过第一个元素访问任何一个元素），无法通过下标直接访问元素，需要从头一个个访问，直到找到对应的元素</li>
-</ul></li>
 </ul>
-
-<ol>
+</li>
+</ul>
+<ol start="2">
 <li>链表到底是什么
-
 <ul>
 <li>类似火车，一节车厢连着下一节，车厢上有乘客（数据），火车头指向第一个车厢</li>
-</ul></li>
+</ul>
+</li>
 </ol>
-
 <ul>
 <li>类似火车，一节车厢连着下一节，车厢上有乘客（数据）</li>
 </ul>
-
-<ol>
-<li><p>封装单向链表</p>
+<ol start="3">
+<li>封装单向链表</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">  1
+<pre class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -660,248 +653,248 @@ if (!doNotTrack) {
 </span><span class="lnt">214
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// 封装链表类
-</span><span class="c1"></span><span class="kd">function</span> <span class="nx">LinkedList</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// 内部的类：节点类
-</span><span class="c1"></span>  <span class="kd">function</span> <span class="nx">Node</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="nx">data</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="kc">null</span>
-  <span class="p">}</span>
-
-  <span class="c1">// 属性
-</span><span class="c1"></span>  <span class="k">this</span><span class="p">.</span><span class="nx">head</span> <span class="o">=</span> <span class="kc">null</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">0</span>
-
-  <span class="c1">// 1.追加方法
-</span><span class="c1"></span>  <span class="nx">LinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">append</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// 1.创建新节点
-</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Node</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
-
-    <span class="c1">// 2.判断是否添加的是不是第一个节点
-</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//是第一个节点
-</span><span class="c1"></span>      <span class="k">this</span><span class="p">.</span><span class="nx">head</span> <span class="o">=</span> <span class="nx">newNode</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// 不是第一个节点
-</span><span class="c1"></span>      <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
-      <span class="k">while</span> <span class="p">(</span><span class="nx">current</span><span class="p">.</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"> <span class="c1">// 封装链表类
+</span><span class="c1"></span>    <span class="kd">function</span> <span class="nx">LinkedList</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// 内部的类：节点类
+</span><span class="c1"></span>      <span class="kd">function</span> <span class="nx">Node</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="nx">data</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="kc">null</span>
       <span class="p">}</span>
 
-      <span class="c1">// 最后节点的next指向新的节点
-</span><span class="c1"></span>      <span class="nx">current</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">newNode</span>
-    <span class="p">}</span>
+      <span class="c1">// 属性
+</span><span class="c1"></span>      <span class="k">this</span><span class="p">.</span><span class="nx">head</span> <span class="o">=</span> <span class="kc">null</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">0</span>
 
-    <span class="c1">// 3.length加1
-</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">+=</span> <span class="mi">1</span>
-  <span class="p">}</span>
+      <span class="c1">// 1.追加方法
+</span><span class="c1"></span>      <span class="nx">LinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">append</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 1.创建新节点
+</span><span class="c1"></span>        <span class="kd">var</span> <span class="nx">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Node</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
 
-  <span class="c1">// 2.toString()方法
-</span><span class="c1"></span>  <span class="nx">LinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// 1.定义变量
-</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
-    <span class="kd">var</span> <span class="nx">listString</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="c1">// 2.判断是否添加的是不是第一个节点
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//是第一个节点
+</span><span class="c1"></span>          <span class="k">this</span><span class="p">.</span><span class="nx">head</span> <span class="o">=</span> <span class="nx">newNode</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// 不是第一个节点
+</span><span class="c1"></span>          <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
+          <span class="k">while</span> <span class="p">(</span><span class="nx">current</span><span class="p">.</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
+          <span class="p">}</span>
 
-    <span class="c1">// 2.循环获取一个个节点
-</span><span class="c1"></span>    <span class="k">while</span> <span class="p">(</span><span class="nx">current</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">listString</span> <span class="o">+=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">data</span> <span class="o">+</span> <span class="s2">&#34; &#34;</span>
-      <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
-    <span class="p">}</span>
+          <span class="c1">// 最后节点的next指向新的节点
+</span><span class="c1"></span>          <span class="nx">current</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">newNode</span>
+        <span class="p">}</span>
 
-    <span class="k">return</span> <span class="nx">listString</span>
-  <span class="p">}</span>
-
-  <span class="c1">// 3.insert方法
-</span><span class="c1"></span>  <span class="nx">LinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">insert</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">position</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// 1.对position进行越界判断
-</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">position</span> <span class="o">&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span>
-
-    <span class="c1">// 2.根据data创建newNode
-</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Node</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
-
-    <span class="c1">// 3.判断插入的位置是否是第一个
-</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">newNode</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">head</span> <span class="o">=</span> <span class="nx">newNode</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span>
-      <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
-      <span class="kd">var</span> <span class="nx">previous</span> <span class="o">=</span> <span class="kc">null</span>
-      <span class="k">while</span> <span class="p">(</span><span class="nx">index</span><span class="o">++</span> <span class="o">&lt;</span> <span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">previous</span> <span class="o">=</span> <span class="nx">current</span>
-        <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
+        <span class="c1">// 3.length加1
+</span><span class="c1"></span>        <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">+=</span> <span class="mi">1</span>
       <span class="p">}</span>
 
-      <span class="nx">newNode</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">current</span>
-      <span class="nx">previous</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">newNode</span>
-    <span class="p">}</span>
-    <span class="c1">// 4.length+1
-</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">+=</span> <span class="mi">1</span>
+      <span class="c1">// 2.toString()方法
+</span><span class="c1"></span>      <span class="nx">LinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// 1.定义变量
+</span><span class="c1"></span>        <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
+        <span class="kd">var</span> <span class="nx">listString</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 
-    <span class="k">return</span> <span class="kc">true</span>
-  <span class="p">}</span>
+        <span class="c1">// 2.循环获取一个个节点
+</span><span class="c1"></span>        <span class="k">while</span> <span class="p">(</span><span class="nx">current</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">listString</span> <span class="o">+=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">data</span> <span class="o">+</span> <span class="s2">&#34; &#34;</span>
+          <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
+        <span class="p">}</span>
 
-  <span class="c1">// 4.get方法
-</span><span class="c1"></span>  <span class="nx">LinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">get</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// 1.对position进行越界判断
-</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">position</span> <span class="o">&gt;=</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="k">return</span> <span class="kc">null</span>
-
-    <span class="c1">// 2.获取对应的data
-</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
-    <span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="p">(</span><span class="nx">index</span><span class="o">++</span> <span class="o">&lt;</span> <span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
-    <span class="p">}</span>
-
-    <span class="k">return</span> <span class="nx">current</span><span class="p">.</span><span class="nx">data</span>
-  <span class="p">}</span>
-
-  <span class="c1">// 5.indexOf(element)方法
-</span><span class="c1"></span>  <span class="nx">LinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">indexOf</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// 1.定义变量
-</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
-    <span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span>
-
-    <span class="c1">// 2.开始查找
-</span><span class="c1"></span>    <span class="k">while</span> <span class="p">(</span><span class="nx">current</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="nx">current</span><span class="p">.</span><span class="nx">data</span> <span class="o">===</span> <span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">index</span>
+        <span class="k">return</span> <span class="nx">listString</span>
       <span class="p">}</span>
-      <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
-      <span class="nx">index</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="p">}</span>
 
-    <span class="c1">// 3.找到最后没找到，返回-1
-</span><span class="c1"></span>    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
-  <span class="p">}</span>
+      <span class="c1">// 3.insert方法
+</span><span class="c1"></span>      <span class="nx">LinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">insert</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">position</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 1.对position进行越界判断
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">position</span> <span class="o">&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span>
 
-  <span class="c1">// 6.update方法
-</span><span class="c1"></span>  <span class="nx">LinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">position</span><span class="p">,</span> <span class="nx">newData</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// 1.越界判断
-</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">||</span> <span class="nx">position</span> <span class="o">&gt;=</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span>
+        <span class="c1">// 2.根据data创建newNode
+</span><span class="c1"></span>        <span class="kd">var</span> <span class="nx">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Node</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
 
-    <span class="c1">// 2.查找正确的节点
-</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
-    <span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="p">(</span><span class="nx">index</span><span class="o">++</span> <span class="o">&lt;</span> <span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
-    <span class="p">}</span>
+        <span class="c1">// 3.判断插入的位置是否是第一个
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">newNode</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">head</span> <span class="o">=</span> <span class="nx">newNode</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span>
+          <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
+          <span class="kd">var</span> <span class="nx">previous</span> <span class="o">=</span> <span class="kc">null</span>
+          <span class="k">while</span> <span class="p">(</span><span class="nx">index</span><span class="o">++</span> <span class="o">&lt;</span> <span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">previous</span> <span class="o">=</span> <span class="nx">current</span>
+            <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
+          <span class="p">}</span>
 
-    <span class="c1">// 3.将position位置的node的data修改成newData
-</span><span class="c1"></span>    <span class="nx">current</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="nx">newData</span>
+          <span class="nx">newNode</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">current</span>
+          <span class="nx">previous</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">newNode</span>
+        <span class="p">}</span>
+        <span class="c1">// 4.length+1
+</span><span class="c1"></span>        <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">+=</span> <span class="mi">1</span>
 
-    <span class="k">return</span> <span class="kc">true</span>
-  <span class="p">}</span>
-
-  <span class="c1">// 7.removeAt方法
-</span><span class="c1"></span>  <span class="nx">LinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">removeAt</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// 1.越界判断
-</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">position</span> <span class="o">&gt;=</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="k">return</span> <span class="kc">null</span>
-
-    <span class="c1">// 2.判断是否删除的是第一个节点
-</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">head</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">next</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span>
-      <span class="kd">var</span> <span class="nx">previous</span> <span class="o">=</span> <span class="kc">null</span>
-      <span class="k">while</span> <span class="p">(</span><span class="nx">index</span><span class="o">++</span> <span class="o">&lt;</span> <span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">previous</span> <span class="o">=</span> <span class="nx">current</span>
-        <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
+        <span class="k">return</span> <span class="kc">true</span>
       <span class="p">}</span>
-      <span class="c1">// 前一个节点的next指向current.next即可
-</span><span class="c1"></span>      <span class="nx">previous</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
+
+      <span class="c1">// 4.get方法
+</span><span class="c1"></span>      <span class="nx">LinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">get</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 1.对position进行越界判断
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">position</span> <span class="o">&gt;=</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="k">return</span> <span class="kc">null</span>
+
+        <span class="c1">// 2.获取对应的data
+</span><span class="c1"></span>        <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
+        <span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="p">(</span><span class="nx">index</span><span class="o">++</span> <span class="o">&lt;</span> <span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nx">current</span><span class="p">.</span><span class="nx">data</span>
+      <span class="p">}</span>
+
+      <span class="c1">// 5.indexOf(element)方法
+</span><span class="c1"></span>      <span class="nx">LinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">indexOf</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 1.定义变量
+</span><span class="c1"></span>        <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
+        <span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1">// 2.开始查找
+</span><span class="c1"></span>        <span class="k">while</span> <span class="p">(</span><span class="nx">current</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">current</span><span class="p">.</span><span class="nx">data</span> <span class="o">===</span> <span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">index</span>
+          <span class="p">}</span>
+          <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
+          <span class="nx">index</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="p">}</span>
+
+        <span class="c1">// 3.找到最后没找到，返回-1
+</span><span class="c1"></span>        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+      <span class="p">}</span>
+
+      <span class="c1">// 6.update方法
+</span><span class="c1"></span>      <span class="nx">LinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">position</span><span class="p">,</span> <span class="nx">newData</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 1.越界判断
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">||</span> <span class="nx">position</span> <span class="o">&gt;=</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span>
+
+        <span class="c1">// 2.查找正确的节点
+</span><span class="c1"></span>        <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
+        <span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="p">(</span><span class="nx">index</span><span class="o">++</span> <span class="o">&lt;</span> <span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
+        <span class="p">}</span>
+
+        <span class="c1">// 3.将position位置的node的data修改成newData
+</span><span class="c1"></span>        <span class="nx">current</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="nx">newData</span>
+
+        <span class="k">return</span> <span class="kc">true</span>
+      <span class="p">}</span>
+
+      <span class="c1">// 7.removeAt方法
+</span><span class="c1"></span>      <span class="nx">LinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">removeAt</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 1.越界判断
+</span><span class="c1"></span>        <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">position</span> <span class="o">&gt;=</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="k">return</span> <span class="kc">null</span>
+
+        <span class="c1">// 2.判断是否删除的是第一个节点
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">head</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">next</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span>
+          <span class="kd">var</span> <span class="nx">previous</span> <span class="o">=</span> <span class="kc">null</span>
+          <span class="k">while</span> <span class="p">(</span><span class="nx">index</span><span class="o">++</span> <span class="o">&lt;</span> <span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">previous</span> <span class="o">=</span> <span class="nx">current</span>
+            <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
+          <span class="p">}</span>
+          <span class="c1">// 前一个节点的next指向current.next即可
+</span><span class="c1"></span>          <span class="nx">previous</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
+        <span class="p">}</span>
+
+        <span class="c1">// 3.length-1
+</span><span class="c1"></span>        <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">-=</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="nx">current</span><span class="p">.</span><span class="nx">data</span>
+      <span class="p">}</span>
+
+      <span class="c1">// 8.remove方法
+</span><span class="c1"></span>      <span class="nx">LinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">remove</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 1.获取data在列表中的位置
+</span><span class="c1"></span>        <span class="kd">var</span> <span class="nx">position</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+
+        <span class="c1">// 2.根据位置信息，删除节点
+</span><span class="c1"></span>        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">removeAt</span><span class="p">(</span><span class="nx">position</span><span class="p">)</span>
+      <span class="p">}</span>
+
+      <span class="c1">// 9.isEmpty方法
+</span><span class="c1"></span>      <span class="nx">LinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">isEmpty</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span>
+      <span class="p">}</span>
+
+      <span class="c1">// 10.size方法
+</span><span class="c1"></span>      <span class="nx">LinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">size</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span>
+      <span class="p">}</span>
     <span class="p">}</span>
 
-    <span class="c1">// 3.length-1
-</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="c1">// 测试代码
+</span><span class="c1"></span>    <span class="c1">// 1.创建LinkedList
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">LinkedList</span><span class="p">()</span>
 
-    <span class="k">return</span> <span class="nx">current</span><span class="p">.</span><span class="nx">data</span>
-  <span class="p">}</span>
+    <span class="c1">// 2.测试append方法
+</span><span class="c1"></span>    <span class="nx">list</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>
+    <span class="nx">list</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;cba&#39;</span><span class="p">)</span>
+    <span class="nx">list</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;mba&#39;</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span>
 
-  <span class="c1">// 8.remove方法
-</span><span class="c1"></span>  <span class="nx">LinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">remove</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// 1.获取data在列表中的位置
-</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">position</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+    <span class="c1">// 3.测试insert
+</span><span class="c1"></span>    <span class="nx">list</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;aaa&#39;</span><span class="p">)</span>
+    <span class="nx">list</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;bbb&#39;</span><span class="p">)</span>
+    <span class="nx">list</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;ccc&#39;</span><span class="p">)</span>
+      <span class="c1">// 4.测试toString
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+    <span class="c1">// 5.测试get
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">6</span><span class="p">));</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;ccc&#39;</span><span class="p">));</span>
 
-    <span class="c1">// 2.根据位置信息，删除节点
-</span><span class="c1"></span>    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">removeAt</span><span class="p">(</span><span class="nx">position</span><span class="p">)</span>
-  <span class="p">}</span>
+    <span class="c1">// 6.测试update
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+    <span class="nx">list</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;ooo&#39;</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
 
-  <span class="c1">// 9.isEmpty方法
-</span><span class="c1"></span>  <span class="nx">LinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">isEmpty</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span>
-  <span class="p">}</span>
-
-  <span class="c1">// 10.size方法
-</span><span class="c1"></span>  <span class="nx">LinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">size</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// 测试代码
-</span><span class="c1">// 1.创建LinkedList
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">LinkedList</span><span class="p">()</span>
-
-<span class="c1">// 2.测试append方法
-</span><span class="c1"></span><span class="nx">list</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>
-<span class="nx">list</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;cba&#39;</span><span class="p">)</span>
-<span class="nx">list</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;mba&#39;</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span>
-
-<span class="c1">// 3.测试insert
-</span><span class="c1"></span><span class="nx">list</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;aaa&#39;</span><span class="p">)</span>
-<span class="nx">list</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;bbb&#39;</span><span class="p">)</span>
-<span class="nx">list</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;ccc&#39;</span><span class="p">)</span>
-  <span class="c1">// 4.测试toString
-</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
-<span class="c1">// 5.测试get
-</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">6</span><span class="p">));</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;ccc&#39;</span><span class="p">));</span>
-
-<span class="c1">// 6.测试update
-</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
-<span class="nx">list</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;ooo&#39;</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
-
-<span class="c1">// 7.测试removeAt方法
-</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">removeAt</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
-<span class="nx">list</span><span class="p">.</span><span class="nx">removeAt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
-<span class="c1">// 8.测试remove方法
-</span><span class="c1"></span><span class="nx">list</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s1">&#39;ooo&#39;</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
-<span class="c1">// 9.测试size方法和isEmpty
-</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">isEmpty</span><span class="p">());</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">size</span><span class="p">());</span>
+    <span class="c1">// 7.测试removeAt方法
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">removeAt</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+    <span class="nx">list</span><span class="p">.</span><span class="nx">removeAt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+    <span class="c1">// 8.测试remove方法
+</span><span class="c1"></span>    <span class="nx">list</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s1">&#39;ooo&#39;</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+    <span class="c1">// 9.测试size方法和isEmpty
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">isEmpty</span><span class="p">());</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">size</span><span class="p">());</span>
 </code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>封装双向链表</p></li>
+</div><ol start="4">
+<li>封装双向链表</li>
 </ol>
-
 <ul>
-<li><p>单向链表</p>
-
+<li>
+<p>单向链表</p>
 <ul>
 <li>只能<strong>从头遍历到尾或者从尾遍历到头</strong>（一般从头到尾）</li>
 <li>也就是链表相连的过程是<strong>单向</strong>的</li>
 <li>实现的原理就是上一个链表中有一个指向下一个的<strong>引用</strong></li>
 <li>缺点：不能<strong>回到上一个节点</strong></li>
-</ul></li>
-
-<li><p>双向链表：</p>
-
+</ul>
+</li>
+<li>
+<p>双向链表：</p>
 <ul>
 <li>既可以从头遍历到尾，又可以从尾遍历到头</li>
 <li>也就是链表相连的过程是<strong>双向的</strong></li>
 <li>一个节点既有<strong>向前连接的引用</strong>，也有一个<strong>向后连接的引用</strong></li>
-
-<li><p>缺点：插入或者删除时，需要处理四个引用，占用内存稍微大一些</p>
+<li>缺点：插入或者删除时，需要处理四个引用，占用内存稍微大一些</li>
+</ul>
+</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">  1
+<pre class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -1177,287 +1170,283 @@ if (!doNotTrack) {
 </span><span class="lnt">274
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// 封装双向链表
-</span><span class="c1"></span><span class="kd">function</span> <span class="nx">DoublyLinkedList</span><span class="p">()</span> <span class="p">{</span>
-<span class="c1">// 内部类
-</span><span class="c1"></span><span class="kd">function</span> <span class="nx">Node</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-<span class="k">this</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="nx">data</span>
-<span class="k">this</span><span class="p">.</span><span class="nx">prev</span> <span class="o">=</span> <span class="kc">null</span>
-<span class="k">this</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="kc">null</span>
-<span class="p">}</span>
+<pre class="chroma"><code class="language-javascript" data-lang="javascript">    <span class="c1">// 封装双向链表
+</span><span class="c1"></span>    <span class="kd">function</span> <span class="nx">DoublyLinkedList</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// 内部类
+</span><span class="c1"></span>      <span class="kd">function</span> <span class="nx">Node</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="nx">data</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">prev</span> <span class="o">=</span> <span class="kc">null</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="kc">null</span>
+      <span class="p">}</span>
 
-<span class="c1">// 属性
-</span><span class="c1"></span><span class="k">this</span><span class="p">.</span><span class="nx">head</span> <span class="o">=</span> <span class="kc">null</span>
-<span class="k">this</span><span class="p">.</span><span class="nx">tail</span> <span class="o">=</span> <span class="kc">null</span>
-<span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="c1">// 属性
+</span><span class="c1"></span>      <span class="k">this</span><span class="p">.</span><span class="nx">head</span> <span class="o">=</span> <span class="kc">null</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">tail</span> <span class="o">=</span> <span class="kc">null</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="c1">// 常见操作：方法
-</span><span class="c1">// 1.append 方法
-</span><span class="c1"></span><span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">append</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-<span class="c1">// 1.根据data创建节点
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Node</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+      <span class="c1">// 常见操作：方法
+</span><span class="c1"></span>      <span class="c1">// 1.append 方法
+</span><span class="c1"></span>      <span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">append</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 1.根据data创建节点
+</span><span class="c1"></span>        <span class="kd">var</span> <span class="nx">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Node</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
 
-<span class="c1">// 2.判断是否是第一个节点
-</span><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">head</span> <span class="o">=</span> <span class="nx">newNode</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">tail</span> <span class="o">=</span> <span class="nx">newNode</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="nx">newNode</span><span class="p">.</span><span class="nx">prev</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">tail</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">tail</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">newNode</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">tail</span> <span class="o">=</span> <span class="nx">newNode</span>
-<span class="p">}</span>
+        <span class="c1">// 2.判断是否是第一个节点
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">head</span> <span class="o">=</span> <span class="nx">newNode</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">tail</span> <span class="o">=</span> <span class="nx">newNode</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="nx">newNode</span><span class="p">.</span><span class="nx">prev</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">tail</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">tail</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">newNode</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">tail</span> <span class="o">=</span> <span class="nx">newNode</span>
+        <span class="p">}</span>
 
-<span class="c1">// 3.length+1
-</span><span class="c1"></span><span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="p">}</span>
+        <span class="c1">// 3.length+1
+</span><span class="c1"></span>        <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">+=</span> <span class="mi">1</span>
+      <span class="p">}</span>
 
-<span class="c1">// 2.将链表转成字符串形式
-</span><span class="c1">// 2.1 toString方法
-</span><span class="c1"></span><span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// 直接返回backwardString()
-</span><span class="c1"></span>  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">backwardString</span><span class="p">()</span>
-<span class="p">}</span>
-<span class="c1">// 2.2 forwardString方法
-</span><span class="c1"></span><span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forwardString</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// 1.定义变量
-</span><span class="c1"></span>  <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">tail</span>
-  <span class="kd">var</span> <span class="nx">resultString</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-    <span class="c1">// 2.依次向后遍历，获取每一个节点
-</span><span class="c1"></span>  <span class="k">while</span> <span class="p">(</span><span class="nx">current</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">resultString</span> <span class="o">+=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">data</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span>
-    <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">prev</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="nx">resultString</span>
-<span class="p">}</span>
-<span class="c1">// 2.3 backwardString方法
-</span><span class="c1"></span><span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">backwardString</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-<span class="c1">// 1.定义变量
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
-<span class="kd">var</span> <span class="nx">resultString</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-  <span class="c1">// 2.依次向后遍历，获取每一个节点
-</span><span class="c1"></span><span class="k">while</span> <span class="p">(</span><span class="nx">current</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">resultString</span> <span class="o">+=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">data</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span>
-  <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
-<span class="p">}</span>
-<span class="k">return</span> <span class="nx">resultString</span>
-<span class="p">}</span>
+      <span class="c1">// 2.将链表转成字符串形式
+</span><span class="c1"></span>      <span class="c1">// 2.1 toString方法
+</span><span class="c1"></span>      <span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+          <span class="c1">// 直接返回backwardString()
+</span><span class="c1"></span>          <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">backwardString</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="c1">// 2.2 forwardString方法
+</span><span class="c1"></span>      <span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forwardString</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+          <span class="c1">// 1.定义变量
+</span><span class="c1"></span>          <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">tail</span>
+          <span class="kd">var</span> <span class="nx">resultString</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="c1">// 2.依次向后遍历，获取每一个节点
+</span><span class="c1"></span>          <span class="k">while</span> <span class="p">(</span><span class="nx">current</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">resultString</span> <span class="o">+=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">data</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span>
+            <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">prev</span>
+          <span class="p">}</span>
+          <span class="k">return</span> <span class="nx">resultString</span>
+        <span class="p">}</span>
+        <span class="c1">// 2.3 backwardString方法
+</span><span class="c1"></span>      <span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">backwardString</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// 1.定义变量
+</span><span class="c1"></span>        <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
+        <span class="kd">var</span> <span class="nx">resultString</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+          <span class="c1">// 2.依次向后遍历，获取每一个节点
+</span><span class="c1"></span>        <span class="k">while</span> <span class="p">(</span><span class="nx">current</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">resultString</span> <span class="o">+=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">data</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span>
+          <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nx">resultString</span>
+      <span class="p">}</span>
 
-<span class="c1">// 3.insert方法
-</span><span class="c1"></span><span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">insert</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">position</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-<span class="c1">// 1.越界判断
-</span><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">position</span> <span class="o">&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span>
+      <span class="c1">// 3.insert方法
+</span><span class="c1"></span>      <span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">insert</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">position</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 1.越界判断
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">position</span> <span class="o">&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span>
 
-<span class="c1">// 2.根据data创建新的节点
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Node</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+        <span class="c1">// 2.根据data创建新的节点
+</span><span class="c1"></span>        <span class="kd">var</span> <span class="nx">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Node</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
 
-<span class="c1">// 3.判断原来的链表是否为空
-</span><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">head</span> <span class="o">=</span> <span class="nx">newNode</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">tail</span> <span class="o">=</span> <span class="nx">newNode</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 3.1判断position是否为0
-</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">prev</span> <span class="o">=</span> <span class="nx">newNode</span>
-    <span class="nx">newNode</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">head</span> <span class="o">=</span> <span class="nx">newNode</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 3.2position==length相当于append
-</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">tail</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">newNode</span>
-    <span class="nx">newNode</span><span class="p">.</span><span class="nx">prev</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">tail</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">tail</span> <span class="o">=</span> <span class="nx">newNode</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// 3.3其他情况
-</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
-    <span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1">// 3.判断原来的链表是否为空
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">head</span> <span class="o">=</span> <span class="nx">newNode</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">tail</span> <span class="o">=</span> <span class="nx">newNode</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 3.1判断position是否为0
+</span><span class="c1"></span>            <span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">prev</span> <span class="o">=</span> <span class="nx">newNode</span>
+            <span class="nx">newNode</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">head</span> <span class="o">=</span> <span class="nx">newNode</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 3.2position==length相当于append
+</span><span class="c1"></span>            <span class="k">this</span><span class="p">.</span><span class="nx">tail</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">newNode</span>
+            <span class="nx">newNode</span><span class="p">.</span><span class="nx">prev</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">tail</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">tail</span> <span class="o">=</span> <span class="nx">newNode</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// 3.3其他情况
+</span><span class="c1"></span>            <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
+            <span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span>
 
 
-    <span class="k">while</span> <span class="p">(</span><span class="nx">index</span><span class="o">++</span> <span class="o">&lt;</span> <span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
-    <span class="p">}</span>
+            <span class="k">while</span> <span class="p">(</span><span class="nx">index</span><span class="o">++</span> <span class="o">&lt;</span> <span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
+              <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
+            <span class="p">}</span>
 
-    <span class="c1">// 修改指针
-</span><span class="c1"></span>    <span class="nx">newNode</span><span class="p">.</span><span class="nx">prev</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">prev</span>
-    <span class="nx">newNode</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">current</span>
-    <span class="nx">current</span><span class="p">.</span><span class="nx">prev</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">newNode</span>
-    <span class="nx">current</span><span class="p">.</span><span class="nx">prev</span> <span class="o">=</span> <span class="nx">newNode</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+            <span class="c1">// 修改指针
+</span><span class="c1"></span>            <span class="nx">newNode</span><span class="p">.</span><span class="nx">prev</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">prev</span>
+            <span class="nx">newNode</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">current</span>
+            <span class="nx">current</span><span class="p">.</span><span class="nx">prev</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">newNode</span>
+            <span class="nx">current</span><span class="p">.</span><span class="nx">prev</span> <span class="o">=</span> <span class="nx">newNode</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
 
-<span class="c1">// 4.length+1
-</span><span class="c1"></span><span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="p">}</span>
+        <span class="c1">// 4.length+1
+</span><span class="c1"></span>        <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">+=</span> <span class="mi">1</span>
+      <span class="p">}</span>
 
-<span class="c1">// 4.get方法
-</span><span class="c1"></span><span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">get</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
-<span class="c1">// 1.越界判断
-</span><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">position</span> <span class="o">&gt;=</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span>
+      <span class="c1">// 4.get方法
+</span><span class="c1"></span>      <span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">get</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 1.越界判断
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">position</span> <span class="o">&gt;=</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span>
 
-<span class="c1">// this.length/2 &gt;position:从头向后遍历
-</span><span class="c1">// this.length/2 《position:从尾向前遍历
+        <span class="c1">// this.length/2 &gt;position:从头向后遍历
+</span><span class="c1"></span>        <span class="c1">// this.length/2 《position:从尾向前遍历
 </span><span class="c1"></span>
-<span class="c1">// 2.获取元素
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
-<span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1">// 2.获取元素
+</span><span class="c1"></span>        <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
+        <span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="k">while</span> <span class="p">(</span><span class="nx">index</span><span class="o">++</span> <span class="o">&lt;</span> <span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
-<span class="p">}</span>
-<span class="k">return</span> <span class="nx">current</span><span class="p">.</span><span class="nx">data</span>
-<span class="p">}</span>
+        <span class="k">while</span> <span class="p">(</span><span class="nx">index</span><span class="o">++</span> <span class="o">&lt;</span> <span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nx">current</span><span class="p">.</span><span class="nx">data</span>
+      <span class="p">}</span>
 
-<span class="c1">// 5.indexOf方法
-</span><span class="c1"></span><span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">indexOf</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-<span class="c1">// 1.定义变量
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
-<span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="c1">// 5.indexOf方法
+</span><span class="c1"></span>      <span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">indexOf</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 1.定义变量
+</span><span class="c1"></span>        <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
+        <span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="c1">// 2.查找data相同的点
-</span><span class="c1"></span><span class="k">while</span> <span class="p">(</span><span class="nx">current</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">current</span><span class="p">.</span><span class="nx">data</span> <span class="o">==</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">index</span>
-  <span class="p">}</span>
-  <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
-  <span class="nx">index</span><span class="o">++</span>
-<span class="p">}</span>
+        <span class="c1">// 2.查找data相同的点
+</span><span class="c1"></span>        <span class="k">while</span> <span class="p">(</span><span class="nx">current</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">current</span><span class="p">.</span><span class="nx">data</span> <span class="o">==</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">index</span>
+          <span class="p">}</span>
+          <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
+          <span class="nx">index</span><span class="o">++</span>
+        <span class="p">}</span>
 
-<span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
-<span class="p">}</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+      <span class="p">}</span>
 
-<span class="c1">// 6.update方法
-</span><span class="c1"></span><span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">position</span><span class="p">,</span> <span class="nx">newData</span><span class="p">)</span> <span class="p">{</span>
-<span class="c1">// 1.越界判断
-</span><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">position</span> <span class="o">&gt;=</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span>
+      <span class="c1">// 6.update方法
+</span><span class="c1"></span>      <span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">position</span><span class="p">,</span> <span class="nx">newData</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 1.越界判断
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">position</span> <span class="o">&gt;=</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span>
 
-<span class="c1">// 2.寻找正确的节点
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
-<span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">while</span> <span class="p">(</span><span class="nx">index</span><span class="o">++</span> <span class="o">&lt;</span> <span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
-<span class="p">}</span>
+        <span class="c1">// 2.寻找正确的节点
+</span><span class="c1"></span>        <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
+        <span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="p">(</span><span class="nx">index</span><span class="o">++</span> <span class="o">&lt;</span> <span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
+        <span class="p">}</span>
 
-<span class="c1">// 3.修改找到节点的data信息
-</span><span class="c1"></span><span class="nx">current</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="nx">newData</span>
+        <span class="c1">// 3.修改找到节点的data信息
+</span><span class="c1"></span>        <span class="nx">current</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="nx">newData</span>
 
-<span class="k">return</span> <span class="kc">true</span>
-<span class="p">}</span>
+        <span class="k">return</span> <span class="kc">true</span>
+      <span class="p">}</span>
 
-<span class="c1">// 7.removeAt方法
-</span><span class="c1"></span><span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">removeAt</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
-<span class="c1">// 1.越界判断
-</span><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">position</span> <span class="o">&gt;=</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span>
+      <span class="c1">// 7.removeAt方法
+</span><span class="c1"></span>      <span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">removeAt</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 1.越界判断
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">position</span> <span class="o">&gt;=</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span>
 
-<span class="c1">// 2.判断是否只有一个节点
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
-<span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">head</span> <span class="o">=</span> <span class="kc">null</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">tail</span> <span class="o">=</span> <span class="kc">null</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 判断是否是第一个节点
-</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nx">prev</span> <span class="o">=</span> <span class="kc">null</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">head</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">next</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">tail</span><span class="p">.</span><span class="nx">prev</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="kc">null</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">tail</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">tail</span><span class="p">.</span><span class="nx">prev</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1">// 2.判断是否只有一个节点
+</span><span class="c1"></span>        <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">head</span> <span class="o">=</span> <span class="kc">null</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">tail</span> <span class="o">=</span> <span class="kc">null</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 判断是否是第一个节点
+</span><span class="c1"></span>            <span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nx">prev</span> <span class="o">=</span> <span class="kc">null</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">head</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">next</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">position</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">tail</span><span class="p">.</span><span class="nx">prev</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="kc">null</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">tail</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">tail</span><span class="p">.</span><span class="nx">prev</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span>
 
-    <span class="k">while</span> <span class="p">(</span><span class="nx">index</span><span class="o">++</span> <span class="o">&lt;</span> <span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
+            <span class="k">while</span> <span class="p">(</span><span class="nx">index</span><span class="o">++</span> <span class="o">&lt;</span> <span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
+              <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
+            <span class="p">}</span>
+
+            <span class="nx">current</span><span class="p">.</span><span class="nx">prev</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
+            <span class="nx">current</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nx">prev</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">prev</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// 3.length-1
+</span><span class="c1"></span>        <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">-=</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="nx">current</span><span class="p">.</span><span class="nx">data</span>
+      <span class="p">}</span>
+
+      <span class="c1">// 8.remove方法
+</span><span class="c1"></span>      <span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">remove</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 1.根据data获取索引
+</span><span class="c1"></span>        <span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+
+        <span class="c1">// 2.根据index删除
+</span><span class="c1"></span>        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">removeAt</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span>
+      <span class="p">}</span>
+
+      <span class="c1">// 9.isEmpty和size方法
+</span><span class="c1"></span>      <span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">isEmpty</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span>
+      <span class="p">}</span>
+
+      <span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">size</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span>
+      <span class="p">}</span>
+
+      <span class="c1">// 10.获取链表的第一个元素
+</span><span class="c1"></span>      <span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getHead</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">data</span>
+      <span class="p">}</span>
+
+      <span class="c1">// 11.获取链表的最后元素
+</span><span class="c1"></span>      <span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getTail</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">tail</span><span class="p">.</span><span class="nx">data</span>
+      <span class="p">}</span>
     <span class="p">}</span>
 
-    <span class="nx">current</span><span class="p">.</span><span class="nx">prev</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span>
-    <span class="nx">current</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nx">prev</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">prev</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+    <span class="c1">// 测试代码
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DoublyLinkedList</span><span class="p">()</span>
 
-<span class="c1">// 3.length-1
-</span><span class="c1"></span><span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="c1">// 1.测试append方法
+</span><span class="c1"></span>    <span class="nx">list</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;aaa&#39;</span><span class="p">)</span>
+    <span class="nx">list</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;bbb&#39;</span><span class="p">)</span>
+    <span class="nx">list</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;ccc&#39;</span><span class="p">)</span>
+    <span class="nx">list</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;ddd&#39;</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span>
 
-<span class="k">return</span> <span class="nx">current</span><span class="p">.</span><span class="nx">data</span>
-<span class="p">}</span>
+    <span class="c1">// 2.测试转出字符串方法
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">backwardString</span><span class="p">())</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">forwardString</span><span class="p">())</span>
 
-<span class="c1">// 8.remove方法
-</span><span class="c1"></span><span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">remove</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-<span class="c1">// 1.根据data获取索引
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+    <span class="c1">// 3.测试insert插入方法
+</span><span class="c1"></span>    <span class="nx">list</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;111&#39;</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span>
+    <span class="nx">list</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;xxx&#39;</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span>
+    <span class="nx">list</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;mmm&#39;</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span>
 
-<span class="c1">// 2.根据index删除
-</span><span class="c1"></span><span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">removeAt</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span>
-<span class="p">}</span>
+    <span class="c1">// 4.测试get方法
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
 
-<span class="c1">// 9.isEmpty和size方法
-</span><span class="c1"></span><span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">isEmpty</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span>
-<span class="p">}</span>
+    <span class="c1">// 5.测试indexOf方法
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;mmm&#39;</span><span class="p">));</span>
 
-<span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">size</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span>
-<span class="p">}</span>
+    <span class="c1">// 6.测试update方法
+</span><span class="c1"></span>    <span class="nx">list</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;nnn&#39;</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span>
 
-<span class="c1">// 10.获取链表的第一个元素
-</span><span class="c1"></span><span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getHead</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">data</span>
-<span class="p">}</span>
+    <span class="c1">// 7.测试removeAt方法
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">removeAt</span><span class="p">(</span><span class="mi">6</span><span class="p">));</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">removeAt</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">removeAt</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
 
-<span class="c1">// 11.获取链表的最后元素
-</span><span class="c1"></span><span class="nx">DoublyLinkedList</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getTail</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">tail</span><span class="p">.</span><span class="nx">data</span>
-<span class="p">}</span>
-<span class="p">}</span>
+    <span class="c1">// 8.测试remove方法
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s1">&#39;bbb&#39;</span><span class="p">));</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
 
-<span class="c1">// 测试代码
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DoublyLinkedList</span><span class="p">()</span>
-
-<span class="c1">// 1.测试append方法
-</span><span class="c1"></span><span class="nx">list</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;aaa&#39;</span><span class="p">)</span>
-<span class="nx">list</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;bbb&#39;</span><span class="p">)</span>
-<span class="nx">list</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;ccc&#39;</span><span class="p">)</span>
-<span class="nx">list</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;ddd&#39;</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span>
-
-<span class="c1">// 2.测试转出字符串方法
-</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">backwardString</span><span class="p">())</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">forwardString</span><span class="p">())</span>
-
-<span class="c1">// 3.测试insert插入方法
-</span><span class="c1"></span><span class="nx">list</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;111&#39;</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span>
-<span class="nx">list</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;xxx&#39;</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span>
-<span class="nx">list</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;mmm&#39;</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span>
-
-<span class="c1">// 4.测试get方法
-</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
-
-<span class="c1">// 5.测试indexOf方法
-</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;mmm&#39;</span><span class="p">));</span>
-
-<span class="c1">// 6.测试update方法
-</span><span class="c1"></span><span class="nx">list</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;nnn&#39;</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span>
-
-<span class="c1">// 7.测试removeAt方法
-</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">removeAt</span><span class="p">(</span><span class="mi">6</span><span class="p">));</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">removeAt</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">removeAt</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
-
-<span class="c1">// 8.测试remove方法
-</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s1">&#39;bbb&#39;</span><span class="p">));</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
-
-<span class="c1">// 9.测试isEmpty和size方法
-</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">isEmpty</span><span class="p">());</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">size</span><span class="p">());</span>
-<span class="c1">// 10.测试getHead和getTail
-</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">getHead</span><span class="p">());</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">getTail</span><span class="p">());</span>
+    <span class="c1">// 9.测试isEmpty和size方法
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">isEmpty</span><span class="p">());</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">size</span><span class="p">());</span>
+    <span class="c1">// 10.测试getHead和getTail
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">getHead</span><span class="p">());</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">getTail</span><span class="p">());</span>
 </code></pre></td></tr></table>
 </div>
-</div></li>
-</ul></li>
-</ul>
-
-<p>链表实现比较复杂，注意和数组的对比，下期哈希表。</p>
+</div><p>链表实现比较复杂，注意和数组的对比，下期哈希表。</p>
 
     </div>
 

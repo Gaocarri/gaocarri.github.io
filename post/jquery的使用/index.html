@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/jquery%E7%9A%84%E4%BD%BF%E7%94%A8/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,11 +66,9 @@
 <meta property="article:modified_time" content="2019-11-13T00:00:00+00:00" />
 <meta itemprop="name" content="jQuery的使用">
 <meta itemprop="description" content="jQuery的使用">
-
-
-<meta itemprop="datePublished" content="2019-11-13T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-11-13T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1638">
+<meta itemprop="datePublished" content="2019-11-13T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-11-13T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1634">
 
 
 
@@ -374,7 +372,7 @@ if (!doNotTrack) {
             <a href="http://gaocarri.top/categories/javascript/"> JavaScript </a>
             
           </div>
-        <span class="more-meta"> 约 1638 字 </span>
+        <span class="more-meta"> 约 1634 字 </span>
           <span class="more-meta"> 预计阅读 4 分钟 </span>
 
         
@@ -394,57 +392,45 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#jquery如何获取元素">jQuery如何获取元素</a></li>
-<li><a href="#jquery的链式操作是怎样的">jQuery的链式操作是怎样的</a></li>
-<li><a href="#jquery如何移动元素">jQuery如何移动元素</a></li>
-<li><a href="#jquery如何创建元素">jQuery如何创建元素</a></li>
-<li><a href="#jquery如何修改元素的属性">jQuery如何修改元素的属性</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<p>这两天自己尝试了封装DOM，并且熟悉了jQuery，记一篇博客概述jQuery的基本使用方法。</p>
-
+      <p>这两天自己尝试了封装DOM，并且熟悉了jQuery，记一篇博客概述jQuery的基本使用方法。</p>
 <h1 id="jquery如何获取元素">jQuery如何获取元素</h1>
-
 <p>首先概括jQuery的基本思想&mdash;选择某个网页元素，对其进行一系列操作。</p>
-
 <p>具体步骤就是使用jQuery.()(简写为$.())来选中某个元素，选取元素的方法如下列所示。</p>
-
 <ol>
-<li><p>选择表达式可以是CSS选择器</p>
+<li>选择表达式可以是CSS选择器</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">　　$(document) //选择整个文档对象
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">　　$(document) //选择整个文档对象
 
 　　$(&#39;#myId&#39;) //选择ID为myId的网页元素
 
 　　$(&#39;div.myClass&#39;) // 选择class为myClass的div元素
 
-　　$(&#39;input[name=first]&#39;) // 选择name属性等于first的input元素</pre></td></tr></table>
+　　$(&#39;input[name=first]&#39;) // 选择name属性等于first的input元素
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>选择表达式也可以是jQuery的特有表达式</p>
+</div><ol start="2">
+<li>选择表达式也可以是jQuery的特有表达式</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -455,9 +441,9 @@ if (!doNotTrack) {
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">　　$(&#39;a:first&#39;) //选择网页中第一个a元素
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">　　$(&#39;a:first&#39;) //选择网页中第一个a元素
 
 　　$(&#39;tr:odd&#39;) //选择表格的奇数行
 
@@ -467,14 +453,15 @@ if (!doNotTrack) {
 
 　　$(&#39;div:gt(2)&#39;) // 选择所有的div元素，除了前三个
 
-　　$(&#39;div:animated&#39;) // 选择当前处于动画状态的div元素</pre></td></tr></table>
+　　$(&#39;div:animated&#39;) // 选择当前处于动画状态的div元素
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>jQuery还具有选取特定元素的能力</p>
+</div><ol start="3">
+<li>jQuery还具有选取特定元素的能力</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -493,9 +480,9 @@ if (!doNotTrack) {
 </span><span class="lnt">17
 </span><span class="lnt">18
 </span><span class="lnt">19
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">　　$(&#39;div&#39;).has(&#39;p&#39;); // 选择包含p元素的div元素
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">　　$(&#39;div&#39;).has(&#39;p&#39;); // 选择包含p元素的div元素
 
 　　$(&#39;div&#39;).not(&#39;.myClass&#39;); //选择class不等于myClass的div元素
 
@@ -513,32 +500,28 @@ if (!doNotTrack) {
 
 　　$(&#39;div&#39;).children(); //选择div的所有子元素
 
-　　$(&#39;div&#39;).siblings(); //选择div的同级（兄弟）元素</pre></td></tr></table>
+　　$(&#39;div&#39;).siblings(); //选择div的同级（兄弟）元素
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ol>
-
-<h1 id="jquery的链式操作是怎样的">jQuery的链式操作是怎样的</h1>
-
+</div><h1 id="jquery的链式操作是怎样的">jQuery的链式操作是怎样的</h1>
 <p>举个例子</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">　　$(&#39;div&#39;).find(&#39;h3&#39;).eq(2).html(&#39;Hello&#39;);
-//找到div,选取其中的h3,选取h3里的第3个元素，将它的内容改为(&#39;Hello&#39;)</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">　　$(&#39;div&#39;).find(&#39;h3&#39;).eq(2).html(&#39;Hello&#39;);
+//找到div,选取其中的h3,选取h3里的第3个元素，将它的内容改为(&#39;Hello&#39;)
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
+</div><ul>
 <li>jQuery链式操作实现的原理在于，jQuery操作返回的都是一个jQuery对象，我们可以紧接着对这个对象进行一系列操作</li>
 </ul>
-
 <p>另外jQuery还提供了.end()操作方法,使得选取的对象后退一步。如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -551,9 +534,9 @@ if (!doNotTrack) {
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">　　$(&#39;div&#39;)
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">　　$(&#39;div&#39;)
 
 　　　.find(&#39;h3&#39;)
 
@@ -565,78 +548,74 @@ if (!doNotTrack) {
 
 　　　.eq(0) //选中第一个h3元素
 
-　　　.html(&#39;World&#39;); //将它的内容改为World</pre></td></tr></table>
+　　　.html(&#39;World&#39;); //将它的内容改为World
+</code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="jquery如何移动元素">jQuery如何移动元素</h1>
-
+</div><h1 id="jquery如何移动元素">jQuery如何移动元素</h1>
 <p>jQuery提供了两组方法来操作元素在网页中的位置移动。一组方法是直接移动该元素，另一组方法是移动其他元素，使得目标元素达到我们想要的位置。</p>
-
 <ul>
-<li><p>首先是这种操作模式的四种方法，共计四对</p>
+<li>首先是这种操作模式的四种方法，共计四对</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">　　.insertAfter()和.after()：在现存元素的外部，从后面插入元素
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">　　.insertAfter()和.after()：在现存元素的外部，从后面插入元素
 
 　　.insertBefore()和.before()：在现存元素的外部，从前面插入元素
 
 　　.appendTo()和.append()：在现存元素的内部，从后面插入元素
 
-　　.prependTo()和.prepend()：在现存元素的内部，从前面插入元素</pre></td></tr></table>
+　　.prependTo()和.prepend()：在现存元素的内部，从前面插入元素
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>以第一组为例</p>
+</div><ul>
+<li>以第一组为例</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">　　$(&#39;div&#39;).insertAfter($(&#39;p&#39;)); 
-//第一种方法是使用.insertAfter()，把div元素移动p元素后面
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">　　$(&#39;div&#39;).insertAfter($(&#39;p&#39;)); 
+    //第一种方法是使用.insertAfter()，把div元素移动p元素后面
 　　$(&#39;p&#39;).after($(&#39;div&#39;)); 
-//第二种方法是使用.after()，把p元素加到div元素前面</pre></td></tr></table>
+    //第二种方法是使用.after()，把p元素加到div元素前面
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
-<p>值得一提的是（需要注意的是），这两种方法返回的不是同一个元素：第一种返回的是<code>div</code>元素而第二种返回的是<code>p</code>元素</p>
-
+</div><p>值得一提的是（需要注意的是），这两种方法返回的不是同一个元素：第一种返回的是<code>div</code>元素而第二种返回的是<code>p</code>元素</p>
 <h1 id="jquery如何创建元素">jQuery如何创建元素</h1>
-
 <p>jQuery创建元素很简单，以下为例</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">　　$(&#39;&lt;p&gt;Hello&lt;/p&gt;&#39;);  // 创建&lt;p&gt;Hello&lt;/p&gt;元素
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">　　$(&#39;&lt;p&gt;Hello&lt;/p&gt;&#39;);  // 创建&lt;p&gt;Hello&lt;/p&gt;元素
 
 　　$(&#39;&lt;li class=&#34;new&#34;&gt;new li&lt;/li&gt;&#39;);  // 创建&lt;li class=&#34;new&#34;&gt;new li&lt;/li&gt;元素
 
-　　$(&#39;ul&#39;).append(&#39;&lt;li&gt;list item&lt;/li&gt;&#39;); //创建&lt;li&gt;list item&lt;/li&gt;元素并添加到ul里面</pre></td></tr></table>
+　　$(&#39;ul&#39;).append(&#39;&lt;li&gt;list item&lt;/li&gt;&#39;); //创建&lt;li&gt;list item&lt;/li&gt;元素并添加到ul里面
+</code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="jquery如何修改元素的属性">jQuery如何修改元素的属性</h1>
+</div><h1 id="jquery如何修改元素的属性">jQuery如何修改元素的属性</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -647,9 +626,9 @@ if (!doNotTrack) {
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">　　.html() 取出或设置html内容
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">　　.html() 取出或设置html内容
 
 　　.text() 取出或设置text内容
 
@@ -659,25 +638,24 @@ if (!doNotTrack) {
 
 　　.height() 取出或设置某个元素的高度
 
-　　.val() 取出某个表单元素的值</pre></td></tr></table>
+　　.val() 取出某个表单元素的值
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>jQuery很厉害的一点在于它可以使用同一个函数，来完成取值（getter）和赋值（setter），即&rdquo;取值器&rdquo;与&rdquo;赋值器&rdquo;合一，到底是取值还是赋值，由传入的参数决定</p>
-
+</div><p>jQuery很厉害的一点在于它可以使用同一个函数，来完成取值（getter）和赋值（setter），即&quot;取值器&quot;与&quot;赋值器&quot;合一，到底是取值还是赋值，由传入的参数决定</p>
 <p>举例：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">　　$(&#39;h1&#39;).html(); //html()没有参数，表示取出h1的值
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">　　$(&#39;h1&#39;).html(); //html()没有参数，表示取出h1的值
 
-　　$(&#39;h1&#39;).html(&#39;Hello&#39;); //html()有参数Hello，表示对h1进行赋值</pre></td></tr></table>
+　　$(&#39;h1&#39;).html(&#39;Hello&#39;); //html()有参数Hello，表示对h1进行赋值
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
+</div><ul>
 <li>以上就是对现阶段jQuery学习的总结</li>
 </ul>
 

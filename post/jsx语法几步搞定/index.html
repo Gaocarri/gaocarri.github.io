@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/jsx%E8%AF%AD%E6%B3%95%E5%87%A0%E6%AD%A5%E6%90%9E%E5%AE%9A/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,10 +66,8 @@
 <meta property="article:modified_time" content="2020-05-11T00:00:00+00:00" />
 <meta itemprop="name" content="JSX语法几步搞定">
 <meta itemprop="description" content="JSX语法几步搞定">
-
-
-<meta itemprop="datePublished" content="2020-05-11T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-05-11T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2020-05-11T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-05-11T00:00:00+00:00" />
 <meta itemprop="wordCount" content="661">
 
 
@@ -394,122 +392,86 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#jsx注意事项">JSX注意事项</a></li>
-<li><a href="#jsx条件判断">JSX条件判断</a></li>
-<li><a href="#循环遍历">循环遍历</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="jsx注意事项">JSX注意事项</h1>
-
+      <h1 id="jsx注意事项">JSX注意事项</h1>
 <ol>
-<li><p>注意className</p>
+<li>注意className</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="c1">// 要写成
-</span><span class="c1"></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;red&#34;</span><span class="p">&gt;</span><span class="nx">n</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre></td></tr></table>
+</span><span class="c1"></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&#34;red&#34;</span><span class="p">&gt;</span><span class="nx">n</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>插入变量</p></li>
+</div><ol start="2">
+<li>插入变量</li>
 </ol>
-
 <ul>
 <li>标签里面的所有JS代码要用{}抱起来</li>
 <li>如果有需要的变量n，难么就用{}把n包起来</li>
 <li>如果你需要对象，那么就要用{}把对象包起来，如{{name:&lsquo;gaocarri&rsquo;}}</li>
 </ul>
-
-<ol>
+<ol start="3">
 <li>习惯return后面加()</li>
 </ol>
-
 <h1 id="jsx条件判断">JSX条件判断</h1>
-
 <ol>
-<li><p>直接返回</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">const App = () =&gt; {
-let n = 1
-return  {n % 2 === 0 ? &lt;div&gt;n是偶数&lt;/div&gt; : &lt;div&gt;n是奇数&lt;/div&gt;}
-}</pre></td></tr></table>
-</div>
-</div></li>
-
-<li><p>在div里</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-<span class="kd">let</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">return</span> <span class="p">(</span>
-<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">{</span><span class="nx">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">?</span> <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="nx">n是偶数</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span> <span class="o">:</span> <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="nx">n是奇数</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;}</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
-</div>
-</div></li>
-
-<li><p>变量写法</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-<span class="kd">let</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="kr">const</span> <span class="nx">content</span><span class="o">=</span><span class="p">(</span>
-<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">{</span><span class="nx">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">?</span> <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="nx">n是偶数</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span> <span class="o">:</span> <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="nx">n是奇数</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;}</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">)</span>
-<span class="k">return</span> <span class="nx">content</span>
-<span class="p">}</span></code></pre></td></tr></table>
-</div>
-</div></li>
+<li>直接返回</li>
 </ol>
-
-<h1 id="循环遍历">循环遍历</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">const App = () =&gt; {
+  let n = 1
+  return  {n % 2 === 0 ? &lt;div&gt;n是偶数&lt;/div&gt; : &lt;div&gt;n是奇数&lt;/div&gt;}
+}
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>在div里</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">{</span><span class="nx">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">?</span> <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="nx">n是偶数</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span> <span class="o">:</span> <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="nx">n是奇数</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;}</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>变量写法</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -518,9 +480,34 @@ return  {n % 2 === 0 ? &lt;div&gt;n是偶数&lt;/div&gt; : &lt;div&gt;n是奇数
 </span><span class="lnt">7
 </span><span class="lnt">8
 </span><span class="lnt">9
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">const App = (props)=&gt;{
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="kr">const</span> <span class="nx">content</span><span class="o">=</span><span class="p">(</span>
+   <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">{</span><span class="nx">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">?</span> <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="nx">n是偶数</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span> <span class="o">:</span> <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="nx">n是奇数</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;}</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">)</span>
+  <span class="k">return</span> <span class="nx">content</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="循环遍历">循环遍历</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">const App = (props)=&gt;{
 return (
 	&lt;div&gt;
 	{props.numbers.map(n,index)=&gt;{
@@ -528,34 +515,34 @@ return (
 	}}
 	&lt;/div&gt;
 )
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>还可以用for循环</p>
+</div><p>还可以用for循环</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">const App =(props)=&gt;{
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">const App =(props)=&gt;{
 const arr = []
 for(let i = 0;i&lt;props.numbers.length;i++){
 arr.push(&lt;div&gt;下标{i}的值为{props.numbers[i]}&lt;/div&gt;)
 }
 return &lt;div&gt;{arr}&lt;/div&gt;
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>例子</p>
+</div><p>例子</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -590,7 +577,8 @@ return &lt;div&gt;{arr}&lt;/div&gt;
       <span class="k">return</span> <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="nx">numbers的第</span><span class="p">{</span><span class="nx">i</span><span class="p">}</span><span class="nx">个下标值是</span><span class="p">{</span><span class="nx">n</span><span class="p">}&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">})</span>
   <span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

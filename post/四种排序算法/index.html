@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/%E5%9B%9B%E7%A7%8D%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,10 +66,8 @@
 <meta property="article:modified_time" content="2019-11-23T00:00:00+00:00" />
 <meta itemprop="name" content="四种排序算法">
 <meta itemprop="description" content="四种排序算法">
-
-
-<meta itemprop="datePublished" content="2019-11-23T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-11-23T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2019-11-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-11-23T00:00:00+00:00" />
 <meta itemprop="wordCount" content="575">
 
 
@@ -394,30 +392,20 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#选择排序">选择排序</a></li>
-<li><a href="#快速排序">快速排序</a></li>
-<li><a href="#归并排序">归并排序</a></li>
-<li><a href="#计数排序">计数排序</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="选择排序">选择排序</h1>
-
+      <h1 id="选择排序">选择排序</h1>
 <p>之前入门了数据结构与算法，学了几种经典的排序，今天在这里把他记录下来</p>
-
 <ul>
-<li><p>选择排序的思想，依次找到最小的数的<code>index</code>，把它取出来，再在去除它的数组中找到它。</p>
+<li>选择排序的思想，依次找到最小的数的<code>index</code>，把它取出来，再在去除它的数组中找到它。</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -429,31 +417,29 @@ if (!doNotTrack) {
 </span><span class="lnt">10
 </span><span class="lnt">11
 </span><span class="lnt">12
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">function choseSort(arr){
-for(let i = 0;i&lt;arr.length-1;i++){
-for(let j = i;j&lt;arr.length;j++){
-  if(arr[j]&lt;arr[i]){
-    [arr[i],arr[j]] = [arr[j],arr[i]]
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">function choseSort(arr){
+  for(let i = 0;i&lt;arr.length-1;i++){
+    for(let j = i;j&lt;arr.length;j++){
+      if(arr[j]&lt;arr[i]){
+        [arr[i],arr[j]] = [arr[j],arr[i]]
+      }
+    }
   }
-}
-}
-return arr
+  return arr
 }
 
-console.log(choseSort([1,5,2,3,6,2,3,6]))</pre></td></tr></table>
+console.log(choseSort([1,5,2,3,6,2,3,6]))
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
-<h1 id="快速排序">快速排序</h1>
-
+</div><h1 id="快速排序">快速排序</h1>
 <ul>
-<li><p>快速排序的思想，将数组分成两段，抽出一个基准，将其他数与其比较大小，将小的放到它的左边，大的放到它右边，重复此过程</p>
+<li>快速排序的思想，将数组分成两段，抽出一个基准，将其他数与其比较大小，将小的放到它的左边，大的放到它右边，重复此过程</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -478,44 +464,42 @@ console.log(choseSort([1,5,2,3,6,2,3,6]))</pre></td></tr></table>
 </span><span class="lnt">23
 </span><span class="lnt">24
 </span><span class="lnt">25
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">   function quickSort(arr){
-function partition(arr,left,right){
-let pivot = arr[right]
-let storeIndex = left
-for(let i = left;i&lt;right;i++){
-  if(arr[i]&lt;pivot){
-    [arr[left],arr[storeIndex]] = [arr[storeIndex],arr[left]]
-    storeIndex++
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">       function quickSort(arr){
+  function partition(arr,left,right){
+    let pivot = arr[right]
+    let storeIndex = left
+    for(let i = left;i&lt;right;i++){
+      if(arr[i]&lt;pivot){
+        [arr[left],arr[storeIndex]] = [arr[storeIndex],arr[left]]
+        storeIndex++
+      }
+    }
+    [arr[storeIndex],arr[right]] = [arr[right],arr[storeIndex]]
+    return storeIndex
   }
-}
-[arr[storeIndex],arr[right]] = [arr[right],arr[storeIndex]]
-return storeIndex
-}
-function sort(arr,left,right){
- if(left&gt;=right) return
- let storeIndex = partition(arr,left,right)
- console.log(storeIndex)
- sort(arr,left,storeIndex-1)
- sort(arr,storeIndex+1,right)
-}
-sort(arr,0,arr.length-1)
-return arr
+  function sort(arr,left,right){
+     if(left&gt;=right) return
+     let storeIndex = partition(arr,left,right)
+     console.log(storeIndex)
+     sort(arr,left,storeIndex-1)
+     sort(arr,storeIndex+1,right)
+  }
+  sort(arr,0,arr.length-1)
+  return arr
 }
 
-console.log(quickSort([8, 4, 90,1000,29]));</pre></td></tr></table>
+console.log(quickSort([8, 4, 90,1000,29]));
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
-<h1 id="归并排序">归并排序</h1>
-
+</div><h1 id="归并排序">归并排序</h1>
 <ul>
-<li><p>归并排序的思路，将数组分成两半（一直分），每次对比两个数组之间的数大小，再把最终结果合并起来</p>
+<li>归并排序的思路，将数组分成两半（一直分），每次对比两个数组之间的数大小，再把最终结果合并起来</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -533,37 +517,35 @@ console.log(quickSort([8, 4, 90,1000,29]));</pre></td></tr></table>
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">    let mergeSort = (arr) =&gt; {
-        if (arr.length === 1) {
-            return arr;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">        let mergeSort = (arr) =&gt; {
+            if (arr.length === 1) {
+                return arr;
+            }
+            let left = arr.slice(0, Math.floor(arr.length / 2))
+            let right = arr.splice(arr.length / 2)
+            return merge(mergeSort(left), mergeSort(right));
         }
-        let left = arr.slice(0, Math.floor(arr.length / 2))
-        let right = arr.splice(arr.length / 2)
-        return merge(mergeSort(left), mergeSort(right));
-    }
-    let merge = (a, b) =&gt; {
-        if (a.length === 0) {
-            return b;
+        let merge = (a, b) =&gt; {
+            if (a.length === 0) {
+                return b;
+            }
+            if (b.length === 0) {
+                return a;
+            }
+            return a[0] &gt; b[0] ? [b[0]].concat(merge(a, b.slice(1))) : [a[0]].concat(merge(b, a.slice(1)))
         }
-        if (b.length === 0) {
-            return a;
-        }
-        return a[0] &gt; b[0] ? [b[0]].concat(merge(a, b.slice(1))) : [a[0]].concat(merge(b, a.slice(1)))
-    }
-    let arr = [1, 4, 6, 2, 3, 1];</pre></td></tr></table>
+        let arr = [1, 4, 6, 2, 3, 1];
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
-<h1 id="计数排序">计数排序</h1>
-
+</div><h1 id="计数排序">计数排序</h1>
 <ul>
-<li><p>计数排序的思路，声明一个哈希表用来存储这个数组并且记录每个数出现的次数，然后再从0开始寻找哈希表中的数，依次把最小的数push到一个新的数组中去。</p>
+<li>计数排序的思路，声明一个哈希表用来存储这个数组并且记录每个数出现的次数，然后再从0开始寻找哈希表中的数，依次把最小的数push到一个新的数组中去。</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -585,34 +567,33 @@ console.log(quickSort([8, 4, 90,1000,29]));</pre></td></tr></table>
 </span><span class="lnt">20
 </span><span class="lnt">21
 </span><span class="lnt">22
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">let countSort = (arr) =&gt; {
-        let hashTable = {},
-            max = 0,
-            result = [];
-        for (let i = 0; i &lt; arr.length; i++) {
-            if (!(arr[i] in hashTable)) {
-                hashTable[arr[i]] = 1
-            } else {
-                hashTable[arr[i]] += 1
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">    let countSort = (arr) =&gt; {
+            let hashTable = {},
+                max = 0,
+                result = [];
+            for (let i = 0; i &lt; arr.length; i++) {
+                if (!(arr[i] in hashTable)) {
+                    hashTable[arr[i]] = 1
+                } else {
+                    hashTable[arr[i]] += 1
+                }
+                if (arr[i] &gt; max) {
+                    max = arr[i]
+                }
             }
-            if (arr[i] &gt; max) {
-                max = arr[i]
+            for (let j = 0; j &lt;= max; j++) {
+                for (let i = 0; i &lt; hashTable[j]; i++) {
+                    result.push(j)
+                }
             }
+            return result;
         }
-        for (let j = 0; j &lt;= max; j++) {
-            for (let i = 0; i &lt; hashTable[j]; i++) {
-                result.push(j)
-            }
-        }
-        return result;
-    }
-let arr = [2, 5, 4, 3, 2, 1, 3]</pre></td></tr></table>
+    let arr = [2, 5, 4, 3, 2, 1, 3]
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
+</div>
     </div>
 
     

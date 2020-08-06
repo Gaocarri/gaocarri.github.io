@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0react%E4%B9%8Busestate/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,10 +66,8 @@
 <meta property="article:modified_time" content="2020-05-30T00:00:00+00:00" />
 <meta itemprop="name" content="自己实现React之useState">
 <meta itemprop="description" content="自己实现React之useState">
-
-
-<meta itemprop="datePublished" content="2020-05-30T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-05-30T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2020-05-30T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-05-30T00:00:00+00:00" />
 <meta itemprop="wordCount" content="782">
 
 
@@ -394,37 +392,26 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#usestate原理深入">useState原理深入</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<p>模拟useState</p>
-
+      <p>模拟useState</p>
 <h1 id="usestate原理深入">useState原理深入</h1>
-
 <p>1.<code>const [n,setN] = React.useState(0)</code></p>
-
 <p>2.分析</p>
-
 <ul>
 <li>setN会修改数据x，将n+1存入x</li>
 <li>setN一定会触发App的重新渲染（re-render）</li>
 <li>useState肯定会从x读取n的最新值</li>
 <li>每个组件都有自己的数据x，我们将其命名为state</li>
 </ul>
-
 <p>3.自己写一个useState</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -461,16 +448,16 @@ if (!doNotTrack) {
 
 <span class="kr">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">()=&gt;{</span>
     <span class="kr">const</span> <span class="p">[</span><span class="nx">n</span><span class="p">,</span><span class="nx">setN</span><span class="p">]</span> <span class="o">=</span> <span class="nx">myUseState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>4.但是myUseState有问题，如果调用了两次myUseState会有冲突</p>
-
+</div><p>4.但是myUseState有问题，如果调用了两次myUseState会有冲突</p>
 <ul>
-<li><p>把_state改成数组</p>
+<li>把_state改成数组</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -493,9 +480,9 @@ if (!doNotTrack) {
 </span><span class="lnt">21
 </span><span class="lnt">22
 </span><span class="lnt">23
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">let _state = []
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">let _state = []
 let index = 0
 
 const myUseState = initialValue=&gt;{
@@ -515,23 +502,17 @@ ReactDOM.render(&lt;App /&gt;,rootElement)
 }
 
 const App = ()=&gt;{
-const [n,setN] = myUseState(0)
-const [m,setM] = myUseState(0)
-}</pre></td></tr></table>
+    const [n,setN] = myUseState(0)
+    const [m,setM] = myUseState(0)
+}
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
-<p>5.因为顺序的原因，myUse不能放在if..else..里,可以自己尝试一下原版的useState，提示组件调用的Hook不能有顺序变化</p>
-
+</div><p>5.因为顺序的原因，myUse不能放在if..else..里,可以自己尝试一下原版的useState，提示组件调用的Hook不能有顺序变化</p>
 <p>6.myUseState还有一个问题，两个组件不能同时用这个_state和index</p>
-
 <ul>
 <li>React的解决办法，放在组件对应的虚拟节点对象上</li>
 </ul>
-
 <p>7.总结</p>
-
 <ul>
 <li>每个函数组件对应一个React节点</li>
 <li>每个节点保存着state和index</li>
@@ -539,17 +520,15 @@ const [m,setM] = myUseState(0)
 <li>index由useState出现的顺序决定(当组件重新渲染的时候会将index置为0，然后根据调用的顺序来取用state，所以不能把useState放在if判断里)</li>
 <li>setState会修改state，并触发更新</li>
 </ul>
-
 <p>8.由于useState产生新的n，并不直接修改原来的n，所以该状态没有贯穿始终，可以贯穿始终的状态</p>
-
 <ul>
 <li>useRef
-
 <ul>
 <li>useRef不仅可以用于div，还能用于任意数据（它改变数据就是改变当前数据），但不能自己触发render，可以用setN触发</li>
 <li>useContext不仅能贯穿始终，还能贯穿不同组件</li>
 <li>同时ref还可以用来引用DOM对象</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 
     </div>

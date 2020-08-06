@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/vue%E5%AE%8C%E6%95%B4%E7%89%88%E4%B8%8E%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88%E5%8C%BA%E5%88%AB/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,10 +66,8 @@
 <meta property="article:modified_time" content="2020-02-02T00:00:00+00:00" />
 <meta itemprop="name" content="Vue完整版与非完整版区别">
 <meta itemprop="description" content="Vue基础（二）">
-
-
-<meta itemprop="datePublished" content="2020-02-02T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-02-02T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2020-02-02T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-02-02T00:00:00+00:00" />
 <meta itemprop="wordCount" content="479">
 
 
@@ -395,58 +393,47 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#官方文档的解释">官方文档的解释</a></li>
-<li><a href="#总结">总结</a></li>
-<li><a href="#两个版本对应的文件名">两个版本对应的文件名</a></li>
-<li><a href="#template和render怎么用">template和render怎么用</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#官方文档的解释">官方文档的解释</a></li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#两个版本对应的文件名">两个版本对应的文件名</a></li>
+    <li><a href="#template和render怎么用">template和render怎么用</a></li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h2 id="官方文档的解释">官方文档的解释</h2>
-
-<p><img src="/images/vue两个版本官方.png" alt="" /></p>
-
+      <h2 id="官方文档的解释">官方文档的解释</h2>
+<p><img src="/images/vue%E4%B8%A4%E4%B8%AA%E7%89%88%E6%9C%AC%E5%AE%98%E6%96%B9.png" alt=""></p>
 <h2 id="总结">总结</h2>
-
-<p><img src="/images/Vue两个版本.png" alt="" /></p>
-
+<p><img src="/images/Vue%E4%B8%A4%E4%B8%AA%E7%89%88%E6%9C%AC.png" alt=""></p>
 <h2 id="两个版本对应的文件名">两个版本对应的文件名</h2>
-
 <ul>
-<li><p>完整版</p>
-
+<li>
+<p>完整版</p>
 <ul>
 <li>文件名：vue.js和vue.min.js</li>
 <li>含min的是压缩版，表示是在生产环境下给用户使用的版本，取消了注释和警告</li>
-</ul></li>
-
-<li><p>运行时版本</p>
-
+</ul>
+</li>
+<li>
+<p>运行时版本</p>
 <ul>
 <li>文件名：vue.runtime.js或者vue.runtime.min.js</li>
 <li>同样的，含min的是压缩版，表示是在生产环境下给用户使用的版本，取消了注释和警告</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="template和render怎么用">template和render怎么用</h2>
-
 <p><strong>template(完整版使用)</strong></p>
-
 <ul>
-<li><p>代码</p>
+<li>代码</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -454,22 +441,20 @@ if (!doNotTrack) {
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// 需要编译器
 </span><span class="c1"></span><span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
-<span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&lt;div&gt;{{ hi }}&lt;/div&gt;&#39;</span>
+  <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&lt;div&gt;{{ hi }}&lt;/div&gt;&#39;</span>
 <span class="p">})</span>
 </code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>完整版拥有更多的功能，我们可以在template里写模板代码，编译器会自动进行转换</p></li>
+</div><ul>
+<li>完整版拥有更多的功能，我们可以在template里写模板代码，编译器会自动进行转换</li>
 </ul>
-
 <p><strong>render的使用（运行时版使用）</strong></p>
-
 <ul>
-<li><p>代码</p>
+<li>代码</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -479,23 +464,18 @@ if (!doNotTrack) {
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// 不需要编译器
 </span><span class="c1"></span><span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
-<span class="nx">render</span> <span class="p">(</span><span class="nx">h</span><span class="p">)</span> <span class="p">{</span>
-<span class="k">return</span> <span class="nx">h</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">hi</span><span class="p">)</span>
-<span class="p">}</span>
+  <span class="nx">render</span> <span class="p">(</span><span class="nx">h</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">h</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">hi</span><span class="p">)</span>
+  <span class="p">}</span>
 <span class="p">})</span>
 </code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>运行时版本缺少了编译器，所以无法直接在template下写html</p></li>
-
-<li><p>此时需要通过render提供的一个h函数，编写h函数下的代码实现转换</p></li>
-
-<li><p>如果我们把html文件写在<code>.vue</code>文件下，使用h函数来render里面的内容，，vue会通过内部的vue-loader实现编译器的效果</p></li>
+</div><ul>
+<li>运行时版本缺少了编译器，所以无法直接在template下写html</li>
+<li>此时需要通过render提供的一个h函数，编写h函数下的代码实现转换</li>
+<li>如果我们把html文件写在<code>.vue</code>文件下，使用h函数来render里面的内容，，vue会通过内部的vue-loader实现编译器的效果</li>
 </ul>
-
 <p><strong>使用建议</strong></p>
-
 <p>运行时版比完整版的体积小了约30%,所以尽可能使用运行时版以减小代码体积，提升用户体验。</p>
 
     </div>

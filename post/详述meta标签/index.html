@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/%E8%AF%A6%E8%BF%B0meta%E6%A0%87%E7%AD%BE/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,10 +66,8 @@
 <meta property="article:modified_time" content="2020-07-04T00:00:00+00:00" />
 <meta itemprop="name" content="详述meta标签">
 <meta itemprop="description" content="详述meta标签">
-
-
-<meta itemprop="datePublished" content="2020-07-04T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-07-04T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2020-07-04T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-07-04T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1795">
 
 
@@ -395,254 +393,217 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#meta标签是什么">meta标签是什么</a>
-<ul>
-<li><a href="#meta标签的属性分类">meta标签的属性分类</a></li>
-</ul></li>
-<li><a href="#charset">charset</a></li>
-<li><a href="#name属性">name属性</a>
-<ul>
-<li><a href="#1-keywords-关键字">1.keywords(关键字)</a></li>
-<li><a href="#2-description-描述">2.description(描述)</a></li>
-<li><a href="#3-viewport">3.viewport</a></li>
-<li><a href="#4-其他">4.其他</a></li>
-</ul></li>
-<li><a href="#http-equiv">http-equiv</a>
-<ul>
-<li><a href="#1-content-type-设定网页字符集-推荐使用html5的方式">1.content-Type(设定网页字符集)(推荐使用HTML5的方式)</a></li>
-<li><a href="#2-x-ua-compatible-浏览器采取何种版本渲染当前页面">2.X-UA-Compatible(浏览器采取何种版本渲染当前页面)</a></li>
-<li><a href="#3-cache-control-指定请求和响应遵循的缓存机制">3.cache-control(指定请求和响应遵循的缓存机制)</a></li>
-<li><a href="#4-expires-网页到期时间">4.expires(网页到期时间)</a></li>
-<li><a href="#5-refresh-自动刷新并指向某页面">5.refresh(自动刷新并指向某页面)</a></li>
-<li><a href="#6-set-cookie-cookie设定">6.Set-Cookie(cookie设定)</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#meta标签的属性分类">meta标签的属性分类</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#1keywords关键字">1.keywords(关键字)</a></li>
+    <li><a href="#2description描述">2.description(描述)</a></li>
+    <li><a href="#3viewport">3.viewport</a></li>
+    <li><a href="#4其他">4.其他</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#1content-type设定网页字符集推荐使用html5的方式">1.content-Type(设定网页字符集)(推荐使用HTML5的方式)</a></li>
+    <li><a href="#2x-ua-compatible浏览器采取何种版本渲染当前页面">2.X-UA-Compatible(浏览器采取何种版本渲染当前页面)</a></li>
+    <li><a href="#3cache-control指定请求和响应遵循的缓存机制">3.cache-control(指定请求和响应遵循的缓存机制)</a></li>
+    <li><a href="#4expires网页到期时间">4.expires(网页到期时间)</a></li>
+    <li><a href="#5refresh自动刷新并指向某页面">5.refresh(自动刷新并指向某页面)</a></li>
+    <li><a href="#6set-cookiecookie设定">6.Set-Cookie(cookie设定)</a></li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<p>之前没怎么在意过meta，结果连charset都不知道，属实丢人。
+      <p>之前没怎么在意过meta，结果连charset都不知道，属实丢人。
 于是查阅了很多资料，大体列举了一些常见的meta标签.</p>
-
 <h1 id="meta标签是什么">meta标签是什么</h1>
-
 <p>meta常用于定义<strong>页面的说明，关键字，最后修改日期</strong>，和其它的元数据。这些元数据将服务于浏览器（如何布局或重载页面），搜索引擎和其它网络服务。</p>
-
 <h2 id="meta标签的属性分类">meta标签的属性分类</h2>
-
 <p>直接参考MDN：</p>
-
 <ul>
 <li>如果设置了 charset 属性，meta 元素是一个字符集声明，告诉文档使用哪种字符编码。</li>
 <li>如果设置了 name 属性，meta 元素提供的是文档级别（document-level）的元数据，应用于整个页面。</li>
 <li>如果设置了 http-equiv 属性，meta 元素则是编译指令，提供的信息与类似命名的HTTP头部相同。</li>
 <li>如果设置了 itemprop 属性，meta 元素提供用户定义的元数据。</li>
 </ul>
-
 <p>这里主要讨论前三种</p>
-
 <h1 id="charset">charset</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;meta charset=&#34;UTF-8&#34;&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;meta charset=&#34;UTF-8&#34;&gt;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>UTF-8是编码规则，这个标签告诉文档使用UTF-8编码。具体UTF-8是什么不在讨论范畴</p>
-
+</div><p>UTF-8是编码规则，这个标签告诉文档使用UTF-8编码。具体UTF-8是什么不在讨论范畴</p>
 <h1 id="name属性">name属性</h1>
-
 <p>name属性主要用于描述网页，比如网页的关键词，叙述等。与之对应的属性值为content，content中的内容是对name填入类型的具体描述，便于搜索引擎抓取。</p>
-
 <p>具体的语法格式</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;meta name=&#34;参数&#34; content=&#34;具体的描述&#34;&gt;。</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;meta name=&#34;参数&#34; content=&#34;具体的描述&#34;&gt;。
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>具体常用属性列举以下几种：</p>
-
-<h2 id="1-keywords-关键字">1.keywords(关键字)</h2>
-
+</div><p>具体常用属性列举以下几种：</p>
+<h2 id="1keywords关键字">1.keywords(关键字)</h2>
 <p>说明：用于告诉搜索引擎，你网页的关键字。
 举例：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;meta name=&#34;keywords&#34; content=&#34;gaocarri,前端&#34;&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;meta name=&#34;keywords&#34; content=&#34;gaocarri,前端&#34;&gt;
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="2-description-描述">2.description(描述)</h2>
-
+</div><h2 id="2description描述">2.description(描述)</h2>
 <p>说明：用于告诉搜索引擎，你网站的主要内容。
 举例：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;meta name=&#34;description&#34; content=&#34;Gacarri的前端博客&#34;&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;meta name=&#34;description&#34; content=&#34;Gacarri的前端博客&#34;&gt;
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="3-viewport">3.viewport</h2>
-
+</div><h2 id="3viewport">3.viewport</h2>
 <p>说明：这个概念比较复杂，有空再写一下
 举例:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;&gt;
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="4-其他">4.其他</h2>
-
+</div><h2 id="4其他">4.其他</h2>
 <p>author(作者) copyright(版权) renderer(双核浏览器渲染方式)&hellip;</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;meta name=&#34;renderer&#34; content=&#34;webkit&#34;&gt; //默认webkit内核
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;meta name=&#34;renderer&#34; content=&#34;webkit&#34;&gt; //默认webkit内核
 &lt;meta name=&#34;renderer&#34; content=&#34;ie-comp&#34;&gt; //默认IE兼容模式
-&lt;meta name=&#34;renderer&#34; content=&#34;ie-stand&#34;&gt; //默认IE标准模式</pre></td></tr></table>
+&lt;meta name=&#34;renderer&#34; content=&#34;ie-stand&#34;&gt; //默认IE标准模式
+</code></pre></td></tr></table>
 </div>
-</div>
-<h1 id="http-equiv">http-equiv</h1>
-
+</div><h1 id="http-equiv">http-equiv</h1>
 <p>这个主要是用来定义一些http参数的</p>
-
 <p>具体的语法格式</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;meta http-equiv=&#34;参数&#34; content=&#34;具体的描述&#34;&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;meta http-equiv=&#34;参数&#34; content=&#34;具体的描述&#34;&gt;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>主要有以下几个参数：</p>
-
-<h2 id="1-content-type-设定网页字符集-推荐使用html5的方式">1.content-Type(设定网页字符集)(推荐使用HTML5的方式)</h2>
-
+</div><p>主要有以下几个参数：</p>
+<h2 id="1content-type设定网页字符集推荐使用html5的方式">1.content-Type(设定网页字符集)(推荐使用HTML5的方式)</h2>
 <p>说明：用于设定网页字符集，便于浏览器解析与渲染页面
 举例：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;meta http-equiv=&#34;content-Type&#34; content=&#34;text/html;charset=utf-8&#34;&gt;  //旧的HTML，不推荐
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;meta http-equiv=&#34;content-Type&#34; content=&#34;text/html;charset=utf-8&#34;&gt;  //旧的HTML，不推荐
 
-&lt;meta charset=&#34;utf-8&#34;&gt; //HTML5设定网页字符集的方式，推荐使用UTF-8</pre></td></tr></table>
+&lt;meta charset=&#34;utf-8&#34;&gt; //HTML5设定网页字符集的方式，推荐使用UTF-8
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="2-x-ua-compatible-浏览器采取何种版本渲染当前页面">2.X-UA-Compatible(浏览器采取何种版本渲染当前页面)</h2>
-
+</div><h2 id="2x-ua-compatible浏览器采取何种版本渲染当前页面">2.X-UA-Compatible(浏览器采取何种版本渲染当前页面)</h2>
 <p>说明：用于告知浏览器以何种版本来渲染页面。（一般都设置为最新模式，在各大框架中这个设置也很常见。）
 举例：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=edge,chrome=1&#34;/&gt; //指定IE和Chrome使用最新版本渲染当前页面</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=edge,chrome=1&#34;/&gt; //指定IE和Chrome使用最新版本渲染当前页面
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="3-cache-control-指定请求和响应遵循的缓存机制">3.cache-control(指定请求和响应遵循的缓存机制)</h2>
-
+</div><h2 id="3cache-control指定请求和响应遵循的缓存机制">3.cache-control(指定请求和响应遵循的缓存机制)</h2>
 <p>用法1.
 说明：指导浏览器如何缓存某个响应以及缓存多长时间。</p>
-
 <p>举例:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;meta http-equiv=&#34;cache-control&#34; content=&#34;no-cache&#34;&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;meta http-equiv=&#34;cache-control&#34; content=&#34;no-cache&#34;&gt;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>共有以下几种用法：</p>
-
+</div><p>共有以下几种用法：</p>
 <p>no-cache: 先发送请求，与服务器确认该资源是否被更改，如果未被更改，则使用缓存。</p>
-
 <p>no-store: 不允许缓存，每次都要去服务器上，下载完整的响应。（安全措施）</p>
-
 <p>public : 缓存所有响应，但并非必须。因为max-age也可以做到相同效果</p>
-
 <p>private : 只为单个用户缓存，因此不允许任何中继进行缓存。（比如说CDN就不允许缓存private的响应）</p>
-
 <p>maxage : 表示当前请求开始，该响应在多久内能被缓存和重用，而不去服务器重新请求。例如：max-age=60表示响应可以再缓存和重用 60 秒。</p>
-
 <p>用法2.(禁止百度自动转码)
 说明：用于禁止当前页面在移动端浏览时，被百度自动转码。虽然百度的本意是好的，但是转码效果很多时候却不尽人意。所以可以在head中加入例子中的那句话，就可以避免百度自动转码了。
 举例：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;meta http-equiv=&#34;Cache-Control&#34; content=&#34;no-siteapp&#34; /&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;meta http-equiv=&#34;Cache-Control&#34; content=&#34;no-siteapp&#34; /&gt;
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="4-expires-网页到期时间">4.expires(网页到期时间)</h2>
-
+</div><h2 id="4expires网页到期时间">4.expires(网页到期时间)</h2>
 <p>说明:用于设定网页的到期时间(格林尼治时间)，过期后网页必须到服务器上重新传输。
 举例：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;meta http-equiv=&#34;expires&#34; content=&#34;Sunday 26 May 2020 01:00 GMT&#34; /&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;meta http-equiv=&#34;expires&#34; content=&#34;Sunday 26 May 2020 01:00 GMT&#34; /&gt;
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="5-refresh-自动刷新并指向某页面">5.refresh(自动刷新并指向某页面)</h2>
-
+</div><h2 id="5refresh自动刷新并指向某页面">5.refresh(自动刷新并指向某页面)</h2>
 <p>说明：网页将在设定的时间内，自动刷新并调向设定的网址。
 举例:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;meta http-equiv=&#34;refresh&#34; content=&#34;2；URL=http://gaocarr.top/&#34;&gt; //意思是2秒后跳转向我的博客</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;meta http-equiv=&#34;refresh&#34; content=&#34;2；URL=http://gaocarr.top/&#34;&gt; //意思是2秒后跳转向我的博客
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="6-set-cookie-cookie设定">6.Set-Cookie(cookie设定)</h2>
-
+</div><h2 id="6set-cookiecookie设定">6.Set-Cookie(cookie设定)</h2>
 <p>说明：如果网页过期。那么这个网页存在本地的cookies也会被自动删除。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;meta http-equiv=&#34;Set-Cookie&#34; content=&#34;name, date&#34;&gt; //格式
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;meta http-equiv=&#34;Set-Cookie&#34; content=&#34;name, date&#34;&gt; //格式
 
-&lt;meta http-equiv=&#34;Set-Cookie&#34; content=&#34;User=Lxxyx; path=/; expires=Sunday, 10-Jan-16 10:00:00 GMT&#34;&gt; //具体范例</pre></td></tr></table>
+&lt;meta http-equiv=&#34;Set-Cookie&#34; content=&#34;User=Lxxyx; path=/; expires=Sunday, 10-Jan-16 10:00:00 GMT&#34;&gt; //具体范例
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>总之常见的就这些了</p>
+</div><p>总之常见的就这些了</p>
 
     </div>
 

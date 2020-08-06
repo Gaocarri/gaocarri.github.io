@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/%E6%B5%85%E6%9E%90%E4%B8%A4%E7%A7%8Dreact%E7%BB%84%E4%BB%B6/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,11 +66,9 @@
 <meta property="article:modified_time" content="2020-05-15T00:00:00+00:00" />
 <meta itemprop="name" content="浅析两种React组件">
 <meta itemprop="description" content="浅析两种React组件">
-
-
-<meta itemprop="datePublished" content="2020-05-15T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-05-15T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="884">
+<meta itemprop="datePublished" content="2020-05-15T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-05-15T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1264">
 
 
 
@@ -374,8 +372,8 @@ if (!doNotTrack) {
             <a href="http://gaocarri.top/categories/react/"> React </a>
             
           </div>
-        <span class="more-meta"> 约 884 字 </span>
-          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        <span class="more-meta"> 约 1264 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
 
         
         
@@ -394,77 +392,63 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#react两种组件">React两种组件</a></li>
-<li><a href="#类组件">类组件</a></li>
-<li><a href="#函数组件">函数组件</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="react两种组件">React两种组件</h1>
-
+      <h1 id="react两种组件">React两种组件</h1>
 <p>1.函数组件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">function Welcome(props){
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">function Welcome(props){
  return &lt;h1&gt;Hello,{props.name}&lt;/h1&gt;
 }
-&lt;Welcome name=&#34;carri&#34; /&gt;</pre></td></tr></table>
+&lt;Welcome name=&#34;carri&#34; /&gt;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>2.类组件(注意this)</p>
+</div><p>2.类组件(注意this)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">class Welcome extends React.Component{
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">class Welcome extends React.Component{
 return {
 	&lt;h1&gt;Hello,{this.props.name}&lt;/h1&gt;
 }
 }
-&lt;Welcome name=&#34;carri&#34; /&gt;</pre></td></tr></table>
+&lt;Welcome name=&#34;carri&#34; /&gt;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>3.关于这里的Welcome组件</p>
-
+</div><p>3.关于这里的Welcome组件</p>
 <ul>
 <li><code>&lt;Welcome /&gt;</code>会被翻译成React.createElement(Welcome)*</li>
-<li>可以点击<a href="[https://babeljs.io/repl#?browsers=defaults%2C%20not%20ie%2011%2C%20not%20ie_mob%2011&amp;build=&amp;builtIns=false&amp;spec=false&amp;loose=false&amp;code_lz=Q&amp;debug=false&amp;forceAllTransforms=false&amp;shippedProposals=false&amp;circleciRepo=&amp;evaluate=false&amp;fileSize=false&amp;timeTravel=false&amp;sourceType=module&amp;lineWrap=true&amp;presets=env%2Creact%2Cstage-2%2Cenv&amp;prettier=false&amp;targets=&amp;version=7.9.6&amp;externalPlugins=](https://babeljs.io/repl#?browsers=defaults%2C not ie 11%2C not ie_mob 11&amp;build=&amp;builtIns=false&amp;spec=false&amp;loose=false&amp;code_lz=Q&amp;debug=false&amp;forceAllTransforms=false&amp;shippedProposals=false&amp;circleciRepo=&amp;evaluate=false&amp;fileSize=false&amp;timeTravel=false&amp;sourceType=module&amp;lineWrap=true&amp;presets=env%2Creact%2Cstage-2%2Cenv&amp;prettier=false&amp;targets=&amp;version=7.9.6&amp;externalPlugins=)">babel online</a>直接翻译测试</li>
+<li>可以点击[babel online]([https://babeljs.io/repl#?browsers=defaults%2C%20not%20ie%2011%2C%20not%20ie_mob%2011&amp;build=&amp;builtIns=false&amp;spec=false&amp;loose=false&amp;code_lz=Q&amp;debug=false&amp;forceAllTransforms=false&amp;shippedProposals=false&amp;circleciRepo=&amp;evaluate=false&amp;fileSize=false&amp;timeTravel=false&amp;sourceType=module&amp;lineWrap=true&amp;presets=env%2Creact%2Cstage-2%2Cenv&amp;prettier=false&amp;targets=&amp;version=7.9.6&amp;externalPlugins=](<a href="https://babeljs.io/repl#?browsers=defaults%2C">https://babeljs.io/repl#?browsers=defaults%2C</a> not ie 11%2C not ie_mob 11&amp;build=&amp;builtIns=false&amp;spec=false&amp;loose=false&amp;code_lz=Q&amp;debug=false&amp;forceAllTransforms=false&amp;shippedProposals=false&amp;circleciRepo=&amp;evaluate=false&amp;fileSize=false&amp;timeTravel=false&amp;sourceType=module&amp;lineWrap=true&amp;presets=env%2Creact%2Cstage-2%2Cenv&amp;prettier=false&amp;targets=&amp;version=7.9.6&amp;externalPlugins=))直接翻译测试</li>
 </ul>
-
 <p>4.React.CreateElement</p>
-
 <ul>
 <li>传入字符串&rsquo;div&rsquo;,会创建一个div</li>
 <li>传入一个函数，会调用函数，获取其返回值</li>
 <li>传入一个类，则在类前面加个<code>new</code>(这回导致执行<code>constructor</code>),获取一个组件对象，然后调用对象的render方法，获取其返回值</li>
 </ul>
-
 <h1 id="类组件">类组件</h1>
-
 <p>1.类组件写法示例</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -483,126 +467,115 @@ return {
     <span class="nx">render</span><span class="p">(){</span>
         <span class="k">return</span> <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="nx">hi</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span><span class="nx">div</span><span class="o">&gt;</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>2.添加props</p>
-
+</div><p>2.添加props</p>
 <ul>
 <li>类组件直接读取属性this.props.xxx</li>
 <li>函数组件直接读取参数props.xxx</li>
 </ul>
-
 <p>3.添加state(内部数据)</p>
-
 <ul>
 <li>类组件用this.state读，this.setState</li>
-
-<li><p>函数组件用useState返回数组，第一项读，第二项写</p>
+<li>函数组件用useState返回数组，第一项读，第二项写</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">const [n, setN] = React.useState(0);
-// n是0 数组第一项
-// setN是写 数组第二项</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">  const [n, setN] = React.useState(0);
+  // n是0 数组第一项
+  // setN是写 数组第二项
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
-<p>4.类组件注意事项</p>
-
+</div><p>4.类组件注意事项</p>
 <ul>
-<li><p>this.state.n+=1无效</p>
-
+<li>
+<p>this.state.n+=1无效</p>
 <ul>
 <li>其实n已经改变了，只不过UI不会自动更新</li>
 <li>调用setState才会触发UI更新</li>
 <li>因为React没有像Vue监听data一样监听state</li>
-</ul></li>
-
-<li><p>setState会异步更新UI</p>
-
+</ul>
+</li>
+<li>
+<p>setState会异步更新UI</p>
 <ul>
 <li>setState之后，state不会马上改变，立马读state会失败</li>
-
-<li><p>更推荐的方式是setState函数(避免异步造成的误解)</p>
+<li>更推荐的方式是setState函数(避免异步造成的误解)</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">this.setState(state=&gt;{
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">this.setState(state=&gt;{
 this.setState(state=&gt;{
-	const n = state.n+1
-	console.log(n)
-	return {n}
+  const n = state.n+1
+  console.log(n)
+  return {n}
 })
-})</pre></td></tr></table>
+})
+</code></pre></td></tr></table>
 </div>
 </div></li>
-</ul></li>
-
-<li><p>this.setState(this.state)不推荐</p>
-
+<li>
+<p>this.setState(this.state)不推荐</p>
 <ul>
 <li>因为React希望我们不要修改旧的state（不可变数据）</li>
 <li>常用代码:this.setState({n:state.n+1})</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h1 id="函数组件">函数组件</h1>
-
 <p>1.函数组件注意事项</p>
-
 <ul>
 <li>跟类组件相似的地方
-
 <ul>
 <li>也要通过setX（新值）来更新UI</li>
-</ul></li>
+</ul>
+</li>
 <li>跟类组件不同的地方
-
 <ul>
 <li>没有this，一律用参数和变量</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>2.类组件的setState会自动合并（只合并对象的第一层），函数组件的setX不会自动合并（所以分开写）</p>
-
 <ul>
-<li><p>类组件要合并第二层的写法(先复制)，默认值合并第一层</p>
+<li>类组件要合并第二层的写法(先复制)，默认值合并第一层</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">// const user = Object.assign({},this.state.user)
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">// const user = Object.assign({},this.state.user)
 // 也可以写成
 const user = {...this.state.user}
 user.name=&#39;jack&#39;
 this.setState({
 user:user
-})</pre></td></tr></table>
+})
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
+</div>
     </div>
 
     

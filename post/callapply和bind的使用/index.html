@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/callapply%E5%92%8Cbind%E7%9A%84%E4%BD%BF%E7%94%A8/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,10 +66,8 @@
 <meta property="article:modified_time" content="2019-12-08T00:00:00+00:00" />
 <meta itemprop="name" content="call,apply和bind的使用">
 <meta itemprop="description" content="call,apply和bind的使用">
-
-
-<meta itemprop="datePublished" content="2019-12-08T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-08T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2019-12-08T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-12-08T00:00:00+00:00" />
 <meta itemprop="wordCount" content="652">
 
 
@@ -394,27 +392,18 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#call">call</a></li>
-<li><a href="#apply">apply</a></li>
-<li><a href="#bind">bind</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<p>同样是对之前知识的查缺补漏</p>
-
+      <p>同样是对之前知识的查缺补漏</p>
 <p>call,apply,bind都可以用来指定this的值。
 举例</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -427,9 +416,9 @@ if (!doNotTrack) {
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">const xw = {
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">const xw = {
     name:&#39;小王&#39;,
     gender:&#39;男&#39;,
     age:18,
@@ -441,25 +430,18 @@ const xh = {
     name:&#39;小红&#39;,
     gender:&#39;女&#39;,
     age:17
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>xw.say(‘南京’,'南京大学')</code> 得到“男生小王，18岁，在南京市南京大学上学”,这里的this就指向xw。</p>
-
+</div><p><code>xw.say(‘南京’,'南京大学')</code> 得到“男生小王，18岁，在南京市南京大学上学”,这里的this就指向xw。</p>
 <p>要把<code>this</code>变为<code>xh</code>，得到“女生小红，17岁，在北京市北京大学上学”就可以用call,apply,bind了，以下是用法和区别</p>
-
 <h1 id="call">call</h1>
-
 <p><code>xw.say.call(xh,'北京','北京大学')</code>
 call后面跟着的第一个参数就是要指定的this,后面的参数与<code>xw.say</code>方法是一一对应的</p>
-
 <h1 id="apply">apply</h1>
-
 <p><code>xw.say.apply(xh,['北京','北京大学'])</code>
 say后面跟着的第一个参数也是要指定的this,与call的区别在于后面的第二个参数是一个数组，数组中的元素与<code>xw.say</code>方法一一对应</p>
-
 <h1 id="bind">bind</h1>
-
 <p><code>xw.say.bind(xh,'北京','北京大学')()</code>
 bind的传参方式与call一致，区别在于它返回的是一个函数，所以要再加<code>()</code>来调用
 它也可以写成<code>xw.say.bind(xh)('北京','北京大学')</code>（这是因为bind返回的是一个函数，我们仍可以在调用的时候传参）</p>

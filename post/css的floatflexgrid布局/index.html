@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/css%E7%9A%84floatflexgrid%E5%B8%83%E5%B1%80/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,10 +66,8 @@
 <meta property="article:modified_time" content="2019-10-30T00:00:00+00:00" />
 <meta itemprop="name" content="CSS的Float,Flex,Grid布局">
 <meta itemprop="description" content="CSS的Float,Flex,Grid布局">
-
-
-<meta itemprop="datePublished" content="2019-10-30T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-10-30T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2019-10-30T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-10-30T00:00:00+00:00" />
 <meta itemprop="wordCount" content="501">
 
 
@@ -394,87 +392,64 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#如何选取布局">如何选取布局</a></li>
-<li><a href="#float布局">Float布局</a></li>
-<li><a href="#flex布局">Flex布局</a></li>
-<li><a href="#grid布局">Grid布局</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="如何选取布局">如何选取布局</h1>
-
-<p><img src="/images/如何选用布局.png" alt="布局" /></p>
-
+      <h1 id="如何选取布局">如何选取布局</h1>
+<p><img src="/images/%E5%A6%82%E4%BD%95%E9%80%89%E7%94%A8%E5%B8%83%E5%B1%80.png" alt="布局"></p>
 <ul>
 <li>图片来自饥人谷</li>
 </ul>
-
 <h1 id="float布局">Float布局</h1>
-
 <ol>
 <li>子元素上加float:left和width</li>
-
-<li><p>父元素classname上加 clearfix</p>
+<li>父元素classname上加 clearfix</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">clearfix{
-content:&#39;&#39;;
-display:block;
-clear:both;
-}</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">clearfix{
+    content:&#39;&#39;;
+    display:block;
+    clear:both;
+}
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ol>
-
-<h1 id="flex布局">Flex布局</h1>
-
+</div><h1 id="flex布局">Flex布局</h1>
 <ul>
 <li>container容器</li>
-
-<li><p>items内容</p>
+<li>items内容</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">.container{
-display:flex;
-}</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">.container{
+    display:flex;
+}
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>改变items流向<code>flex-direction</code></p></li>
-
-<li><p><code>flex-wrap:wrap</code>变为换行的，默认nowrap不换行</p></li>
-
-<li><p><code>justify-content</code>flex-start,flex-end,center,space-between(分散，顶着两边),space-around(分散，两边有空),space-evenly(孔隙一样)</p></li>
-
-<li><p><code>align-items</code>center(让次轴的items居中),flex-end(都往下顶)，stretch(无高度情况下内容会将它们拉伸的一样高)</p></li>
-
-<li><p><code>items{order:1}</code>顺序，默认是0，可以为负</p></li>
-
-<li><p><code>flex-grow</code>,<code>flex-shrink</code>变胖变瘦</p></li>
+</div><ul>
+<li>改变items流向<code>flex-direction</code></li>
+<li><code>flex-wrap:wrap</code>变为换行的，默认nowrap不换行</li>
+<li><code>justify-content</code>flex-start,flex-end,center,space-between(分散，顶着两边),space-around(分散，两边有空),space-evenly(孔隙一样)</li>
+<li><code>align-items</code>center(让次轴的items居中),flex-end(都往下顶)，stretch(无高度情况下内容会将它们拉伸的一样高)</li>
+<li><code>items{order:1}</code>顺序，默认是0，可以为负</li>
+<li><code>flex-grow</code>,<code>flex-shrink</code>变胖变瘦</li>
 </ul>
-
 <p>重点：</p>
-
 <ul>
 <li><code>display:flex</code></li>
 <li><code>flex-direction:row/column</code></li>
@@ -482,30 +457,27 @@ display:flex;
 <li><code>justify-content:center/space-between</code></li>
 <li><code>align-items:center</code></li>
 </ul>
-
 <h1 id="grid布局">Grid布局</h1>
-
-<p><img src="https://s2.ax1x.com/2019/10/31/KIA74g.png" alt="KIA74g.png" /></p>
-
+<p><img src="https://s2.ax1x.com/2019/10/31/KIA74g.png" alt="KIA74g.png"></p>
 <ul>
 <li><code>grid-row/column-start/end</code>从第几根线开始，第几根结束</li>
 <li><code>grid-template-columns:1fr 1fr 2fr;</code>表示几份</li>
-
-<li><p><code>grid-template-areas:&quot;header header header&quot; &quot;aside main ad&quot; &quot;. footer footer&quot;</code>可以写成名字，.代表空</p>
+<li><code>grid-template-areas:&quot;header header header&quot; &quot;aside main ad&quot; &quot;. footer footer&quot;</code>可以写成名字，.代表空</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">items{
-grid-area:header
-}</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">items{
+    grid-area:header
+}
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p><code>grid-column/row-gap</code>中间间隔</p></li>
+</div><ul>
+<li><code>grid-column/row-gap</code>中间间隔</li>
 </ul>
 
     </div>

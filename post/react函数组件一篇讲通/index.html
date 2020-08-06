@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/react%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6%E4%B8%80%E7%AF%87%E8%AE%B2%E9%80%9A/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,10 +66,8 @@
 <meta property="article:modified_time" content="2020-05-21T00:00:00+00:00" />
 <meta itemprop="name" content="React函数组件一篇讲通">
 <meta itemprop="description" content="详解React函数组件">
-
-
-<meta itemprop="datePublished" content="2020-05-21T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-05-21T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2020-05-21T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-05-21T00:00:00+00:00" />
 <meta itemprop="wordCount" content="638">
 
 
@@ -394,42 +392,35 @@ if (!doNotTrack) {
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#函数组件">函数组件</a></li>
-<li><a href="#函数组件模拟生命周期">函数组件模拟生命周期</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<p>函数组件相对简单，注意函数组件没有生命周期，但可以模拟生命周期</p>
-
+      <p>函数组件相对简单，注意函数组件没有生命周期，但可以模拟生命周期</p>
 <h1 id="函数组件">函数组件</h1>
-
 <ol>
-<li><p>基本写法</p>
+<li>基本写法</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">const App = ()=&gt;{
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">const App = ()=&gt;{
 	return &lt;div&gt;app&lt;/div&gt;
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>使用函数组件写一个加1</p>
+</div><ol start="2">
+<li>使用函数组件写一个加1</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -438,35 +429,33 @@ if (!doNotTrack) {
 </span><span class="lnt">7
 </span><span class="lnt">8
 </span><span class="lnt">9
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">const App = props =&gt; {
-const [n, setN] = React.useState(0)
-const onClick = () =&gt; {
-setN(n + 1)
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">const App = props =&gt; {
+  const [n, setN] = React.useState(0)
+  const onClick = () =&gt; {
+    setN(n + 1)
+  }
+  return (
+    &lt;div&gt;&lt;button onClick={onClick}&gt;+1&lt;/button&gt;{n}&lt;/div&gt;
+  )
 }
-return (
-&lt;div&gt;&lt;button onClick={onClick}&gt;+1&lt;/button&gt;{n}&lt;/div&gt;
-)
-}</pre></td></tr></table>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>函数组件Tips</p></li>
+</div><ol start="3">
+<li>函数组件Tips</li>
 </ol>
-
 <ul>
 <li>函数组件没有state,要使用React.useState</li>
 <li>没有生命周期</li>
 </ul>
-
 <h1 id="函数组件模拟生命周期">函数组件模拟生命周期</h1>
-
 <ol>
-<li><p>使用useEffect解决生命周期问题</p>
+<li>使用useEffect解决生命周期问题</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -483,9 +472,9 @@ return (
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">useEffeect(()=&gt;{},[])
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">useEffeect(()=&gt;{},[])
 // 空数组代表只在第一次渲染调用，即componentDidMount
 useEffect(()=&gt;{
 	console.log(&#39;n变了&#39;)
@@ -501,14 +490,15 @@ useEffect(()=&gt;{
 	console.log(&#39;更新了&#39;)
 	return ()=&gt;{console.log(&#39;销毁了&#39;)}
 })
-// return一个函数代表销毁 即componentWillUmount</pre></td></tr></table>
+// return一个函数代表销毁 即componentWillUmount
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>模拟Update除去第一次渲染,自定义React Hooks</p>
+</div><ol start="2">
+<li>模拟Update除去第一次渲染,自定义React Hooks</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -535,9 +525,9 @@ useEffect(()=&gt;{
 </span><span class="lnt">25
 </span><span class="lnt">26
 </span><span class="lnt">27
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">const [nUpdateCount,setNUpdcateCount] = React.useState(0)
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">const [nUpdateCount,setNUpdcateCount] = React.useState(0)
 useEffect(()=&gt;{
 	setNUpdateCount(x=&gt;x+1)
 },[n])
@@ -563,11 +553,10 @@ const useUpdate = (fn,dep)=&gt;{
 const App = ()=&gt;{
 	useUpdate(()=&gt;{console.log(&#39;n变了&#39;)},n)
 }
-// 此时就可以在全局使用useUpdate，甚至可以从别的引入useUpdate</pre></td></tr></table>
+// 此时就可以在全局使用useUpdate，甚至可以从别的引入useUpdate
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ol>
-
+</div>
     </div>
 
     

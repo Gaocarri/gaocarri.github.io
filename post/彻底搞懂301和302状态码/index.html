@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/%E5%BD%BB%E5%BA%95%E6%90%9E%E6%87%82301%E5%92%8C302%E7%8A%B6%E6%80%81%E7%A0%81/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,10 +66,8 @@
 <meta property="article:modified_time" content="2020-06-17T00:00:00+00:00" />
 <meta itemprop="name" content="彻底搞懂301和302状态码">
 <meta itemprop="description" content="彻底搞懂301和302状态码">
-
-
-<meta itemprop="datePublished" content="2020-06-17T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-06-17T00:00:00&#43;00:00" />
+<meta itemprop="datePublished" content="2020-06-17T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-06-17T00:00:00+00:00" />
 <meta itemprop="wordCount" content="704">
 
 
@@ -395,74 +393,52 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#彻底搞懂301和302http状态码">彻底搞懂301和302Http状态码</a>
-<ul>
-<li><a href="#什么是301和302状态码">什么是301和302状态码</a></li>
-<li><a href="#什么是重定向">什么是重定向</a></li>
-<li><a href="#为什么尽量使用301跳转">为什么尽量使用301跳转</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#什么是301和302状态码">什么是301和302状态码</a></li>
+    <li><a href="#什么是重定向">什么是重定向</a></li>
+    <li><a href="#为什么尽量使用301跳转">为什么尽量使用301跳转</a></li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<h1 id="彻底搞懂301和302http状态码">彻底搞懂301和302Http状态码</h1>
-
-<p>​       一直以来对301和302状态码的认识都处于知道是什么，却不知道怎么做的状态，在翻阅许多资料后，总结了本篇博客，希望彻底记下来。</p>
-
+      <h1 id="彻底搞懂301和302http状态码">彻底搞懂301和302Http状态码</h1>
+<p>​		一直以来对301和302状态码的认识都处于知道是什么，却不知道怎么做的状态，在翻阅许多资料后，总结了本篇博客，希望彻底记下来。</p>
 <h2 id="什么是301和302状态码">什么是301和302状态码</h2>
-
 <p>1.官方说明</p>
-
 <ul>
 <li>301：代表资源永久移动</li>
 <li>302:   代表资源临时移动</li>
 </ul>
-
 <p>2.详解</p>
-
 <ul>
 <li>总的来说301和302状态码都表示重定向，当浏览器拿到服务器返回的这两个状态码后会跳转到一个新的url</li>
 <li>该url的地址: 该url可以从响应头中的Location当中获得（用户看到的效果就是他输入的地址A瞬间变成了另一个地址B）</li>
 <li>301与302的不同点
-
 <ul>
 <li>301表示旧地址A的资源已经被永久地移除了（这个资源不可访问了），搜索引擎在抓取新内容的同时也将旧的网址交换为重定向之后的网址</li>
 <li>302表示旧地址A的资源还在（仍然可以访问），这个重定向只是临时地从旧地址A跳转到地址B，搜索引擎会抓取新的内容而保存旧的网址。</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="什么是重定向">什么是重定向</h2>
-
 <p>1.什么是？</p>
-
 <ul>
 <li>通俗来说就是地址A跳转到地址B。重定向就是通过各种方法将各种网络请求重新转到其他位置</li>
 </ul>
-
 <p>2.重定向的可能原因</p>
-
 <ul>
 <li>网站调整（如改变网页目录结构）；</li>
 <li>网页被移到一个新地址；</li>
 <li>网页扩展名改变(如应用需要把.php改成.Html或.shtml)。</li>
 </ul>
-
 <h2 id="为什么尽量使用301跳转">为什么尽量使用301跳转</h2>
-
 <p>因为<strong>网站劫持</strong></p>
-
 <p>比如说，有一个很烂的网站A，还有一个很好的网站B（搜索排名很靠前），A做了一个302跳转到网站B，有时候搜索B的内容，却收录了A的地址，这样就会导致网站B为网站A做贡献，网站A的排名就考前了</p>
-
 <p>而301跳转，他会告诉搜索引擎这个地址弃用了，永远转向新地址。</p>
-
 <p>不过其实这是一个伪命题，是自己的网站想用哪个就用哪个，不是自己的网站也很难管</p>
-
 <p>ok，如果还想到了什么新的点，我会继续补充</p>
 
     </div>

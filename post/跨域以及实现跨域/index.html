@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.0" />
+<meta name="generator" content="Hugo 0.74.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/%E8%B7%A8%E5%9F%9F%E4%BB%A5%E5%8F%8A%E5%AE%9E%E7%8E%B0%E8%B7%A8%E5%9F%9F/" />
@@ -52,7 +52,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.af20b78e95c84de86b00a0242a4a77bd2601700e1b250edf27537d957ac0041d.css" integrity="sha256-ryC3jpXITehrAKAkKkp3vSYBcA4bJQ7fJ1N9lXrABB0=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
 
 
 
@@ -66,11 +66,9 @@
 <meta property="article:modified_time" content="2019-12-13T00:00:00+00:00" />
 <meta itemprop="name" content="跨域以及实现跨域">
 <meta itemprop="description" content="跨域以及实现跨域">
-
-
-<meta itemprop="datePublished" content="2019-12-13T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-13T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="848">
+<meta itemprop="datePublished" content="2019-12-13T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-12-13T00:00:00+00:00" />
+<meta itemprop="wordCount" content="797">
 
 
 
@@ -374,7 +372,7 @@ if (!doNotTrack) {
             <a href="http://gaocarri.top/categories/javascript/"> JavaScript </a>
             
           </div>
-        <span class="more-meta"> 约 848 字 </span>
+        <span class="more-meta"> 约 797 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
 
         
@@ -395,59 +393,46 @@ if (!doNotTrack) {
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#什么是同源">什么是同源</a></li>
-<li><a href="#什么是跨域">什么是跨域</a></li>
-<li><a href="#cors">CORS</a></li>
-<li><a href="#jsonp跨域">JSONP跨域</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#什么是同源">什么是同源</a></li>
+    <li><a href="#什么是跨域">什么是跨域</a></li>
+    <li><a href="#cors">CORS</a></li>
+    <li><a href="#jsonp跨域">JSONP跨域</a></li>
+  </ul>
 </nav>
   </div>
 </div>
 
     
     <div class="post-content">
-      
-
-<p>之前把Ajax弄懂了，现在回头再看跨域终于有了清晰的理解。
+      <p>之前把Ajax弄懂了，现在回头再看跨域终于有了清晰的理解。
 本文包括以下内容</p>
-
 <ul>
 <li>什么是同源</li>
 <li>什么是跨域</li>
 <li>CORS实现跨域</li>
 <li>JSONP实现跨域</li>
 </ul>
-
 <h2 id="什么是同源">什么是同源</h2>
-
 <p>如果两个url它们的协议，域名和端口（如果有指定，不指定默认都是80端口）都相同，则这两个页面有相同的源。
 如<code>https：//www.example.com/dir/index.html</code>,它的协议是<code>https://</code>,域名是<code>www.example.cm</code>,端口是<code>80</code>（80是默认端口，可以省略）</p>
-
 <h2 id="什么是跨域">什么是跨域</h2>
-
-<p>跨域是指一个域下的文档或脚本试图去请求另一个域下的资源，由于同源策略，会限制以下行为
-1. cookie,localStorage,indexDB无法读取
-2. JS和DOM对象无法获得
-3. AJAX请求不能发送</p>
-
+<p>跨域是指一个域下的文档或脚本试图去请求另一个域下的资源，由于同源策略，会限制以下行为</p>
+<ol>
+<li>cookie,localStorage,indexDB无法读取</li>
+<li>JS和DOM对象无法获得</li>
+<li>AJAX请求不能发送</li>
+</ol>
 <h2 id="cors">CORS</h2>
-
 <p>CORS是实现跨域的一种方式，它的全称是Cross-Origin Resource Sharing
 比如我想让<code>http://carri.com:9999</code>请求<code>http://gao.com:8888</code>的资源
-可以在<code>http://gao.com:8888</code>响应头添加<code>response.setHeader('Access-Control-Allow-Origin', 'http://carri.com:9999')</code></p>
-
+可以在<code>http://gao.com:8888</code>响应头添加<code> response.setHeader('Access-Control-Allow-Origin', 'http://carri.com:9999')</code></p>
 <h2 id="jsonp跨域">JSONP跨域</h2>
-
 <p>JSONP是实现跨域的一种方式，当浏览器无法使用CORS时，我们可以使用JSONP。它的原理是，虽然我们无法访问另外一个网站的数据，但是可以用<code>script</code>标签引用这个网站的JS,服务器收到请求后，会将数据放在一个回调函数里（回调函数的名字是一个随机生成的随机数）传回来。优点是可以跨域并且兼容IE，但由于它是<code>script</code>标签，所以它读不到响应的状态，且只能发<code>GET</code>请求,不支持<code>POST</code>。</p>
-
 <p>下例是一个封装的JSONP，用于在其他网站访问我模拟的域名里的qq文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -468,9 +453,9 @@ if (!doNotTrack) {
 </span><span class="lnt">19
 </span><span class="lnt">20
 </span><span class="lnt">21
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">function jsonp(url) {
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">function jsonp(url) {
     return new Promise((resolve, reject) =&gt; {
         const random = &#34;frankJSONPCallbackName&#34; + Math.random();
         window[random] = data =&gt; {
@@ -490,7 +475,8 @@ if (!doNotTrack) {
 jsonp(&#39;http://localhost:8888/qqf.js&#39;).then((data) =&gt; {
     console.log(data);
 
-})// 加载成功后，后台打出data</pre></td></tr></table>
+})// 加载成功后，后台打出data
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>
