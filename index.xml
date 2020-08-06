@@ -6,7 +6,7 @@
     <description>Recent content on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 06 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="http://gaocarri.top/index.xml" rel="self" type="application/rss+xml" />
     
@@ -35,18 +35,6 @@
 &lt;li&gt;主要用于记录一些文章，学习笔记，偶尔分享一下心情&lt;/li&gt;
 &lt;li&gt;技艺不精，本站会陆续添加其他功能，敬请期待！&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>test</title>
-      <link>http://gaocarri.top/post/test/</link>
-      <pubDate>Thu, 06 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/post/test/</guid>
-      
-        <description>&lt;h1 id=&#34;just-a-test&#34;&gt;just a test&lt;/h1&gt;
 </description>
       
     </item>
@@ -14767,6 +14755,78 @@ requestAnimationFrame(function() {
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;一些个人感想&#34;&gt;一些个人感想&lt;/h2&gt;
 &lt;p&gt;或许这就是更深层次点的东西，写出代码容易，写好难。&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>自己画出JS世界</title>
+      <link>http://gaocarri.top/post/%E8%87%AA%E5%B7%B1%E7%94%BB%E5%87%BAjs%E4%B8%96%E7%95%8C/</link>
+      <pubDate>Thu, 07 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E8%87%AA%E5%B7%B1%E7%94%BB%E5%87%BAjs%E4%B8%96%E7%95%8C/</guid>
+      
+        <description>&lt;h1 id=&#34;关于一个js世界是如何形成的&#34;&gt;关于一个JS世界是如何形成的？&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;创建根对象#101(它有toString等属性)、根对象无名字（它的__proto__:null）
+&lt;a href=&#34;https://imgchr.com/i/Mk9Qtf&#34;&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/11/07/Mk9Qtf.png&#34; alt=&#34;Mk9Qtf.png&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;创建函数的原型#208(它有call,apply等属性),原型__proto__的地址为#101
+&lt;a href=&#34;https://imgchr.com/i/Mk9mnA&#34;&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/11/07/Mk9mnA.png&#34; alt=&#34;Mk9mnA.png&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;创建数组的原型#404(它有push,pop等属性),原型__proto__的地址为#101
+&lt;a href=&#34;https://imgchr.com/i/Mk9n0I&#34;&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/11/07/Mk9n0I.png&#34; alt=&#34;Mk9n0I.png&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;创建Function（实际没有名字）#342，原型__proto__的地址为#208&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;让Function的prototype地址为#208&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;此时发现Function的__proto__和prototype都是#208
+&lt;a href=&#34;https://imgchr.com/i/Mk9u7t&#34;&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/11/07/Mk9u7t.png&#34; alt=&#34;Mk9u7t.png&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;用Function创建Object（实际没有名字）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;让Object.prototype的地址为#101
+&lt;a href=&#34;https://imgchr.com/i/Mk9MAP&#34;&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/11/07/Mk9MAP.png&#34; alt=&#34;Mk9MAP.png&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;用Function创建Array（实际没有名字）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;让Array.prototype的地址为#404
+&lt;a href=&#34;https://imgchr.com/i/Mk9lh8&#34;&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/11/07/Mk9lh8.png&#34; alt=&#34;Mk9lh8.png&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;创建window对象（它不属于JS世界）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;用window的&amp;quot;Function&amp;quot;&amp;ldquo;Object&amp;quot;&amp;ldquo;Array&amp;quot;属性将他们命名
+&lt;a href=&#34;https://imgchr.com/i/Mk939S&#34;&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/11/07/Mk939S.png&#34; alt=&#34;Mk939S.png&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;记住一点JS创建一个对象时，不会给它名字&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;完整的图示&#34;&gt;完整的图示&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.ax1x.com/2019/11/07/MkiUHA.png&#34; alt=&#34;MkiUHA.png&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;js三大公理&#34;&gt;JS三大公理&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;对象.__proto__===其构造函数.prototype&lt;/li&gt;
+&lt;li&gt;根公理：Object.prototype是所有对象（直接或间接）的原型&lt;/li&gt;
+&lt;li&gt;函数公理：所有函数都是由Function构造的，任何函数__proto__===Function.prototype(任何函数有Object/Array/Function)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Object.prototype是所有对象的原型，Object是Function构造出来的，所以Function构造了Object.prototype,推论，Function才是万物之源啊（错）&lt;/li&gt;
+&lt;li&gt;错的理由:Function构造了Object.prototype这个地址，但没有构造它对应的根对象，根对象是原本就存在的！&lt;/li&gt;
+&lt;/ul&gt;
 </description>
       
     </item>
