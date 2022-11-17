@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HTTP on 卡里的技术博客</title>
+    <link>http://gaocarri.top/tags/http/</link>
+    <description>Recent content in HTTP on 卡里的技术博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 17 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://gaocarri.top/tags/http/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>彻底搞懂301和302状态码</title>
+      <link>http://gaocarri.top/post/%E5%BD%BB%E5%BA%95%E6%90%9E%E6%87%82301%E5%92%8C302%E7%8A%B6%E6%80%81%E7%A0%81/</link>
+      <pubDate>Wed, 17 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E5%BD%BB%E5%BA%95%E6%90%9E%E6%87%82301%E5%92%8C302%E7%8A%B6%E6%80%81%E7%A0%81/</guid>
+      <description>彻底搞懂301和302Http状态码 ​ 一直以来对301和302状态码的认识都处于知道是什么，却不知道怎么做的状态，在翻阅许多资料后，总结了本</description>
+    </item>
+    
+    <item>
+      <title>浅析URL</title>
+      <link>http://gaocarri.top/post/%E6%B5%85%E6%9E%90url/</link>
+      <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E6%B5%85%E6%9E%90url/</guid>
+      <description>IP的作用是什么 IP：Internet Protocol 约定了两件事情（作用） 如何定位一台设备 如何封装报文，和其他设备交流 几个特殊的IP 127.0.0.1表</description>
+    </item>
+    
+  </channel>
+</rss>

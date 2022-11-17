@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AJAX on 卡里的技术博客</title>
+    <link>http://gaocarri.top/tags/ajax/</link>
+    <description>Recent content in AJAX on 卡里的技术博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 13 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://gaocarri.top/tags/ajax/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>跨域以及实现跨域</title>
+      <link>http://gaocarri.top/post/%E8%B7%A8%E5%9F%9F%E4%BB%A5%E5%8F%8A%E5%AE%9E%E7%8E%B0%E8%B7%A8%E5%9F%9F/</link>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E8%B7%A8%E5%9F%9F%E4%BB%A5%E5%8F%8A%E5%AE%9E%E7%8E%B0%E8%B7%A8%E5%9F%9F/</guid>
+      <description>之前把Ajax弄懂了，现在回头再看跨域终于有了清晰的理解。 本文包括以下内容 什么是同源 什么是跨域 CORS实现跨域 JSONP实现跨域 什么是同源 如</description>
+    </item>
+    
+  </channel>
+</rss>

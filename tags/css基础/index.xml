@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CSS基础 on 卡里的技术博客</title>
+    <link>http://gaocarri.top/tags/css%E5%9F%BA%E7%A1%80/</link>
+    <description>Recent content in CSS基础 on 卡里的技术博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 31 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://gaocarri.top/tags/css%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CSS知识总结</title>
+      <link>http://gaocarri.top/post/css%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/css%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</guid>
+      <description>一、浏览器渲染原理 参考文章 Google团队写的文章 渲染树构建、布局及绘制 渲染性能 使用transform来实现动画 查看CSS各属性触发什么 CSSTriggers.com 浏</description>
+    </item>
+    
+  </channel>
+</rss>

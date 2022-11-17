@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>黑曜石博客 on 卡里的技术博客</title>
+    <link>http://gaocarri.top/categories/%E9%BB%91%E6%9B%9C%E7%9F%B3%E5%8D%9A%E5%AE%A2/</link>
+    <description>Recent content in 黑曜石博客 on 卡里的技术博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 11 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://gaocarri.top/categories/%E9%BB%91%E6%9B%9C%E7%9F%B3%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>共享博客项目笔记</title>
+      <link>http://gaocarri.top/post/%E5%85%B1%E4%BA%AB%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 11 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E5%85%B1%E4%BA%AB%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/</guid>
+      <description>Vuejs 黑曜石共享博客项目 黑曜石共享博客支持注册、登录 可使用markdown语法 功能包含博客的添加，删除，更改 在详情页面点击别的用户名可以查看个人</description>
+    </item>
+    
+  </channel>
+</rss>

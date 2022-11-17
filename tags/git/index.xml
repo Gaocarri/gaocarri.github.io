@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on 卡里的技术博客</title>
+    <link>http://gaocarri.top/tags/git/</link>
+    <description>Recent content in git on 卡里的技术博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 06 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://gaocarri.top/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>记一次git push失败，提示connection timed out</title>
+      <link>http://gaocarri.top/post/%E8%AE%B0%E4%B8%80%E6%AC%A1gitpush%E5%A4%B1%E8%B4%A5%E6%8F%90%E7%A4%BAconnection-timed-out/</link>
+      <pubDate>Fri, 06 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E8%AE%B0%E4%B8%80%E6%AC%A1gitpush%E5%A4%B1%E8%B4%A5%E6%8F%90%E7%A4%BAconnection-timed-out/</guid>
+      <description>首先，报错信息 1 2 3 4 ssh: connect to host github.com port 22: Connection timed out fatal: Could not read from remote repository. Please make sure you have the correct access rights and the repository exists. 这可能是防火墙导致的，解决方法参考官方帮助文档 https://help.github.com/en/github/authenticating-to-github/using-ssh-over-the-https-port 具体的解决</description>
+    </item>
+    
+  </channel>
+</rss>

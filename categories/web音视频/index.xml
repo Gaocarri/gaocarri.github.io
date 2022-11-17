@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web音视频 on 卡里的技术博客</title>
+    <link>http://gaocarri.top/categories/web%E9%9F%B3%E8%A7%86%E9%A2%91/</link>
+    <description>Recent content in Web音视频 on 卡里的技术博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 27 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://gaocarri.top/categories/web%E9%9F%B3%E8%A7%86%E9%A2%91/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WebRTC浅析及在直播竞品中的使用</title>
+      <link>http://gaocarri.top/post/webrtc%E6%B5%85%E6%9E%90%E5%8F%8A%E5%9C%A8%E7%9B%B4%E6%92%AD%E7%AB%9E%E5%93%81%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Fri, 27 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/webrtc%E6%B5%85%E6%9E%90%E5%8F%8A%E5%9C%A8%E7%9B%B4%E6%92%AD%E7%AB%9E%E5%93%81%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>最近mentor让调研了竞品中的新技术应用，总结内部分享后，这篇文章同样搬运到自己的博客中。 WebRTC简介 WebRTC（Web Real-Time Commu</description>
+    </item>
+    
+    <item>
+      <title>video标签问题记录</title>
+      <link>http://gaocarri.top/post/video%E6%A0%87%E7%AD%BE%E8%AF%A6%E8%A7%A3/</link>
+      <pubDate>Wed, 27 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/video%E6%A0%87%E7%AD%BE%E8%AF%A6%E8%A7%A3/</guid>
+      <description>工作之后好久没写博客了，最近1024程序员节部门让我做了一个彩蛋项目，做完当天展示的时候源码被公司各种大佬扒，尴尬到脚抠地抠出三室一厅&amp;he</description>
+    </item>
+    
+  </channel>
+</rss>

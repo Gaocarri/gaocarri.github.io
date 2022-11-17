@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HTML on 卡里的技术博客</title>
+    <link>http://gaocarri.top/tags/html/</link>
+    <description>Recent content in HTML on 卡里的技术博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 04 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://gaocarri.top/tags/html/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>详述meta标签</title>
+      <link>http://gaocarri.top/post/%E8%AF%A6%E8%BF%B0meta%E6%A0%87%E7%AD%BE/</link>
+      <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E8%AF%A6%E8%BF%B0meta%E6%A0%87%E7%AD%BE/</guid>
+      <description>之前没怎么在意过meta，结果连charset都不知道，属实丢人。 于是查阅了很多资料，大体列举了一些常见的meta标签. meta标签是什么 m</description>
+    </item>
+    
+    <item>
+      <title>HTML常用标签</title>
+      <link>http://gaocarri.top/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</link>
+      <pubDate>Tue, 29 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</guid>
+      <description>一.a标签的用法 1 &amp;lt;a href=&amp;#34;&amp;#34; target=&amp;#34;_blank&amp;#34; download&amp;gt; 1.1属性 href target download rel=noopener 1.2 href 1.2.1 href的取值 1.网址 https:// google.com http:// google.com //google.com 一般情况下用//google.com就可以了，浏览器会自动</description>
+    </item>
+    
+    <item>
+      <title>HTML入门笔记</title>
+      <link>http://gaocarri.top/post/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</link>
+      <pubDate>Mon, 28 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/html%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</guid>
+      <description>HTML是谁发明的 Timothy John Berners-Lee爵士，英国计算机科学家，万维网的发明者 HTML起手应该写什么 1 2 3 4 5 6 7 8 9 10 11 12 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta</description>
+    </item>
+    
+  </channel>
+</rss>

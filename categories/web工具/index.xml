@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web工具 on 卡里的技术博客</title>
+    <link>http://gaocarri.top/categories/web%E5%B7%A5%E5%85%B7/</link>
+    <description>Recent content in Web工具 on 卡里的技术博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 27 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://gaocarri.top/categories/web%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>单页面应用docker&#43;nginx部署</title>
+      <link>http://gaocarri.top/post/%E5%8D%95%E9%A1%B5%E9%9D%A2%E5%BA%94%E7%94%A8docker&#43;nginx%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Sat, 27 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://gaocarri.top/post/%E5%8D%95%E9%A1%B5%E9%9D%A2%E5%BA%94%E7%94%A8docker&#43;nginx%E9%83%A8%E7%BD%B2/</guid>
+      <description>在公司实践了不少docker项目，总结了一套docker+nginx部署方案，以防忘记，为后续作参考。 Docker镜像构建 包含nginx配置</description>
+    </item>
+    
+  </channel>
+</rss>
