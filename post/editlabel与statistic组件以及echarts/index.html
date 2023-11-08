@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>EditLabel与Statistic组件以及ECharts - 卡里的技术博客</title>
-  
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          EditLabel与Statistic组件以及ECharts - 卡里的技术博客
+        </title>
+    
 
 <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
@@ -31,7 +37,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.105.0" />
+<meta name="generator" content="Hugo 0.120.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/editlabel%E4%B8%8Estatistic%E7%BB%84%E4%BB%B6%E4%BB%A5%E5%8F%8Aecharts/" />
@@ -52,7 +58,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
 
 
 
@@ -99,9 +105,11 @@ if (!doNotTrack) {
 </script>
 
 
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
     <a href="/" class="logo">卡里的技术博客</a>
   </div>
@@ -170,8 +178,8 @@ if (!doNotTrack) {
 </nav>
 
 
-  
     
+      
 
 
 
@@ -228,10 +236,10 @@ if (!doNotTrack) {
     </div>
 </div>
 
-  
-
-  
     
+
+    
+      
 <div class="modal-dialog">
     
     <div class="modal-content">
@@ -258,12 +266,13 @@ if (!doNotTrack) {
     </div>
 </div>
 
-  
+    
 
-  
+    
 
-  <header id="header" class="header container">
-    <div class="logo-wrapper">
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
   <a href="/" class="logo">
     
       卡里的技术博客
@@ -352,19 +361,19 @@ if (!doNotTrack) {
   </ul>
 </nav>
 
-  </header>
+    </header>
 
-  <div id="mobile-panel">
-    <main id="main" class="main bg-llight wallpaper">
-      <div class="content-wrapper">
-        <div id="content" class="content container">
-          <article class="post bg-white">
-    
-    <header class="post-header">
-      <h1 class="post-title">EditLabel与Statistic组件以及ECharts</h1>
-      
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">EditLabel与Statistic组件以及ECharts</h1>
+          
 
-      <div class="post-meta">
+          <div class="post-meta">
   <div class="post-meta-author">
     by
       Carri
@@ -405,26 +414,11 @@ if (!doNotTrack) {
   </div>
 </div>
 
-    </header>
+        </header>
 
-    
-    
-<div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#editlabel页面">EditLabel页面</a></li>
-    <li><a href="#statistics界面">Statistics界面</a></li>
-  </ul>
-</nav>
-  </div>
-</div>
-
-
-    
-    <div class="post-content">
-      <h2 id="editlabel页面">EditLabel页面</h2>
+        
+        <div class="post-content">
+          <h2 id="editlabel页面">EditLabel页面</h2>
 <ol>
 <li>
 <p>困扰我一个非常久的Bug,input表单输入数字结果不为数字</p>
@@ -567,64 +561,64 @@ if (!doNotTrack) {
 </span><span class="lnt">58
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;template&gt;
-</span></span><span class="line"><span class="cl">  &lt;div id=&#34;myEcharts&#34; style=&#34;width:100vw ;height:40vh;&#34;&gt;&lt;/div&gt;
-</span></span><span class="line"><span class="cl">&lt;/template&gt;
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">template</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">div</span> <span class="n">id</span><span class="o">=</span><span class="s2">&#34;myEcharts&#34;</span> <span class="n">style</span><span class="o">=</span><span class="s2">&#34;width:100vw ;height:40vh;&#34;</span><span class="o">&gt;&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">template</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">&lt;script lang=&#34;ts&#34;&gt;
-</span></span><span class="line"><span class="cl">import Vue from &#34;vue&#34;;
-</span></span><span class="line"><span class="cl">import { Component } from &#34;vue-property-decorator&#34;;
-</span></span><span class="line"><span class="cl">import &#34;echarts/lib/chart/bar&#34;;
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">script</span> <span class="n">lang</span><span class="o">=</span><span class="s2">&#34;ts&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="n">import</span> <span class="n">Vue</span> <span class="n">from</span> <span class="s2">&#34;vue&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">import</span> <span class="p">{</span> <span class="n">Component</span> <span class="p">}</span> <span class="n">from</span> <span class="s2">&#34;vue-property-decorator&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">import</span> <span class="s2">&#34;echarts/lib/chart/bar&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">@Component
-</span></span><span class="line"><span class="cl">export default class StatisticsChart extends Vue {
-</span></span><span class="line"><span class="cl">  mounted() {
-</span></span><span class="line"><span class="cl">    const ele = document.getElementById(&#34;myEcharts&#34;);
-</span></span><span class="line"><span class="cl">    const chart: any = this.$echarts.init(ele);
-</span></span><span class="line"><span class="cl">    chart.setOption(this.options, true, false);
-</span></span><span class="line"><span class="cl">  }
-</span></span><span class="line"><span class="cl">  $echarts: any;
-</span></span><span class="line"><span class="cl">get options() {
-</span></span><span class="line"><span class="cl">    return {
-</span></span><span class="line"><span class="cl">      xAxis: {
-</span></span><span class="line"><span class="cl">        boundaryGap: false, // 两端间隔
-</span></span><span class="line"><span class="cl">        splitLine: {
-</span></span><span class="line"><span class="cl">          show: false // 每个端点的折线
-</span></span><span class="line"><span class="cl">        },
-</span></span><span class="line"><span class="cl">        type: &#34;category&#34;, // 类目轴
-</span></span><span class="line"><span class="cl">        axisTick: {
-</span></span><span class="line"><span class="cl">          show: false
-</span></span><span class="line"><span class="cl">        },
-</span></span><span class="line"><span class="cl">        data: this.x // 横轴刻度名称
-</span></span><span class="line"><span class="cl">      },
-</span></span><span class="line"><span class="cl">      yAxis: {
-</span></span><span class="line"><span class="cl">        show: false,
-</span></span><span class="line"><span class="cl">        type: &#34;value&#34;
-</span></span><span class="line"><span class="cl">      },
-</span></span><span class="line"><span class="cl">      series: [
-</span></span><span class="line"><span class="cl">        {
-</span></span><span class="line"><span class="cl">          data: this.y, //这里我的数据对应月份的数据,请自行修改
-</span></span><span class="line"><span class="cl">          itemStyle: {
-</span></span><span class="line"><span class="cl">            normal: {
-</span></span><span class="line"><span class="cl">              label: {
-</span></span><span class="line"><span class="cl">                show: false,
-</span></span><span class="line"><span class="cl">                position: &#34;top&#34;
-</span></span><span class="line"><span class="cl">              }
-</span></span><span class="line"><span class="cl">            }
-</span></span><span class="line"><span class="cl">          },
-</span></span><span class="line"><span class="cl">          type: &#34;line&#34;,
-</span></span><span class="line"><span class="cl">          stack: &#34;总量&#34;,
-</span></span><span class="line"><span class="cl">          // 径向渐变，前三个参数分别是圆心 x, y 和半径，取值同线性渐变
-</span></span><span class="line"><span class="cl">          color: &#34;#212943&#34;
-</span></span><span class="line"><span class="cl">        }
-</span></span><span class="line"><span class="cl">      ]
-</span></span><span class="line"><span class="cl">    };
-</span></span><span class="line"><span class="cl">  }
-</span></span><span class="line"><span class="cl">}
-</span></span><span class="line"><span class="cl">&lt;/script&gt;
+</span></span><span class="line"><span class="cl"><span class="err">@</span><span class="n">Component</span>
+</span></span><span class="line"><span class="cl"><span class="k">export</span> <span class="n">default</span> <span class="k">class</span> <span class="n">StatisticsChart</span> <span class="k">extends</span> <span class="n">Vue</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">mounted</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">ele</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s2">&#34;myEcharts&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">chart</span><span class="p">:</span> <span class="n">any</span> <span class="o">=</span> <span class="n">this</span><span class="o">.$</span><span class="n">echarts</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">ele</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">chart</span><span class="o">.</span><span class="n">setOption</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">options</span><span class="p">,</span> <span class="bp">true</span><span class="p">,</span> <span class="bp">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">$</span><span class="n">echarts</span><span class="p">:</span> <span class="n">any</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">get</span> <span class="n">options</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">xAxis</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">boundaryGap</span><span class="p">:</span> <span class="bp">false</span><span class="p">,</span> <span class="o">//</span> <span class="err">两端间隔</span>
+</span></span><span class="line"><span class="cl">        <span class="n">splitLine</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">show</span><span class="p">:</span> <span class="bp">false</span> <span class="o">//</span> <span class="err">每个端点的折线</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="n">type</span><span class="p">:</span> <span class="s2">&#34;category&#34;</span><span class="p">,</span> <span class="o">//</span> <span class="err">类目轴</span>
+</span></span><span class="line"><span class="cl">        <span class="n">axisTick</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">show</span><span class="p">:</span> <span class="bp">false</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="n">data</span><span class="p">:</span> <span class="n">this</span><span class="o">.</span><span class="n">x</span> <span class="o">//</span> <span class="err">横轴刻度名称</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="n">yAxis</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">show</span><span class="p">:</span> <span class="bp">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">type</span><span class="p">:</span> <span class="s2">&#34;value&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="n">series</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">data</span><span class="p">:</span> <span class="n">this</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="o">//</span><span class="err">这里我的数据对应月份的数据</span><span class="p">,</span><span class="err">请自行修改</span>
+</span></span><span class="line"><span class="cl">          <span class="n">itemStyle</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">normal</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="n">label</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">show</span><span class="p">:</span> <span class="bp">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">position</span><span class="p">:</span> <span class="s2">&#34;top&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">          <span class="n">type</span><span class="p">:</span> <span class="s2">&#34;line&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="n">stack</span><span class="p">:</span> <span class="s2">&#34;总量&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="o">//</span> <span class="err">径向渐变，前三个参数分别是圆心</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="err">和半径，取值同线性渐变</span>
+</span></span><span class="line"><span class="cl">          <span class="n">color</span><span class="p">:</span> <span class="s2">&#34;#212943&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">&lt;style lang=&#34;scss&#34; scoped&gt;
-</span></span><span class="line"><span class="cl">&lt;/style&gt;
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">style</span> <span class="n">lang</span><span class="o">=</span><span class="s2">&#34;scss&#34;</span> <span class="n">scoped</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">style</span><span class="o">&gt;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>在动态渲染图表的时候我给组件声明了一个 Porp 从外部拿数据去实现<strong>及时更新</strong>，但是在外部数据改变的时候图表数据并没有更新</p>
@@ -696,46 +690,46 @@ if (!doNotTrack) {
 </span><span class="lnt">40
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  @Watch(&#34;ymw&#34;)
-</span></span><span class="line"><span class="cl">  changeX() {
-</span></span><span class="line"><span class="cl">    // 获取当前月份天数
-</span></span><span class="line"><span class="cl">    const day = dayjs().daysInMonth();
-</span></span><span class="line"><span class="cl">    let dayArray = [];
-</span></span><span class="line"><span class="cl">    for (let i = 1; i &lt;= day; i++) {
-</span></span><span class="line"><span class="cl">      dayArray.push(i);
-</span></span><span class="line"><span class="cl">    }
-</span></span><span class="line"><span class="cl">    let data: string[] = [];
-</span></span><span class="line"><span class="cl">    switch (this.ymw) {
-</span></span><span class="line"><span class="cl">      case &#34;week&#34;:
-</span></span><span class="line"><span class="cl">        data = [&#34;周一&#34;, &#34;周二&#34;, &#34;周三&#34;, &#34;周四&#34;, &#34;周五&#34;, &#34;周六&#34;, &#34;周日&#34;];
-</span></span><span class="line"><span class="cl">        break;
-</span></span><span class="line"><span class="cl">      case &#34;month&#34;:
-</span></span><span class="line"><span class="cl">        data = dayArray.map(i =&gt; i + &#34;日&#34;);
-</span></span><span class="line"><span class="cl">        break;
-</span></span><span class="line"><span class="cl">      case &#34;year&#34;:
-</span></span><span class="line"><span class="cl">        data = [
-</span></span><span class="line"><span class="cl">          &#34;一月&#34;,
-</span></span><span class="line"><span class="cl">          &#34;二月&#34;,
-</span></span><span class="line"><span class="cl">          &#34;三月&#34;,
-</span></span><span class="line"><span class="cl">          &#34;四月&#34;,
-</span></span><span class="line"><span class="cl">          &#34;五月&#34;,
-</span></span><span class="line"><span class="cl">          &#34;六月&#34;,
-</span></span><span class="line"><span class="cl">          &#34;七月&#34;,
-</span></span><span class="line"><span class="cl">          &#34;八月&#34;,
-</span></span><span class="line"><span class="cl">          &#34;九月&#34;,
-</span></span><span class="line"><span class="cl">          &#34;十月&#34;,
-</span></span><span class="line"><span class="cl">          &#34;十一月&#34;,
-</span></span><span class="line"><span class="cl">          &#34;十二月&#34;
-</span></span><span class="line"><span class="cl">        ];
-</span></span><span class="line"><span class="cl">        break;
-</span></span><span class="line"><span class="cl">      default:
-</span></span><span class="line"><span class="cl">        data = [&#34;周一&#34;, &#34;周二&#34;, &#34;周三&#34;, &#34;周四&#34;, &#34;周五&#34;, &#34;周六&#34;, &#34;周日&#34;];
-</span></span><span class="line"><span class="cl">    }
-</span></span><span class="line"><span class="cl">    this.x = data;
-</span></span><span class="line"><span class="cl">    const ele = document.getElementById(&#34;myEcharts&#34;);
-</span></span><span class="line"><span class="cl">    const chart: any = this.$echarts.init(ele);
-</span></span><span class="line"><span class="cl">    chart.setOption(this.options, true, false);
-</span></span><span class="line"><span class="cl">  }
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl">  <span class="err">@</span><span class="n">Watch</span><span class="p">(</span><span class="s2">&#34;ymw&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">changeX</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">//</span> <span class="err">获取当前月份天数</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">day</span> <span class="o">=</span> <span class="n">dayjs</span><span class="p">()</span><span class="o">.</span><span class="n">daysInMonth</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">let</span> <span class="n">dayArray</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">let</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">day</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">dayArray</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">let</span> <span class="n">data</span><span class="p">:</span> <span class="n">string</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">switch</span> <span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">ymw</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">case</span> <span class="s2">&#34;week&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;周一&#34;</span><span class="p">,</span> <span class="s2">&#34;周二&#34;</span><span class="p">,</span> <span class="s2">&#34;周三&#34;</span><span class="p">,</span> <span class="s2">&#34;周四&#34;</span><span class="p">,</span> <span class="s2">&#34;周五&#34;</span><span class="p">,</span> <span class="s2">&#34;周六&#34;</span><span class="p">,</span> <span class="s2">&#34;周日&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">case</span> <span class="s2">&#34;month&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">data</span> <span class="o">=</span> <span class="n">dayArray</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">i</span> <span class="o">=&gt;</span> <span class="n">i</span> <span class="o">+</span> <span class="s2">&#34;日&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">case</span> <span class="s2">&#34;year&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;一月&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;二月&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;三月&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;四月&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;五月&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;六月&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;七月&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;八月&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;九月&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;十月&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;十一月&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;十二月&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">default</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;周一&#34;</span><span class="p">,</span> <span class="s2">&#34;周二&#34;</span><span class="p">,</span> <span class="s2">&#34;周三&#34;</span><span class="p">,</span> <span class="s2">&#34;周四&#34;</span><span class="p">,</span> <span class="s2">&#34;周五&#34;</span><span class="p">,</span> <span class="s2">&#34;周六&#34;</span><span class="p">,</span> <span class="s2">&#34;周日&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">this</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">ele</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s2">&#34;myEcharts&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">chart</span><span class="p">:</span> <span class="n">any</span> <span class="o">=</span> <span class="n">this</span><span class="o">.$</span><span class="n">echarts</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">ele</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">chart</span><span class="o">.</span><span class="n">setOption</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">options</span><span class="p">,</span> <span class="bp">true</span><span class="p">,</span> <span class="bp">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ol>
@@ -805,66 +799,66 @@ if (!doNotTrack) {
 </span><span class="lnt">60
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">getTotal() {
-</span></span><span class="line"><span class="cl">    let data: any[] = [];
-</span></span><span class="line"><span class="cl">    const recordList = this.$store.state.recordList;
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">getTotal</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">let</span> <span class="n">data</span><span class="p">:</span> <span class="n">any</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">recordList</span> <span class="o">=</span> <span class="n">this</span><span class="o">.$</span><span class="n">store</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">recordList</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    if (this.ymw == &#34;week&#34;) {
-</span></span><span class="line"><span class="cl">      // 当前选择为周
-</span></span><span class="line"><span class="cl">      data = [0, 0, 0, 0, 0, 0, 0];
-</span></span><span class="line"><span class="cl">      const startDay = dayjs().startOf(&#34;week&#34;);
-</span></span><span class="line"><span class="cl">      const record = recordList.filter((item: RecordItem) =&gt; {
-</span></span><span class="line"><span class="cl">        return dayjs(item.createdAt) &gt;= startDay &amp;&amp; this.type == item.type;
-</span></span><span class="line"><span class="cl">      });
-</span></span><span class="line"><span class="cl">      for (let i = 0; i &lt; 7; i++) {
-</span></span><span class="line"><span class="cl">        for (let j = 0; j &lt; record.length; j++) {
-</span></span><span class="line"><span class="cl">          if (i == dayjs(record[j].createdAt).day()) {
-</span></span><span class="line"><span class="cl">            data[i] += record[j].amount;
-</span></span><span class="line"><span class="cl">          }
-</span></span><span class="line"><span class="cl">        }
-</span></span><span class="line"><span class="cl">      }
-</span></span><span class="line"><span class="cl">    } else if (this.ymw == &#34;month&#34;) {
-</span></span><span class="line"><span class="cl">      // 获取当前月
-</span></span><span class="line"><span class="cl">      const day = dayjs().daysInMonth();
-</span></span><span class="line"><span class="cl">      for (let i = 0; i &lt; day; i++) {
-</span></span><span class="line"><span class="cl">        data.push(0);
-</span></span><span class="line"><span class="cl">      }
-</span></span><span class="line"><span class="cl">      const record = recordList.filter((item: RecordItem) =&gt; {
-</span></span><span class="line"><span class="cl">        return (
-</span></span><span class="line"><span class="cl">          dayjs().month() == dayjs(item.createdAt).month() &amp;&amp;
-</span></span><span class="line"><span class="cl">          this.type == item.type
-</span></span><span class="line"><span class="cl">        );
-</span></span><span class="line"><span class="cl">      });
-</span></span><span class="line"><span class="cl">      for (let i = 0; i &lt; day; i++) {
-</span></span><span class="line"><span class="cl">        for (let j = 0; j &lt; record.length; j++) {
-</span></span><span class="line"><span class="cl">          if (i == dayjs(record[j].createdAt).date()) {
-</span></span><span class="line"><span class="cl">            data[i] += record[j].amount;
-</span></span><span class="line"><span class="cl">          }
-</span></span><span class="line"><span class="cl">        }
-</span></span><span class="line"><span class="cl">      }
-</span></span><span class="line"><span class="cl">    } else if (this.ymw == &#34;year&#34;) {
-</span></span><span class="line"><span class="cl">      // 当前的选择是年
-</span></span><span class="line"><span class="cl">      const year = dayjs().year();
-</span></span><span class="line"><span class="cl">      for (let i = 0; i &lt; 12; i++) {
-</span></span><span class="line"><span class="cl">        data.push(0);
-</span></span><span class="line"><span class="cl">      }
-</span></span><span class="line"><span class="cl">      const record = recordList.filter((item: RecordItem) =&gt; {
-</span></span><span class="line"><span class="cl">        return (
-</span></span><span class="line"><span class="cl">          dayjs().year() == dayjs(item.createdAt).year() &amp;&amp;
-</span></span><span class="line"><span class="cl">          this.type == item.type
-</span></span><span class="line"><span class="cl">        );
-</span></span><span class="line"><span class="cl">      });
-</span></span><span class="line"><span class="cl">      console.log(record);
-</span></span><span class="line"><span class="cl">      for (let i = 0; i &lt; 12; i++) {
-</span></span><span class="line"><span class="cl">        for (let j = 0; j &lt; record.length; j++) {
-</span></span><span class="line"><span class="cl">          if (i == dayjs(record[j].createdAt).month() + 1) {
-</span></span><span class="line"><span class="cl">            data[i] += record[j].amount;
-</span></span><span class="line"><span class="cl">          }
-</span></span><span class="line"><span class="cl">        }
-</span></span><span class="line"><span class="cl">      }
-</span></span><span class="line"><span class="cl">    }
-</span></span><span class="line"><span class="cl">    this.y = data;
-</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">ymw</span> <span class="o">==</span> <span class="s2">&#34;week&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="o">//</span> <span class="err">当前选择为周</span>
+</span></span><span class="line"><span class="cl">      <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">      <span class="k">const</span> <span class="n">startDay</span> <span class="o">=</span> <span class="n">dayjs</span><span class="p">()</span><span class="o">.</span><span class="n">startOf</span><span class="p">(</span><span class="s2">&#34;week&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="k">const</span> <span class="n">record</span> <span class="o">=</span> <span class="n">recordList</span><span class="o">.</span><span class="n">filter</span><span class="p">((</span><span class="n">item</span><span class="p">:</span> <span class="n">RecordItem</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">dayjs</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">createdAt</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">startDay</span> <span class="o">&amp;&amp;</span> <span class="n">this</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">item</span><span class="o">.</span><span class="n">type</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">});</span>
+</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="n">let</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">let</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">record</span><span class="o">.</span><span class="n">length</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">dayjs</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">createdAt</span><span class="p">)</span><span class="o">.</span><span class="n">day</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">record</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">amount</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">ymw</span> <span class="o">==</span> <span class="s2">&#34;month&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="o">//</span> <span class="err">获取当前月</span>
+</span></span><span class="line"><span class="cl">      <span class="k">const</span> <span class="n">day</span> <span class="o">=</span> <span class="n">dayjs</span><span class="p">()</span><span class="o">.</span><span class="n">daysInMonth</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="n">let</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">day</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">data</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="k">const</span> <span class="n">record</span> <span class="o">=</span> <span class="n">recordList</span><span class="o">.</span><span class="n">filter</span><span class="p">((</span><span class="n">item</span><span class="p">:</span> <span class="n">RecordItem</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">          <span class="n">dayjs</span><span class="p">()</span><span class="o">.</span><span class="n">month</span><span class="p">()</span> <span class="o">==</span> <span class="n">dayjs</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">createdAt</span><span class="p">)</span><span class="o">.</span><span class="n">month</span><span class="p">()</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">          <span class="n">this</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">item</span><span class="o">.</span><span class="n">type</span>
+</span></span><span class="line"><span class="cl">        <span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="p">});</span>
+</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="n">let</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">day</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">let</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">record</span><span class="o">.</span><span class="n">length</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">dayjs</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">createdAt</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">record</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">amount</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">ymw</span> <span class="o">==</span> <span class="s2">&#34;year&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="o">//</span> <span class="err">当前的选择是年</span>
+</span></span><span class="line"><span class="cl">      <span class="k">const</span> <span class="n">year</span> <span class="o">=</span> <span class="n">dayjs</span><span class="p">()</span><span class="o">.</span><span class="n">year</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="n">let</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">12</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">data</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="k">const</span> <span class="n">record</span> <span class="o">=</span> <span class="n">recordList</span><span class="o">.</span><span class="n">filter</span><span class="p">((</span><span class="n">item</span><span class="p">:</span> <span class="n">RecordItem</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">          <span class="n">dayjs</span><span class="p">()</span><span class="o">.</span><span class="n">year</span><span class="p">()</span> <span class="o">==</span> <span class="n">dayjs</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">createdAt</span><span class="p">)</span><span class="o">.</span><span class="n">year</span><span class="p">()</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">          <span class="n">this</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">item</span><span class="o">.</span><span class="n">type</span>
+</span></span><span class="line"><span class="cl">        <span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="p">});</span>
+</span></span><span class="line"><span class="cl">      <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">record</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="n">let</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">12</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">let</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">record</span><span class="o">.</span><span class="n">length</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">dayjs</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">createdAt</span><span class="p">)</span><span class="o">.</span><span class="n">month</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">record</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">amount</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">this</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="4">
@@ -925,54 +919,54 @@ if (!doNotTrack) {
 </span><span class="lnt">41
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">getTagMoney() {
-</span></span><span class="line"><span class="cl">    function getMap(record: any) {
-</span></span><span class="line"><span class="cl">      let map = new Map();
-</span></span><span class="line"><span class="cl">      for (let i = 0; i &lt; record.length; i++) {
-</span></span><span class="line"><span class="cl">        if (!map.has(record[i].tag.name)) {
-</span></span><span class="line"><span class="cl">          map.set(record[i].tag.name, record[i].amount);
-</span></span><span class="line"><span class="cl">        } else {
-</span></span><span class="line"><span class="cl">          const newValue = map.get(record[i].tag.name) + record[i].amount;
-</span></span><span class="line"><span class="cl">          map.set(record[i].tag.name, newValue);
-</span></span><span class="line"><span class="cl">        }
-</span></span><span class="line"><span class="cl">      }
-</span></span><span class="line"><span class="cl">      return map;
-</span></span><span class="line"><span class="cl">    }
-</span></span><span class="line"><span class="cl">    const recordList = this.$store.state.recordList;
-</span></span><span class="line"><span class="cl">    if (this.ymw == &#34;week&#34;) {
-</span></span><span class="line"><span class="cl">      // 本周的各标签
-</span></span><span class="line"><span class="cl">      const startDay = dayjs().startOf(&#34;week&#34;);
-</span></span><span class="line"><span class="cl">      const record = recordList.filter((item: RecordItem) =&gt; {
-</span></span><span class="line"><span class="cl">        return dayjs(item.createdAt) &gt;= startDay &amp;&amp; this.type == item.type;
-</span></span><span class="line"><span class="cl">      });
-</span></span><span class="line"><span class="cl">      this.tagList = getMap(record);
-</span></span><span class="line"><span class="cl">    } else if (this.ymw == &#34;month&#34;) {
-</span></span><span class="line"><span class="cl">      // 本月的各标签
-</span></span><span class="line"><span class="cl">      const record = recordList.filter((item: RecordItem) =&gt; {
-</span></span><span class="line"><span class="cl">        return (
-</span></span><span class="line"><span class="cl">          dayjs(item.createdAt).month() == dayjs().month() &amp;&amp;
-</span></span><span class="line"><span class="cl">          this.type == item.type
-</span></span><span class="line"><span class="cl">        );
-</span></span><span class="line"><span class="cl">      });
-</span></span><span class="line"><span class="cl">      this.tagList = getMap(record);
-</span></span><span class="line"><span class="cl">    } else if (this.ymw == &#34;year&#34;) {
-</span></span><span class="line"><span class="cl">      //本年的各标签
-</span></span><span class="line"><span class="cl">      const record = recordList.filter((item: RecordItem) =&gt; {
-</span></span><span class="line"><span class="cl">        return (
-</span></span><span class="line"><span class="cl">          dayjs(item.createdAt).year() == dayjs().year() &amp;&amp;
-</span></span><span class="line"><span class="cl">          this.type == item.type
-</span></span><span class="line"><span class="cl">        );
-</span></span><span class="line"><span class="cl">      });
-</span></span><span class="line"><span class="cl">      this.tagList = getMap(record);
-</span></span><span class="line"><span class="cl">    }
-</span></span><span class="line"><span class="cl">  }
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">getTagMoney</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">function</span> <span class="n">getMap</span><span class="p">(</span><span class="n">record</span><span class="p">:</span> <span class="n">any</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">let</span> <span class="n">map</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Map</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="n">let</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">record</span><span class="o">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">map</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tag</span><span class="o">.</span><span class="n">name</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">map</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tag</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">record</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">amount</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="k">const</span> <span class="n">newValue</span> <span class="o">=</span> <span class="n">map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tag</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="o">+</span> <span class="n">record</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">amount</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="n">map</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tag</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">newValue</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">map</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">recordList</span> <span class="o">=</span> <span class="n">this</span><span class="o">.$</span><span class="n">store</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">recordList</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">ymw</span> <span class="o">==</span> <span class="s2">&#34;week&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="o">//</span> <span class="err">本周的各标签</span>
+</span></span><span class="line"><span class="cl">      <span class="k">const</span> <span class="n">startDay</span> <span class="o">=</span> <span class="n">dayjs</span><span class="p">()</span><span class="o">.</span><span class="n">startOf</span><span class="p">(</span><span class="s2">&#34;week&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="k">const</span> <span class="n">record</span> <span class="o">=</span> <span class="n">recordList</span><span class="o">.</span><span class="n">filter</span><span class="p">((</span><span class="n">item</span><span class="p">:</span> <span class="n">RecordItem</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">dayjs</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">createdAt</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">startDay</span> <span class="o">&amp;&amp;</span> <span class="n">this</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">item</span><span class="o">.</span><span class="n">type</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">});</span>
+</span></span><span class="line"><span class="cl">      <span class="n">this</span><span class="o">.</span><span class="n">tagList</span> <span class="o">=</span> <span class="n">getMap</span><span class="p">(</span><span class="n">record</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">ymw</span> <span class="o">==</span> <span class="s2">&#34;month&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="o">//</span> <span class="err">本月的各标签</span>
+</span></span><span class="line"><span class="cl">      <span class="k">const</span> <span class="n">record</span> <span class="o">=</span> <span class="n">recordList</span><span class="o">.</span><span class="n">filter</span><span class="p">((</span><span class="n">item</span><span class="p">:</span> <span class="n">RecordItem</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">          <span class="n">dayjs</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">createdAt</span><span class="p">)</span><span class="o">.</span><span class="n">month</span><span class="p">()</span> <span class="o">==</span> <span class="n">dayjs</span><span class="p">()</span><span class="o">.</span><span class="n">month</span><span class="p">()</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">          <span class="n">this</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">item</span><span class="o">.</span><span class="n">type</span>
+</span></span><span class="line"><span class="cl">        <span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="p">});</span>
+</span></span><span class="line"><span class="cl">      <span class="n">this</span><span class="o">.</span><span class="n">tagList</span> <span class="o">=</span> <span class="n">getMap</span><span class="p">(</span><span class="n">record</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">ymw</span> <span class="o">==</span> <span class="s2">&#34;year&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="o">//</span><span class="err">本年的各标签</span>
+</span></span><span class="line"><span class="cl">      <span class="k">const</span> <span class="n">record</span> <span class="o">=</span> <span class="n">recordList</span><span class="o">.</span><span class="n">filter</span><span class="p">((</span><span class="n">item</span><span class="p">:</span> <span class="n">RecordItem</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">          <span class="n">dayjs</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">createdAt</span><span class="p">)</span><span class="o">.</span><span class="n">year</span><span class="p">()</span> <span class="o">==</span> <span class="n">dayjs</span><span class="p">()</span><span class="o">.</span><span class="n">year</span><span class="p">()</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">          <span class="n">this</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">item</span><span class="o">.</span><span class="n">type</span>
+</span></span><span class="line"><span class="cl">        <span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="p">});</span>
+</span></span><span class="line"><span class="cl">      <span class="n">this</span><span class="o">.</span><span class="n">tagList</span> <span class="o">=</span> <span class="n">getMap</span><span class="p">(</span><span class="n">record</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>
-    </div>
+        </div>
 
-    
-    
+        
+        
 <div class="post-copyright">
   <p class="copyright-item">
     <span class="item-title">文章作者</span>
@@ -994,70 +988,70 @@ if (!doNotTrack) {
 
 
 
-    
-    
-
-
-    <footer class="post-footer">
-      <div class="post-tags">
-          <a href="http://gaocarri.top/tags/vue/">Vue</a>
-            <a href="http://gaocarri.top/tags/%E6%A1%86%E6%9E%B6/">框架</a>
-            <a href="http://gaocarri.top/tags/typescript/">TypeScript</a>
-            
-        </div>
-
-
-      
-      <nav class="post-nav">
         
-          <a class="prev" href="/post/%E5%A6%82%E4%BD%95%E5%B0%86vue%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%88%B0github/">
+        
+
+
+        <footer class="post-footer">
+          <div class="post-tags">
+              <a href="http://gaocarri.top/tags/vue/">Vue</a>
+                <a href="http://gaocarri.top/tags/%E6%A1%86%E6%9E%B6/">框架</a>
+                <a href="http://gaocarri.top/tags/typescript/">TypeScript</a>
+                
+            </div>
+
+
+          
+          <nav class="post-nav">
             
-            <i class="iconfont">
-              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+              <a class="prev" href="/post/%E5%A6%82%E4%BD%95%E5%B0%86vue%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%88%B0github/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
   width="18" height="18">
   <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
 </svg>
 
-            </i>
-            <span class="prev-text nav-default">如何将Vue项目部署到GitHub</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        
-          <a class="next" href="/post/money%E7%BB%84%E4%BB%B6%E7%9A%84%E5%B0%81%E8%A3%85%E5%8F%8A%E6%80%9D%E8%B7%AF/">
-            <span class="next-text nav-default">Money组件的封装及思路</span>
-            <span class="prev-text nav-mobile">下一篇</span>
+                </i>
+                <span class="prev-text nav-default">如何将Vue项目部署到GitHub</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
             
-            <i class="iconfont">
-              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+              <a class="next" href="/post/money%E7%BB%84%E4%BB%B6%E7%9A%84%E5%B0%81%E8%A3%85%E5%8F%8A%E6%80%9D%E8%B7%AF/">
+                <span class="next-text nav-default">Money组件的封装及思路</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
   width="18" height="18">
   <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
 </svg>
 
-            </i>
-          </a>
-      </nav>
-    </footer>
-  </article>
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+  
 
   
   
-    
-  
-
 
   
   
-
-  
-
-  
-  
-
-  
-  
-    <div class="post bg-white">
+    <div class="post">
   <script src="https://utteranc.es/client.js"
         repo= "gaocarri/comments-for-blog"
         issue-term="pathname"
@@ -1079,12 +1073,29 @@ if (!doNotTrack) {
 
   
 
-        </div>
-      </div>
-    </main>
 
-    <footer id="footer" class="footer">
-      <div class="icon-links">
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#editlabel页面">EditLabel页面</a></li>
+    <li><a href="#statistics界面">Statistics界面</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
   
   
     <a href="mailto:gaocarri@163.com" rel="me noopener" class="iconfont"
@@ -1148,7 +1159,7 @@ if (!doNotTrack) {
     &copy;
     
       2019 -
-    2022
+    2023
     <span class="heart">
       
       <i class="iconfont">
@@ -1175,28 +1186,30 @@ if (!doNotTrack) {
   
 </div>
 
-    </footer>
+      </footer>
 
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont">
-        
-        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
   width="35" height="35">
   <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
 </svg>
 
-      </i>
+          </i>
+        </a>
+      </div>
     </div>
-  </div>
-  
+    
 <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
 
 
 
 
-<script type="text/javascript" src="/js/main.0ad349017808f9c3192b88ad05faf786650358631fca9cd1416cbfa088cdf915.js" integrity="sha256-CtNJAXgI&#43;cMZK4itBfr3hmUDWGMfypzRQWy/oIjN&#43;RU=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/main.44bbb9434dbd473ac5c9e5649912893d13a8d3aaa7cd483ff5f19221b5f84de7.js" integrity="sha256-RLu5Q029RzrFyeVkmRKJPROo06qnzUg/9fGSIbX4Tec=" crossorigin="anonymous"></script>
 
 
 
@@ -1217,7 +1230,6 @@ if (!doNotTrack) {
 
 
   
-    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
     <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
     <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
   
@@ -1257,5 +1269,5 @@ if (!doNotTrack) {
 
 
 
-</body>
+  </body>
 </html>

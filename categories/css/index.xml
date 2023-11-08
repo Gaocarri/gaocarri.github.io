@@ -6,33 +6,28 @@
     <description>Recent content in CSS on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 07 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://gaocarri.top/categories/css/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://gaocarri.top/categories/css/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CSS关于文本换行与不换行的那些事</title>
       <link>http://gaocarri.top/post/css%E5%85%B3%E4%BA%8E%E6%96%87%E6%9C%AC%E6%8D%A2%E8%A1%8C%E4%B8%8E%E4%B8%8D%E6%8D%A2%E8%A1%8C%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/</link>
       <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
-      
       <guid>http://gaocarri.top/post/css%E5%85%B3%E4%BA%8E%E6%96%87%E6%9C%AC%E6%8D%A2%E8%A1%8C%E4%B8%8E%E4%B8%8D%E6%8D%A2%E8%A1%8C%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/</guid>
       <description>关于换行的样式属性 标粗的是常用属性，会在后面的场景里用到 1.white-space: normal | pre | nowrap | pre-wrap | pre-line | inherit; white-space 属性设置如何处理元素内的空白 设值说明： normal 默认。空白会被浏览</description>
     </item>
-    
     <item>
       <title>CSS知识总结</title>
       <link>http://gaocarri.top/post/css%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</link>
       <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
-      
       <guid>http://gaocarri.top/post/css%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</guid>
       <description>一、浏览器渲染原理 参考文章 Google团队写的文章 渲染树构建、布局及绘制 渲染性能 使用transform来实现动画 查看CSS各属性触发什么 CSSTriggers.com 浏</description>
     </item>
-    
     <item>
       <title>CSS的Float,Flex,Grid布局</title>
       <link>http://gaocarri.top/post/css%E7%9A%84floatflexgrid%E5%B8%83%E5%B1%80/</link>
       <pubDate>Wed, 30 Oct 2019 00:00:00 +0000</pubDate>
-      
       <guid>http://gaocarri.top/post/css%E7%9A%84floatflexgrid%E5%B8%83%E5%B1%80/</guid>
       <description>如何选取布局 图片来自饥人谷 Float布局 子元素上加float:left和width 父元素classname上加 clearfix 1 2 3 4 5 clearfix{ content:&amp;#39;&amp;#39;; display:block; clear:both; } Flex</description>
     </item>
-    
   </channel>
 </rss>

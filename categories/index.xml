@@ -6,132 +6,112 @@
     <description>Recent content in Categories on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 27 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://gaocarri.top/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://gaocarri.top/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>React</title>
+      <link>http://gaocarri.top/categories/react/</link>
+      <pubDate>Wed, 01 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>http://gaocarri.top/categories/react/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>javascript</title>
+      <link>http://gaocarri.top/categories/javascript/</link>
+      <pubDate>Fri, 13 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>http://gaocarri.top/categories/javascript/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>黑曜石博客</title>
+      <link>http://gaocarri.top/categories/%E9%BB%91%E6%9B%9C%E7%9F%B3%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Mon, 11 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://gaocarri.top/categories/%E9%BB%91%E6%9B%9C%E7%9F%B3%E5%8D%9A%E5%AE%A2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>http://gaocarri.top/categories/docker/</link>
+      <pubDate>Thu, 17 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://gaocarri.top/categories/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>工具</title>
+      <link>http://gaocarri.top/categories/%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Wed, 24 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://gaocarri.top/categories/%E5%B7%A5%E5%85%B7/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Web工具</title>
       <link>http://gaocarri.top/categories/web%E5%B7%A5%E5%85%B7/</link>
       <pubDate>Sat, 27 Aug 2022 00:00:00 +0000</pubDate>
-      
       <guid>http://gaocarri.top/categories/web%E5%B7%A5%E5%85%B7/</guid>
       <description></description>
     </item>
-    
-    <item>
-      <title>javascript</title>
-      <link>http://gaocarri.top/categories/javascript/</link>
-      <pubDate>Sat, 30 Jul 2022 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/categories/javascript/</guid>
-      <description></description>
-    </item>
-    
     <item>
       <title>Web音视频</title>
       <link>http://gaocarri.top/categories/web%E9%9F%B3%E8%A7%86%E9%A2%91/</link>
       <pubDate>Fri, 27 May 2022 00:00:00 +0000</pubDate>
-      
       <guid>http://gaocarri.top/categories/web%E9%9F%B3%E8%A7%86%E9%A2%91/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Vue</title>
       <link>http://gaocarri.top/categories/vue/</link>
       <pubDate>Fri, 11 Jun 2021 00:00:00 +0000</pubDate>
-      
       <guid>http://gaocarri.top/categories/vue/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>CSS</title>
       <link>http://gaocarri.top/categories/css/</link>
       <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
-      
       <guid>http://gaocarri.top/categories/css/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>HTML</title>
       <link>http://gaocarri.top/categories/html/</link>
       <pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate>
-      
       <guid>http://gaocarri.top/categories/html/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>HTTP</title>
       <link>http://gaocarri.top/categories/http/</link>
       <pubDate>Wed, 17 Feb 2021 00:00:00 +0000</pubDate>
-      
       <guid>http://gaocarri.top/categories/http/</guid>
       <description></description>
     </item>
-    
-    <item>
-      <title>React</title>
-      <link>http://gaocarri.top/categories/react/</link>
-      <pubDate>Sun, 03 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/categories/react/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>黑曜石博客</title>
-      <link>http://gaocarri.top/categories/%E9%BB%91%E6%9B%9C%E7%9F%B3%E5%8D%9A%E5%AE%A2/</link>
-      <pubDate>Sun, 11 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/categories/%E9%BB%91%E6%9B%9C%E7%9F%B3%E5%8D%9A%E5%AE%A2/</guid>
-      <description></description>
-    </item>
-    
     <item>
       <title>黑曜石记账项目笔记</title>
       <link>http://gaocarri.top/categories/%E9%BB%91%E6%9B%9C%E7%9F%B3%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
-      
       <guid>http://gaocarri.top/categories/%E9%BB%91%E6%9B%9C%E7%9F%B3%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/</guid>
       <description></description>
     </item>
-    
-    <item>
-      <title>工具</title>
-      <link>http://gaocarri.top/categories/%E5%B7%A5%E5%85%B7/</link>
-      <pubDate>Fri, 06 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://gaocarri.top/categories/%E5%B7%A5%E5%85%B7/</guid>
-      <description></description>
-    </item>
-    
     <item>
       <title>数据结构与算法</title>
       <link>http://gaocarri.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</link>
       <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
-      
       <guid>http://gaocarri.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>框架</title>
       <link>http://gaocarri.top/categories/%E6%A1%86%E6%9E%B6/</link>
       <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
-      
       <guid>http://gaocarri.top/categories/%E6%A1%86%E6%9E%B6/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>博客使用</title>
       <link>http://gaocarri.top/categories/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sun, 27 Oct 2019 00:00:00 +0000</pubDate>
-      
       <guid>http://gaocarri.top/categories/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

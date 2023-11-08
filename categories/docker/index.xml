@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on 卡里的技术博客</title>
+    <link>http://gaocarri.top/categories/docker/</link>
+    <description>Recent content in Docker on 卡里的技术博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 17 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://gaocarri.top/categories/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>适合前端的15分钟入门Docker</title>
+      <link>http://gaocarri.top/post/%E9%80%82%E5%90%88%E5%89%8D%E7%AB%AF%E7%9A%8415%E5%88%86%E9%92%9F%E5%85%A5%E9%97%A8docker/</link>
+      <pubDate>Thu, 17 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://gaocarri.top/post/%E9%80%82%E5%90%88%E5%89%8D%E7%AB%AF%E7%9A%8415%E5%88%86%E9%92%9F%E5%85%A5%E9%97%A8docker/</guid>
+      <description>Docker 介绍及安装 Docker 是一种开源项目，用于将应用程序自动部署为可在云或本地运行的便携式独立容器。 Docker 也是一家公司，它与云、Linux 和 Windows 供应商（包括 M</description>
+    </item>
+  </channel>
+</rss>

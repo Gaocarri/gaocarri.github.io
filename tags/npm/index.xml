@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>npm on 卡里的技术博客</title>
+    <link>http://gaocarri.top/tags/npm/</link>
+    <description>Recent content in npm on 卡里的技术博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 11 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://gaocarri.top/tags/npm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>记一次由yarn.lock引起的dayjs问题</title>
+      <link>http://gaocarri.top/post/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%94%B1yarn.lock%E5%BC%95%E8%B5%B7%E7%9A%84dayjs%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Mon, 11 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://gaocarri.top/post/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%94%B1yarn.lock%E5%BC%95%E8%B5%B7%E7%9A%84dayjs%E9%97%AE%E9%A2%98/</guid>
+      <description>背景 基于antd5搭建了一套我们内部使用的ui组件库，同时项目中仍然存在antd4，两者共存，在引入时发现了国际化配置失效的问题 antd5国</description>
+    </item>
+  </channel>
+</rss>

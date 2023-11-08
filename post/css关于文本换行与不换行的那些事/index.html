@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>CSS关于文本换行与不换行的那些事 - 卡里的技术博客</title>
-  
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          CSS关于文本换行与不换行的那些事 - 卡里的技术博客
+        </title>
+    
 
 <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
@@ -31,7 +37,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.105.0" />
+<meta name="generator" content="Hugo 0.120.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/post/css%E5%85%B3%E4%BA%8E%E6%96%87%E6%9C%AC%E6%8D%A2%E8%A1%8C%E4%B8%8E%E4%B8%8D%E6%8D%A2%E8%A1%8C%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/" />
@@ -52,7 +58,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
 
 
 
@@ -99,9 +105,11 @@ if (!doNotTrack) {
 </script>
 
 
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
     <a href="/" class="logo">卡里的技术博客</a>
   </div>
@@ -170,8 +178,8 @@ if (!doNotTrack) {
 </nav>
 
 
-  
     
+      
 
 
 
@@ -228,10 +236,10 @@ if (!doNotTrack) {
     </div>
 </div>
 
-  
-
-  
     
+
+    
+      
 <div class="modal-dialog">
     
     <div class="modal-content">
@@ -258,12 +266,13 @@ if (!doNotTrack) {
     </div>
 </div>
 
-  
+    
 
-  
+    
 
-  <header id="header" class="header container">
-    <div class="logo-wrapper">
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
   <a href="/" class="logo">
     
       卡里的技术博客
@@ -352,19 +361,19 @@ if (!doNotTrack) {
   </ul>
 </nav>
 
-  </header>
+    </header>
 
-  <div id="mobile-panel">
-    <main id="main" class="main bg-llight wallpaper">
-      <div class="content-wrapper">
-        <div id="content" class="content container">
-          <article class="post bg-white">
-    
-    <header class="post-header">
-      <h1 class="post-title">CSS关于文本换行与不换行的那些事</h1>
-      
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">CSS关于文本换行与不换行的那些事</h1>
+          
 
-      <div class="post-meta">
+          <div class="post-meta">
   <div class="post-meta-author">
     by
       Carri
@@ -405,38 +414,11 @@ if (!doNotTrack) {
   </div>
 </div>
 
-    </header>
+        </header>
 
-    
-    
-<div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#使用webkit的css扩展属性该方法适用于webkit浏览器及移动端">使用<strong>WebKit的CSS扩展属性</strong>，该方法<strong>适用于WebKit浏览器及移动端</strong></a></li>
-        <li><a href="#利用绝对定位和padding跨浏览器解决方案">利用<strong>绝对定位和padding</strong>;(<strong>跨浏览器</strong>解决方案)</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-  </div>
-</div>
-
-
-    
-    <div class="post-content">
-      <h1 id="关于换行的样式属性">关于换行的样式属性</h1>
+        
+        <div class="post-content">
+          <h1 id="关于换行的样式属性">关于换行的样式属性</h1>
 <p>标粗的是常用属性，会在后面的场景里用到</p>
 <h4 id="1white-space-normal--pre--nowrap--pre-wrap--pre-line--inherit">1.white-space: normal | pre | nowrap | pre-wrap | pre-line | inherit;</h4>
 <p>white-space 属性设置如何处理元素内的空白</p>
@@ -554,10 +536,10 @@ keep-all:只能在半角空格或连字符处换行</p>
 <h1 id="结语">结语</h1>
 <p>其实这篇写这篇博客的原因是因为字节三面的时候问到了场景2的问题，当时实在憋不出来，思考得出后说应该用JavaScript处理字符串。。。虽然挂的原因方方面面，但是在这种问题上还是不应该出错。</p>
 
-    </div>
+        </div>
 
-    
-    
+        
+        
 <div class="post-copyright">
   <p class="copyright-item">
     <span class="item-title">文章作者</span>
@@ -579,68 +561,68 @@ keep-all:只能在半角空格或连字符处换行</p>
 
 
 
-    
-    
-
-
-    <footer class="post-footer">
-      <div class="post-tags">
-          <a href="http://gaocarri.top/tags/css/">CSS</a>
-            
-        </div>
-
-
-      
-      <nav class="post-nav">
         
-          <a class="prev" href="/post/vue%E5%86%B7%E9%97%A8api%E4%B9%8Bprovide/">
+        
+
+
+        <footer class="post-footer">
+          <div class="post-tags">
+              <a href="http://gaocarri.top/tags/css/">CSS</a>
+                
+            </div>
+
+
+          
+          <nav class="post-nav">
             
-            <i class="iconfont">
-              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+              <a class="prev" href="/post/vue%E5%86%B7%E9%97%A8api%E4%B9%8Bprovide/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
   width="18" height="18">
   <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
 </svg>
 
-            </i>
-            <span class="prev-text nav-default">Vue冷门api之provide</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        
-          <a class="next" href="/post/%E8%AF%A6%E8%BF%B0meta%E6%A0%87%E7%AD%BE/">
-            <span class="next-text nav-default">详述meta标签</span>
-            <span class="prev-text nav-mobile">下一篇</span>
+                </i>
+                <span class="prev-text nav-default">Vue冷门api之provide</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
             
-            <i class="iconfont">
-              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+              <a class="next" href="/post/%E8%AF%A6%E8%BF%B0meta%E6%A0%87%E7%AD%BE/">
+                <span class="next-text nav-default">详述meta标签</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
   width="18" height="18">
   <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
 </svg>
 
-            </i>
-          </a>
-      </nav>
-    </footer>
-  </article>
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+  
 
   
   
-    
-  
-
 
   
   
-
-  
-
-  
-  
-
-  
-  
-    <div class="post bg-white">
+    <div class="post">
   <script src="https://utteranc.es/client.js"
         repo= "gaocarri/comments-for-blog"
         issue-term="pathname"
@@ -662,12 +644,41 @@ keep-all:只能在半角空格或连字符处换行</p>
 
   
 
-        </div>
-      </div>
-    </main>
 
-    <footer id="footer" class="footer">
-      <div class="icon-links">
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#使用webkit的css扩展属性该方法适用于webkit浏览器及移动端">使用<strong>WebKit的CSS扩展属性</strong>，该方法<strong>适用于WebKit浏览器及移动端</strong></a></li>
+        <li><a href="#利用绝对定位和padding跨浏览器解决方案">利用<strong>绝对定位和padding</strong>;(<strong>跨浏览器</strong>解决方案)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
   
   
     <a href="mailto:gaocarri@163.com" rel="me noopener" class="iconfont"
@@ -731,7 +742,7 @@ keep-all:只能在半角空格或连字符处换行</p>
     &copy;
     
       2019 -
-    2022
+    2023
     <span class="heart">
       
       <i class="iconfont">
@@ -758,28 +769,30 @@ keep-all:只能在半角空格或连字符处换行</p>
   
 </div>
 
-    </footer>
+      </footer>
 
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont">
-        
-        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
   width="35" height="35">
   <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
 </svg>
 
-      </i>
+          </i>
+        </a>
+      </div>
     </div>
-  </div>
-  
+    
 <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
 
 
 
 
-<script type="text/javascript" src="/js/main.0ad349017808f9c3192b88ad05faf786650358631fca9cd1416cbfa088cdf915.js" integrity="sha256-CtNJAXgI&#43;cMZK4itBfr3hmUDWGMfypzRQWy/oIjN&#43;RU=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/main.44bbb9434dbd473ac5c9e5649912893d13a8d3aaa7cd483ff5f19221b5f84de7.js" integrity="sha256-RLu5Q029RzrFyeVkmRKJPROo06qnzUg/9fGSIbX4Tec=" crossorigin="anonymous"></script>
 
 
 
@@ -800,7 +813,6 @@ keep-all:只能在半角空格或连字符处换行</p>
 
 
   
-    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
     <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
     <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
   
@@ -840,5 +852,5 @@ keep-all:只能在半角空格或连字符处换行</p>
 
 
 
-</body>
+  </body>
 </html>

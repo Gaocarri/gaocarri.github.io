@@ -6,15 +6,14 @@
     <description>Recent content in 异步 on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 02 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://gaocarri.top/tags/%E5%BC%82%E6%AD%A5/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 02 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://gaocarri.top/tags/%E5%BC%82%E6%AD%A5/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用Promise</title>
       <link>http://gaocarri.top/post/%E4%BD%BF%E7%94%A8promise/</link>
       <pubDate>Mon, 02 Dec 2019 00:00:00 +0000</pubDate>
-      
       <guid>http://gaocarri.top/post/%E4%BD%BF%E7%94%A8promise/</guid>
       <description>虽说最近学到Vue了,但是突然发现自己对Promise的用法掌握的不怎么样,遂写一篇博客,也可以当作自己平常使用的参考。 内容包括以下几个部分</description>
     </item>
-    
   </channel>
 </rss>

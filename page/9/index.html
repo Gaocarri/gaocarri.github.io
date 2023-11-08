@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>卡里的技术博客</title>
-  
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          卡里的技术博客
+        </title>
+    
 
 <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
@@ -31,7 +37,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.105.0" />
+<meta name="generator" content="Hugo 0.120.3" />
 
 
 <link rel="canonical" href="http://gaocarri.top/" />
@@ -52,7 +58,7 @@
 
 
 
-<link rel="stylesheet" href="/sass/jane.min.fa3d941d1d0e0ddc985804227feabffea55c89883eb0af34e0532a7ae9135151.css" integrity="sha256-&#43;j2UHR0ODdyYWAQif&#43;q//qVciYg&#43;sK804FMqeukTUVE=" media="screen" crossorigin="anonymous">
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
 
 
 
@@ -94,9 +100,11 @@ if (!doNotTrack) {
 </script>
 
 
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
     <a href="/" class="logo">卡里的技术博客</a>
   </div>
@@ -165,8 +173,8 @@ if (!doNotTrack) {
 </nav>
 
 
-  
     
+      
 
 
 
@@ -223,10 +231,10 @@ if (!doNotTrack) {
     </div>
 </div>
 
-  
-
-  
     
+
+    
+      
 <div class="modal-dialog">
     
     <div class="modal-content">
@@ -253,12 +261,13 @@ if (!doNotTrack) {
     </div>
 </div>
 
-  
+    
 
-  
+    
 
-  <header id="header" class="header container">
-    <div class="logo-wrapper">
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
   <a href="/" class="logo">
     
       卡里的技术博客
@@ -347,13 +356,11 @@ if (!doNotTrack) {
   </ul>
 </nav>
 
-  </header>
+    </header>
 
-  <div id="mobile-panel">
-    <main id="main" class="main bg-llight wallpaper">
-      <div class="content-wrapper">
-        <div id="content" class="content container">
-          
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        
 <section id="posts" class="posts">
   
   
@@ -361,11 +368,11 @@ if (!doNotTrack) {
   
   
   
-    <article class="post bg-white">
+    <article class="post">
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/vue%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/">Vue的响应式原理</a>
+      <a class="post-link" href="/post/vuetypescript%E4%B8%AD%E4%BD%BF%E7%94%A8toast/">Vue，TypeScript中使用toast</a>
     </h1>
     
 
@@ -377,8 +384,8 @@ if (!doNotTrack) {
   </div>
 
   <div class="post-meta-time">
-    <time datetime="2020-01-01">
-      2020-01-01
+    <time datetime="2020-05-05">
+      2020-05-05
     </time>
   </div>
 
@@ -387,7 +394,7 @@ if (!doNotTrack) {
 
   <div class="post-meta__right">
     <span class="post-meta-more">
-        约 926 字 -
+        约 747 字 -
         预计阅读 2 分钟
       </span>
 
@@ -415,10 +422,10 @@ if (!doNotTrack) {
   <div class="post-content">
     
       <div class="post-summary">
-        Vue的响应式原理主要分为两大部分 修改数据，Vue内部监听数据的改变（Object.defineProperty 监听对象属性改变） 发布者订阅
+        前言 之前在使用js在Vue中用了toast，感觉挺简单的，但是使用TypeScript的时候发生了一些问题，正好总结一下toast的使用，以
       </div>
       <div class="read-more">
-        <a href="/post/vue%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/" class="read-more-link"
+        <a href="/post/vuetypescript%E4%B8%AD%E4%BD%BF%E7%94%A8toast/" class="read-more-link"
           >阅读全文</a
         >
       </div>
@@ -427,11 +434,11 @@ if (!doNotTrack) {
 </article>
 
   
-    <article class="post bg-white">
+    <article class="post">
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/cannot-read-property-length-of-undefined%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">[Vue warn]: Error in render: TypeError: Cannot read property &#39;length&#39; of undefined解决方法</a>
+      <a class="post-link" href="/post/%E4%BD%BF%E7%94%A8better-scroll%E5%8E%BB%E9%99%A4%E6%BB%9A%E5%8A%A8%E6%9D%A1%E7%9A%84%E7%AE%80%E6%98%93%E6%96%B9%E6%B3%95/">使用better-scroll去除滚动条的简易方法</a>
     </h1>
     
 
@@ -443,8 +450,8 @@ if (!doNotTrack) {
   </div>
 
   <div class="post-meta-time">
-    <time datetime="2019-12-26">
-      2019-12-26
+    <time datetime="2020-05-01">
+      2020-05-01
     </time>
   </div>
 
@@ -453,7 +460,7 @@ if (!doNotTrack) {
 
   <div class="post-meta__right">
     <span class="post-meta-more">
-        约 825 字 -
+        约 728 字 -
         预计阅读 2 分钟
       </span>
 
@@ -481,10 +488,10 @@ if (!doNotTrack) {
   <div class="post-content">
     
       <div class="post-summary">
-        今天在使用vue做项目的时候遇到了一个错误，不断尝试后终于找到了解决方法，顺便举一反三一波 错误及其解决方法 我给一个组件的子组件传递了一个对象
+        前言 这段时间在做一个记账webApp；发现原生滚动条既难看也难用，本来打算将其隐藏了事，无奈试过很多方法都无法满足要求，于是想到了之前用过的
       </div>
       <div class="read-more">
-        <a href="/post/cannot-read-property-length-of-undefined%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="read-more-link"
+        <a href="/post/%E4%BD%BF%E7%94%A8better-scroll%E5%8E%BB%E9%99%A4%E6%BB%9A%E5%8A%A8%E6%9D%A1%E7%9A%84%E7%AE%80%E6%98%93%E6%96%B9%E6%B3%95/" class="read-more-link"
           >阅读全文</a
         >
       </div>
@@ -493,11 +500,11 @@ if (!doNotTrack) {
 </article>
 
   
-    <article class="post bg-white">
+    <article class="post">
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/vue%E5%9F%BA%E7%A1%80%E4%B8%89--%E7%BB%84%E4%BB%B6/">Vue基础(三)--组件相关</a>
+      <a class="post-link" href="/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3vue%E7%9A%84sync%E4%BF%AE%E9%A5%B0%E7%AC%A6/">深入理解Vue的sync修饰符</a>
     </h1>
     
 
@@ -509,8 +516,8 @@ if (!doNotTrack) {
   </div>
 
   <div class="post-meta-time">
-    <time datetime="2019-12-20">
-      2019-12-20
+    <time datetime="2020-04-15">
+      2020-04-15
     </time>
   </div>
 
@@ -519,8 +526,8 @@ if (!doNotTrack) {
 
   <div class="post-meta__right">
     <span class="post-meta-more">
-        约 3642 字 -
-        预计阅读 8 分钟
+        约 856 字 -
+        预计阅读 2 分钟
       </span>
 
     <div class="post-meta-category">
@@ -547,10 +554,10 @@ if (!doNotTrack) {
   <div class="post-content">
     
       <div class="post-summary">
-        包含以下几个部分 组件注册 组件通信 父子组件相互访问 插槽 全局组件和局部组件的注册 全局组件 直接上代码,这样即注册了一个全局组件 1 2 3 4 5 6 7 8 Vue.component(&#39;cpn&#39;,{ template:
+        说明 官方文档对.sync修饰符的解释：https://cn.vuejs.org/v2/guide/components-custom-eve
       </div>
       <div class="read-more">
-        <a href="/post/vue%E5%9F%BA%E7%A1%80%E4%B8%89--%E7%BB%84%E4%BB%B6/" class="read-more-link"
+        <a href="/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3vue%E7%9A%84sync%E4%BF%AE%E9%A5%B0%E7%AC%A6/" class="read-more-link"
           >阅读全文</a
         >
       </div>
@@ -559,11 +566,11 @@ if (!doNotTrack) {
 </article>
 
   
-    <article class="post bg-white">
+    <article class="post">
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/vue%E5%9F%BA%E7%A1%80%E4%BA%8C--%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E5%BE%AA%E7%8E%AF%E9%81%8D%E5%8E%86v-model/">Vue基础(二)--事件监听，条件判断，循环遍历，v-model</a>
+      <a class="post-link" href="/post/vue%E5%AE%8C%E6%95%B4%E7%89%88%E4%B8%8E%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88%E5%8C%BA%E5%88%AB/">Vue完整版与非完整版区别</a>
     </h1>
     
 
@@ -575,8 +582,8 @@ if (!doNotTrack) {
   </div>
 
   <div class="post-meta-time">
-    <time datetime="2019-12-17">
-      2019-12-17
+    <time datetime="2020-03-30">
+      2020-03-30
     </time>
   </div>
 
@@ -585,8 +592,8 @@ if (!doNotTrack) {
 
   <div class="post-meta__right">
     <span class="post-meta-more">
-        约 2491 字 -
-        预计阅读 5 分钟
+        约 479 字 -
+        预计阅读 1 分钟
       </span>
 
     <div class="post-meta-category">
@@ -613,10 +620,10 @@ if (!doNotTrack) {
   <div class="post-content">
     
       <div class="post-summary">
-        事件监听 分为以下三部分 v-on的基本使用 v-on的参数 v-on的修饰符 v-on的基本使用 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 &lt;div id=&#34;app&#34;&gt; &lt;h2&gt;{{counter}}&lt;/h2&gt; &lt;button @click=&#34;increment&#34;&gt;+&lt;/button&gt; &lt;/div&gt; ...... &lt;script&gt;
+        官方文档的解释 总结 两个版本对应的文件名 完整版 文件名：vue.js和vue.min.js 含min的是压缩版，表示是在生产环境下给用户使用的版本
       </div>
       <div class="read-more">
-        <a href="/post/vue%E5%9F%BA%E7%A1%80%E4%BA%8C--%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E5%BE%AA%E7%8E%AF%E9%81%8D%E5%8E%86v-model/" class="read-more-link"
+        <a href="/post/vue%E5%AE%8C%E6%95%B4%E7%89%88%E4%B8%8E%E9%9D%9E%E5%AE%8C%E6%95%B4%E7%89%88%E5%8C%BA%E5%88%AB/" class="read-more-link"
           >阅读全文</a
         >
       </div>
@@ -625,11 +632,11 @@ if (!doNotTrack) {
 </article>
 
   
-    <article class="post bg-white">
+    <article class="post">
   <header class="post-header">
     <h1 class="post-title">
       
-      <a class="post-link" href="/post/vue%E5%9F%BA%E7%A1%80%E4%B8%80--%E6%8F%92%E5%80%BC%E6%93%8D%E4%BD%9Cv-bind%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/">Vue基础(一)--插值操作，v-bind，计算属性</a>
+      <a class="post-link" href="/post/%E8%AE%B0%E4%B8%80%E6%AC%A1gitpush%E5%A4%B1%E8%B4%A5%E6%8F%90%E7%A4%BAconnection-timed-out/">记一次git push失败，提示connection timed out</a>
     </h1>
     
 
@@ -641,8 +648,8 @@ if (!doNotTrack) {
   </div>
 
   <div class="post-meta-time">
-    <time datetime="2019-12-15">
-      2019-12-15
+    <time datetime="2020-03-06">
+      2020-03-06
     </time>
   </div>
 
@@ -651,12 +658,12 @@ if (!doNotTrack) {
 
   <div class="post-meta__right">
     <span class="post-meta-more">
-        约 2253 字 -
-        预计阅读 5 分钟
+        约 289 字 -
+        预计阅读 1 分钟
       </span>
 
     <div class="post-meta-category">
-        <a href="http://gaocarri.top/categories/vue/"> Vue </a>
+        <a href="http://gaocarri.top/categories/%E5%B7%A5%E5%85%B7/"> 工具 </a>
           
       </div>
 
@@ -679,10 +686,10 @@ if (!doNotTrack) {
   <div class="post-content">
     
       <div class="post-summary">
-        Vue是一种渐进式框架，什么是渐进式框架 渐进式框架：即可以在项目中部分使用Vue，不必非要完全使用 Vue的MVVM Vue是一种MVVM框架。
+        首先，报错信息 1 2 3 4 ssh: connect to host github.com port 22: Connection timed out fatal: Could not read from remote repository. Please make sure you have the correct access rights and the repository exists. 这可能是防火墙导致的，解决方法参考官方帮助文档 https://help.github.com/en/github/authenticating-to-github/using-ssh-over-the-https-port 具体的解决
       </div>
       <div class="read-more">
-        <a href="/post/vue%E5%9F%BA%E7%A1%80%E4%B8%80--%E6%8F%92%E5%80%BC%E6%93%8D%E4%BD%9Cv-bind%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/" class="read-more-link"
+        <a href="/post/%E8%AE%B0%E4%B8%80%E6%AC%A1gitpush%E5%A4%B1%E8%B4%A5%E6%8F%90%E7%A4%BAconnection-timed-out/" class="read-more-link"
           >阅读全文</a
         >
       </div>
@@ -740,9 +747,7 @@ if (!doNotTrack) {
           
 
             
-            
 
-          
           
 
         
@@ -763,23 +768,13 @@ if (!doNotTrack) {
           
 
             
-            
-              
-            
 
           
-          
 
         
         
 
         
-        
-          <li class="">
-            <a href="/page/2/">
-              2
-            </a>
-          </li>
         
 
       
@@ -794,11 +789,9 @@ if (!doNotTrack) {
           
 
             
-            
               
             
 
-          
           
 
         
@@ -825,11 +818,9 @@ if (!doNotTrack) {
           
 
             
-            
               
             
 
-          
           
 
         
@@ -856,11 +847,9 @@ if (!doNotTrack) {
           
 
             
-            
               
             
 
-          
           
 
         
@@ -887,11 +876,9 @@ if (!doNotTrack) {
           
 
             
-            
               
             
 
-          
           
 
         
@@ -918,11 +905,9 @@ if (!doNotTrack) {
           
 
             
-            
               
             
 
-          
           
 
         
@@ -949,11 +934,9 @@ if (!doNotTrack) {
           
 
             
-            
               
             
 
-          
           
 
         
@@ -980,11 +963,9 @@ if (!doNotTrack) {
           
 
             
-            
               
             
 
-          
           
 
         
@@ -1011,11 +992,9 @@ if (!doNotTrack) {
           
 
             
-            
               
             
 
-          
           
 
         
@@ -1042,11 +1021,9 @@ if (!doNotTrack) {
           
 
             
-            
               
             
 
-          
           
 
         
@@ -1073,11 +1050,9 @@ if (!doNotTrack) {
           
 
             
-            
               
             
 
-          
           
 
         
@@ -1104,11 +1079,9 @@ if (!doNotTrack) {
           
 
             
-            
               
             
 
-          
           
 
         
@@ -1135,11 +1108,9 @@ if (!doNotTrack) {
           
 
             
-            
               
             
 
-          
           
 
         
@@ -1156,6 +1127,56 @@ if (!doNotTrack) {
 
       
 
+        
+
+        
+        
+
+          
+          
+          
+
+            
+              
+            
+
+          
+
+        
+        
+
+        
+        
+          <li class="">
+            <a href="/page/15/">
+              15
+            </a>
+          </li>
+        
+
+      
+
+        
+
+        
+        
+
+          
+          
+          
+
+            
+
+          
+
+        
+        
+
+        
+        
+
+      
+
       
       
       <li><a href="/page/10/">»</a></li>
@@ -1163,7 +1184,7 @@ if (!doNotTrack) {
 
       
       
-      <li><a href="/page/14/">»»</a></li>
+      <li><a href="/page/16/">»»</a></li>
       
 
       </ul>
@@ -1174,12 +1195,11 @@ if (!doNotTrack) {
 
 
 
-        </div>
-      </div>
-    </main>
 
-    <footer id="footer" class="footer">
-      <div class="icon-links">
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
   
   
     <a href="mailto:gaocarri@163.com" rel="me noopener" class="iconfont"
@@ -1243,7 +1263,7 @@ if (!doNotTrack) {
     &copy;
     
       2019 -
-    2022
+    2023
     <span class="heart">
       
       <i class="iconfont">
@@ -1270,28 +1290,30 @@ if (!doNotTrack) {
   
 </div>
 
-    </footer>
+      </footer>
 
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont">
-        
-        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
   width="35" height="35">
   <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
 </svg>
 
-      </i>
+          </i>
+        </a>
+      </div>
     </div>
-  </div>
-  
+    
 <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
 
 
 
 
-<script type="text/javascript" src="/js/main.0ad349017808f9c3192b88ad05faf786650358631fca9cd1416cbfa088cdf915.js" integrity="sha256-CtNJAXgI&#43;cMZK4itBfr3hmUDWGMfypzRQWy/oIjN&#43;RU=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/main.44bbb9434dbd473ac5c9e5649912893d13a8d3aaa7cd483ff5f19221b5f84de7.js" integrity="sha256-RLu5Q029RzrFyeVkmRKJPROo06qnzUg/9fGSIbX4Tec=" crossorigin="anonymous"></script>
 
 
 
@@ -1305,7 +1327,6 @@ if (!doNotTrack) {
 
 
   
-    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
     <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
     <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
   
@@ -1345,5 +1366,5 @@ if (!doNotTrack) {
 
 
 
-</body>
+  </body>
 </html>

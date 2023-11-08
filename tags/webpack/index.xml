@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Webpack on 卡里的技术博客</title>
+    <link>http://gaocarri.top/tags/webpack/</link>
+    <description>Recent content in Webpack on 卡里的技术博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 14 Jan 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://gaocarri.top/tags/webpack/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>优化ts-loader的使用</title>
+      <link>http://gaocarri.top/post/%E4%BC%98%E5%8C%96ts-loader%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sat, 14 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://gaocarri.top/post/%E4%BC%98%E5%8C%96ts-loader%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>在熟悉项目的过程中发现项目使用 ts-loader 处理 TypeScript，存在优化空间，首先说明问题原因，其次给出几种优化方式。 1. 为什么使用 ts-loader 启动/热更新/</description>
+    </item>
+  </channel>
+</rss>

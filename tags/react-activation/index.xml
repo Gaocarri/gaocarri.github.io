@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>react-activation on 卡里的技术博客</title>
+    <link>http://gaocarri.top/tags/react-activation/</link>
+    <description>Recent content in react-activation on 卡里的技术博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 01 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://gaocarri.top/tags/react-activation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>react路由缓存设计</title>
+      <link>http://gaocarri.top/post/react%E8%B7%AF%E7%94%B1%E7%BC%93%E5%AD%98%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Wed, 01 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>http://gaocarri.top/post/react%E8%B7%AF%E7%94%B1%E7%BC%93%E5%AD%98%E8%AE%BE%E8%AE%A1/</guid>
+      <description>一、需求背景 在管理后台进行列表操作时，比如点击编辑进入编辑页面，再次回退，页面对应的列表默认都会回到第一页，无法保存最初的状态，体验很差。 为</description>
+    </item>
+  </channel>
+</rss>

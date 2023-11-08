@@ -6,42 +6,42 @@
     <description>Recent content in 库 on 卡里的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 30 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://gaocarri.top/tags/%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://gaocarri.top/tags/%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>dom-to-image库无法在electron应用中复制图片的问题</title>
+      <link>http://gaocarri.top/post/dom-to-image%E5%BA%93%E6%97%A0%E6%B3%95%E5%9C%A8electron%E5%BA%94%E7%94%A8%E4%B8%AD%E5%A4%8D%E5%88%B6%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Wed, 29 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>http://gaocarri.top/post/dom-to-image%E5%BA%93%E6%97%A0%E6%B3%95%E5%9C%A8electron%E5%BA%94%E7%94%A8%E4%B8%AD%E5%A4%8D%E5%88%B6%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description>昨天遇到了一个神奇的问题，我们某个依赖 dom-to-image 的组件交付给其他部门使用时，出现了复制结果缺少背景图片的问题，其他部门使用electron，排查后发</description>
+    </item>
     <item>
       <title>qiankun的js沙箱源码解析</title>
       <link>http://gaocarri.top/post/qiankun%E7%9A%84js%E6%B2%99%E7%AE%B1%E8%AF%A6%E8%A7%A3/</link>
       <pubDate>Sat, 30 Jul 2022 00:00:00 +0000</pubDate>
-      
       <guid>http://gaocarri.top/post/qiankun%E7%9A%84js%E6%B2%99%E7%AE%B1%E8%AF%A6%E8%A7%A3/</guid>
       <description>qiankun的沙箱种类 SnapshotSandbox （快照沙箱） LegacySandbox（支持单应用的代理沙箱） ProxySandbox（支持多应用的代理沙箱） LegacySandbox 和</description>
     </item>
-    
     <item>
       <title>记录一次浏览器的HSTS策略引起的跨域问题</title>
       <link>http://gaocarri.top/post/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84hsts%E7%AD%96%E7%95%A5%E5%BC%95%E8%B5%B7%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</link>
       <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
-      
       <guid>http://gaocarri.top/post/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84hsts%E7%AD%96%E7%95%A5%E5%BC%95%E8%B5%B7%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</guid>
       <description>这周工作发现在chrome和edge上发现访问http页面提示跨域，后端已经设置了CORS。 表现 第一次是个预检请求（没有预检的话不会报错，简</description>
     </item>
-    
     <item>
       <title>入门微前端</title>
       <link>http://gaocarri.top/post/%E5%85%A5%E9%97%A8%E5%BE%AE%E5%89%8D%E7%AB%AF/</link>
       <pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate>
-      
       <guid>http://gaocarri.top/post/%E5%85%A5%E9%97%A8%E5%BE%AE%E5%89%8D%E7%AB%AF/</guid>
-      <description>最近开始了公司项目的微前端改造，从零开始接触了微前端。 微前端定义 微前端是一种类似微服务的架构，他将微服务的理念应用到浏览器端。 简单来说，将一</description>
+      <description>最近开始在公司项目使用微前端，从零开始接触了微前端。 微前端定义 微前端是一种类似微服务的架构，他将微服务的理念应用到浏览器端。 简单来说，将一个</description>
     </item>
-    
     <item>
       <title>axios拦截器原理</title>
       <link>http://gaocarri.top/post/axios%E6%8B%A6%E6%88%AA%E5%99%A8%E5%8E%9F%E7%90%86/</link>
       <pubDate>Thu, 29 Jul 2021 00:00:00 +0000</pubDate>
-      
       <guid>http://gaocarri.top/post/axios%E6%8B%A6%E6%88%AA%E5%99%A8%E5%8E%9F%E7%90%86/</guid>
       <description>拦截器是什么 页面发送http请求时，很多情况我们要对请求和其响应进行特定的处理； 例如 每个请求都附带后端返回的token 拿到response之</description>
     </item>
-    
   </channel>
 </rss>
